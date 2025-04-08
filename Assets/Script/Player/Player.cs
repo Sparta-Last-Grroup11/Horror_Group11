@@ -16,8 +16,8 @@ public class Player : MonoBehaviour
     public bool runPressing;
 
     [Header("Move")]
-    public float moveSpeed = 5.0f;
-    public float runSpeed = 1.5f;
+    public float moveSpeed = 2f;
+    public float runSpeed = 2f;
 
     [Header("Look")]
     public Transform cameraContainer;
@@ -28,16 +28,16 @@ public class Player : MonoBehaviour
     public float curRotY;
 
     [Header("Jump")]
-    public float jumpPower = 3.0f;
+    public float jumpPower = 2f;
     public float gravity = -9.81f;
     public float verticalVelocity;
 
     [Header("Camera Shake")]
     public CinemachineVirtualCamera virtualCamera;
-    public float walkShakeIntensity = 2f;
-    public float runShakeIntensity = 5f;
-    public float walkShakeFrequency = 0.5f;
-    public float runShakeFrequency = 2.0f;
+    public float walkShakeIntensity = 0.8f;
+    public float runShakeIntensity = 1.6f;
+    public float walkShakeFrequency = 0.02f;
+    public float runShakeFrequency = 0.05f;
     public float shakeDuration = 0.1f;
 
     [HideInInspector] public float shakeTimer = 0f;
