@@ -21,6 +21,6 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void Attack()  // 몬스터가 공격할 때 호출
     {
-        // animator.SetTrigger("Attack")
+        // animator.SetTrigger("Attack");
     }
 }

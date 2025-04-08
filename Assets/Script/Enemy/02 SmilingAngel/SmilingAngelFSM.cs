@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class SmilingAngelFSM : EnemyFSM
 {
-    public SmilingAngelFSM(NurseZombie angel)
+    public SmilingAngelFSM(SmilingAngel angel)
     {
         // 초기 상태 설정
         ChangeState(new AngelIdleState(angel, this));
     }
 
-    public class AngelIdleState : EnemyState
+    public class AngelIdleState : EnemyState  // 기본 상태일 때 
     {
-        private NurseZombie angel;
+        private SmilingAngel angel;
 
         public AngelIdleState(Enemy enemy, EnemyFSM fsm) : base(enemy, fsm)
         {
-            angel = enemy as NurseZombie;
+            angel = enemy as SmilingAngel;
         }
 
         public override void Enter()
@@ -29,22 +29,22 @@ public class SmilingAngelFSM : EnemyFSM
             if (angel.IsLightOn())
                 return;
 
-            if (angel.CanSeePlayerFace() && angel.IsPlayerLookingAtMe())
+            if (angel.CanSeePlayerFace() && angel.IsPlayerLookingAtMe())   // 1) 웃는천사가 플레이어를 볼 수 있는 상태(어둠), 2) 웃는천사가 플레이어와 마주쳤을 때  
             {
-                fsm.ChangeState(new AngelChaseState(angel, fsm));
+                fsm.ChangeState(new AngelChaseState(angel, fsm));  // 2) 추적Chase 상태로 전환
             }
         }
     }
 
-    public class AngelChaseState : EnemyState    // 플레이어를 추격하는 상태
+    public class AngelChaseState : EnemyState    // 플레이어를 추격하는 상태일 때
     {
-        private NurseZombie angel;
+        private SmilingAngel angel;
         private float chaseTimer;
         private const float maxChaseTime = 5f;
 
         public AngelChaseState(Enemy enemy, EnemyFSM fsm) : base(enemy, fsm)
         {
-            angel = enemy as NurseZombie;
+            angel = enemy as SmilingAngel;
         }
 
         public override void Enter()
@@ -60,39 +60,37 @@ public class SmilingAngelFSM : EnemyFSM
 
             chaseTimer += Time.deltaTime;
 
-            // 복도에서 추격
-            if (!angel.IsPlayerInRoom())
+            if (!angel.IsPlayerInRoom())  // 플레이어가 방 밖으로 나갈 때(즉 복도일 때)
             {
-                if (angel.IsNearPlayer())
+                if (angel.IsNearPlayer())  // 천사가 일정 거리 안에 있다면
                 {
-                    fsm.ChangeState(new AngelAttackState(angel, fsm));
+                    fsm.ChangeState(new AngelAttackState(angel, fsm));  // 공격 상태로 전환
                     return;
                 }
             }
-            else // 방 안에서 대기
+            else // 방 안에서 대기중일 때는
             {
-                if (chaseTimer >= maxChaseTime)
+                if (chaseTimer >= maxChaseTime)  // 일정 시간이 지나면 
                 {
-                    fsm.ChangeState(new AngelIdleState(angel, fsm));
+                    fsm.ChangeState(new AngelIdleState(angel, fsm));  // 추격 상태 풀리고 Idle 상태로 전환
                     return;
                 }
             }
 
-            // Any State: Glitch 전이
-            if (angel.IsPlayerLookingAtMe())
+            if (angel.IsPlayerLookingAtMe())  // 플레이어와 보고 있을 때 
             {
-                fsm.ChangeState(new AngelGlitchState(angel, fsm, this));
+                fsm.ChangeState(new AngelGlitchState(angel, fsm, this));  // 지직거리는 글리치 상태로 전환
             }
         }
     }
 
     public class AngelAttackState : EnemyState  // 플레이어를 공격하는 상태
     {
-        private NurseZombie angel;
+        private SmilingAngel angel;
 
         public AngelAttackState(Enemy enemy, EnemyFSM fsm) : base(enemy, fsm)
         {
-            angel = enemy as NurseZombie;
+            angel = enemy as SmilingAngel;
         }
 
         public override void Enter()
@@ -109,20 +107,20 @@ public class SmilingAngelFSM : EnemyFSM
         }
     }
 
-    public class AngelGlitchState : EnemyState
+    public class AngelGlitchState : EnemyState   // 적을 바라볼 때 글리치가 일어나는 상태
     {
-        private NurseZombie angel;
+        private SmilingAngel angel;
         private EnemyState previousState;
 
         public AngelGlitchState(Enemy enemy, EnemyFSM fsm, EnemyState prevState) : base(enemy, fsm)
         {
-            angel = enemy as NurseZombie;
+            angel = enemy as SmilingAngel;
             previousState = prevState;
         }
 
         public override void Enter()
         {
-            // Glitch 효과 (이펙트, 소리 등). EventManager에서 관리해줘야 하나?
+            // ex) UiManger.instance.PlayGlitch();  // 글리치 효과 UI(이펙트, 소리 등) 이 위치에 들어감 
         }
 
         public override void Update()
@@ -135,7 +133,7 @@ public class SmilingAngelFSM : EnemyFSM
 
         public override void Exit()
         {
-            // Glitch 효과 정리
+            // 플레이어가 쳐다보지 않을 때, Glitch 효과 없어지도록 넣어주면 될 듯. 
         }
     }
 }
