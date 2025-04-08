@@ -1,7 +1,6 @@
 using UnityEngine.InputSystem;
 using UnityEngine;
 using Cinemachine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Player : MonoBehaviour
 {
