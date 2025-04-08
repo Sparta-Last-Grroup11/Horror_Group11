@@ -829,7 +829,7 @@ PrefabInstance:
     - target: {fileID: 2957311365098071292, guid: 69da9da4dc1962b42a3f1b76529ff2ff,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 3.78
       objectReference: {fileID: 0}
     - target: {fileID: 2957311365098071292, guid: 69da9da4dc1962b42a3f1b76529ff2ff,
         type: 3}
@@ -902,7 +902,7 @@ PrefabInstance:
     - target: {fileID: 8472856131185639946, guid: b7db5811bdf5f8242b816a5555f80c11,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 3.78
       objectReference: {fileID: 0}
     - target: {fileID: 8472856131185639946, guid: b7db5811bdf5f8242b816a5555f80c11,
         type: 3}
@@ -965,7 +965,7 @@ PrefabInstance:
     - target: {fileID: 168298353000972532, guid: 68eb6b74f9ad1864b8b2607f7deb5977,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 3.28
       objectReference: {fileID: 0}
     - target: {fileID: 168298353000972532, guid: 68eb6b74f9ad1864b8b2607f7deb5977,
         type: 3}
@@ -1011,6 +1011,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7957841959741709558, guid: 68eb6b74f9ad1864b8b2607f7deb5977,
+        type: 3}
+      propertyPath: m_Name
+      value: Virtual Camera Container
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
