@@ -5,8 +5,10 @@ using UnityEngine;
 public class SafeLockPuzzle : MonoBehaviour
 {
     [SerializeField] private int[] rightArray = {0,0,0,0};
-    [SerializeField] private OpenSafeDoor door;
+    [SerializeField] private OpenDoor door;
     [SerializeField] private AudioSource audio;
+    [SerializeField] private Surprise surprise;
+    [SerializeField] private int randomRange;
 
     private int rotateCount = 0;
  //   [HideInInspector]
@@ -14,7 +16,6 @@ public class SafeLockPuzzle : MonoBehaviour
     private int maxNumber = 9;
     private int arrayLength;
     public bool isLeft;
-
 
     private void Start()
     {
@@ -46,6 +47,10 @@ public class SafeLockPuzzle : MonoBehaviour
                 CheckAnswer(); //돌린 횟수가 암호와 일치하는지 확인
                 answer = (answer + 1) % (maxNumber + 1);
             }
+            if (Random.Range(0, randomRange) == 0)
+            {
+                surprise.SurpriseSound();
+            }
         }
         else if(Input.GetKeyDown(KeyCode.D)) //오른쪽으로 회전
         {
@@ -59,6 +64,10 @@ public class SafeLockPuzzle : MonoBehaviour
             {
                 CheckAnswer(); //돌린 횟수가 암호와 일치하는지 확인
                 answer = (answer + 1) % (maxNumber + 1);
+            }
+            if (Random.Range(0, randomRange) == 0)
+            {
+                surprise.SurpriseSound();
             }
         }
         if (rotateCount == arrayLength - 1 && answer == rightArray[arrayLength - 1]) // 마지막 암호까지 맞췄다면 문 열기
@@ -85,7 +94,7 @@ public class SafeLockPuzzle : MonoBehaviour
 
     void SuccessOpen() // 비밀번호를 맞췄을 경우
     {
-        door.OpenDoor();
+        door.OpenTheDoor();
         LockCursor();
         gameObject.SetActive(false);
     }

@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OpenSafeDoor : MonoBehaviour
+public class OpenDoor : MonoBehaviour
 {
     [SerializeField] private AudioSource aduioSource;
 
     public float duration = 1f;
-    public void OpenDoor()
+    public void OpenTheDoor()
     {
         StartCoroutine(OpenDoorMotion());
     }
