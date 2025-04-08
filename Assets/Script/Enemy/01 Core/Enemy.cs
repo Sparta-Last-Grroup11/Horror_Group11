@@ -2,11 +2,11 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
-    protected EnemyFSM fsm;
+    protected E_StateMachine fsm;
 
     protected virtual void Awake()
     {
-        fsm = new EnemyFSM();
+        fsm = new E_StateMachine();
     }
 
     protected virtual void Update()
