@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SnailMan : Enemy
+public class SkinLessZombie : Enemy   // 스네일맨 기믹 몬스터
 {
     protected override void Awake()
     {

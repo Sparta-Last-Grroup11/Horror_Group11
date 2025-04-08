@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SmilingAngelFSM : EnemyFSM
 {
-    public SmilingAngelFSM(SmilingAngel angel)
+    public SmilingAngelFSM(NurseZombie angel)
     {
         // 초기 상태 설정
         ChangeState(new AngelIdleState(angel, this));
@@ -12,11 +12,11 @@ public class SmilingAngelFSM : EnemyFSM
 
     public class AngelIdleState : EnemyState
     {
-        private SmilingAngel angel;
+        private NurseZombie angel;
 
         public AngelIdleState(Enemy enemy, EnemyFSM fsm) : base(enemy, fsm)
         {
-            angel = enemy as SmilingAngel;
+            angel = enemy as NurseZombie;
         }
 
         public override void Enter()
@@ -36,15 +36,15 @@ public class SmilingAngelFSM : EnemyFSM
         }
     }
 
-    public class AngelChaseState : EnemyState
+    public class AngelChaseState : EnemyState    // 플레이어를 추격하는 상태
     {
-        private SmilingAngel angel;
+        private NurseZombie angel;
         private float chaseTimer;
         private const float maxChaseTime = 5f;
 
         public AngelChaseState(Enemy enemy, EnemyFSM fsm) : base(enemy, fsm)
         {
-            angel = enemy as SmilingAngel;
+            angel = enemy as NurseZombie;
         }
 
         public override void Enter()
@@ -86,13 +86,13 @@ public class SmilingAngelFSM : EnemyFSM
         }
     }
 
-    public class AngelAttackState : EnemyState
+    public class AngelAttackState : EnemyState  // 플레이어를 공격하는 상태
     {
-        private SmilingAngel angel;
+        private NurseZombie angel;
 
         public AngelAttackState(Enemy enemy, EnemyFSM fsm) : base(enemy, fsm)
         {
-            angel = enemy as SmilingAngel;
+            angel = enemy as NurseZombie;
         }
 
         public override void Enter()
@@ -111,18 +111,18 @@ public class SmilingAngelFSM : EnemyFSM
 
     public class AngelGlitchState : EnemyState
     {
-        private SmilingAngel angel;
+        private NurseZombie angel;
         private EnemyState previousState;
 
         public AngelGlitchState(Enemy enemy, EnemyFSM fsm, EnemyState prevState) : base(enemy, fsm)
         {
-            angel = enemy as SmilingAngel;
+            angel = enemy as NurseZombie;
             previousState = prevState;
         }
 
         public override void Enter()
         {
-            // TODO: Glitch 효과 (이펙트, 소리 등)
+            // Glitch 효과 (이펙트, 소리 등). EventManager에서 관리해줘야 하나?
         }
 
         public override void Update()
@@ -135,7 +135,7 @@ public class SmilingAngelFSM : EnemyFSM
 
         public override void Exit()
         {
-            // TODO: Glitch 효과 정리
+            // Glitch 효과 정리
         }
     }
 }

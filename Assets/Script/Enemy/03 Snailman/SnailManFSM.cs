@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SnailManFSM : EnemyFSM
 {
-    public SnailManFSM(SnailMan snail)
+    public SnailManFSM(SkinLessZombie snail)
     {
         // 초기 상태 설정
         ChangeState(new SnailIdleState(snail, this));
@@ -12,11 +12,11 @@ public class SnailManFSM : EnemyFSM
 
     public class SnailIdleState : EnemyState
     {
-        private SnailMan snail;
+        private SkinLessZombie snail;
 
         public SnailIdleState(Enemy enemy, EnemyFSM fsm) : base(enemy, fsm)
         {
-            snail = enemy as SnailMan;
+            snail = enemy as SkinLessZombie;
         }
 
         public override void Enter()
@@ -35,11 +35,11 @@ public class SnailManFSM : EnemyFSM
 
     public class SnailChaseState : EnemyState
     {
-        private SnailMan snail;
+        private SkinLessZombie snail;
 
         public SnailChaseState(Enemy enemy, EnemyFSM fsm) : base(enemy, fsm)
         {
-            snail = enemy as SnailMan;
+            snail = enemy as SkinLessZombie;
         }
 
         public override void Enter()
