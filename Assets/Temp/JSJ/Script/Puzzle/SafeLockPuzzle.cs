@@ -8,7 +8,7 @@ public class SafeLockPuzzle : MonoBehaviour
     [SerializeField] private OpenSafeDoor door;
     [SerializeField] private AudioSource audio;
 
-    private int count = 0;
+    private int rotateCount = 0;
  //   [HideInInspector]
     public int answer = 0;
     private int maxNumber = 9;
@@ -19,7 +19,7 @@ public class SafeLockPuzzle : MonoBehaviour
     private void Start()
     {
         audio = GetComponent<AudioSource>();
-        for (int i = 0; i < rightArray.Length; i++)
+        for (int i = 0; i < rightArray.Length; i++) //암호 초기화
         {
             rightArray[i] = Random.Range(0,maxNumber+1);
             arrayLength = rightArray.Length ;
@@ -31,65 +31,65 @@ public class SafeLockPuzzle : MonoBehaviour
     {
         RotateDial();
     }
-    public void RotateDial()
+    public void RotateDial() //다이얼 돌리기
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A)) //왼쪽으로 회전
         {
-            if (isLeft)
+            if (isLeft) //직전에 왼쪽으로 회전시켰을 때
             {
                 answer = (answer + 1) % (maxNumber + 1);
-                if (answer == rightArray[count])
+                if (answer == rightArray[rotateCount])
                     audio.Play();
             }
-            else
+            else  //직전에 오른쪽으로 돌렸다면
             {
-                CheckAnswer();
+                CheckAnswer(); //돌린 횟수가 암호와 일치하는지 확인
                 answer = (answer + 1) % (maxNumber + 1);
             }
         }
-        else if(Input.GetKeyDown(KeyCode.D))
+        else if(Input.GetKeyDown(KeyCode.D)) //오른쪽으로 회전
         {
-            if (!isLeft)
+            if (!isLeft) //직전에 오른쪽으로 회전했을 때
             {
                 answer = (answer + 1) % (maxNumber + 1);
-                if (answer == rightArray[count])
+                if (answer == rightArray[rotateCount])
                     audio.Play();
             }
-            else
+            else //직전에 왼쪽으로 회전했을 때
             {
-                CheckAnswer();
+                CheckAnswer(); //돌린 횟수가 암호와 일치하는지 확인
                 answer = (answer + 1) % (maxNumber + 1);
             }
         }
-        if (count == arrayLength - 1 && answer == rightArray[arrayLength - 1])
+        if (rotateCount == arrayLength - 1 && answer == rightArray[arrayLength - 1]) // 마지막 암호까지 맞췄다면 문 열기
         {
             SuccessOpen();
         }
     }
 
-    void CheckAnswer()
+    void CheckAnswer() //현재 입력이 암호와 일치한지
     {
-        if (answer == rightArray[count])
+        if (answer == rightArray[rotateCount])
         {
             answer = 0;
-            count++;
+            rotateCount++;
             isLeft = !isLeft;
         }
-        else
+        else //일치하지 않는다면 전부 초기화
         {
             answer = 0;
-            count = 0;
+            rotateCount = 0;
             isLeft = false;
         }
     }
 
-    void SuccessOpen()
+    void SuccessOpen() // 비밀번호를 맞췄을 경우
     {
         door.OpenDoor();
         LockCursor();
         gameObject.SetActive(false);
     }
-    void LockCursor()
+    void LockCursor() //커서 고정 해제
     {
         bool toggle = Cursor.lockState == CursorLockMode.Locked;
         Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;

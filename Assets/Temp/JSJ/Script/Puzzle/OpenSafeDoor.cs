@@ -9,11 +9,11 @@ public class OpenSafeDoor : MonoBehaviour
     public float duration = 1f;
     public void OpenDoor()
     {
-        StartCoroutine(RotateY90());
+        StartCoroutine(OpenDoorMotion());
     }
 
 
-    IEnumerator RotateY90()
+    IEnumerator OpenDoorMotion() //문 회전
     {
         aduioSource.Play();
         Quaternion startRotation = transform.rotation;
@@ -28,7 +28,6 @@ public class OpenSafeDoor : MonoBehaviour
             yield return null;
         }
 
-        // 마지막에 정확하게 마무리
         transform.rotation = endRotation;
     }
 }
