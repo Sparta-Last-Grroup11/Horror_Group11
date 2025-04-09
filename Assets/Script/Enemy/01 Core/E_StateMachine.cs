@@ -1,20 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class E_StateMachine : MonoBehaviour
+public class E_StateMachine
 {
-    private E_State currentState;
+    private I_State _currentState;
 
-    public void ChangeState(E_State newState)
+    public void ChangeState(I_State newState)
     {
-        currentState?.Exit();  //  지금 상태 종료
-        currentState = newState; 
-        currentState?.Enter();  // 새로운 상태로 전환
+        _currentState?.Exit();
+        _currentState = newState; 
+        _currentState?.Enter();
     }
 
     public void Update()
     {
-        currentState?.Update();
+        _currentState?.Update();
     }
 }

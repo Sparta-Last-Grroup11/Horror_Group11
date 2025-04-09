@@ -935,6 +935,26 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &453988013 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8630633793470372901, guid: 7561a871e24868244a11675752ef8db3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1743536151}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &453988018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453988013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7903344746a62c24cbcf2449377e4989, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 5726313770716213168}
+  viewAngle: 90
 --- !u!1 &477195832 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8605200926613764794, guid: beef3bcde1610f04aa96275436147bb9,
@@ -2648,6 +2668,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1008686737053455151, guid: 7561a871e24868244a11675752ef8db3,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 5726313770716213168}
     - target: {fileID: 4281672837547360350, guid: 7561a871e24868244a11675752ef8db3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2703,10 +2728,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nurse
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7542981436434091298, guid: 7561a871e24868244a11675752ef8db3, type: 3}
+    - {fileID: 2586168735912791936, guid: 7561a871e24868244a11675752ef8db3, type: 3}
+    - {fileID: 1008686737053455151, guid: 7561a871e24868244a11675752ef8db3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8630633793470372901, guid: 7561a871e24868244a11675752ef8db3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 453988018}
   m_SourcePrefab: {fileID: 100100000, guid: 7561a871e24868244a11675752ef8db3, type: 3}
 --- !u!1 &1796148565 stripped
 GameObject:
@@ -3830,7 +3862,7 @@ GameObject:
   - component: {fileID: 6167649023521356114}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

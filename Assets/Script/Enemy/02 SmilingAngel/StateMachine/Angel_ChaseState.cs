@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Angel_ChaseState : E_State    // 플레이어를 추격하는 상태일 때
+public class Angel_ChaseState : E_BaseState    // 플레이어를 추격하는 상태일 때
 {
     private SmilingAngel angel;
     private float chaseTimer;
@@ -16,7 +16,7 @@ public class Angel_ChaseState : E_State    // 플레이어를 추격하는 상�
     public override void Enter()
     {
         chaseTimer = 0f;
-        angel.StartAction();   // 추격하는 행동 시작
+        angel.animator.SetBool("IsChasing", true);
     }
 
     public override void Update()

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Snail_ChaseState : E_State
+public class Snail_ChaseState : E_BaseState
 {
     private SnailMan snail;
 

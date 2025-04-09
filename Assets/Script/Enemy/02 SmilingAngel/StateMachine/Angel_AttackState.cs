@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Angel_AttackState : E_State  // 플레이어를 공격하는 상태
+public class Angel_AttackState : E_BaseState  // 플레이어를 공격하는 상태
 {
     private SmilingAngel angel;
 
@@ -13,14 +13,14 @@ public class Angel_AttackState : E_State  // 플레이어를 공격하는 상태
 
     public override void Enter()
     {
-        angel.Attack();
+        angel.animator.SetTrigger("Attack");  // 공격 애니메이션 발동    
     }
 
     public override void Update()
     {
-        if (angel.HasFinishedAttack())
+        if (angel.FinishAttack())  // 공격 애니메이션이 끝났을 때
         {
-            fsm.ChangeState(new Angel_IdleState(angel, fsm));
+            // ex) GameManager.Instance.GameOver();  // 즉사하는 메서드 넣으면 될 듯? 
         }
     }
 }

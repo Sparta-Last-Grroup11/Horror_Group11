@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static SnailManFSM;
 
-public class Snail_IdleState : E_State
+public class Snail_IdleState : E_BaseState
 {
     private SnailMan snail;
 

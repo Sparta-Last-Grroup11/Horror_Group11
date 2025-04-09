@@ -1,9 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using static SmilingAngelFSM;
-
-public class Angel_IdleState : E_State  // 기본 상태일 때 
+public class Angel_IdleState : E_BaseState  // 기본 상태일 때  (애니메이션 제어용인지 아니면 기능포함해서 위치변환) 
 {
     private SmilingAngel angel;
 
@@ -12,19 +7,11 @@ public class Angel_IdleState : E_State  // 기본 상태일 때
         angel = enemy as SmilingAngel;
     }
 
-    public override void Enter()
-    {
-        // TODO: Idle 애니메이션 트리거
-    }
-
     public override void Update()
     {
-        if (angel.IsLightOn())
-            return;
-
-        if (angel.CanSeePlayerFace() && angel.IsPlayerLookingAtMe())   // 1) 웃는천사가 플레이어를 볼 수 있는 상태(어둠), 2) 웃는천사가 플레이어와 마주쳤을 때  
+        if (enemy.CanSeePlayer() && !angel.IsPlayerLookingAtMe())  // 1) 플레이어가 처음 시야각에 들어오고, 2) 플레이어가 날 보지 않을 때 
         {
-            fsm.ChangeState(new Angel_ChaseState(angel, fsm));  // 2) 추적Chase 상태로 전환
+            fsm.ChangeState(new Angel_ChaseState(angel, fsm));  // 추적Chase 상태로 전환
         }
     }
 }

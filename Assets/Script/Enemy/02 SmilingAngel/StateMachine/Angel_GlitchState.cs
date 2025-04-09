@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Angel_GlitchState : E_State   // 적을 바라볼 때 글리치가 일어나는 상태
+public class Angel_GlitchState : E_BaseState   // 적을 바라볼 때 글리치가 일어나는 상태
 {
     private SmilingAngel angel;
-    private E_State previousState;
+    private Angel_ChaseState returnState;  // 돌아갈 상태 보관
 
-    public Angel_GlitchState(Enemy enemy, E_StateMachine fsm, E_State prevState) : base(enemy, fsm)
+    public Angel_GlitchState(Enemy enemy, E_StateMachine fsm, Angel_ChaseState chaseState) : base(enemy, fsm)
     {
         angel = enemy as SmilingAngel;
-        previousState = prevState;
+        returnState = chaseState;
     }
 
     public override void Enter()
@@ -20,14 +20,17 @@ public class Angel_GlitchState : E_State   // 적을 바라볼 때 글리치가 
 
     public override void Update()
     {
-        if (angel.IsPlayerLookingAway())  // 플레이어가 쳐다보고 있는 동안에는
+        if (!angel.IsPlayerLookingAtMe())  // 플레이어가 나를 보지 않을 때
         {
-            fsm.ChangeState(previousState);  // 글리치 효과 계속 유지
+            // 글리치 효과 꺼지고
+            fsm.ChangeState(returnState);  // 원래 상태로 돌아감 (즉, 재추격 시작)
         }
+
     }
 
     public override void Exit()
     {
+        // 글리치 효과를 완전히 꺼주는 것도 여기에 들어가야 할 듯. 
         fsm.ChangeState(new Angel_IdleState(angel, fsm));  // 글리치 상태 풀리고 Idle 상태로 전환.
     }
 }
