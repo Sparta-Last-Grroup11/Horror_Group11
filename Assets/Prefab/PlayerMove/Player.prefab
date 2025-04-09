@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03f7b2081f7bcf5428ba1d3d30c607f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashBattery: 21
+  flashBattery: 100
   minInnerSpotAngle: 15
   maxInnerSpotAngle: 25
   minSpotAngle: 55

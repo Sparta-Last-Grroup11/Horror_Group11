@@ -3726,11 +3726,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4038644480697039233, guid: 5f1d6d06437d4e545a1595cc1b07b761,
-        type: 3}
-      propertyPath: flashBattery
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 5547695954393197618, guid: 5f1d6d06437d4e545a1595cc1b07b761,
         type: 3}
       propertyPath: m_LocalPosition.x
