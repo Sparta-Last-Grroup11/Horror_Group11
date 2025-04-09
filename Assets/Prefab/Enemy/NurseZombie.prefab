@@ -2839,7 +2839,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4281672837547360350}
-  - component: {fileID: 1510801335191690116}
+  - component: {fileID: 5408059843520758620}
   m_Layer: 0
   m_Name: NurseZombie
   m_TagString: Untagged
@@ -2863,7 +2863,7 @@ Transform:
   - {fileID: 6271707761213779988}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 87.009, z: 0}
---- !u!114 &1510801335191690116
+--- !u!114 &5408059843520758620
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2872,10 +2872,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8630633793470372901}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7903344746a62c24cbcf2449377e4989, type: 3}
+  m_Script: {fileID: 11500000, guid: 97f8ca52f92ac404487b04406e5bf193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  Player: {fileID: 5547695954393197618, guid: 916db639684525a408fab5d4250afdf6, type: 3}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 8
   viewAngle: 90
   moveSpeed: 4
   attackRange: 2
