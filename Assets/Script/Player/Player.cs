@@ -1,11 +1,10 @@
 using UnityEngine.InputSystem;
 using UnityEngine;
 using Cinemachine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Player : MonoBehaviour
 {
-    private P_StateMachine curState;
+    private PlayerState curState;
     private CharacterController characterController;
 
     public CharacterController CharacterController => characterController;
@@ -51,7 +50,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        ChangeState(new P_Movement(this));
+        ChangeState(new PlayerMoveState(this));
 
         if (virtualCamera != null)
         {
@@ -64,7 +63,7 @@ public class Player : MonoBehaviour
         curState?.Update();
     }
 
-    public void ChangeState(P_StateMachine newState)
+    public void ChangeState(PlayerState newState)
     {
         curState?.Exit();
         curState = newState;
