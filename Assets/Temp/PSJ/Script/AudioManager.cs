@@ -15,8 +15,9 @@ public class AudioManager : Singleton<AudioManager>
     [SerializeField] Transform tempRoot;
     [SerializeField] Transform bgmRoot;
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         // 풀 초기화
         audioPool = new ObjectPool<SoundSource>(
             CreatePooledItem,
