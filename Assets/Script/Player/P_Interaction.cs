@@ -1,18 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class P_Interaction : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject curInteractGameObject;
+    private I_Interactable curInteractable;
+
+    [Header("Ray")]
+    [SerializeField] private float maxCheckDistance;
+    [SerializeField] private LayerMask layerMask;
+
+    private void Update()
     {
-        
+        Debug.DrawRay(transform.position, transform.forward * maxCheckDistance, Color.yellow);
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, maxCheckDistance, layerMask))
+        {
+            if (hit.collider.gameObject != curInteractGameObject)
+            {
+                curInteractGameObject = hit.collider.gameObject;
+                curInteractable = hit.collider.GetComponent<I_Interactable>();
+                // 여기에 상호작용 UI 뜨게 하면 됨.
+            }
+        }
+        else
+        {
+            curInteractGameObject = null;
+            curInteractable = null;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void InteractInput(InputAction.CallbackContext context)
     {
-        
+        if (context.phase == InputActionPhase.Started && curInteractGameObject != null)
+        {
+            // 상호작용
+        }
     }
 }
