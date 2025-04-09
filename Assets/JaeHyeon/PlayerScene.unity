@@ -3577,6 +3577,11 @@ PrefabInstance:
       propertyPath: virtualCamera
       value: 
       objectReference: {fileID: 872178342}
+    - target: {fileID: 5897018201987638878, guid: 5f1d6d06437d4e545a1595cc1b07b761,
+        type: 3}
+      propertyPath: runShakeFrequency
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 7850141191112057461, guid: 5f1d6d06437d4e545a1595cc1b07b761,
         type: 3}
       propertyPath: m_Name
