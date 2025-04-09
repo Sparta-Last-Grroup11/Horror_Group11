@@ -2340,104 +2340,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!1001 &1578566187
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4281672837547360350, guid: 7561a871e24868244a11675752ef8db3,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.875
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281672837547360350, guid: 7561a871e24868244a11675752ef8db3,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.017751694
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281672837547360350, guid: 7561a871e24868244a11675752ef8db3,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.89
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281672837547360350, guid: 7561a871e24868244a11675752ef8db3,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.72532034
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281672837547360350, guid: 7561a871e24868244a11675752ef8db3,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281672837547360350, guid: 7561a871e24868244a11675752ef8db3,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.68841153
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281672837547360350, guid: 7561a871e24868244a11675752ef8db3,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281672837547360350, guid: 7561a871e24868244a11675752ef8db3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281672837547360350, guid: 7561a871e24868244a11675752ef8db3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 87.009
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281672837547360350, guid: 7561a871e24868244a11675752ef8db3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8630633793470372901, guid: 7561a871e24868244a11675752ef8db3,
-        type: 3}
-      propertyPath: m_Name
-      value: NurseZombie
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1510801335191690116, guid: 7561a871e24868244a11675752ef8db3, type: 3}
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8630633793470372901, guid: 7561a871e24868244a11675752ef8db3,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1578566189}
-  m_SourcePrefab: {fileID: 100100000, guid: 7561a871e24868244a11675752ef8db3, type: 3}
---- !u!1 &1578566188 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8630633793470372901, guid: 7561a871e24868244a11675752ef8db3,
-    type: 3}
-  m_PrefabInstance: {fileID: 1578566187}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1578566189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1578566188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97f8ca52f92ac404487b04406e5bf193, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 5726313770716213168}
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  viewAngle: 90
-  moveSpeed: 4
-  attackRange: 2
 --- !u!1 &1579728304 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8604871514610941094, guid: beef3bcde1610f04aa96275436147bb9,
@@ -6328,7 +6230,6 @@ GameObject:
   - component: {fileID: 7204874771799057518}
   - component: {fileID: 3827206161950342676}
   - component: {fileID: 2713072187929989919}
-  - component: {fileID: 7545512628717747925}
   m_Layer: 0
   m_Name: skinless zombie
   m_TagString: Untagged
@@ -6336,23 +6237,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 123
   m_IsActive: 1
---- !u!114 &7545512628717747925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7545512628717747924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 130028f3a5c3a6b49a601317b9c56de2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ZombieAnimator: {fileID: 0}
-  AnimationDropdown: {fileID: 0}
-  weaponPivot: {fileID: 0}
-  rightHand: {fileID: 0}
-  animationItemDatabase: []
 --- !u!1 &7558081580219280054
 GameObject:
   m_ObjectHideFlags: 0
@@ -7212,4 +7096,3 @@ SceneRoots:
   - {fileID: 1682981833}
   - {fileID: 1192786131}
   - {fileID: 7204874771799057518}
-  - {fileID: 1578566187}
