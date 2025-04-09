@@ -163,12 +163,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03f7b2081f7bcf5428ba1d3d30c607f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashBattery: 100
+  flashBattery: 21
   minInnerSpotAngle: 15
   maxInnerSpotAngle: 25
   minSpotAngle: 55
   maxSpotAngle: 65
-  angleLerpSpeed: 1
+  angleLerpSpeed: 0.5
+  deadFlicker: 0
 --- !u!114 &2575666161747899168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,4 +444,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af87188b7c436804a9e428d1ce074131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flash: {fileID: 5766639004701502585}
+  flashObject: {fileID: 5766639004701502585}
+  flash: {fileID: 4038644480697039233}
+  isFlash: 0

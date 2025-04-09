@@ -15,17 +15,18 @@ public class FlashLook : MonoBehaviour
 
     private void Update()
     {
-        // 1. Y축 회전 (Yaw) - Player 기준
+        // Player 기준 (Y축 회전)
+        /// 좌우 회전할 때 카메라는 고정이고 플레이어 몸이 움직이기 때문
         float yaw = playerLook.eulerAngles.y;
 
-        // 2. X축 회전 (Pitch) - Camera 기준
+        // Camera 기준 (X축 회전)
+        /// 위아래 회전할 때 플레이어 몸은 고정이고 카메라만 움직이기 때문
         float pitch = cameraLook.localEulerAngles.x;
         if (pitch > 180f) pitch -= 360f;
 
-        // 3. 목표 회전 조합
+        /// 따라서 손전등은 좌우는 플레이어의 축을 따라, 위아래는 카메라의 축을 따라 이동하게 만듦
         Quaternion targetRotation = Quaternion.Euler(pitch, yaw, 0f);
 
-        // 4. 부드럽게 회전
         currentRotation = Quaternion.Slerp(currentRotation, targetRotation, followSpeed * Time.deltaTime);
         transform.rotation = currentRotation;
     }
