@@ -4,12 +4,16 @@ public abstract class Enemy : MonoBehaviour
 {
     protected E_StateMachine fsm;
 
-    [SerializeField] protected Transform Player;
+    public Transform Player;
+    public LayerMask playerLayer;
     [SerializeField] private float viewAngle = 90f;  
 
     protected virtual void Awake()
     {
         fsm = new E_StateMachine();
+
+        if (playerLayer == 0)
+            playerLayer = LayerMask.GetMask("Player");
     }
 
     protected virtual void Update()
@@ -25,24 +29,11 @@ public abstract class Enemy : MonoBehaviour
         if (angle < viewAngle / 2f)  // 왼쪽 오른쪽 각도 나누고
         {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, dirToPlayer, out hit))   
+            if (Physics.Raycast(transform.position, dirToPlayer, out hit, Mathf.Infinity, playerLayer))   
             {
-                if (hit.transform.CompareTag("Player"))
-                {
-                    return true;
-                }
+                return true;
             }
         }
         return false;
-    }
-
-    public virtual void StartAction()  // 몬스터가 추격 시작할 때 호출
-    {
-        // animator.SetTrigger("Run");
-    }
-
-    public virtual void Attack()  // 몬스터가 공격할 때 호출
-    {
-        // animator.SetTrigger("Attack");
     }
 }

@@ -11,10 +11,10 @@ public class Snail_ChaseState : E_BaseState
         snail = enemy as SnailMan;
     }
 
-    public override void Enter()
-    {
-        snail.StartAction();
-    }
+    //public override void Enter()
+    //{
+    //    snail.StartAction();
+    //}
 
     public override void Update()
     {

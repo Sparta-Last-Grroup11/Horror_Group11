@@ -10,17 +10,17 @@ public class SnailMan : Enemy   // 스네일맨 기믹
         fsm = new SnailManFSM(this);
     }
 
-    public override void StartAction()
-    {
-        Debug.Log("SnailMan: StartAction - chasing player");
-        // TODO: 애니메이션, 사운드, NavMesh 이동 등
-    }
+    //public override void StartAction()
+    //{
+    //    Debug.Log("SnailMan: StartAction - chasing player");
+    //    // TODO: 애니메이션, 사운드, NavMesh 이동 등
+    //}
 
-    public override void Attack()
-    {
-        Debug.Log("SnailMan: Attack (if used)");
-        // Snail은 기본적으로 공격 없거나 느린 타격 구현
-    }
+    //public override void Attack()
+    //{
+    //    Debug.Log("SnailMan: Attack (if used)");
+    //    // Snail은 기본적으로 공격 없거나 느린 타격 구현
+    //}
 
     // 상태 전이용 판단 메서드들
     public bool IsPlayerNear() { /* TODO: 거리 체크 */ return false; }
