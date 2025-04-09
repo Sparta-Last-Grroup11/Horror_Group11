@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class PSJTest : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] List<AudioClip> bgm;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] AudioClip clip;
+
+    private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            AudioManager.Instance.AudioBGMPlay(bgm[0]);
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+            AudioManager.Instance.AudioBGMPlay(bgm[1]);
+        else if (Input.GetKeyDown(KeyCode.KeypadEnter))
+            AudioManager.Instance.Audio3DPlay(clip, transform.position);
     }
 }

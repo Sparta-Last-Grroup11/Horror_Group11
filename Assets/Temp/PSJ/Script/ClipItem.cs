@@ -22,6 +22,6 @@ public class ClipItem : MonoBehaviour, I_Interactable
 
     public void OnInteraction()
     {
-        
+
     }
 }
