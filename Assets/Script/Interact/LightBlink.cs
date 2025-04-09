@@ -6,9 +6,9 @@ using UnityEngine;
 public class LightBlink : Receiver
 {
     [Header("LightList")]
-    [SerializeField] private List<Light> lights;
+    [SerializeField] private HashSet<Light> lights = new HashSet<Light>();
     [SerializeField] private float intensity;
-
+    
     private Light light = null;
 
     [Header("BlinkRange")]
@@ -21,6 +21,8 @@ public class LightBlink : Receiver
 
     public override void ReceiveTrigger()
     {
+        lights.Clear();
+
         Vector3 center = transform.position + transform.rotation * boxOffset;
         Collider[] colliders = Physics.OverlapBox(center, boxSize * 0.5f, transform.rotation);
         foreach (Collider col in colliders)
@@ -30,7 +32,8 @@ public class LightBlink : Receiver
                 lights.Add(light);
             }
         }
-        StartCoroutine(blink());
+        if (lights.Count > 0)
+            StartCoroutine(blink());
     }
 
     IEnumerator blink()
