@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ItemOnUI : MonoBehaviour
+public abstract class ItemOnUI : MonoBehaviour
 {
     public float rotationSpeed = 5f;
 
     private bool isDragging = false;
     private Vector3 lastMousePosition;
 
-    void Update()
+    public virtual void Init(string input = "")
+    {
+    }
+
+    protected virtual void Update()
     {
         // 마우스 왼쪽 버튼을 누르면 드래그 시작
         if (Input.GetMouseButtonDown(0))
@@ -29,10 +33,9 @@ public class ItemOnUI : MonoBehaviour
         if (isDragging)
         {
             Vector3 delta = Input.mousePosition - lastMousePosition;
-            float rotationX = delta.y * rotationSpeed * Time.deltaTime; 
             float rotationY = -delta.x * rotationSpeed * Time.deltaTime;
 
-            transform.Rotate(rotationX, rotationY, 0f, Space.World);
+            transform.Rotate(0, rotationY, 0f, Space.Self);
 
             lastMousePosition = Input.mousePosition;
         }
