@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public abstract class P_StateMachine : MonoBehaviour
+public abstract class PlayerState : MonoBehaviour
 {
     protected Player _player;
 
-    public P_StateMachine (Player player)
+    public PlayerState (Player player)
     {
         _player = player;
     }
