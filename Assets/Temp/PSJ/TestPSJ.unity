@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &49017281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 49017282}
+  m_Layer: 0
+  m_Name: EventGroup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &49017282
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49017281}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.2243444, y: 2.465262, z: -3.226436}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &55733865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1406,8 +1437,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6972f47d255b7e458ff663c072d8aa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curBgm: {fileID: 0}
   audioSourcePrefab: {fileID: 3859237791756908466, guid: f434419abf31afe40aea65e322d86386,
     type: 3}
+  tempRoot: {fileID: 0}
+  bgmRoot: {fileID: 0}
 --- !u!4 &1137280453
 Transform:
   m_ObjectHideFlags: 0
@@ -6496,3 +6530,4 @@ SceneRoots:
   - {fileID: 2553230278733197066}
   - {fileID: 1511539389}
   - {fileID: 1137280453}
+  - {fileID: 49017282}
