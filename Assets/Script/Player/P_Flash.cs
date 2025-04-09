@@ -5,22 +5,23 @@ using UnityEngine.InputSystem;
 
 public class P_Flash : MonoBehaviour
 {
-    public GameObject flash;
+    public GameObject flashObject;
+    public Flash flash;
 
-    bool isFlash = false;
+    public bool isFlash = false;
 
     public void FlashInput(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Started)
+        if (context.phase == InputActionPhase.Started && flash.flashBattery > 0)
         {
             isFlash = !isFlash;
             if (isFlash)
             {
-                flash.SetActive(true);
+                flashObject.SetActive(true);
             }
             else
             {
-                flash.SetActive(false);
+                flashObject.SetActive(false);
             }
         }
     }

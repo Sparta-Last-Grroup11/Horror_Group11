@@ -593,6 +593,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4235455032956112299}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &241767962 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4038644480697039233, guid: 5f1d6d06437d4e545a1595cc1b07b761,
+    type: 3}
+  m_PrefabInstance: {fileID: 4235455032956112299}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241767958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f7b2081f7bcf5428ba1d3d30c607f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &253020195 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8604452130246940784, guid: beef3bcde1610f04aa96275436147bb9,
@@ -680,25 +692,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!1 &293522875 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7850141191112057461, guid: 5f1d6d06437d4e545a1595cc1b07b761,
-    type: 3}
-  m_PrefabInstance: {fileID: 4235455032956112299}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &293522881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 293522875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af87188b7c436804a9e428d1ce074131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flash: {fileID: 241767958}
 --- !u!1 &296089664 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8605337712354872478, guid: beef3bcde1610f04aa96275436147bb9,
@@ -3751,15 +3744,15 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4432445088224910941, guid: 5f1d6d06437d4e545a1595cc1b07b761,
+    - target: {fileID: 4038644480697039233, guid: 5f1d6d06437d4e545a1595cc1b07b761,
         type: 3}
-      propertyPath: m_Height
-      value: 1.6
+      propertyPath: flashBattery
+      value: 21
       objectReference: {fileID: 0}
-    - target: {fileID: 4432445088224910941, guid: 5f1d6d06437d4e545a1595cc1b07b761,
+    - target: {fileID: 4038644480697039233, guid: 5f1d6d06437d4e545a1595cc1b07b761,
         type: 3}
-      propertyPath: m_Radius
-      value: 0.3
+      propertyPath: angleLerpSpeed
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5547695954393197618, guid: 5f1d6d06437d4e545a1595cc1b07b761,
         type: 3}
@@ -3811,11 +3804,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5766639004701502585, guid: 5f1d6d06437d4e545a1595cc1b07b761,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5897018201987638878, guid: 5f1d6d06437d4e545a1595cc1b07b761,
         type: 3}
       propertyPath: virtualCamera
@@ -3826,64 +3814,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 9027466503005137043, guid: 5f1d6d06437d4e545a1595cc1b07b761,
+    - target: {fileID: 9036217590292358567, guid: 5f1d6d06437d4e545a1595cc1b07b761,
         type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 9027466503005137043, guid: 5f1d6d06437d4e545a1595cc1b07b761,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[6].m_ActionId
-      value: 4ab81a15-0bda-4123-b662-beaf3e5da9a0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9027466503005137043, guid: 5f1d6d06437d4e545a1595cc1b07b761,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[6].m_ActionName
-      value: Player/Flash[/Keyboard/f]
-      objectReference: {fileID: 0}
-    - target: {fileID: 9027466503005137043, guid: 5f1d6d06437d4e545a1595cc1b07b761,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9027466503005137043, guid: 5f1d6d06437d4e545a1595cc1b07b761,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9027466503005137043, guid: 5f1d6d06437d4e545a1595cc1b07b761,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      propertyPath: flash
       value: 
-      objectReference: {fileID: 293522881}
-    - target: {fileID: 9027466503005137043, guid: 5f1d6d06437d4e545a1595cc1b07b761,
+      objectReference: {fileID: 241767962}
+    - target: {fileID: 9036217590292358567, guid: 5f1d6d06437d4e545a1595cc1b07b761,
         type: 3}
-      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9027466503005137043, guid: 5f1d6d06437d4e545a1595cc1b07b761,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FlashInput
-      objectReference: {fileID: 0}
-    - target: {fileID: 9027466503005137043, guid: 5f1d6d06437d4e545a1595cc1b07b761,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: P_Flash, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 9027466503005137043, guid: 5f1d6d06437d4e545a1595cc1b07b761,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
+      propertyPath: flashObject
+      value: 
+      objectReference: {fileID: 241767958}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7850141191112057461, guid: 5f1d6d06437d4e545a1595cc1b07b761,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 293522881}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f1d6d06437d4e545a1595cc1b07b761, type: 3}
 --- !u!1001 &4909605565530914404
 PrefabInstance:

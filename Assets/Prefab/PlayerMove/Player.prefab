@@ -28,8 +28,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6118240950478816151}
+  m_Children: []
   m_Father: {fileID: 5547695954393197618}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5766639004701502585
@@ -43,13 +42,15 @@ GameObject:
   - component: {fileID: 6118240950478816151}
   - component: {fileID: 7988162216196769904}
   - component: {fileID: 9131254208440588905}
+  - component: {fileID: 4038644480697039233}
+  - component: {fileID: 2575666161747899168}
   m_Layer: 0
-  m_Name: Spot Light
+  m_Name: Flash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6118240950478816151
 Transform:
   m_ObjectHideFlags: 0
@@ -58,12 +59,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5766639004701502585}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7951512017635878670}
+  m_Father: {fileID: 5547695954393197618}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!108 &7988162216196769904
 Light:
@@ -77,7 +78,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 10
+  m_Intensity: 20
   m_Range: 20
   m_SpotAngle: 60
   m_InnerSpotAngle: 20
@@ -150,6 +151,39 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!114 &4038644480697039233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5766639004701502585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f7b2081f7bcf5428ba1d3d30c607f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashBattery: 100
+  minInnerSpotAngle: 15
+  maxInnerSpotAngle: 25
+  minSpotAngle: 55
+  maxSpotAngle: 65
+  angleLerpSpeed: 1
+--- !u!114 &2575666161747899168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5766639004701502585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5fb78298000a6e4cbe3e37b5f468379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLook: {fileID: 5547695954393197618}
+  cameraLook: {fileID: 7951512017635878670}
+  followSpeed: 5
 --- !u!1 &7850141191112057461
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,6 +197,7 @@ GameObject:
   - component: {fileID: 9027466503005137043}
   - component: {fileID: 5897018201987638878}
   - component: {fileID: 8109297923136669010}
+  - component: {fileID: 9036217590292358567}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -184,6 +219,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7951512017635878670}
+  - {fileID: 6118240950478816151}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &4432445088224910941
@@ -205,8 +241,8 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.5
+  m_Height: 1.6
+  m_Radius: 0.3
   m_SlopeLimit: 50
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -322,6 +358,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 550f5d87-091e-44d2-8aa1-751a534fdd04
     m_ActionName: Player/Run[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9036217590292358567}
+        m_TargetAssemblyTypeName: P_Flash, Assembly-CSharp
+        m_MethodName: FlashInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4ab81a15-0bda-4123-b662-beaf3e5da9a0
+    m_ActionName: Player/Flash[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -379,3 +431,16 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &9036217590292358567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7850141191112057461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af87188b7c436804a9e428d1ce074131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flash: {fileID: 5766639004701502585}
