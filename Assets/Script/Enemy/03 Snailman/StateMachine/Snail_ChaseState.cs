@@ -16,14 +16,14 @@ public class Snail_ChaseState : E_BaseState
     //    snail.StartAction();
     //}
 
-    public override void Update()
-    {
-        // 플레이어 위치로 이동 로직
+    //public override void Update()
+    //{
+    //    // 플레이어 위치로 이동 로직
 
-        // 플레이어가 멀어지면 Idle로
-        if (snail.IsPlayerFar())
-        {
-            fsm.ChangeState(new Snail_IdleState(snail, fsm));
-        }
-    }
+    //    // 플레이어가 멀어지면 Idle로
+    //    if (snail.IsPlayerFar())
+    //    {
+    //        fsm.ChangeState(new Snail_IdleState(snail, fsm));
+    //    }
+    //}
 }
