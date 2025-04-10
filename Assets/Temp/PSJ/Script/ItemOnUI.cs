@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class ItemOnUI : MonoBehaviour
 {
-    public float rotationSpeed = 5f;
+    public float rotationSpeed = 20f;
 
     private bool isDragging = false;
     private Vector3 lastMousePosition;

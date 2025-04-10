@@ -26,8 +26,9 @@ public class AudioManager : Singleton<AudioManager>
             OnDestroyPoolObject,
             collectionCheck: false,
             defaultCapacity: 10,
-            maxSize: 20
+            maxSize: 50
         );
+        audioSourcePrefab = Resources.Load<GameObject>("Sound/SoundSource").GetComponent<SoundSource>();
         tempRoot = new GameObject("Temp").transform;
         tempRoot.SetParent(transform);
 
