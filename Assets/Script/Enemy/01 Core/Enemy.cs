@@ -36,5 +36,4 @@ public abstract class Enemy : MonoBehaviour
         }
         return false;
     }
-
 }
