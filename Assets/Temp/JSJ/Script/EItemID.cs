@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-enum EItemID
+public enum EItemID
 {
-    None = 0,
+    None = -1,
     Battery,
     PowerRoomKey,
     FrontDoorKey
