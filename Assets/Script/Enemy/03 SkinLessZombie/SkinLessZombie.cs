@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class SnailMan : Enemy   // 스네일맨 기믹
+public class SkinLessZombie : Enemy   // 스네일맨 기믹
 {
     public Animator snailManAnimator { get; private set; }
     public float patrolSpeed = 1.5f;
@@ -20,16 +20,16 @@ public class SnailMan : Enemy   // 스네일맨 기믹
         originalPosition = transform.position;
     }
 
-    //protected override void Start()
-    //{
-    //    fsm.ChangeState(new Snail_PatrolState(this, fsm, patrolPoints));
-    //}
+    protected override void Start()
+    {
+        fsm.ChangeState(new Snail_PatrolState(this, fsm, patrolPoints));
+    }
 
-    //public void MoveTo(Vector3 pos)
-    //{
-    //    Agent.SetDestination(pos);
-    //    snailManAnimator.SetFloat("Speed", Agent.Speed);
-    //}
+    public void MoveTo(Vector3 pos)
+    {
+        Agent.SetDestination(pos);
+        snailManAnimator.SetFloat("Speed", Agent.Speed);
+    }
 
     // 상태 전이용 판단 메서드들
     public bool IsPlayerNear() { /* TODO: 거리 체크 */ return false; }

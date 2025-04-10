@@ -14,7 +14,7 @@ public class Nurse_ChaseState : E_BaseState    // 플레이어를 추격하는 �
     public override void Enter()
     {
         // chaseTimer = 0f;
-        angel.animator.SetBool("IsChasing", true);
+        angel.nurseAnimator.SetBool("IsChasing", true);
     }
 
     public override void Update()

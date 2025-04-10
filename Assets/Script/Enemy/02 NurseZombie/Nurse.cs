@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class Nurse : Enemy   // 웃는 천사 기믹
 {
-    public Animator animator { get; private set; }
+    public Animator nurseAnimator { get; private set; }
     public float moveSpeed = 4.0f;  // 이동 속도
     public float attackRange = 2f;  // 공격 범위
 
     protected override void Awake()
     {
         base.Awake();
-        animator = GetComponentInChildren<Animator>();
+        nurseAnimator = GetComponentInChildren<Animator>();
         fsm = new NurseFSM(this);
     }
 
@@ -26,7 +26,7 @@ public class Nurse : Enemy   // 웃는 천사 기믹
 
     public bool FinishAttack()  // 공격 애니메이션이 끝났는지 확인하는 메서드
     {
-        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        AnimatorStateInfo stateInfo = nurseAnimator.GetCurrentAnimatorStateInfo(0);
         return !(stateInfo.IsName("Attack") && stateInfo.normalizedTime < 1.0f);
     }
 

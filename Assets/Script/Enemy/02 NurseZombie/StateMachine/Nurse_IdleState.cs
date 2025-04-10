@@ -9,7 +9,7 @@ public class Nurse_IdleState : E_BaseState  // 기본 상태일 때  (애니메�
 
     public override void Enter()
     {
-        angel.animator.SetBool("IsChasing", false);
+        angel.nurseAnimator.SetBool("IsChasing", false);
     }
 
     public override void Update()
