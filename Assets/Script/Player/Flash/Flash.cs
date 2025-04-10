@@ -89,12 +89,6 @@ public class Flash : MonoBehaviour
         p_Flash.isFlash = false;
     }
 
-    public void RechargeBattery()
-    {
-        deadFlicker = 0;
-        flashBattery = 100;
-    }
-
     private IEnumerator Flicker(System.Action onFinish, float flickerTime)
     {
         spotLight.enabled = false;
@@ -106,5 +100,11 @@ public class Flash : MonoBehaviour
         spotLight.enabled = true;
         yield return new WaitForSeconds(0.1f);
         onFinish?.Invoke();
+    }
+
+    public void RechargeBattery()
+    {
+        deadFlicker = 0;
+        flashBattery = 100;
     }
 }
