@@ -1,5 +1,3 @@
-using Unity.VisualScripting;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -19,7 +17,15 @@ public class SkinLess : Enemy   // 스네일맨 기믹
         base.Awake();
         OriginalPosition = transform.position;
         SkinLessAnimator = GetComponentInChildren<Animator>();
-        fsm = new SkinLessFSM(this, patrolPoints);
+        Agent = GetComponent<NavMeshAgent>();
+
+        fsm = new E_StateMachine();
+        fsm.ChangeState(new SkinLess_PatrolState(this, fsm, patrolPoints));
+    }
+
+    private void Start()
+    {
+        fsm.Update();
     }
 
     public void MoveTo(Vector3 pos)

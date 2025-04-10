@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SkinLess_ChaseState : E_BaseState
@@ -15,11 +13,14 @@ public class SkinLess_ChaseState : E_BaseState
     {
         skinLess.Agent.speed = skinLess.chaseSpeed;
         skinLess.SkinLessAnimator.speed = 1.5f;
+
+        skinLess.Agent.isStopped = false;
+        skinLess.Agent.SetDestination(skinLess.Player.position);
     }
 
     public override void Update()
     {
-        skinLess.MoveTo(skinLess.Player.position);
+        skinLess.Agent.SetDestination(skinLess.Player.position);
 
         if (!skinLess.IsPlayerFar())
         {
