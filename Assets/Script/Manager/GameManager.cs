@@ -13,18 +13,7 @@ public class GameManager : Singleton<GameManager>
     protected override void Awake()
     {
         base.Awake();
-        subCam = GameObject.Find("Sub Camera").GetComponent<Camera>();
-    }
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        subCam = Instantiate(Resources.Load<GameObject>("UI/Sub Camera")).GetComponent<Camera>();
     }
 
     private void OnDrawGizmos()
