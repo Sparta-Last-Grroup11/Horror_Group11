@@ -1,14 +1,14 @@
 using UnityEngine;
 
-public class SkinLess_ChaseState : E_BaseState
+public class SkinLessZombie_ChaseState : E_BaseState
 {
-    private SkinLess skinLess;
+    private SkinLessZombie skinLess;
     private float losePlayerTimer = 0f;
     private float loseThreshold = 5f;  // 5초 동안 안 보이면 포기
 
-    public SkinLess_ChaseState(Enemy enemy, E_StateMachine fsm) : base(enemy, fsm)
+    public SkinLessZombie_ChaseState(Enemy enemy, E_StateMachine fsm) : base(enemy, fsm)
     {
-        skinLess = enemy as SkinLess;
+        skinLess = enemy as SkinLessZombie;
     }
 
     public override void Enter()
@@ -30,7 +30,7 @@ public class SkinLess_ChaseState : E_BaseState
             losePlayerTimer += Time.deltaTime;
             if (losePlayerTimer >= loseThreshold)
             {
-                fsm.ChangeState(new SkinLess_ReturnState(skinLess, fsm));
+                fsm.ChangeState(new SkinLessZombie_ReturnState(skinLess, fsm));
             }
         }
 

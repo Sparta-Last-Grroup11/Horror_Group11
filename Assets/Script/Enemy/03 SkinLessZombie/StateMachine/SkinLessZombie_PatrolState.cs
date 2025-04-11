@@ -1,14 +1,14 @@
 using UnityEngine;
 
-public class SkinLess_PatrolState : E_BaseState
+public class SkinLessZombie_PatrolState : E_BaseState
 {
-    private SkinLess skinLess;
+    private SkinLessZombie skinLess;
     private Transform[] wayPoints; // 좀비의 이동 지점들
     private int currentIndex = 0;  // 처음 시작하는 위치
 
-    public SkinLess_PatrolState(Enemy enemy, E_StateMachine fsm, Transform[] patrolPoints, int startIndex) : base(enemy, fsm)
+    public SkinLessZombie_PatrolState(Enemy enemy, E_StateMachine fsm, Transform[] patrolPoints, int startIndex) : base(enemy, fsm)
     {
-        skinLess = enemy as SkinLess;
+        skinLess = enemy as SkinLessZombie;
         wayPoints = patrolPoints;
         currentIndex = startIndex;
     }
@@ -23,7 +23,7 @@ public class SkinLess_PatrolState : E_BaseState
     {
         if (enemy.CanSeePlayer())  // 플레이어가 처음 시야각에 들어올 때 
         {
-            fsm.ChangeState(new SkinLess_ChaseState(skinLess, fsm));  // 추적Chase 상태로 전환
+            fsm.ChangeState(new SkinLessZombie_ChaseState(skinLess, fsm));  // 추적Chase 상태로 전환
             return;
         }
 

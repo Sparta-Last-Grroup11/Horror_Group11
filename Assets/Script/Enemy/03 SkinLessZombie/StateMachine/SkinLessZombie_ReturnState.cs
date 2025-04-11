@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class SkinLess_ReturnState : E_BaseState
+public class SkinLessZombie_ReturnState : E_BaseState
 {
-    private SkinLess skinLess;
+    private SkinLessZombie skinLess;
     private Vector3 origin;
 
-    public SkinLess_ReturnState(Enemy enemy, E_StateMachine fsm) : base(enemy, fsm)
+    public SkinLessZombie_ReturnState(Enemy enemy, E_StateMachine fsm) : base(enemy, fsm)
     {
-        skinLess = enemy as SkinLess;
+        skinLess = enemy as SkinLessZombie;
         origin = skinLess.OriginalPosition;
     }
 
@@ -22,7 +22,7 @@ public class SkinLess_ReturnState : E_BaseState
         if (Vector3.Distance(skinLess.transform.position, origin) < 0.3f)
         {
             int closestIndex = skinLess.GetClosestPatrolPointIndex();
-            fsm.ChangeState(new SkinLess_PatrolState(skinLess, fsm, skinLess.patrolPoints, closestIndex));
+            fsm.ChangeState(new SkinLessZombie_PatrolState(skinLess, fsm, skinLess.patrolPoints, closestIndex));
         }
     }
 }
