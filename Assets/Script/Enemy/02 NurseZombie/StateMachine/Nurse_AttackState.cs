@@ -13,7 +13,7 @@ public class Nurse_AttackState : E_BaseState  // 플레이어를 공격하는 �
 
     public override void Enter()
     {
-        nurse.animator.SetTrigger("IsAttacking");  // 공격 애니메이션 발동    
+        nurse.nurseAnimator.SetTrigger("IsAttacking");  // 공격 애니메이션 발동    
     }
 
     public override void Update()
