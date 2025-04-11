@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationClip: {fileID: -5912145118209366543, guid: 0636141c91b6dcd4489c6b23b480083c,
     type: 3}
-  weaponPrefab: {fileID: 5364621484756118317, guid: 5f1d6d06437d4e545a1595cc1b07b761,
+  weaponPrefab: {fileID: 5364621484756118317, guid: 4286784eafadf9f4ebfb6f725ab2da99,
     type: 3}
   rotationvalues: {x: -159.79, y: -94.30099, z: -21.439}
