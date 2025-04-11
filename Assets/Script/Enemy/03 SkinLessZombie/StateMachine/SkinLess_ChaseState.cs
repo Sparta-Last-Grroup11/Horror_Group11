@@ -15,12 +15,12 @@ public class SkinLess_ChaseState : E_BaseState
         skinLess.SkinLessAnimator.speed = 1.5f;
 
         skinLess.Agent.isStopped = false;
-        skinLess.Agent.SetDestination(skinLess.Player.position);
+        skinLess.Agent.SetDestination(skinLess.PlayerTransform.position);
     }
 
     public override void Update()
     {
-        skinLess.Agent.SetDestination(skinLess.Player.position);
+        skinLess.Agent.SetDestination(skinLess.PlayerTransform.position);
 
         if (!skinLess.IsPlayerFar())
         {

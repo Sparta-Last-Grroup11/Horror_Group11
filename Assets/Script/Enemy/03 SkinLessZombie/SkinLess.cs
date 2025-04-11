@@ -19,6 +19,11 @@ public class SkinLess : Enemy   // 스네일맨 기믹
         SkinLessAnimator = GetComponentInChildren<Animator>();
         Agent = GetComponent<NavMeshAgent>();
 
+        InitSkinLessFSM();
+    }
+
+    private void InitSkinLessFSM()
+    {
         fsm = new E_StateMachine();
         fsm.ChangeState(new SkinLess_PatrolState(this, fsm, patrolPoints));
     }
@@ -36,7 +41,7 @@ public class SkinLess : Enemy   // 스네일맨 기믹
 
     public bool IsPlayerFar()
     {
-        return Vector3.Distance(Player.position, transform.position) > detectionRange;
+        return Vector3.Distance(playerTransform.position, transform.position) > detectionRange;
     }
 
 }

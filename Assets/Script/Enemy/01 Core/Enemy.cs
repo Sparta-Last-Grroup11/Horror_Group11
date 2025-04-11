@@ -5,6 +5,7 @@ public abstract class Enemy : MonoBehaviour
     protected E_StateMachine fsm;
 
     protected Transform playerTransform;
+    public Transform PlayerTransform => playerTransform;  // 외부 접근용 getter
     public LayerMask playerLayer;
     [SerializeField] private float viewAngle = 90f;  
 

@@ -10,13 +10,20 @@ public class Nurse : Enemy   // 웃는 천사 기믹
     {
         base.Awake();
         nurseAnimator = GetComponentInChildren<Animator>();
-        fsm = new NurseFSM(this);
+        InitNurseFSM();
+    }
+
+    private void InitNurseFSM()
+    {
+        fsm = new E_StateMachine();
+        fsm.ChangeState(new Nurse_IdleState(this, fsm));
+        Debug.Log("FSM 작동 돼?");
     }
 
     public bool IsPlayerLookingAtMe()
     {
-        Vector3 toNurse = (transform.position - Player.position).normalized;  // 플레이어에서 몬스터를 향하는 방향 벡터
-        Vector3 playerforward = Player.forward.normalized;  // 플레이어가 보고 있는 방향 벡터
+        Vector3 toNurse = (transform.position - playerTransform.position).normalized;  // 플레이어에서 몬스터를 향하는 방향 벡터
+        Vector3 playerforward = playerTransform.forward.normalized;  // 플레이어가 보고 있는 방향 벡터
 
         float dot = Vector3.Dot(toNurse, playerforward);  // 1에 가까울수록 플레이어 = 몬스터 같은 방향
         float lookThreshold = 0.8f;  // 거의 같은 방향일 때
@@ -32,7 +39,8 @@ public class Nurse : Enemy   // 웃는 천사 기믹
 
     public bool IsNearPlayer()
     {
-        float distance = Vector3.Distance(transform.position, Player.position);  // 몬스터와 플레이어의 거리
+        float distance = Vector3.Distance(transform.position, playerTransform.position);  // 몬스터와 플레이어의 거리
         return distance <= attackRange;  // 공격 범위 안에 들어왔는지 확인
-    }    
+    }
+    
 }
