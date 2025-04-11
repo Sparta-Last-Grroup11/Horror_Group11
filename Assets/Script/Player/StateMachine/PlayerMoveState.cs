@@ -11,10 +11,10 @@ public class PlayerMoveState : PlayerState
 
     public override void Update()
     {
-        //if (UIManager.Instance.IsUiActing) return;
-        //HandleLook();
-        //HandleMove();
-        //HandleCameraShake();
+        if (UIManager.Instance.IsUiActing) return;
+        HandleLook();
+        HandleMove();
+        HandleCameraShake();
     }
 
     public override void Exit()
