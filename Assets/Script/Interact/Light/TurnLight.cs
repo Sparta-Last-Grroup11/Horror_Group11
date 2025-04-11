@@ -8,6 +8,7 @@ public class TurnLight : MonoBehaviour, I_Interactable
     [SerializeField] private float intensity;
     private List<Light> lightsList;
     private bool isTurnOn;
+
     private void Start()
     {
         lightsList = new List<Light>();
@@ -57,6 +58,4 @@ public class TurnLight : MonoBehaviour, I_Interactable
     {
         SetLightsIntensity();
     }
-
-    
 }

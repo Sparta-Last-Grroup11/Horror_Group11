@@ -11,7 +11,6 @@ public class SafeLockPuzzle : MonoBehaviour
     [SerializeField] private int randomRange;
 
     private int rotateCount = 0;
- //   [HideInInspector]
     public int answer = 0;
     private int maxNumber = 9;
     private int arrayLength;
@@ -25,7 +24,6 @@ public class SafeLockPuzzle : MonoBehaviour
             rightArray[i] = Random.Range(0,maxNumber+1);
             arrayLength = rightArray.Length ;
         }
-        //gameObject.SetActive(false);
     }
 
     private void Update()
@@ -80,16 +78,15 @@ public class SafeLockPuzzle : MonoBehaviour
     {
         if (answer == rightArray[rotateCount])
         {
-            answer = 0;
             rotateCount++;
             isLeft = !isLeft;
         }
         else //일치하지 않는다면 전부 초기화
         {
-            answer = 0;
             rotateCount = 0;
             isLeft = false;
         }
+        answer = 0;
     }
 
     void SuccessOpen() // 비밀번호를 맞췄을 경우

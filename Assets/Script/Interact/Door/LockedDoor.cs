@@ -7,10 +7,6 @@ public class LockedDoor : ControlDoor,I_Interactable
     [SerializeField] private EItemID keyID;
     [SerializeField] private GetItemList itemList;
 
-    private void Start()
-    {
-        OnInteraction();
-    }
     public void OnInteraction()
     {
         OpenLockedDoor();
