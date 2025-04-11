@@ -11,6 +11,7 @@ public class PlayerMoveState : PlayerState
 
     public override void Update()
     {
+        if (UIManager.Instance.IsUiActing) return;
         HandleLook();
         HandleMove();
         HandleCameraShake();

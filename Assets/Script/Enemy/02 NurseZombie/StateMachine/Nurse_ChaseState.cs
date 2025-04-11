@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Nurse_ChaseState : E_BaseState    // 플레이어를 추격하는 상태일 때
 {
-    private Nurse nurse;
+    public Nurse nurse;
     //private float chaseTimer;
     //private const float maxChaseTime = 5f;
 
@@ -19,7 +19,9 @@ public class Nurse_ChaseState : E_BaseState    // 플레이어를 추격하는 �
 
     public override void Update()
     {
-        Vector3 direction = (nurse.PlayerTransform.position - nurse.transform.position).normalized;  // 플레이어 방향으로 이동
+        if (nurse.PlayerTransform == null) return;
+
+        Vector3 direction = (nurse.PlayerTransform.position - nurse.transform.position).normalized;  // 플레이어 방향으로 이동    
         direction.y = 0;  // y축 방향은 무시
         nurse.transform.position += direction * nurse.moveSpeed * Time.deltaTime;  // 플레이어 쪽으로 이동
 

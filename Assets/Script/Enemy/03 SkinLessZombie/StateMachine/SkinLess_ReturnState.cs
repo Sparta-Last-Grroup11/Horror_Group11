@@ -21,7 +21,8 @@ public class SkinLess_ReturnState : E_BaseState
     {
         if (Vector3.Distance(skinLess.transform.position, origin) < 0.3f)
         {
-            fsm.ChangeState(new SkinLess_PatrolState(skinLess, fsm, skinLess.patrolPoints));
+            int closestIndex = skinLess.GetClosestPatrolPointIndex();
+            fsm.ChangeState(new SkinLess_PatrolState(skinLess, fsm, skinLess.patrolPoints, closestIndex));
         }
     }
 }

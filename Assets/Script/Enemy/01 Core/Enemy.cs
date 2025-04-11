@@ -34,19 +34,23 @@ public abstract class Enemy : MonoBehaviour
 
     public bool CanSeePlayer()
     {
+        if (playerTransform == null) return false;
 
         Vector3 dirToPlayer = (playerTransform.position - transform.position).normalized;  //  몬스터에서 플레이어로 가는 방향 벡터
+        float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
         float angle = Vector3.Angle(transform.forward, dirToPlayer);  // 내가 보고 있는 방향과 플레이어 방향의 각도를 계산 
 
-        if (angle < viewAngle / 2f)  // 왼쪽 오른쪽 각도 나누고
+        if (angle < viewAngle / 2f)  // 왼쪽 오른쪽 시야각 안에 있는지 판별
         {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, dirToPlayer, out hit, Mathf.Infinity, playerLayer))   
+            if (Physics.Raycast(transform.position, dirToPlayer, out hit, distanceToPlayer, ~0))   
             {
-                return true;
+                if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Player"))
+                {
+                    return true;
+                }
             }
         }
         return false;
     }
-
 }

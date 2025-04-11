@@ -23,6 +23,8 @@ public class Nurse : Enemy   // 웃는 천사 기믹
 
     public bool IsPlayerLookingAtMe()
     {
+        if (playerTransform == null) return false;
+
         Vector3 toNurse = (transform.position - playerTransform.position).normalized;  // 플레이어에서 몬스터를 향하는 방향 벡터
         Vector3 playerforward = playerTransform.forward.normalized;  // 플레이어가 보고 있는 방향 벡터
 
@@ -40,6 +42,8 @@ public class Nurse : Enemy   // 웃는 천사 기믹
 
     public bool IsNearPlayer()
     {
+        if (playerTransform == null) return false;
+
         float distance = Vector3.Distance(transform.position, playerTransform.position);  // 몬스터와 플레이어의 거리
         return distance <= attackRange;  // 공격 범위 안에 들어왔는지 확인
     }

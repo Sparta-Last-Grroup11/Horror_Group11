@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7951512017635878670}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Virtual Camera Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2742298981911224647}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 9131254208440588905}
   - component: {fileID: 4038644480697039233}
   - component: {fileID: 2575666161747899168}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Flash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerLook: {fileID: 5547695954393197618}
   cameraLook: {fileID: 7951512017635878670}
-  followSpeed: 5
+  followSpeed: 10
 --- !u!1 &7850141191112057461
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,7 +242,7 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 1.6
+  m_Height: 1.8
   m_Radius: 0.3
   m_SlopeLimit: 50
   m_StepOffset: 0.3
