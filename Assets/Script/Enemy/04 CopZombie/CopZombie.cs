@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Rendering.InspectorCurveEditor;
 
 public class CopZombie : Enemy
 {
@@ -14,8 +13,6 @@ public class CopZombie : Enemy
 
     public void ChangeState(PlayerState newState)
     {
-        curEnemyState?.Exit();
-        curEnemyState = newState;
-        curEnemyState.Enter();
+
     }
 }

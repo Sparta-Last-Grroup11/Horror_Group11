@@ -12,7 +12,7 @@ public class P_Interaction : MonoBehaviour
 
     private void Update()
     {
-        Debug.DrawRay(transform.position, transform.forward * maxCheckDistance, Color.yellow);
+        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * maxCheckDistance, Color.yellow);
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
         RaycastHit hit;
 
