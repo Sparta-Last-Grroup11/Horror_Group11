@@ -9,7 +9,7 @@ public class UI3DManager
 {
     private GameObject UI3D;
     public GameObject CurGameObject;
-    public UI3DInterface ui3SInterface;
+    public UI3DInterface ui3DInterface;
 
     public void DestroyUIObject()
     {

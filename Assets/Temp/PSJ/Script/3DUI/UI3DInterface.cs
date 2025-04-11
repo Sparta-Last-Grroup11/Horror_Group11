@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UI3DInterface : MonoBehaviour
@@ -17,7 +15,7 @@ public class UI3DInterface : MonoBehaviour
 
     private void Start()
     {
-        UIManager.Instance.UI3DManager.ui3SInterface = this;
+        UIManager.Instance.UI3DManager.ui3DInterface = this;
         Cursor.lockState = CursorLockMode.None;
         curObj = UIManager.Instance.UI3DManager.CurGameObject;
         objOriginalPos = curObj.transform.localPosition;

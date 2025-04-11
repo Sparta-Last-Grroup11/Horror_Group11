@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SafeLockPuzzle : ItemOnUI
@@ -94,7 +92,7 @@ public class SafeLockPuzzle : ItemOnUI
     {
         LockCursor();
         PuzzleManager.Instance.GateHouseSaveDial.OpenSaveDoor();
-        UIManager.Instance.UI3DManager.ui3SInterface.CloseUI();
+        UIManager.Instance.UI3DManager.ui3DInterface.CloseUI();
         Destroy(gameObject);
     }
     void LockCursor() //커서 고정 해제

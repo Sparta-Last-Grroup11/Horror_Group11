@@ -1,17 +1,20 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class LockedDoor : ControlDoor,I_Interactable
 {
     [SerializeField] private EItemID keyID;
     [SerializeField] private GetItemList itemList;
+
+    private bool canInteract = true;
+    [SerializeField] private float interactCooldown = 1.0f;
     private bool isOpened;
 
     public void OnInteraction()
     {
+        if (!canInteract) return;
         OpenLockedDoor();
+        StartCoroutine(InteractionCooldown());
     }
 
     void OpenLockedDoor()
@@ -45,5 +48,12 @@ public class LockedDoor : ControlDoor,I_Interactable
             isOpened = false;
             CloseTheDoor();
         }
+    }
+
+    private IEnumerator InteractionCooldown()
+    {
+        canInteract = false;
+        yield return new WaitForSeconds(interactCooldown);
+        canInteract = true;
     }
 }
