@@ -12,7 +12,16 @@ public abstract class Enemy : MonoBehaviour
     protected virtual void Awake()
     {
         fsm = new E_StateMachine();
-        playerTransform = GameManager.Instance.player.transform;
+
+        if (GameManager.Instance == null || GameManager.Instance.player == null)
+        {
+            Debug.Log("GameManager나 player가 null입니다.");
+            playerTransform = null;
+        }
+        else
+        {
+            playerTransform = GameManager.Instance.player.transform;
+        }
 
         if (playerLayer == 0)
             playerLayer = LayerMask.GetMask("Player");
@@ -25,6 +34,7 @@ public abstract class Enemy : MonoBehaviour
 
     public bool CanSeePlayer()
     {
+
         Vector3 dirToPlayer = (playerTransform.position - transform.position).normalized;  //  몬스터에서 플레이어로 가는 방향 벡터
         float angle = Vector3.Angle(transform.forward, dirToPlayer);  // 내가 보고 있는 방향과 플레이어 방향의 각도를 계산 
 
