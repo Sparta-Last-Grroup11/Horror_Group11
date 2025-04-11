@@ -17,6 +17,7 @@ public class UI3DInterface : MonoBehaviour
 
     private void Start()
     {
+        UIManager.Instance.UI3DManager.ui3SInterface = this;
         Cursor.lockState = CursorLockMode.None;
         curObj = UIManager.Instance.UI3DManager.CurGameObject;
         objOriginalPos = curObj.transform.localPosition;
@@ -29,11 +30,7 @@ public class UI3DInterface : MonoBehaviour
         Scrolling();
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            GameManager.Instance.subCam.transform.position = objOriginalPos;
-            UIManager.Instance.UI3DManager.DestroyUIObject();
-            UIManager.Instance.IsUiActing = false;
-            Cursor.lockState = CursorLockMode.Locked;
-            Destroy(gameObject);
+            CloseUI();
         }
     }
 
@@ -74,5 +71,13 @@ public class UI3DInterface : MonoBehaviour
                 curObj.transform.localPosition = newPos;
             }
         }
+    }
+
+    public void CloseUI()
+    {
+        GameManager.Instance.subCam.transform.position = objOriginalPos;
+        UIManager.Instance.UI3DManager.DestroyUIObject();
+        UIManager.Instance.IsUiActing = false;
+        Destroy(gameObject);
     }
 }

@@ -8,6 +8,7 @@ public class OpenPuzzle : MonoBehaviour, I_Interactable
     [SerializeField] private GameObject puzzle;
     [SerializeField] private ControlDoor door;
     private bool isOpend;
+    private bool checkedOpen;
     public void OnInteraction()
     {
         if (!isOpend)
@@ -27,5 +28,16 @@ public class OpenPuzzle : MonoBehaviour, I_Interactable
     {
         isOpend = true;
         door.OpenTheDoor();
+    }
+
+    public bool IsOpen()
+    {
+        if (checkedOpen)
+        {
+            return false;
+        }
+
+        checkedOpen = true;
+        return isOpend;
     }
 }

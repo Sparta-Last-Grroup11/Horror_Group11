@@ -94,6 +94,7 @@ public class SafeLockPuzzle : ItemOnUI
     {
         LockCursor();
         PuzzleManager.Instance.GateHouseSaveDial.OpenSaveDoor();
+        UIManager.Instance.UI3DManager.ui3SInterface.CloseUI();
         Destroy(gameObject);
     }
     void LockCursor() //커서 고정 해제

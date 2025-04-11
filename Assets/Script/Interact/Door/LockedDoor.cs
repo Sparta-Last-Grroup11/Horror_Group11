@@ -8,6 +8,7 @@ public class LockedDoor : ControlDoor,I_Interactable
     [SerializeField] private EItemID keyID;
     [SerializeField] private GetItemList itemList;
     private bool isOpened;
+
     public void OnInteraction()
     {
         OpenLockedDoor();
@@ -34,15 +35,15 @@ public class LockedDoor : ControlDoor,I_Interactable
 
     void OpenCloseDoor()
     {
-        if (isOpened)
+        if (!isOpened)
         {
+            isOpened = true;
             OpenTheDoor();
-            isOpened = false;
         }
         else
         {
+            isOpened = false;
             CloseTheDoor();
-            isOpened = true;
         }
     }
 }
