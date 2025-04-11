@@ -11,5 +11,9 @@ public class UITestCOde : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
             item.OnInteraction();
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            UIManager.Instance.show<ExampleUI>().Init("Change UI Text");
+        }
     }
 }
