@@ -263,3 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9c47a754e6048749a3f00dafbe65fa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zMaxDistance: 0.5
+  scrollSpeed: 50
+  yMaxDistance: 0.3
+  MoveSpeed: 1
