@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using TMPro;
 using UnityEngine;
 
@@ -15,6 +16,11 @@ public abstract class ItemOnUI : MonoBehaviour
     }
 
     protected virtual void Update()
+    {
+        Rotate();
+    }
+
+    void Rotate()
     {
         // 마우스 왼쪽 버튼을 누르면 드래그 시작
         if (Input.GetMouseButtonDown(0))

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Resources;
 using Unity.VisualScripting;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class UIManager : Singleton<UIManager>
@@ -12,19 +14,13 @@ public class UIManager : Singleton<UIManager>
     protected override void Awake()
     {
         base.Awake();
-        mainCanvas = GameObject.Find("MainCanvas").GetComponent<Canvas>();
+        mainCanvas = Instantiate(Resources.Load<GameObject>("UI/MainCanvas")).GetComponent<Canvas>();
         UI3DManager = new UI3DManager();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public T show<T>() where T : BaseUI
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        var ui = ResourceManager.Instance.LoadUI<T>();
+        return Instantiate(ui, mainCanvas.transform);
     }
 }

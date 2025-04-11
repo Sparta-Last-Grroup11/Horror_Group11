@@ -17,6 +17,7 @@ public class UI3DInterface : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
         curObj = UIManager.Instance.UI3DManager.CurGameObject;
         objOriginalPos = curObj.transform.localPosition;
         sub = GameManager.Instance.subCam;
@@ -31,6 +32,7 @@ public class UI3DInterface : MonoBehaviour
             GameManager.Instance.subCam.transform.position = objOriginalPos;
             UIManager.Instance.UI3DManager.DestroyUIObject();
             UIManager.Instance.IsUiActing = false;
+            Cursor.lockState = CursorLockMode.Locked;
             Destroy(gameObject);
         }
     }
