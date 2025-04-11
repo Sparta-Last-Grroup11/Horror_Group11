@@ -1,14 +1,14 @@
 using UnityEngine;
 
-public class Nurse_ChaseState : E_BaseState    // 플레이어를 추격하는 상태일 때
+public class NurseZombie_ChaseState : E_BaseState    // 플레이어를 추격하는 상태일 때
 {
-    public Nurse nurse;
+    public NurseZombie nurse;
     //private float chaseTimer;
     //private const float maxChaseTime = 5f;
 
-    public Nurse_ChaseState(Enemy enemy, E_StateMachine fsm) : base(enemy, fsm)
+    public NurseZombie_ChaseState(Enemy enemy, E_StateMachine fsm) : base(enemy, fsm)
     {
-        nurse = enemy as Nurse;
+        nurse = enemy as NurseZombie;
     }
 
     public override void Enter()
@@ -28,13 +28,13 @@ public class Nurse_ChaseState : E_BaseState    // 플레이어를 추격하는 �
         if (nurse.IsPlayerLookingAtMe())  // 플레이어와 마주보고 있을 때 
         {
             // 이 시점에 글리치 효과를 넣어주면 좋을 듯 합니다.
-            fsm.ChangeState(new Nurse_IdleState(nurse, fsm));
+            fsm.ChangeState(new NurseZombie_IdleState(nurse, fsm));
             return;
         }
 
         if (nurse.IsNearPlayer())  // 천사가 일정 거리 안에 있다면
         {
-            fsm.ChangeState(new Nurse_AttackState(nurse, fsm));  // 공격 상태로 전환
+            fsm.ChangeState(new NurseZombie_AttackState(nurse, fsm));  // 공격 상태로 전환
             return;
         }
 

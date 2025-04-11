@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Nurse : Enemy   // 웃는 천사 기믹
+public class NurseZombie : Enemy   // 웃는 천사 기믹
 {
     public Animator nurseAnimator { get; private set; }
     public float moveSpeed = 4.0f;  // 이동 속도
@@ -17,7 +17,7 @@ public class Nurse : Enemy   // 웃는 천사 기믹
     private void InitNurseFSM()
     {
         fsm = new E_StateMachine();
-        fsm.ChangeState(new Nurse_IdleState(this, fsm));
+        fsm.ChangeState(new NurseZombie_IdleState(this, fsm));
         Debug.Log("FSM 작동 돼?");
     }
 

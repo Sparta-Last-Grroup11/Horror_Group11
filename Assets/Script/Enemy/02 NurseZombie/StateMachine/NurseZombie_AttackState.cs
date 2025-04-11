@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Nurse_AttackState : E_BaseState  // 플레이어를 공격하는 상태
+public class NurseZombie_AttackState : E_BaseState  // 플레이어를 공격하는 상태
 {
-    private Nurse nurse;
+    private NurseZombie nurse;
 
-    public Nurse_AttackState(Enemy enemy, E_StateMachine fsm) : base(enemy, fsm)
+    public NurseZombie_AttackState(Enemy enemy, E_StateMachine fsm) : base(enemy, fsm)
     {
-        nurse = enemy as Nurse;
+        nurse = enemy as NurseZombie;
     }
 
     public override void Enter()

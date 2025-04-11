@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class SkinLess : Enemy   // 스네일맨 기믹
+public class SkinLessZombie : Enemy   // 스네일맨 기믹
 {
     public Animator SkinLessAnimator { get; private set; }
     public NavMeshAgent Agent { get; private set; }
@@ -26,7 +26,7 @@ public class SkinLess : Enemy   // 스네일맨 기믹
     {
         fsm = new E_StateMachine();
         int startIndex = GetClosestPatrolPointIndex();
-        fsm.ChangeState(new SkinLess_PatrolState(this, fsm, patrolPoints, startIndex));
+        fsm.ChangeState(new SkinLessZombie_PatrolState(this, fsm, patrolPoints, startIndex));
     }
 
     private void Start()
