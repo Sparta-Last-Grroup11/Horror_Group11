@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,9 +14,17 @@ public class GameManager : Singleton<GameManager>
     protected override void Awake()
     {
         base.Awake();
+        SpawnCharacter();
         subCam = Instantiate(Resources.Load<GameObject>("UI/Sub Camera")).GetComponent<Camera>();
     }
 
+    void SpawnCharacter()
+    {
+        GameObject VirtualCam = Instantiate(Resources.Load<GameObject>("Player/Virtual Camera"));
+        player = Instantiate(Resources.Load<GameObject>("Player/Player"), spawnPoint, Quaternion.identity).GetComponent<Player>();
+        player.virtualCamera = VirtualCam.GetComponent<CinemachineVirtualCamera>();
+        VirtualCam.GetComponent<CinemachineVirtualCamera>().Follow = player.cameraContainer;
+    }
     private void OnDrawGizmos()
     {
 #if UNITY_EDITOR

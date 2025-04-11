@@ -10,6 +10,7 @@ public class Nurse : Enemy   // 웃는 천사 기믹
     {
         base.Awake();
         nurseAnimator = GetComponentInChildren<Animator>();
+
         InitNurseFSM();
     }
 
