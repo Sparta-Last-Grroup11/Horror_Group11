@@ -9,7 +9,7 @@ public class SkinLess : Enemy   // 스네일맨 기믹
 
     public Transform[] patrolPoints;  //  좀비가 돌아다니는 길
     public float patrolSpeed = 1.5f;  // 평소 정찰 속도
-    public float chaseSpeed = 5f;  // 플레이어 쫓아오는 속도
+    public float chaseSpeed = 80f;  // 플레이어 쫓아오는 속도
     public float detectionRange = 5f;  // 감지가 풀리는 거리
 
     protected override void Awake()
@@ -25,7 +25,8 @@ public class SkinLess : Enemy   // 스네일맨 기믹
     private void InitSkinLessFSM()
     {
         fsm = new E_StateMachine();
-        fsm.ChangeState(new SkinLess_PatrolState(this, fsm, patrolPoints));
+        int startIndex = GetClosestPatrolPointIndex();
+        fsm.ChangeState(new SkinLess_PatrolState(this, fsm, patrolPoints, startIndex));
     }
 
     private void Start()
@@ -36,12 +37,24 @@ public class SkinLess : Enemy   // 스네일맨 기믹
     public void MoveTo(Vector3 pos)
     {
         Agent.SetDestination(pos);  // NavMesh로 pos까지 가도록 설정
-        SkinLessAnimator.SetFloat("Speed", Agent.speed);
     }
 
-    public bool IsPlayerFar()
+    public int GetClosestPatrolPointIndex()  // 가장 가까운 지점으로 돌아가 순찰하도록 설정
     {
-        return Vector3.Distance(playerTransform.position, transform.position) > detectionRange;
+        int closestIndex = 0;
+        float minDistance = Mathf.Infinity;
+
+        for (int i = 0; i < patrolPoints.Length; i++)
+        {
+            float dist = Vector3.Distance(transform.position, patrolPoints[i].position);
+            if (dist < minDistance)
+            {
+                minDistance = dist;
+                closestIndex = i;
+            }
+        }
+
+        return closestIndex;
     }
 
 }
