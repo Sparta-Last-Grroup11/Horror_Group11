@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5994075670654848883}
   - component: {fileID: 3612643875533458559}
   - component: {fileID: 9208987637086988267}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bank_Safe_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 8908011563543995363}
   - component: {fileID: 3872629681225927814}
   - component: {fileID: 6334733826548030591}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OpenDial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 3607126405769338361}
   - component: {fileID: 8616508493157438397}
   - component: {fileID: 5205730678280981331}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bank_Safe_Main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,7 +444,7 @@ GameObject:
   - component: {fileID: 1182169786256165635}
   - component: {fileID: 7834273086678484264}
   - component: {fileID: 8889622095038276553}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rubber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -527,7 +527,7 @@ GameObject:
   - component: {fileID: 1154040826613310050}
   - component: {fileID: 1193388807092260794}
   - component: {fileID: 1942534479820645215}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SurpriseSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -674,7 +674,7 @@ GameObject:
   - component: {fileID: 4120215823285278753}
   - component: {fileID: 8874721271800130630}
   - component: {fileID: 2366376301470472030}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -759,7 +759,7 @@ GameObject:
   - component: {fileID: 6314758879311943006}
   - component: {fileID: 5029512524686704685}
   - component: {fileID: 2308275742266269428}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -842,7 +842,7 @@ GameObject:
   - component: {fileID: 5063548301785419755}
   - component: {fileID: 5748530287572234833}
   - component: {fileID: 561365451395716450}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Knob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -925,7 +925,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5748891430973016653}
   - component: {fileID: 1734149423324033964}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Safe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -973,7 +973,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3361314337239269375}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bank_Safe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1006,7 +1006,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6935311583183942927}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1040,7 +1040,7 @@ GameObject:
   - component: {fileID: 1755296815056247485}
   - component: {fileID: 601613495712829216}
   - component: {fileID: 587364813698762276}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bank_Safe_Sh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1144,7 +1144,7 @@ GameObject:
   - component: {fileID: 5696520613211846011}
   - component: {fileID: 124878053520946414}
   - component: {fileID: 3148273073748579534}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1227,7 +1227,7 @@ GameObject:
   - component: {fileID: 1913872960658628928}
   - component: {fileID: 1899403929435289308}
   - component: {fileID: 1377050540182107497}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bank_Safe_Jt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1310,7 +1310,7 @@ GameObject:
   - component: {fileID: 1263840035904579914}
   - component: {fileID: 1134303589798406068}
   - component: {fileID: 2906802865698078135}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1390,10 +1390,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3607126405769338361}
     m_Modifications:
+    - target: {fileID: 2526857618324426094, guid: 05e314c9e067138498f7c1e1f6aca83d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3445352999058701145, guid: 05e314c9e067138498f7c1e1f6aca83d,
         type: 3}
       propertyPath: m_Name
       value: SmallKey_Rusty
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445352999058701145, guid: 05e314c9e067138498f7c1e1f6aca83d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3445352999058701222, guid: 05e314c9e067138498f7c1e1f6aca83d,
         type: 3}

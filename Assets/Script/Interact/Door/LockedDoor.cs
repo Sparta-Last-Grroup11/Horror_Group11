@@ -1,16 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LockedDoor : ControlDoor,I_Interactable
 {
     [SerializeField] private EItemID keyID;
     [SerializeField] private GetItemList itemList;
-
+    private bool isOpened;
     public void OnInteraction()
     {
         OpenLockedDoor();
-
     }
 
     void OpenLockedDoor()
@@ -21,20 +21,28 @@ public class LockedDoor : ControlDoor,I_Interactable
             return;
         }
 */
-        if ( keyID != EItemID.None)
+        if ( keyID != EItemID.None && !itemList.HaveItem(keyID))
         {
-            if (itemList.HaveItem(keyID))
-            {
-                OpenTheDoor();
-            }
-            else
-            {
                 Debug.Log("You don't have key");
-            }
+                return;
         }
         else
         {
+            OpenCloseDoor();
+        }
+    }
+
+    void OpenCloseDoor()
+    {
+        if (isOpened)
+        {
             OpenTheDoor();
+            isOpened = false;
+        }
+        else
+        {
+            CloseTheDoor();
+            isOpened = true;
         }
     }
 }
