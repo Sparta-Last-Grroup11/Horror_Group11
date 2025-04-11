@@ -36,7 +36,10 @@ public class P_Interaction : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Started && curInteractGameObject != null)
         {
-            // 상호작용
+            // 상호작용 //Getcoponent
+            if (curInteractGameObject == null || curInteractable == null)
+                return;
+            curInteractable.OnInteraction();
         }
     }
 }
