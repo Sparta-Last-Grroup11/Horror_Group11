@@ -4,7 +4,7 @@ using Cinemachine;
 
 public class Player : MonoBehaviour
 {
-    private PlayerState curState;
+    private PlayerStateMachine P_StateMachine;
     private CharacterController characterController;
 
     public CharacterController CharacterController => characterController;
@@ -45,12 +45,13 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
+        P_StateMachine = new PlayerStateMachine();
     }
 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        ChangeState(new PlayerMoveState(this));
+        P_StateMachine.ChangeState(new PlayerMoveState(this));
 
         if (virtualCamera != null)
         {
@@ -60,14 +61,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        curState?.Update();
-    }
-
-    public void ChangeState(PlayerState newState)
-    {
-        curState?.Exit();
-        curState = newState;
-        curState.Enter();
+        P_StateMachine.Update();
     }
 
     public void MoveInput(InputAction.CallbackContext context)
