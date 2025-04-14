@@ -55,6 +55,7 @@ public class TurnLight : MonoBehaviour, I_Interactable
 
     public void OnInteraction()
     {
+        if (!PuzzleManager.Instance.GetIsPowerOn()) return;
         SetLightsIntensity();
     }
 }
