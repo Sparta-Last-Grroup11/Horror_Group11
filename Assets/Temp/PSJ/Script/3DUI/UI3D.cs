@@ -27,9 +27,7 @@ public class UI3D : BaseUI
         var canvas = UIManager.Instance.mainCanvas;
         var subCam = GameManager.Instance.subCam;
 
-        curObj = Object.Instantiate(prefab, subCam.transform);
-        curObj.transform.localPosition = new Vector3(0, 0, 1);
-        curObj.transform.LookAt(subCam.transform);
+        curObj = UIManager.Instance.MakePrefabInSubCam(prefab);
         objOriginalPos = curObj.transform.localPosition;
         curObj.GetComponent<ItemOnUI>().Init(description);
     }
@@ -48,7 +46,7 @@ public class UI3D : BaseUI
         base.OnDestroy();
         if (curObj != null)
         {
-            Destroy(curObj);
+            UIManager.Instance.RemovePrefabInSumCam();
             curObj = null;
         }
     }
@@ -132,12 +130,7 @@ public class UI3D : BaseUI
         }
     }
 
-    public void DestroyByOther()
-    {
-        DestroySelf();
-    }
-
-    protected override void DestroySelf()
+    public override void DestroySelf()
     {
         UIManager.Instance.IsUiActing = false;
         UIManager.Instance.CurUI3D = null;

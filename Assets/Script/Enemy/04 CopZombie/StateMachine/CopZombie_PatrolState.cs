@@ -7,8 +7,6 @@ public class CopZombie_PatrolState : E_BaseState
 {
     private CopZombie copZombie;
 
-    private Vector3 point;
-
     private float afterSetPoint;
     private float setPointRate = 10f;
 
@@ -28,11 +26,11 @@ public class CopZombie_PatrolState : E_BaseState
         // 순찰 방식 및 상태 변환 조건
         copZombie.copZombieAnim.SetFloat("MoveSpeed", copZombie.copzombieAgent.velocity.magnitude);
         Patrol();
-    }
 
-    public override void Exit()
-    {
-        
+        if (enemy.CanSeePlayer())
+        {
+            fsm.ChangeState(new CopZombie_ChaseState(copZombie, fsm));
+        }
     }
 
     private void Patrol()

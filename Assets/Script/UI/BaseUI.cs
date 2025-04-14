@@ -21,7 +21,7 @@ public abstract class BaseUI : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
     }
 
-    protected virtual void DestroySelf()
+    public virtual void DestroySelf()
     {
         Destroy(gameObject);
     }

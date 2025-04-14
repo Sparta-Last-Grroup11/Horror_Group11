@@ -11,5 +11,7 @@ public class UITestCOde : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
             item.OnInteraction();
+        else if (Input.GetKeyDown(KeyCode.Q))
+            UIManager.Instance.show<PopupInventoryUI>();
     }
 }
