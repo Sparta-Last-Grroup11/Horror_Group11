@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class OpenPuzzle : MonoBehaviour, I_Interactable
@@ -7,14 +8,7 @@ public class OpenPuzzle : MonoBehaviour, I_Interactable
 
     public void OnInteraction()
     {
-            UIManager.Instance.UI3DManager.Open3DUI(puzzle);
-            LockCursor();
-    }
-
-    void LockCursor() // 시야 고정
-    {
-        bool toggle = Cursor.lockState == CursorLockMode.Locked;
-        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
+        UIManager.Instance.show<UI3D>().Init(puzzle);
     }
 
     public void OpenSaveDoor()

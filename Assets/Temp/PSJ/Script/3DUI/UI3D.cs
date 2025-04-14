@@ -132,6 +132,11 @@ public class UI3D : BaseUI
         }
     }
 
+    public void DestroyByOther()
+    {
+        DestroySelf();
+    }
+
     protected override void DestroySelf()
     {
         UIManager.Instance.IsUiActing = false;

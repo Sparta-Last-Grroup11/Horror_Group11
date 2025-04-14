@@ -14,7 +14,7 @@ public class SafeLockPuzzle : ItemOnUI
     private int arrayLength;
     public bool isLeft;
 
-    public override void Init(string input = "")
+    public override void Init(string description = "")
     {
         audio = GetComponent<AudioSource>();
         for (int i = 0; i < rightArray.Length; i++) //암호 초기화
@@ -24,9 +24,8 @@ public class SafeLockPuzzle : ItemOnUI
         }
     }
 
-    protected override void Update()
+    protected  void Update()
     {
-        base.Update();
         RotateDial();
     }
     public void RotateDial() //다이얼 돌리기
@@ -90,14 +89,8 @@ public class SafeLockPuzzle : ItemOnUI
 
     void SuccessOpen() // 비밀번호를 맞췄을 경우
     {
-        LockCursor();
+        Debug.Log("clear");
         PuzzleManager.Instance.GateHouseSaveDial.OpenSaveDoor();
-        UIManager.Instance.UI3DManager.ui3DInterface.CloseUI();
-        Destroy(gameObject);
+        UIManager.Instance.CurUI3D.DestroyByOther();
     }
-    void LockCursor() //커서 고정 해제
-    {
-        bool toggle = Cursor.lockState == CursorLockMode.Locked;
-        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
-    }   
 }
