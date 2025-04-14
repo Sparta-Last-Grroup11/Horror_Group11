@@ -5,7 +5,7 @@ public abstract class Enemy : MonoBehaviour
     protected E_StateMachine fsm;
     protected Transform playerTransform;
     public Transform PlayerTransform => playerTransform;  // 외부 접근용 getter
-    private LayerMask playerLayer;
+    [SerializeField] private LayerMask playerLayer;
 
     [SerializeField] private float viewAngle = 90f;  
 
@@ -50,12 +50,9 @@ public abstract class Enemy : MonoBehaviour
         if (angle < viewAngle / 2f)  // 왼쪽 오른쪽 시야각 안에 있는지 판별
         {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, dirToPlayer, out hit, distanceToPlayer, ~0))   
+            if (Physics.Raycast(transform.position, dirToPlayer, out hit, distanceToPlayer, playerLayer))   
             {
-                if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Player"))
-                {
-                    return true;
-                }
+                return true;
             }
         }
         return false;

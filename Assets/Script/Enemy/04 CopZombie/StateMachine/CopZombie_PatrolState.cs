@@ -7,8 +7,6 @@ public class CopZombie_PatrolState : E_BaseState
 {
     private CopZombie copZombie;
 
-    private Vector3 point;
-
     private float afterSetPoint;
     private float setPointRate = 10f;
 
@@ -20,6 +18,7 @@ public class CopZombie_PatrolState : E_BaseState
     public override void Enter()
     {
         copZombie.target = copZombie.transform;
+        Debug.Log("순찰 시작");
     }
 
     public override void Update()
