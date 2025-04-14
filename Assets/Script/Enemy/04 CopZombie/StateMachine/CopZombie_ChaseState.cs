@@ -2,17 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CopZombie_ChaseState : MonoBehaviour
+public class CopZombie_ChaseState : E_BaseState
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public CopZombie_ChaseState(Enemy enemy, E_StateMachine fsm) : base(enemy, fsm) { }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

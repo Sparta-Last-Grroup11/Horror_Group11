@@ -1,18 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CopZombie : Enemy
 {
-    E_StateMachine curEnemyState;
+    [HideInInspector] public NavMeshAgent copzombieAgent;
+
+    public Transform target;
+
+    [SerializeField] private float copzombiePatrolSpeed = 5f;
+    public Animator copZombieAnim;
+    public float patrolRange = 20f;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        copzombieAgent = GetComponent<NavMeshAgent>();
+        copZombieAnim = GetComponentInChildren<Animator>();
+    }
 
     private void Start()
     {
-        
-    }
-
-    public void ChangeState(PlayerState newState)
-    {
-
+        fsm.ChangeState(new CopZombie_PatrolState(this, fsm));
     }
 }
