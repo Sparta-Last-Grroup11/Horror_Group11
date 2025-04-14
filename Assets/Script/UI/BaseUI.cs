@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.IO.LowLevel.Unsafe;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class BaseUI : MonoBehaviour
+public abstract class BaseUI : MonoBehaviour
 {
     [SerializeField] private bool isCursorFree;
 
@@ -13,10 +15,14 @@ public class BaseUI : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
     }
 
+    protected virtual void OnDestroy()
+    {
+        if (isCursorFree)
+            Cursor.lockState = CursorLockMode.Locked;
+    }
+
     protected virtual void DestroySelf()
     {
-        if(isCursorFree)
-            Cursor.lockState = CursorLockMode.Locked;
         Destroy(gameObject);
     }
 }

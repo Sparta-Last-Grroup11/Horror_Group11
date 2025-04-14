@@ -2,7 +2,7 @@ using System.Collections;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
-public class PopupUI : BaseUI
+public abstract class PopupUI : BaseUI
 {
     private CanvasGroup canvasGroup;
 
