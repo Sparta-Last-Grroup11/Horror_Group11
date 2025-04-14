@@ -463,7 +463,17 @@ PrefabInstance:
     - target: {fileID: 6465603039982787917, guid: 50c99bf2cc9aa50428af2b2b698a8c80,
         type: 3}
       propertyPath: m_Speed
-      value: 2
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465603039982787917, guid: 50c99bf2cc9aa50428af2b2b698a8c80,
+        type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465603039982787917, guid: 50c99bf2cc9aa50428af2b2b698a8c80,
+        type: 3}
+      propertyPath: m_Acceleration
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6465603039982787917, guid: 50c99bf2cc9aa50428af2b2b698a8c80,
         type: 3}
@@ -486,8 +496,12 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 9072387390313870961, guid: 50c99bf2cc9aa50428af2b2b698a8c80,
         type: 3}
-      insertIndex: 2
+      insertIndex: 1
       addedObject: {fileID: 1817729678}
+    - targetCorrespondingSourceObject: {fileID: 9072387390313870961, guid: 50c99bf2cc9aa50428af2b2b698a8c80,
+        type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 1817729680}
   m_SourcePrefab: {fileID: 100100000, guid: 50c99bf2cc9aa50428af2b2b698a8c80, type: 3}
 --- !u!195 &1817729674 stripped
 NavMeshAgent:
@@ -518,10 +532,33 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 32
   m_CollisionDetection: 0
+--- !u!136 &1817729680
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132246191}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1911519203
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,12 +16,17 @@ public class NurseZombie_IdleState : E_BaseState  // 기본 상태일 때
 
     public override void Update()
     {
-        if (enemy.CanSeePlayer() && !nurse.IsPlayerLookingAtMe())  // 1) 플레이어가 처음 시야각에 들어오고, 2) 플레이어가 날 보지 않을 때 
+        Debug.Log("IdleState: Update 진입");
+
+        bool canSee = enemy.CanSeePlayer();
+        bool isPlayerLooking = nurse.IsPlayerLookingAtMe();
+
+        Debug.Log($"CanSeePlayer: {canSee}, IsPlayerLookingAtMe: {isPlayerLooking}");
+
+        if (canSee && !isPlayerLooking)
         {
-            fsm.ChangeState(new NurseZombie_ChaseState(nurse, fsm));  // 추적Chase 상태로 전환
-            Debug.Log("추적 왜 안 돼?");
+            Debug.Log("추적상태로 전환");
+            fsm.ChangeState(new NurseZombie_ChaseState(nurse, fsm));
         }
     }
-
-
 }

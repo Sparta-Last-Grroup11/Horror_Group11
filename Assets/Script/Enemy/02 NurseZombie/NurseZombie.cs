@@ -6,11 +6,10 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹
     public float moveSpeed = 4.0f;  // 이동 속도
     public float attackRange = 2f;  // 공격 범위
 
-    protected override void Awake()
+    protected override void Start()
     {
-        base.Awake();
+        base.Start();
         nurseAnimator = GetComponentInChildren<Animator>();
-
         InitNurseFSM();
     }
 
@@ -19,6 +18,12 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹
         fsm = new E_StateMachine();
         fsm.ChangeState(new NurseZombie_IdleState(this, fsm));
         Debug.Log("FSM 작동 돼?");
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        Debug.Log("NurseZombie.Update() 호출됨");  // 이거 찍히는지 먼저 확인
     }
 
     public bool IsPlayerLookingAtMe()

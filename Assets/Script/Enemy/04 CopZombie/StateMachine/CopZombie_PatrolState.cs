@@ -20,7 +20,6 @@ public class CopZombie_PatrolState : E_BaseState
     public override void Enter()
     {
         copZombie.target = copZombie.transform;
-        Debug.Log("순찰 시작");
     }
 
     public override void Update()
@@ -28,11 +27,11 @@ public class CopZombie_PatrolState : E_BaseState
         // 순찰 방식 및 상태 변환 조건
         copZombie.copZombieAnim.SetFloat("MoveSpeed", copZombie.copzombieAgent.velocity.magnitude);
         Patrol();
-    }
 
-    public override void Exit()
-    {
-        
+        if (enemy.CanSeePlayer())
+        {
+            fsm.ChangeState(new CopZombie_ChaseState(copZombie, fsm));
+        }
     }
 
     private void Patrol()
