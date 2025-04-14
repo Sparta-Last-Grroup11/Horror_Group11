@@ -29,6 +29,11 @@ public class CopZombie_ChaseState : E_BaseState
         }
     }
 
+    public override void Exit()
+    {
+        copZombie.copzombieAgent.speed = 1.5f;
+    }
+
     private bool PlayerDisappear()
     {
         if (copZombie.CanSeePlayer())
