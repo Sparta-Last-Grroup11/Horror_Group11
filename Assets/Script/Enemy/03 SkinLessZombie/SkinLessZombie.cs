@@ -12,14 +12,15 @@ public class SkinLessZombie : Enemy   // 스네일맨 기믹
     public float chaseSpeed = 80f;  // 플레이어 쫓아오는 속도
     public float detectionRange = 5f;  // 감지가 풀리는 거리
 
-    protected override void Awake()
+    protected override void Start()
     {
-        base.Awake();
+        base.Start();
         OriginalPosition = transform.position;
         SkinLessAnimator = GetComponentInChildren<Animator>();
         Agent = GetComponent<NavMeshAgent>();
 
         InitSkinLessFSM();
+        fsm.Update();
     }
 
     private void InitSkinLessFSM()
@@ -27,11 +28,6 @@ public class SkinLessZombie : Enemy   // 스네일맨 기믹
         fsm = new E_StateMachine();
         int startIndex = GetClosestPatrolPointIndex();
         fsm.ChangeState(new SkinLessZombie_PatrolState(this, fsm, patrolPoints, startIndex));
-    }
-
-    private void Start()
-    {
-        fsm.Update();
     }
 
     public void MoveTo(Vector3 pos)

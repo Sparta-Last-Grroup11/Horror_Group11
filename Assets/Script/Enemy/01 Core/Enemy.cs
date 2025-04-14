@@ -3,26 +3,33 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour
 {
     protected E_StateMachine fsm;
-
     protected Transform playerTransform;
     public Transform PlayerTransform => playerTransform;  // 외부 접근용 getter
-    public LayerMask playerLayer;
+    private LayerMask playerLayer;
+
     [SerializeField] private float viewAngle = 90f;  
 
-    protected virtual void Awake()
+    protected virtual void Start()
     {
-        fsm = new E_StateMachine();
+        InitPlayerTransform();
+        InitPlayerLayer();
+    }
 
+    private void InitPlayerTransform()
+    {
         if (GameManager.Instance == null || GameManager.Instance.player == null)
         {
-            Debug.Log("GameManager나 player가 null입니다.");
+            Debug.Log("[Enemy] GameManager나 player가 null입니다.");
             playerTransform = null;
         }
         else
         {
             playerTransform = GameManager.Instance.player.transform;
         }
+    }
 
+    private void InitPlayerLayer()
+    {
         if (playerLayer == 0)
             playerLayer = LayerMask.GetMask("Player");
     }

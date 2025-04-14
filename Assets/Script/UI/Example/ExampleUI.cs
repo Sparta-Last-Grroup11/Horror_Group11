@@ -22,4 +22,9 @@ public class ExampleUI : PopupUI
         base.Start();
         Invoke(nameof(DestroySelf), 2.0f);
     }
+
+    private void DestroySelf()
+    {
+        Destroy(gameObject);
+    }
 }
