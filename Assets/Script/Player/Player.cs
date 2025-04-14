@@ -2,13 +2,14 @@ using UnityEngine.InputSystem;
 using UnityEngine;
 using Cinemachine;
 
-public class Player : MonoBehaviour
+public class Player : PlayerInputController
 {
+    // Components
     private PlayerStateMachine P_StateMachine;
     private CharacterController characterController;
-
     public CharacterController CharacterController => characterController;
 
+    // Input Value
     public Vector2 moveInput;
     public Vector2 lookInput;
     public bool jumpPressed;
@@ -38,13 +39,24 @@ public class Player : MonoBehaviour
     public float walkShakeFrequency = 0.02f;
     public float runShakeFrequency = 0.05f;
     public float shakeDuration = 0.1f;
-
     [HideInInspector] public float shakeTimer = 0f;
     [HideInInspector] public CinemachineBasicMultiChannelPerlin camNoise;
+    
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         characterController = GetComponent<CharacterController>();
+
+        moveAction.performed += OnMovePerformed;
+        moveAction.canceled += OnMoveCanceled;
+        lookAction.performed += OnLookPerformed;
+        lookAction.canceled += OnLookCanceled;
+        jumpAction.started += OnJumpStarted;
+        jumpAction.canceled += OnJumpCanceled;
+        runAction.performed += OnRunPerformed;
+        runAction.canceled += OnRunCanceled;
+
         P_StateMachine = new PlayerStateMachine();
     }
 
@@ -64,34 +76,43 @@ public class Player : MonoBehaviour
         P_StateMachine.Update();
     }
 
-    public void MoveInput(InputAction.CallbackContext context)
+    private void OnMovePerformed(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Performed)
-            moveInput = context.ReadValue<Vector2>();
-        else if (context.phase == InputActionPhase.Canceled)
-            moveInput = Vector2.zero;
+        moveInput = context.ReadValue<Vector2>();
     }
 
-    public void LookInput(InputAction.CallbackContext context)
+    private void OnMoveCanceled(InputAction.CallbackContext context)
+    {
+        moveInput = Vector2.zero;
+    }
+
+    private void OnLookPerformed(InputAction.CallbackContext context)
     {
         lookInput = context.ReadValue<Vector2>();
     }
 
-    public void JumpInput(InputAction.CallbackContext context)
+    private void OnLookCanceled(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Started)
-            jumpPressed = true;
+        lookInput = Vector2.zero;
     }
 
-    public void RunInput(InputAction.CallbackContext context)
+    private void OnJumpStarted(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Performed)
-        {
-            runPressing = true;
-        }
-        else if (context.phase == InputActionPhase.Canceled)
-        {
-            runPressing = false;
-        }
+        jumpPressed = true;
+    }
+
+    private void OnJumpCanceled(InputAction.CallbackContext context)
+    {
+        jumpPressed = false;
+    }
+
+    private void OnRunPerformed(InputAction.CallbackContext context)
+    {
+        runPressing = true;
+    }
+
+    private void OnRunCanceled(InputAction.CallbackContext context)
+    {
+        runPressing = false;
     }
 }
