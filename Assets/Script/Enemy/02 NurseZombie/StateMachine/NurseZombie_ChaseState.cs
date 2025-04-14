@@ -21,10 +21,6 @@ public class NurseZombie_ChaseState : E_BaseState    // 플레이어를 추격�
 
         nurseZombie.MoveTowardsPlayer(nurseZombie.moveSpeed);
 
-        //Vector3 direction = (nurseZombie.PlayerTransform.position - nurseZombie.transform.position).normalized;  // 플레이어 방향으로 이동    
-        //direction.y = 0;  // y축 방향은 무시
-        //nurseZombie.transform.position += direction * nurseZombie.moveSpeed * Time.deltaTime;  // 플레이어 쪽으로 이동
-
         if (nurseZombie.IsPlayerLookingAtMe())  // 플레이어와 마주보고 있을 때 
         {
             // 이 시점에 글리치 효과를 넣어주면 좋을 듯 합니다.
