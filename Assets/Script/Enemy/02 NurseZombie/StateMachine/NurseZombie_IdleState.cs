@@ -16,12 +16,8 @@ public class NurseZombie_IdleState : E_BaseState  // 기본 상태일 때
 
     public override void Update()
     {
-        Debug.Log("IdleState: Update 진입");
-
         bool canSee = enemy.CanSeePlayer();
         bool isPlayerLooking = nurseZombie.IsPlayerLookingAtMe();
-
-        Debug.Log($"CanSeePlayer: {canSee}, IsPlayerLookingAtMe: {isPlayerLooking}");
 
         if (canSee && !isPlayerLooking)
         {
