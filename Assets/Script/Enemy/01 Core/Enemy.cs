@@ -5,14 +5,13 @@ public abstract class Enemy : MonoBehaviour
     protected E_StateMachine fsm;
     protected Transform playerTransform;
     public Transform PlayerTransform => playerTransform;  // 외부 접근용 getter
-    [SerializeField] private LayerMask playerLayer;
+    [SerializeField] private LayerMask notEnemyLayer;
 
     [SerializeField] private float viewAngle = 90f;  
 
     protected virtual void Start()
     {
         InitPlayerTransform();
-        InitPlayerLayer();
     }
 
     private void InitPlayerTransform()
@@ -26,12 +25,6 @@ public abstract class Enemy : MonoBehaviour
         {
             playerTransform = GameManager.Instance.player.transform;
         }
-    }
-
-    private void InitPlayerLayer()
-    {
-        if (playerLayer == 0)
-            playerLayer = LayerMask.GetMask("Player");
     }
 
     protected virtual void Update()
@@ -50,11 +43,16 @@ public abstract class Enemy : MonoBehaviour
         if (angle < viewAngle / 2f)  // 왼쪽 오른쪽 시야각 안에 있는지 판별
         {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, dirToPlayer, out hit, distanceToPlayer, playerLayer))   
+            if (Physics.Raycast(transform.position, dirToPlayer, out hit, distanceToPlayer, notEnemyLayer))   
             {
-                return true;
+                if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Player"))
+                {
+                    Debug.Log("인식됨");
+                    return true;
+                }
             }
         }
+        Debug.Log("인식안됨");
         return false;
     }
 }
