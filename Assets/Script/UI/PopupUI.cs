@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 public class PopupUI : BaseUI
@@ -8,6 +9,10 @@ public class PopupUI : BaseUI
     [SerializeField] private float duration = 0.5f;
     private float elapsed = 0f;
 
+    [Header("Destroy About")]
+    [SerializeField] private bool DestroyByTime;
+    [SerializeField] private float DestroyTime;
+
     private void OnEnable()
     {
         gameObject.AddComponent<CanvasGroup>();
@@ -16,6 +21,11 @@ public class PopupUI : BaseUI
             canvasGroup = GetComponent<CanvasGroup>();
 
         StartCoroutine(FadeIn());
+
+        if (DestroyByTime == false)
+            return;
+
+        Invoke(nameof(FadeOutAndDestroyFunc), DestroyTime + duration);
     }
 
     private IEnumerator FadeIn()
@@ -54,5 +64,16 @@ public class PopupUI : BaseUI
         canvasGroup.alpha = 0f;
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;
+    }
+
+    public void FadeOutAndDestroyFunc()
+    {
+        StartCoroutine(FadeOutAndDestroy());
+    }
+
+    private IEnumerator FadeOutAndDestroy()
+    {
+        yield return StartCoroutine(FadeOut());
+        Destroy(gameObject);
     }
 }
