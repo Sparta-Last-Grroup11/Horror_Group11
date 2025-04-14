@@ -91,6 +91,6 @@ public class SafeLockPuzzle : ItemOnUI
     {
         Debug.Log("clear");
         PuzzleManager.Instance.GateHouseSaveDial.OpenSaveDoor();
-        UIManager.Instance.CurUI3D.DestroyByOther();
+        UIManager.Instance.CurUI3D.DestroySelf();
     }
 }
