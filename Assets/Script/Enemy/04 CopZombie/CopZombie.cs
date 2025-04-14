@@ -9,11 +9,16 @@ public class CopZombie : Enemy
     public Animator copZombieAnim;
     public float patrolRange = 20f;
 
+    private void Awake()
+    {
+        copzombieAgent = GetComponent<NavMeshAgent>();
+        copZombieAnim = GetComponentInChildren<Animator>();
+    }
+
     protected override void Start()
     {
         base.Start();
-        copzombieAgent = GetComponent<NavMeshAgent>();
-        copZombieAnim = GetComponentInChildren<Animator>();
+        fsm = new E_StateMachine();
         fsm.ChangeState(new CopZombie_PatrolState(this, fsm));
     }
 }
