@@ -16,7 +16,6 @@ public class P_Flash : PlayerInputController
 
     public void OnFlashStarted(InputAction.CallbackContext context)
     {
-        Debug.Log("눌림");
         isFlash = !isFlash;
         if (isFlash)
         {
