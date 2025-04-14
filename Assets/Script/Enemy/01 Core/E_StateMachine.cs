@@ -1,8 +1,8 @@
 public class E_StateMachine
 {
-    private I_State _currentState;
+    private E_BaseState _currentState;
 
-    public void ChangeState(I_State newState)
+    public void ChangeState(E_BaseState newState)
     {
         _currentState?.Exit();
         _currentState = newState; 

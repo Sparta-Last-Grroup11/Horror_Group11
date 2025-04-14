@@ -1,4 +1,6 @@
-public abstract class E_BaseState : I_State
+using UnityEngine;
+
+public class E_BaseState : MonoBehaviour
 {
     protected Enemy enemy;
     protected E_StateMachine fsm;
