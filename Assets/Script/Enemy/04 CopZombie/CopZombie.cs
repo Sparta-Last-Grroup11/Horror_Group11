@@ -6,8 +6,6 @@ public class CopZombie : Enemy
     [HideInInspector] public NavMeshAgent copzombieAgent;
 
     public Transform target;
-
-    [SerializeField] private float copzombiePatrolSpeed = 5f;
     public Animator copZombieAnim;
     public float patrolRange = 20f;
 
