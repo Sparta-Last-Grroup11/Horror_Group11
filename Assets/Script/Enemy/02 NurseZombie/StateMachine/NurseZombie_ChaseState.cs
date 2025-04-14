@@ -2,39 +2,39 @@ using UnityEngine;
 
 public class NurseZombie_ChaseState : E_BaseState    // 플레이어를 추격하는 상태일 때
 {
-    public NurseZombie nurse;
+    public NurseZombie nurseZombie;
     //private float chaseTimer;
     //private const float maxChaseTime = 5f;
 
     public NurseZombie_ChaseState(Enemy enemy, E_StateMachine fsm) : base(enemy, fsm)
     {
-        nurse = enemy as NurseZombie;
+        nurseZombie = enemy as NurseZombie;
     }
 
     public override void Enter()
     {
         // chaseTimer = 0f;
-        nurse.nurseAnimator.SetBool("IsChasing", true);
+        nurseZombie.nurseAnimator.SetBool("IsChasing", true);
     }
 
     public override void Update()
     {
-        if (nurse.PlayerTransform == null) return;
+        if (nurseZombie.PlayerTransform == null) return;
 
-        Vector3 direction = (nurse.PlayerTransform.position - nurse.transform.position).normalized;  // 플레이어 방향으로 이동    
+        Vector3 direction = (nurseZombie.PlayerTransform.position - nurseZombie.transform.position).normalized;  // 플레이어 방향으로 이동    
         direction.y = 0;  // y축 방향은 무시
-        nurse.transform.position += direction * nurse.moveSpeed * Time.deltaTime;  // 플레이어 쪽으로 이동
+        nurseZombie.transform.position += direction * nurseZombie.moveSpeed * Time.deltaTime;  // 플레이어 쪽으로 이동
 
-        if (nurse.IsPlayerLookingAtMe())  // 플레이어와 마주보고 있을 때 
+        if (nurseZombie.IsPlayerLookingAtMe())  // 플레이어와 마주보고 있을 때 
         {
             // 이 시점에 글리치 효과를 넣어주면 좋을 듯 합니다.
-            fsm.ChangeState(new NurseZombie_IdleState(nurse, fsm));
+            fsm.ChangeState(new NurseZombie_IdleState(nurseZombie, fsm));
             return;
         }
 
-        if (nurse.IsNearPlayer())  // 천사가 일정 거리 안에 있다면
+        if (nurseZombie.IsNearPlayer())  // 천사가 일정 거리 안에 있다면
         {
-            fsm.ChangeState(new NurseZombie_AttackState(nurse, fsm));  // 공격 상태로 전환
+            fsm.ChangeState(new NurseZombie_AttackState(nurseZombie, fsm));  // 공격 상태로 전환
             return;
         }
 
