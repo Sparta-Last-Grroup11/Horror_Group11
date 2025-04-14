@@ -2881,6 +2881,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 767
   viewAngle: 90
+  rb: {fileID: 0}
   moveSpeed: 4
   attackRange: 2
 --- !u!54 &1389980022007079389
@@ -2929,10 +2930,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 0.47
+  m_Height: 1.88
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0.05, y: 0.96, z: -0.14}
 --- !u!1 &8794990791605349959
 GameObject:
   m_ObjectHideFlags: 0
