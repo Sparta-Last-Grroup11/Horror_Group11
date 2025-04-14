@@ -7,7 +7,7 @@ public abstract class Enemy : MonoBehaviour
     public Transform PlayerTransform => playerTransform;  // 외부 접근용 getter
     [SerializeField] private LayerMask notEnemyLayer;
 
-    [SerializeField] private float viewAngle = 90f;  
+    public float viewAngle = 90f;  
 
     protected virtual void Start()
     {
@@ -47,12 +47,10 @@ public abstract class Enemy : MonoBehaviour
             {
                 if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Player"))
                 {
-                    Debug.Log("인식됨");
                     return true;
                 }
             }
         }
-        Debug.Log("인식안됨");
         return false;
     }
 }

@@ -41,6 +41,7 @@ public class CopZombie_PatrolState : E_BaseState
         if (ReachedDestination())
         {
             copZombie.copZombieAnim.SetFloat("MoveSpeed", 0);
+            copZombie.viewAngle = 120f;
         }
 
         // 시간 지나면 새로운 목적지 설정
@@ -48,6 +49,7 @@ public class CopZombie_PatrolState : E_BaseState
         {
             Vector3 randomPosition = GetRandomPositionOnNavMesh();
             copZombie.copzombieAgent.SetDestination(randomPosition);
+            copZombie.viewAngle = 90f;
             afterSetPoint = 0f;
         }
     }
