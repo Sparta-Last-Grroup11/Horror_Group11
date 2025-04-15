@@ -3,43 +3,44 @@ using UnityEngine;
 public class SkinLessZombie_AmbushState : E_BaseState
 {
     private SkinLessZombie skinLessZombie;
-    private float losePlayerTimer = 0f;
-    private float loseThreshold = 5f;  // 5초 동안 안 보이면 포기
+    private Transform player;
 
-    public SkinLessZombie_AmbushState(Enemy enemy, E_StateMachine fsm) : base(enemy, fsm)
+    private bool hasTriggered = false;  // 플레이어에게 달려들기 시작했는지 여부
+    private float timer = 0f;  // 달려든 후 일정 시간 지나면 사라지게 만들 타이머
+    private float detectionRange = 5f;     // 플레이어 감지 범위
+    private float rushSpeed = 80f;         // 달려드는 속도
+    private float disappearTime = 1.5f;    // 사라지기까지 시간
+
+    public SkinLessZombie_AmbushState(SkinLessZombie enemy, E_StateMachine fsm) : base(enemy, fsm)
     {
         skinLessZombie = enemy as SkinLessZombie;
     }
 
     public override void Enter()
     {
-        skinLessZombie.Agent.speed = skinLessZombie.chaseSpeed;
-        skinLessZombie.SkinLessAnimator.speed = 1.5f;
+        base.Enter();
+
+        if (skinLessZombie.CanSeePlayer())
+        {
+            hasTriggered = true;
+            skinLessZombie.Agent.enabled = true;
+            skinLessZombie.Agent.speed = rushSpeed;
+            skinLessZombie.Agent.SetDestination(skinLessZombie.PlayerTransform.position);
+
+        }
         skinLessZombie.Agent.isStopped = false;
     }
 
     public override void Update()
     {
-        if (skinLessZombie.CanSeePlayer())
+        if (hasTriggered)
         {
-            skinLessZombie.Agent.SetDestination(skinLessZombie.PlayerTransform.position);
-            losePlayerTimer = 0f;  // 타이머 초기화
-        }
-        else
-        {
-            losePlayerTimer += Time.deltaTime;
-            if (losePlayerTimer >= loseThreshold)
+            timer += Time.deltaTime;
+            if (timer > disappearTime)
             {
-                fsm.ChangeState(new SkinLessZombie_ReturnState(skinLessZombie, fsm));
+                skinLessZombie.gameObject.SetActive(false);
             }
         }
-    }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
-        {
-            gameObject.SetActive(false);
-        }
     }
 }

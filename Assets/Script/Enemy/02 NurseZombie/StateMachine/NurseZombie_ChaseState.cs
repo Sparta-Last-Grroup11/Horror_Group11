@@ -11,7 +11,7 @@ public class NurseZombie_ChaseState : E_BaseState    // 플레이어를 추격�
 
     public override void Enter()
     {
-        nurseZombie.nurseAnimator.SetBool("IsChasing", true);
+        nurseZombie.nurseZombieAnim.SetBool("IsChasing", true);
     }
 
     public override void Update()

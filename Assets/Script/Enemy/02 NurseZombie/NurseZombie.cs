@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플레이어가 뒤돌면 쫓아옴)
 {
-    public Animator nurseAnimator { get; private set; }
+    public Animator nurseZombieAnim { get; private set; }
     public Rigidbody rb;
     public float moveSpeed = 4f;  // 이동 속도
     public float attackRange = 2f;  // 공격 범위
@@ -10,7 +10,7 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
     protected override void Start()
     {
         base.Start();
-        nurseAnimator = GetComponentInChildren<Animator>();
+        nurseZombieAnim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody>();
         rb.isKinematic = true;
 
@@ -68,7 +68,7 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
 
     public bool FinishAttack()  // 공격 애니메이션이 끝났는지 확인하는 메서드
     {
-        AnimatorStateInfo stateInfo = nurseAnimator.GetCurrentAnimatorStateInfo(0);
+        AnimatorStateInfo stateInfo = nurseZombieAnim.GetCurrentAnimatorStateInfo(0);
         return !(stateInfo.IsName("Attack") && stateInfo.normalizedTime < 1.0f);
     }
 

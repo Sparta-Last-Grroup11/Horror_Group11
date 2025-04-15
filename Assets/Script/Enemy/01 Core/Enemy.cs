@@ -37,7 +37,6 @@ public abstract class Enemy : MonoBehaviour
     {
         if (playerTransform == null) return false;
         
-
         Vector3 dirToPlayer = (playerTransform.position - transform.position).normalized;  //  몬스터에서 플레이어로 가는 방향 벡터
         float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
         float angle = Vector3.Angle(transform.forward, dirToPlayer);  // 내가 보고 있는 방향과 플레이어 방향의 각도를 계산 
@@ -49,13 +48,13 @@ public abstract class Enemy : MonoBehaviour
             {
                 if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Player"))
                 {
-                    isPlayersighted = true;
+                    isPlayersighted = true;  
                     return true;
                 }
             }
         }
 
-        if (isPlayersighted)
+        if (isPlayersighted)  // 한 번이라도 플레이어를 보게 된 후에는, 벽/동상 등에 숨어있어도 플레이어를 쫓아옴
         {
             return true;
         }
