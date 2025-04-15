@@ -7,6 +7,7 @@ public abstract class Enemy : MonoBehaviour
     public Transform PlayerTransform => playerTransform;  // 외부 접근용 getter
     [SerializeField] private LayerMask notEnemyLayer;
 
+    public bool isPlayersighted = false;  // 플레이어가 몬스터를 보고 있는지 여부
     public float viewAngle = 90f;  
 
     protected virtual void Start()
@@ -35,6 +36,7 @@ public abstract class Enemy : MonoBehaviour
     public bool CanSeePlayer()
     {
         if (playerTransform == null) return false;
+        
 
         Vector3 dirToPlayer = (playerTransform.position - transform.position).normalized;  //  몬스터에서 플레이어로 가는 방향 벡터
         float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
@@ -47,10 +49,20 @@ public abstract class Enemy : MonoBehaviour
             {
                 if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Player"))
                 {
+                    isPlayersighted = true;
                     return true;
                 }
             }
         }
-        return false;
+
+        if (isPlayersighted)
+        {
+            return true;
+        }
+        else
+        {
+            return false; 
+        }
+        
     }
 }

@@ -23,7 +23,7 @@ public class SkinLessZombie_PatrolState : E_BaseState
     {
         if (enemy.CanSeePlayer())  // 플레이어가 처음 시야각에 들어올 때 
         {
-            fsm.ChangeState(new SkinLessZombie_ChaseState(skinLessZombie, fsm));  // 추적Chase 상태로 전환
+            fsm.ChangeState(new SkinLessZombie_AmbushState(skinLessZombie, fsm));  // 추적Chase 상태로 전환
             return;
         }
 
