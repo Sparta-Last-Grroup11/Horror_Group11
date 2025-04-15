@@ -9,10 +9,12 @@ public class CopZombie : Enemy
     public Animator copZombieAnim;
     public float patrolRange = 20f;
 
+    public float setPointRate = 10f;
+
     // Door
     private float detectDoorRate = 0.5f;
     private float afterDetectDoor;
-    private float detectDoorRange = 1f;
+    private float detectDoorRange = 2f;
     [SerializeField] private LayerMask doorLayerMask;
 
     private void Awake()
@@ -31,7 +33,7 @@ public class CopZombie : Enemy
     protected override void Update()
     {
         base.Update();
-        Debug.DrawRay(transform.position + Vector3.up, transform.forward, Color.red, 1f);
+        Debug.DrawRay(transform.position + Vector3.up, transform.forward, Color.red, 2f);
 
         afterDetectDoor += Time.deltaTime;
         if (afterDetectDoor >= detectDoorRate)
@@ -41,10 +43,10 @@ public class CopZombie : Enemy
 
             if (Physics.Raycast(ray, out hit, detectDoorRange, doorLayerMask))
             {
-                ControlDoor door = hit.collider.GetComponent<ControlDoor>();
+                LockedDoor door = hit.collider.GetComponent<LockedDoor>();
                 if (door != null)
                 {
-                    door.OpenTheDoor();
+                    door.MonstersOpen();
                 }
             }
             afterDetectDoor = 0;

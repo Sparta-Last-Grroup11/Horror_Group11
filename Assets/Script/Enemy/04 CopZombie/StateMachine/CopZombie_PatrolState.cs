@@ -8,7 +8,6 @@ public class CopZombie_PatrolState : E_BaseState
     private CopZombie copZombie;
 
     private float afterSetPoint;
-    private float setPointRate = 10f;
 
     public CopZombie_PatrolState(Enemy enemy, E_StateMachine fsm) : base(enemy, fsm)
     {
@@ -45,7 +44,7 @@ public class CopZombie_PatrolState : E_BaseState
         }
 
         // 시간 지나면 새로운 목적지 설정
-        if (afterSetPoint > setPointRate)
+        if (afterSetPoint > copZombie.setPointRate)
         {
             Vector3 randomPosition = GetRandomPositionOnNavMesh();
             copZombie.copzombieAgent.SetDestination(randomPosition);

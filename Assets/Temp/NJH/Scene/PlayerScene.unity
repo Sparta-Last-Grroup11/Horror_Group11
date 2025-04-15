@@ -181,6 +181,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7071141023187793598, guid: 4fe122e13fea7994ba098a9b94b9e2c8,
+        type: 3}
+      propertyPath: spawnPoint.x
+      value: 5.6201963
+      objectReference: {fileID: 0}
     - target: {fileID: 9205738888731919138, guid: 4fe122e13fea7994ba098a9b94b9e2c8,
         type: 3}
       propertyPath: m_Name
@@ -616,7 +621,7 @@ PrefabInstance:
     - target: {fileID: 479824356600414189, guid: 50c99bf2cc9aa50428af2b2b698a8c80,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -19.74
       objectReference: {fileID: 0}
     - target: {fileID: 479824356600414189, guid: 50c99bf2cc9aa50428af2b2b698a8c80,
         type: 3}
@@ -626,7 +631,7 @@ PrefabInstance:
     - target: {fileID: 479824356600414189, guid: 50c99bf2cc9aa50428af2b2b698a8c80,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -3.63
       objectReference: {fileID: 0}
     - target: {fileID: 479824356600414189, guid: 50c99bf2cc9aa50428af2b2b698a8c80,
         type: 3}
@@ -672,6 +677,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CopZombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 4706402974268970911, guid: 50c99bf2cc9aa50428af2b2b698a8c80,
+        type: 3}
+      propertyPath: doorLayerMask.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
