@@ -23,6 +23,10 @@ public class CopZombie_ChaseState : E_BaseState
     {
         copZombie.copZombieAnim.SetFloat("MoveSpeed", copZombie.copzombieAgent.velocity.magnitude);
         copZombie.copzombieAgent.SetDestination(copZombie.PlayerTransform.position);
+        if (Vector3.Distance(GameManager.Instance.player.transform.position, copZombie.transform.position) < 2f)
+        {
+            fsm.ChangeState(new CopZombie_AttackState(copZombie, fsm));
+        }
         if (PlayerDisappear())
         {
             fsm.ChangeState(new CopZombie_PatrolState(copZombie, fsm));

@@ -1,14 +1,21 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class P_Interaction : MonoBehaviour
+public class P_Interaction : PlayerInputController
 {
+    // Components
     public GameObject curInteractGameObject;
     private I_Interactable curInteractable;
 
     [Header("Ray")]
     [SerializeField] private float maxCheckDistance;
     [SerializeField] private LayerMask layerMask;
+
+    public override void Awake()
+    {
+        base.Awake();
+        interactAction.started += OnInteractStarted;
+    }
 
     private void Update()
     {
@@ -32,13 +39,11 @@ public class P_Interaction : MonoBehaviour
         }
     }
 
-    public void InteractInput(InputAction.CallbackContext context)
+    private void OnInteractStarted(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Started && curInteractGameObject != null)
+        if (curInteractGameObject != null)
         {
-            // 상호작용 //Getcoponent
-            if (curInteractGameObject == null || curInteractable == null)
-                return;
+            if (curInteractGameObject == null || curInteractable == null) return;
             curInteractable.OnInteraction();
         }
     }
