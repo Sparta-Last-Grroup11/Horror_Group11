@@ -59,6 +59,10 @@ public class LockedDoor : ControlDoor,I_Interactable
     
     public void MonstersOpen()
     {
-        if (!isOpened) OpenTheDoor();
+        if (!isOpened)
+        {
+            OpenTheDoor();
+            isOpened = true;
+        }
     }
 }
