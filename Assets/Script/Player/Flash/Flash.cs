@@ -26,35 +26,39 @@ public class Flash : MonoBehaviour
     {
         spotLight = GetComponent<Light>();
         p_Flash = GetComponentInParent<P_Flash>();
+        spotLight.enabled = false;
     }
 
     private void Update()
     {
-        if (flashBattery > 0)
+        if (p_Flash.isFlash)
         {
-            // 1. 울렁임 효과 (자연스러운 angle 변화)
-            AnimateLightAngles();
-
-            // 2. 깜빡임 (배터리 20 이하일 때만)
-            if (flashBattery <= 20f)
+            if (flashBattery > 0)
             {
-                FlickerRandomly();
+                // 1. 울렁임 효과 (자연스러운 angle 변화)
+                AnimateLightAngles();
+
+                // 2. 깜빡임 (배터리 20 이하일 때만)
+                if (flashBattery <= 20f)
+                {
+                    FlickerRandomly();
+                }
+                else
+                {
+                    spotLight.enabled = true;
+                }
             }
             else
             {
-                spotLight.enabled = true;
+                if (deadFlicker == 0)
+                {
+                    DeadFlicker();
+                }
             }
-        }
-        else
-        {
-            if (deadFlicker == 0)
-            {
-                DeadFlicker();
-            }
-        }
 
-        flashBattery -= Time.deltaTime * 1f;
-        flashBattery = Mathf.Clamp(flashBattery, 0f, 100f);
+            flashBattery -= Time.deltaTime * 1f;
+            flashBattery = Mathf.Clamp(flashBattery, 0f, 100f);
+        }
     }
 
     private void AnimateLightAngles()
