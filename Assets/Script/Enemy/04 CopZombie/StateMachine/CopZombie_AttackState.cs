@@ -2,16 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CopZombie_AttackState : MonoBehaviour
+public class CopZombie_AttackState : E_BaseState
 {
-    // Start is called before the first frame update
-    void Start()
+    private CopZombie copZombie;
+
+    public CopZombie_AttackState(Enemy enemy, E_StateMachine fsm) : base(enemy, fsm)
     {
-        
+        copZombie = enemy as CopZombie;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Enter()
+    {
+        copZombie.copZombieAnim.SetTrigger("DoAttack");
+    }
+
+    public override void Update()
     {
         
     }

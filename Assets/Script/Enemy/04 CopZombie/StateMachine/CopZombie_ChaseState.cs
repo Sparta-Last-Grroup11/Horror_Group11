@@ -2,17 +2,58 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CopZombie_ChaseState : MonoBehaviour
+public class CopZombie_ChaseState : E_BaseState
 {
-    // Start is called before the first frame update
-    void Start()
+    private CopZombie copZombie;
+    private float afterPlayerDisappear;
+    private float detectPlayerRate = 5f;
+
+    public CopZombie_ChaseState(Enemy enemy, E_StateMachine fsm) : base(enemy, fsm)
     {
-        
+        copZombie = enemy as CopZombie;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Enter()
     {
-        
+        copZombie.copzombieAgent.speed = 3f;
+        Debug.Log("추격 시작");
+    }
+
+    public override void Update()
+    {
+        copZombie.copZombieAnim.SetFloat("MoveSpeed", copZombie.copzombieAgent.velocity.magnitude);
+        copZombie.copzombieAgent.SetDestination(copZombie.PlayerTransform.position);
+        if (Vector3.Distance(GameManager.Instance.player.transform.position, copZombie.transform.position) < 2f)
+        {
+            fsm.ChangeState(new CopZombie_AttackState(copZombie, fsm));
+        }
+        if (PlayerDisappear())
+        {
+            fsm.ChangeState(new CopZombie_PatrolState(copZombie, fsm));
+        }
+    }
+
+    public override void Exit()
+    {
+        copZombie.copzombieAgent.speed = 1.5f;
+    }
+
+    private bool PlayerDisappear()
+    {
+        if (copZombie.CanSeePlayer())
+        {
+            afterPlayerDisappear = 0;
+            return false;
+        }
+        else
+        {
+            //Debug.Log("플레이어 사라짐");
+            afterPlayerDisappear += Time.deltaTime;
+            if (afterPlayerDisappear > detectPlayerRate)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

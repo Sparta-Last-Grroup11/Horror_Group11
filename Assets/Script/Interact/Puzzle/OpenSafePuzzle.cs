@@ -1,19 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class OpenPuzzle : MonoBehaviour, I_Interactable
 {
     [SerializeField] private GameObject puzzle;
+    [SerializeField] private ControlDoor door;
+
     public void OnInteraction()
     {
-        puzzle.SetActive(true); //퍼즐
-        LockCursor();
+        UIManager.Instance.show<UI3D>().Init(puzzle);
     }
 
-    void LockCursor() // 시야 고정
+    public void OpenSaveDoor()
     {
-        bool toggle = Cursor.lockState == CursorLockMode.Locked;
-        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
+        gameObject.layer = 0;
+        door.OpenTheDoor();
     }
 }

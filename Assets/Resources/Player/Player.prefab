@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7951512017635878670}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Virtual Camera Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2742298981911224647}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,13 +44,13 @@ GameObject:
   - component: {fileID: 9131254208440588905}
   - component: {fileID: 4038644480697039233}
   - component: {fileID: 2575666161747899168}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Flash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6118240950478816151
 Transform:
   m_ObjectHideFlags: 0
@@ -73,7 +73,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5766639004701502585}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerLook: {fileID: 5547695954393197618}
   cameraLook: {fileID: 7951512017635878670}
-  followSpeed: 5
+  followSpeed: 10
 --- !u!1 &7850141191112057461
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 930dc44cb3dc75c46add544d437c77fe,
     type: 3}
-  m_NotificationBehavior: 2
+  m_NotificationBehavior: 3
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -392,6 +392,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13067785e90c5a141984dde5fd620fc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveAction:
+    m_Name: Move
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: ac66ce49-94a4-4712-bccc-16e193808853
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  lookAction:
+    m_Name: Look
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 9bbe060d-4235-48fc-99cc-13a350803379
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  jumpAction:
+    m_Name: Jump
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 121b25ce-eb01-46e0-ac34-49b17bb42a95
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  runAction:
+    m_Name: Run
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 5fb14b7b-4f2d-4c42-aa80-4057e084b8e9
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  interactAction:
+    m_Name: Interact
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: ec923d3e-fa57-4d26-b6a5-4a33f4d1d53f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  flashAction:
+    m_Name: Flash
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 3936fef7-3f28-49b1-81c5-a739c4b6b5a5
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   moveInput: {x: 0, y: 0}
   lookInput: {x: 0, y: 0}
   jumpPressed: 0
@@ -427,6 +481,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62bb0c57cf9013a4cb4e50f83bd19f1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveAction:
+    m_Name: Move
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 0c7da7d0-5998-45d7-b45a-9d1477ac722e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  lookAction:
+    m_Name: Look
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 43f84c01-7df1-4cf1-b383-3a5a557e0490
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  jumpAction:
+    m_Name: Jump
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 06e85ff5-fb3f-4f47-aa07-80ed73401b19
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  runAction:
+    m_Name: Run
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: a98c4e26-6337-455b-a015-bab6651e239e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  interactAction:
+    m_Name: Interact
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: e7ebeb26-44f9-4a1f-8a3e-bd4916ed9360
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  flashAction:
+    m_Name: Flash
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f617c0a1-976f-476e-ad23-528bec8398ad
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   curInteractGameObject: {fileID: 0}
   maxCheckDistance: 1.5
   layerMask:
@@ -444,6 +552,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af87188b7c436804a9e428d1ce074131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashObject: {fileID: 5766639004701502585}
+  moveAction:
+    m_Name: Move
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 90924416-622c-45a5-9119-b0acde2cd184
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  lookAction:
+    m_Name: Look
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 6753d9a8-8404-4020-bb20-3c82b1da59b0
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  jumpAction:
+    m_Name: Jump
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: ad2406f8-2733-4947-9ff7-a9757c20cb85
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  runAction:
+    m_Name: Run
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: fc2bda35-fd07-428d-ad55-5acaac5396d3
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  interactAction:
+    m_Name: Interact
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 1506dd6e-3133-4ce8-a66f-d9f4110dccda
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  flashAction:
+    m_Name: Flash
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: cc32b282-0977-4227-b0f6-1bdac1a541dd
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  flashLight: {fileID: 7988162216196769904}
   flash: {fileID: 4038644480697039233}
   isFlash: 0

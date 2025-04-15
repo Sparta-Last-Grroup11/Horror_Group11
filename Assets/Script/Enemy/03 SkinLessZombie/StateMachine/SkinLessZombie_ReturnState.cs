@@ -2,27 +2,27 @@ using UnityEngine;
 
 public class SkinLessZombie_ReturnState : E_BaseState
 {
-    private SkinLessZombie skinLess;
+    private SkinLessZombie skinLessZombie;
     private Vector3 origin;
 
     public SkinLessZombie_ReturnState(Enemy enemy, E_StateMachine fsm) : base(enemy, fsm)
     {
-        skinLess = enemy as SkinLessZombie;
-        origin = skinLess.OriginalPosition;
+        skinLessZombie = enemy as SkinLessZombie;
+        origin = skinLessZombie.OriginalPosition;
     }
 
     public override void Enter()
     {
-        skinLess.Agent.speed = skinLess.patrolSpeed;
-        skinLess.MoveTo(origin);
+        skinLessZombie.Agent.speed = skinLessZombie.patrolSpeed;
+        skinLessZombie.MoveTo(origin);
     }
 
     public override void Update()
     {
-        if (Vector3.Distance(skinLess.transform.position, origin) < 0.3f)
+        if (Vector3.Distance(skinLessZombie.transform.position, origin) < 0.3f)
         {
-            int closestIndex = skinLess.GetClosestPatrolPointIndex();
-            fsm.ChangeState(new SkinLessZombie_PatrolState(skinLess, fsm, skinLess.patrolPoints, closestIndex));
+            int closestIndex = skinLessZombie.GetClosestPatrolPointIndex();
+            fsm.ChangeState(new SkinLessZombie_PatrolState(skinLessZombie, fsm, skinLessZombie.patrolPoints, closestIndex));
         }
     }
 }

@@ -1,26 +1,29 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class P_Flash : MonoBehaviour
+public class P_Flash : PlayerInputController
 {
-    public GameObject flashObject;
+    public Light flashLight;
     public Flash flash;
 
     public bool isFlash = false;
 
-    public void FlashInput(InputAction.CallbackContext context)
+    public override void Awake()
     {
-        if (context.phase == InputActionPhase.Started && flash.flashBattery > 0)
+        base.Awake();
+        flashAction.started += OnFlashStarted;
+    }
+
+    public void OnFlashStarted(InputAction.CallbackContext context)
+    {
+        isFlash = !isFlash;
+        if (isFlash)
         {
-            isFlash = !isFlash;
-            if (isFlash)
-            {
-                flashObject.SetActive(true);
-            }
-            else
-            {
-                flashObject.SetActive(false);
-            }
+            flashLight.enabled = true;
+        }
+        else
+        {
+            flashLight.enabled = false;
         }
     }
 }

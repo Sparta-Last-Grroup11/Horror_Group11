@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class SafeLockPuzzle : MonoBehaviour
+public class SafeLockPuzzle : ItemOnUI
 {
     [SerializeField] private int[] rightArray = {0,0,0,0};
     [SerializeField] private ControlDoor door;
@@ -16,7 +14,7 @@ public class SafeLockPuzzle : MonoBehaviour
     private int arrayLength;
     public bool isLeft;
 
-    private void Start()
+    public override void Init(string description = "")
     {
         audio = GetComponent<AudioSource>();
         for (int i = 0; i < rightArray.Length; i++) //암호 초기화
@@ -26,7 +24,7 @@ public class SafeLockPuzzle : MonoBehaviour
         }
     }
 
-    private void Update()
+    protected  void Update()
     {
         RotateDial();
     }
@@ -91,13 +89,8 @@ public class SafeLockPuzzle : MonoBehaviour
 
     void SuccessOpen() // 비밀번호를 맞췄을 경우
     {
-        door.OpenTheDoor();
-        LockCursor();
-        gameObject.SetActive(false);
+        Debug.Log("clear");
+        PuzzleManager.Instance.GateHouseSaveDial.OpenSaveDoor();
+        UIManager.Instance.CurUI3D.DestroySelf();
     }
-    void LockCursor() //커서 고정 해제
-    {
-        bool toggle = Cursor.lockState == CursorLockMode.Locked;
-        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
-    }   
 }
