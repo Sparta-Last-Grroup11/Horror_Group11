@@ -56,4 +56,9 @@ public class LockedDoor : ControlDoor,I_Interactable
         yield return new WaitForSeconds(interactCooldown);
         canInteract = true;
     }
+    
+    public void MonstersOpen()
+    {
+        if (!isOpened) OpenTheDoor();
+    }
 }
