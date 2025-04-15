@@ -8,6 +8,7 @@ using UnityEngine.Windows.WebCam;
 
 public class UIManager : Singleton<UIManager>
 {
+    [Header("No Need to Allocate")]
     public Canvas mainCanvas;
     public bool IsUiActing;
     public BaseUI CurUI3D;
@@ -16,7 +17,7 @@ public class UIManager : Singleton<UIManager>
     protected override void Awake()
     {
         base.Awake();
-        mainCanvas = Instantiate(Resources.Load<GameObject>("UI/MainCanvas")).GetComponent<Canvas>();
+        mainCanvas = GameObject.Find("MainCanvas").GetComponent<Canvas>();
     }
 
     public T show<T>() where T : BaseUI
