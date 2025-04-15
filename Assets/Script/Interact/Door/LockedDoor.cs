@@ -1,4 +1,6 @@
 using System.Collections;
+using Unity.AI.Navigation;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 public class LockedDoor : ControlDoor,I_Interactable
@@ -9,6 +11,11 @@ public class LockedDoor : ControlDoor,I_Interactable
     private bool canInteract = true;
     [SerializeField] private float interactCooldown = 1.0f;
     private bool isOpened;
+
+    [Header("NavMeshSetting")]
+    public NavMeshModifierVolume navMeshVolume;
+    public int closedArea = 1; // Not Walkable
+    public int openArea = 3;   // PassThroughDoor
 
     public void OnInteraction()
     {
@@ -48,6 +55,7 @@ public class LockedDoor : ControlDoor,I_Interactable
             isOpened = false;
             CloseTheDoor();
         }
+        navMeshVolume.area = isOpened ? openArea : closedArea;
     }
 
     private IEnumerator InteractionCooldown()
@@ -55,5 +63,14 @@ public class LockedDoor : ControlDoor,I_Interactable
         canInteract = false;
         yield return new WaitForSeconds(interactCooldown);
         canInteract = true;
+    }
+    
+    public void MonstersOpen()
+    {
+        if (!isOpened)
+        {
+            OpenTheDoor();
+            isOpened = true;
+        }
     }
 }
