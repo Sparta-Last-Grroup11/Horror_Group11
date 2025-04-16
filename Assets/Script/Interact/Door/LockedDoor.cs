@@ -55,7 +55,6 @@ public class LockedDoor : ControlDoor,I_Interactable
             isOpened = false;
             CloseTheDoor();
         }
-        navMeshVolume.area = isOpened ? openArea : closedArea;
     }
 
     private IEnumerator InteractionCooldown()

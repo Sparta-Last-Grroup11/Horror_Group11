@@ -33,6 +33,7 @@ public class NurseZombie_ChaseState : E_BaseState    // 플레이어를 추격�
                 GameObject doorObj = hit.collider.gameObject;
                 if (doorObj.activeInHierarchy)
                 {
+                    Debug.Log("방 안에 있음");
                     PlayerInRoom();
                     return;
                 }
