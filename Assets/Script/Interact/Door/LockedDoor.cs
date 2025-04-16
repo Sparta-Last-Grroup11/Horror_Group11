@@ -48,12 +48,12 @@ public class LockedDoor : ControlDoor,I_Interactable
         if (!isOpened)
         {
             isOpened = true;
-            OpenTheDoor();
+            Open();
         }
         else
         {
             isOpened = false;
-            CloseTheDoor();
+            Close();
         }
         navMeshVolume.area = isOpened ? openArea : closedArea;
     }
@@ -69,7 +69,7 @@ public class LockedDoor : ControlDoor,I_Interactable
     {
         if (!isOpened)
         {
-            OpenTheDoor();
+            Open();
             isOpened = true;
         }
     }
