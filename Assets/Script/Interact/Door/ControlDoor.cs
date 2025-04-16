@@ -1,11 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class ControlDoor : MonoBehaviour
 {
-    [SerializeField] private AudioSource aduioSource;
-
+    [SerializeField] private AudioClip openClip;
+    [SerializeField] private AudioClip closeClip;
     public float duration = 1f;
     public void OpenTheDoor()
     {
@@ -15,7 +16,7 @@ public class ControlDoor : MonoBehaviour
 
     IEnumerator OpenDoorMotion() //문 회전
     {
-        aduioSource.Play();
+        AudioManager.Instance.Audio3DPlay(openClip, transform.position);
         Quaternion startRotation = transform.rotation;
         Quaternion endRotation = startRotation * Quaternion.Euler(0, -90, 0);
 
@@ -40,7 +41,7 @@ public class ControlDoor : MonoBehaviour
 
     IEnumerator CloseDoorMotion() //문 회전
     {
-        aduioSource.Play();
+        AudioManager.Instance.Audio3DPlay(closeClip, transform.position);
         Quaternion startRotation = transform.rotation;
         Quaternion endRotation = startRotation * Quaternion.Euler(0, 90, 0);
 

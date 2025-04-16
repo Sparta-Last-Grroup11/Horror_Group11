@@ -2,55 +2,81 @@ using UnityEngine;
 
 public class NurseZombie_ChaseState : E_BaseState    // 플레이어를 추격하는 상태일 때
 {
-    public NurseZombie nurse;
-    //private float chaseTimer;
-    //private const float maxChaseTime = 5f;
+    public NurseZombie nurseZombie;
+
+    private float PlayerDisappearTime = 3.0f;
+    private float waitTimer = 0f;
 
     public NurseZombie_ChaseState(Enemy enemy, E_StateMachine fsm) : base(enemy, fsm)
     {
-        nurse = enemy as NurseZombie;
+        nurseZombie = enemy as NurseZombie;
     }
 
     public override void Enter()
     {
-        // chaseTimer = 0f;
-        nurse.nurseAnimator.SetBool("IsChasing", true);
+        nurseZombie.nurseZombieAnim.SetBool("IsChasing", true);
+        waitTimer = 0f;
     }
 
     public override void Update()
     {
-        if (nurse.PlayerTransform == null) return;
+        if (nurseZombie.PlayerTransform == null) return;
 
-        Vector3 direction = (nurse.PlayerTransform.position - nurse.transform.position).normalized;  // 플레이어 방향으로 이동    
-        direction.y = 0;  // y축 방향은 무시
-        nurse.transform.position += direction * nurse.moveSpeed * Time.deltaTime;  // 플레이어 쪽으로 이동
-
-        if (nurse.IsPlayerLookingAtMe())  // 플레이어와 마주보고 있을 때 
+        nurseZombie.afterDetectDoor += Time.deltaTime;
+        if (nurseZombie.afterDetectDoor >= nurseZombie.detectDoorRate)   // 문 닫힘 감지하면 Wait상태로 전환
         {
-            // 이 시점에 글리치 효과를 넣어주면 좋을 듯 합니다.
-            fsm.ChangeState(new NurseZombie_IdleState(nurse, fsm));
+            Ray ray = new Ray(nurseZombie.transform.position + Vector3.up, nurseZombie.transform.forward);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, nurseZombie.detectDoorRange, nurseZombie.DoorLayerMask))
+            {
+                GameObject doorObj = hit.collider.gameObject;
+                if (doorObj.activeInHierarchy)
+                {
+                    PlayerInRoom();
+                    return;
+                }
+            }
+            nurseZombie.afterDetectDoor = 0;
+        }
+
+        if (nurseZombie.IsPlayerLookingAtMe())  // 플레이어와 마주보고 있을 때 Idle 상태로 전환
+        {
+            fsm.ChangeState(new NurseZombie_IdleState(nurseZombie, fsm));
             return;
         }
 
-        if (nurse.IsNearPlayer())  // 천사가 일정 거리 안에 있다면
+        if (IsNearPlayer())  // 천사가 일정 거리 안에 있다면 Attack 상태로 전환
         {
-            fsm.ChangeState(new NurseZombie_AttackState(nurse, fsm));  // 공격 상태로 전환
+            fsm.ChangeState(new NurseZombie_AttackState(nurseZombie, fsm));
             return;
         }
 
-        //if (angel.IsLightOn())  // 불이 켜진 곳에서는 추적하지 않음
-        //    return;
-
-        //if (angel.IsPlayerInRoom())  // 플레이어가 방 안에서 대기중일 때
-        //{
-        //    chaseTimer += Time.deltaTime;
-
-        //    if (chaseTimer >= maxChaseTime)  // chaseTimer가 일정 시간 이상 지나면 
-        //    {
-        //        fsm.ChangeState(new Angel_IdleState(angel, fsm));  // 추격 상태 풀리고 Idle 상태로 전환 (여기서 다른 곳으로 스폰? 아니면 그 자리 유지?)
-        //        return;
-        //    }
-        //}
+        nurseZombie.MoveTowardsPlayer(nurseZombie.moveSpeed);  // 플레이어 방향대로 움직임
 
     }
+
+    public void PlayerInRoom()
+    {
+        waitTimer += Time.deltaTime;
+        if (waitTimer >= PlayerDisappearTime)  // 방 밖에서 일정 시간 대기 후 스폰 위치로 이동, 다시 IdleState로 전환
+        {
+            MoveToSpawnPosition();
+            fsm.ChangeState(new NurseZombie_IdleState(nurseZombie, fsm));
+        }
+        return;
+    }
+
+    private void MoveToSpawnPosition() 
+    {
+        // 여기에 스폰위치를 가져와주면 될듯.
+    }
+
+    public bool IsNearPlayer()
+    {
+        float distance = Vector3.Distance(nurseZombie.transform.position, nurseZombie.PlayerTransform.position);  // 몬스터와 플레이어의 거리
+        return distance <= nurseZombie.attackRange;  // 공격 범위 안에 들어왔는지 확인
+    }
+
+
 }
