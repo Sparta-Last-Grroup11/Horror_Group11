@@ -7,7 +7,6 @@ public abstract class Enemy : MonoBehaviour
     public Transform PlayerTransform => playerTransform;  // 외부 접근용 getter
     [SerializeField] private LayerMask notEnemyLayer;
 
-    public bool isPlayersighted = false;  // 플레이어가 몬스터를 보고 있는지 여부
     public float viewAngle = 90f;  
 
     protected virtual void Start()
@@ -43,25 +42,29 @@ public abstract class Enemy : MonoBehaviour
 
         if (angle < viewAngle / 2f)  // 왼쪽 오른쪽 시야각 안에 있는지 판별
         {
+            Debug.DrawRay(transform.position, dirToPlayer * distanceToPlayer, Color.green);
             RaycastHit hit;
             if (Physics.Raycast(transform.position, dirToPlayer, out hit, distanceToPlayer, notEnemyLayer))   
             {
                 if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Player"))
                 {
-                    isPlayersighted = true;  
                     return true;
                 }
             }
         }
-
-        if (isPlayersighted)  // 한 번이라도 플레이어를 보게 된 후에는, 벽/동상 등에 숨어있어도 플레이어를 쫓아옴
-        {
-            return true;
-        }
         else
         {
-            return false; 
+            Debug.DrawRay(transform.position, transform.forward * distanceToPlayer, Color.red);
         }
-        
+
+        return false;
     }
+
+    public void LookAtPlayer()  // 플레이어를 향해 몸을 돌리게 해줌
+    {
+        Vector3 dir = PlayerTransform.position - transform.position;
+        dir.y = 0;  // y축 회전 제거
+        transform.rotation = Quaternion.LookRotation(dir);
+    }
+
 }

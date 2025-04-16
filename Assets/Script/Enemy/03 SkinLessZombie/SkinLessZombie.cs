@@ -1,33 +1,27 @@
 using UnityEngine;
-using UnityEngine.AI;
 
 public class SkinLessZombie : Enemy   // 점프스케어 (플레이어 보면 빠르게 달려와서 깜놀시키고, 사라짐, 무해함)
 {
     public Animator skinLessZombieAnim { get; private set; }
-    public NavMeshAgent Agent { get; private set; }
-    public Vector3 OriginalPosition { get; private set; }
+
+    public float timer = 0f;  // 달려든 후 일정 시간 지나면 사라지게 만들 타이머
+    public float rushSpeed = 30f;         // 달려드는 속도
+    public float disappearTime = 1.5f;    // 사라지기까지 시간
+    public float rushDelay = 0.5f; // 달려들기 전에 대기하는 시간
 
     protected override void Start()
     {
         base.Start();
-        OriginalPosition = transform.position;
         skinLessZombieAnim = GetComponentInChildren<Animator>();
-        Agent = GetComponent<NavMeshAgent>();
-        Agent.enabled = false;
 
         InitSkinLessFSM();
-        fsm.Update();
+
     }
 
     private void InitSkinLessFSM()
     {
         fsm = new E_StateMachine();
         fsm.ChangeState(new SkinLessZombie_AmbushState(this, fsm));
-    }
-
-    public void MoveTo(Vector3 destination)
-    {
-        Agent.SetDestination(destination);
     }
 
 }
