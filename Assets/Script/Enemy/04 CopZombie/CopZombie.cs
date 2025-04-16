@@ -3,12 +3,14 @@ using UnityEngine.AI;
 
 public class CopZombie : Enemy
 {
+    // Components
     [HideInInspector] public NavMeshAgent copzombieAgent;
-
     public Transform target;
     public Animator copZombieAnim;
-    public float patrolRange = 20f;
+    public AudioClip copZombieFootStep;
 
+    // Patrol
+    public float patrolRange = 20f;
     public float setPointRate = 10f;
 
     // Door

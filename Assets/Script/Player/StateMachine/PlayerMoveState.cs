@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerMoveState : PlayerState
 {
+    private float afterLastFootStep;
+
     public PlayerMoveState(Player player) : base(player) { }
 
     public override void Enter()
@@ -54,6 +56,12 @@ public class PlayerMoveState : PlayerState
         bool isMoving = _player.moveInput.magnitude > 0.2f;
         if (isMoving && _player.CharacterController.isGrounded)
         {
+            afterLastFootStep += Time.deltaTime;
+            if (afterLastFootStep > (_player.footSpeedRate = _player.runPressing ? 0.16f : 0.5f))
+            {
+                AudioManager.Instance.Audio3DPlay(_player.footStep, _player.transform.position);
+                afterLastFootStep = 0f;
+            }
             float intensity = _player.runPressing ? _player.runShakeIntensity : _player.walkShakeIntensity;
             float frequency = _player.runPressing ? _player.runShakeFrequency : _player.walkShakeFrequency;
 

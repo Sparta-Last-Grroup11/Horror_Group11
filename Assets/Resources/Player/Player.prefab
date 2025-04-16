@@ -446,6 +446,8 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  footStep: {fileID: 8300000, guid: 1a7741daba5446e46a40f8074aae75dc, type: 3}
+  footSpeedRate: 0.5
   moveInput: {x: 0, y: 0}
   lookInput: {x: 0, y: 0}
   jumpPressed: 0
@@ -608,4 +610,5 @@ MonoBehaviour:
     m_Flags: 0
   flashLight: {fileID: 7988162216196769904}
   flash: {fileID: 4038644480697039233}
+  flashSwitchClip: {fileID: 8300000, guid: 909cea977fde82746ac047d08cac8c1a, type: 3}
   isFlash: 0

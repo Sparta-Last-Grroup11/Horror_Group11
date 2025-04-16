@@ -5,6 +5,7 @@ public class P_Flash : PlayerInputController
 {
     public Light flashLight;
     public Flash flash;
+    [SerializeField] private AudioClip flashSwitchClip;
 
     public bool isFlash = false;
 
@@ -16,6 +17,7 @@ public class P_Flash : PlayerInputController
 
     public void OnFlashStarted(InputAction.CallbackContext context)
     {
+        AudioManager.Instance.Audio3DPlay(flashSwitchClip, transform.position);
         isFlash = !isFlash;
         if (isFlash)
         {

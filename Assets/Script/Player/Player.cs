@@ -1,6 +1,7 @@
 using UnityEngine.InputSystem;
 using UnityEngine;
 using Cinemachine;
+using Unity.VisualScripting;
 
 public class Player : PlayerInputController
 {
@@ -8,6 +9,10 @@ public class Player : PlayerInputController
     private PlayerStateMachine P_StateMachine;
     private CharacterController characterController;
     public CharacterController CharacterController => characterController;
+
+    // footStep
+    public AudioClip footStep;
+    public float footSpeedRate = 0.2f;
 
     // Input Value
     public Vector2 moveInput;
