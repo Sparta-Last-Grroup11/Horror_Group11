@@ -11,7 +11,7 @@ public class NurseZombie_IdleState : E_BaseState  // 기본 상태일 때
 
     public override void Enter()
     {
-        nurseZombie.nurseAnimator.SetBool("IsChasing", false);
+        nurseZombie.nurseZombieAnim.SetBool("IsChasing", false);
     }
 
     public override void Update()

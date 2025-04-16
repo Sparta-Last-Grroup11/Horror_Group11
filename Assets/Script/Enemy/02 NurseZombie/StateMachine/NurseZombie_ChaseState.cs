@@ -11,8 +11,7 @@ public class NurseZombie_ChaseState : E_BaseState    // 플레이어를 추격�
 
     public override void Enter()
     {
-        Debug.Log("왜 안 되지?");
-        nurseZombie.nurseAnimator.SetBool("IsChasing", true);
+        nurseZombie.nurseZombieAnim.SetBool("IsChasing", true);
     }
 
     public override void Update()
@@ -20,10 +19,6 @@ public class NurseZombie_ChaseState : E_BaseState    // 플레이어를 추격�
         if (nurseZombie.PlayerTransform == null) return;
 
         nurseZombie.MoveTowardsPlayer(nurseZombie.moveSpeed);
-
-        //Vector3 direction = (nurseZombie.PlayerTransform.position - nurseZombie.transform.position).normalized;  // 플레이어 방향으로 이동    
-        //direction.y = 0;  // y축 방향은 무시
-        //nurseZombie.transform.position += direction * nurseZombie.moveSpeed * Time.deltaTime;  // 플레이어 쪽으로 이동
 
         if (nurseZombie.IsPlayerLookingAtMe())  // 플레이어와 마주보고 있을 때 
         {
