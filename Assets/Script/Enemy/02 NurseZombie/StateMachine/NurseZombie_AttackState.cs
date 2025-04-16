@@ -39,7 +39,7 @@ public class NurseZombie_AttackState : E_BaseState  // 플레이어를 공격하
             else
             {
                 hasDashed = true;
-                nurseZombie.nurseAnimator.SetTrigger("Attack"); 
+                nurseZombie.nurseZombieAnim.SetTrigger("Attack"); 
             }
         }
         else
