@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class NurseZombie_IdleState : E_BaseState  // 기본 상태일 때
 {
     private NurseZombie nurseZombie;
@@ -21,7 +19,6 @@ public class NurseZombie_IdleState : E_BaseState  // 기본 상태일 때
 
         if (canSee && !isPlayerLooking)
         {
-            Debug.Log("추적상태로 전환");
             fsm.ChangeState(new NurseZombie_ChaseState(nurseZombie, fsm));
         }
     }
