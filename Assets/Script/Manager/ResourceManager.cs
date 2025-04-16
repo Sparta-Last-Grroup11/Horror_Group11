@@ -7,7 +7,8 @@ public enum ResourceType
     None,
     Player,
     Sound,
-    UI
+    UI,
+    Material
 }
 public class ResourceManager : Singleton<ResourceManager>
 {

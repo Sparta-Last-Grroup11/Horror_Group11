@@ -8,6 +8,12 @@ public class PSJTest : MonoBehaviour
 
     [SerializeField] AudioClip clip;
 
+    private void Start()
+    {
+        Invoke(nameof(HeartBeatStart), 2f);
+        Invoke(nameof(HeartBeatStop), 5f);
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -16,5 +22,15 @@ public class PSJTest : MonoBehaviour
             AudioManager.Instance.AudioBGMPlay(bgm[1]);
         else if (Input.GetKeyDown(KeyCode.KeypadEnter))
             AudioManager.Instance.Audio3DPlay(clip, transform.position);
+    }
+
+    private void HeartBeatStart()
+    {
+        UIManager.Instance.Get<HeartBeat>().ChanbeatSpeed(1);
+    }
+
+    private void HeartBeatStop()
+    {
+        UIManager.Instance.Get<HeartBeat>().ChanbeatSpeed(0);
     }
 }

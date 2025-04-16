@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using static UnityEngine.ParticleSystem;
 
-public class HeartBeatController : MonoBehaviour
+public class HeartBeat : BaseUI
 {
     [SerializeField] private AnimationCurve curve;
     [SerializeField] private Gradient color;
@@ -29,7 +29,7 @@ public class HeartBeatController : MonoBehaviour
         main = ps.main;
     }
 
-    private void Start()
+    protected override void Start()
     {
         beatHeightMultiplier = 1;
         beatTimeMultiplier = 1;
@@ -80,5 +80,13 @@ public class HeartBeatController : MonoBehaviour
     void audioPlay()
     {
         AudioManager.Instance.Audio2DPlay(beatSound, beatTimeMultiplier - 1 + 0.1f);
+    }
+
+    public void ChanbeatSpeed(float ratio)
+    {
+        beatTimeMultiplier = 1 + ratio;
+        beatHeightMultiplier = beatTimeMultiplier;
+        UIManager.Instance.Get<GlitchUI>().GlitchWithDistance(ratio);
+
     }
 }
