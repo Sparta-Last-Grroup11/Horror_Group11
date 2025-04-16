@@ -7,12 +7,12 @@ public class PlayerInputController : MonoBehaviour
     private InputActionMap inputActionMap;
 
     // Input Action
-    public InputAction moveAction;
-    public InputAction lookAction;
-    public InputAction jumpAction;
-    public InputAction runAction;
-    public InputAction interactAction;
-    public InputAction flashAction;
+    protected InputAction moveAction;
+    protected InputAction lookAction;
+    protected InputAction jumpAction;
+    protected InputAction runAction;
+    protected InputAction interactAction;
+    protected InputAction flashAction;
 
     public virtual void Awake()
     {

@@ -8,6 +8,7 @@ public class CopZombie : Enemy
     public Transform target;
     public Animator copZombieAnim;
     public AudioClip copZombieFootStep;
+    public AudioClip copZombieChaseClip;
 
     // Patrol
     public float patrolRange = 20f;
@@ -18,6 +19,10 @@ public class CopZombie : Enemy
     private float afterDetectDoor;
     private float detectDoorRange = 2f;
     [SerializeField] private LayerMask doorLayerMask;
+
+    // FootStep
+    public float footStepRate = 1f;
+    public float afterLastFootStep;
 
     private void Awake()
     {

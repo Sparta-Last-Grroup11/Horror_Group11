@@ -14,6 +14,10 @@ public class Player : PlayerInputController
     public AudioClip footStep;
     public float footSpeedRate = 0.2f;
 
+    // ChasedState
+    [SerializeField] private AudioClip hardBreath;
+    public bool isChased = false;
+
     // Input Value
     public Vector2 moveInput;
     public Vector2 lookInput;
@@ -79,6 +83,11 @@ public class Player : PlayerInputController
     private void Update()
     {
         P_StateMachine.Update();
+        if (isChased)
+        {
+            AudioManager.Instance.Audio3DPlay(hardBreath, transform.position);
+            isChased = false;
+        }
     }
 
     private void OnMovePerformed(InputAction.CallbackContext context)

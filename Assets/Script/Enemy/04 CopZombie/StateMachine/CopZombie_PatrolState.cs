@@ -8,8 +8,6 @@ public class CopZombie_PatrolState : E_BaseState
     private CopZombie copZombie;
 
     private float afterSetPoint;
-    private float footStepRate = 1f;
-    private float afterLastFootStep;
 
     public CopZombie_PatrolState(Enemy enemy, E_StateMachine fsm) : base(enemy, fsm)
     {
@@ -46,11 +44,11 @@ public class CopZombie_PatrolState : E_BaseState
         }
         else
         {
-            afterLastFootStep += Time.deltaTime;
-            if (afterLastFootStep > footStepRate)
+            copZombie.afterLastFootStep += Time.deltaTime;
+            if (copZombie.afterLastFootStep > copZombie.footStepRate)
             {
                 AudioManager.Instance.Audio3DPlay(copZombie.copZombieFootStep, copZombie.transform.position);
-                afterLastFootStep = 0;
+                copZombie.afterLastFootStep = 0;
             }
         }
 
