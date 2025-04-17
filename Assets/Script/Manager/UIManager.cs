@@ -64,6 +64,19 @@ public class UIManager : Singleton<UIManager>
         uiList.Clear();
     }
 
+    public void ClearListAndDestroy(BaseUI script = null)
+    {
+        foreach(var ui in uiList)
+        {
+            if (ui.Value != null && ui.Value.gameObject != null)
+            {
+                if (ui.Value != script) 
+                    Destroy(ui.Value.gameObject);
+            }
+        }
+        ClearList();
+    }
+
     public void RemoveUIInList(string name)
     {
         uiList.Remove(name);

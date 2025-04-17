@@ -12,6 +12,7 @@ public class PSJTest : MonoBehaviour
     {
         Invoke(nameof(HeartBeatStart), 2f);
         Invoke(nameof(HeartBeatStop), 5f);
+        Invoke(nameof(DyingUI), 7f);
     }
 
     private void Update()
@@ -32,5 +33,10 @@ public class PSJTest : MonoBehaviour
     private void HeartBeatStop()
     {
         UIManager.Instance.Get<HeartBeat>().ChanbeatSpeed(0);
+    }
+
+    void DyingUI()
+    {
+        UIManager.Instance.show<DyingUI>();
     }
 }
