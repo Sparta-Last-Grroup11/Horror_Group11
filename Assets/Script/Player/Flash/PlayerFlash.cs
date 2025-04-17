@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class P_Flash : PlayerInputController
+public class PlayerFlash : PlayerInputController
 {
     public Light flashLight;
     public Flash flash;

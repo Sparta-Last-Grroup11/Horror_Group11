@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class P_Interaction : PlayerInputController
+public class PlayerInteraction : PlayerInputController
 {
     // Components
     public GameObject curInteractGameObject;
