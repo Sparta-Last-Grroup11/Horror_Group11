@@ -12,11 +12,6 @@ public class LockedDoor : ControlDoor,I_Interactable
     [SerializeField] private float interactCooldown = 1.0f;
     private bool isOpened;
 
-    [Header("NavMeshSetting")]
-    public NavMeshModifierVolume navMeshVolume;
-    public int closedArea = 1; // Not Walkable
-    public int openArea = 3;   // PassThroughDoor
-
     public void OnInteraction()
     {
         if (!canInteract) return;
@@ -48,14 +43,13 @@ public class LockedDoor : ControlDoor,I_Interactable
         if (!isOpened)
         {
             isOpened = true;
-            OpenTheDoor();
+            Open();
         }
         else
         {
             isOpened = false;
-            CloseTheDoor();
+            Close();
         }
-        navMeshVolume.area = isOpened ? openArea : closedArea;
     }
 
     private IEnumerator InteractionCooldown()
@@ -69,7 +63,7 @@ public class LockedDoor : ControlDoor,I_Interactable
     {
         if (!isOpened)
         {
-            OpenTheDoor();
+            Open();
             isOpened = true;
         }
     }
