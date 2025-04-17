@@ -21,7 +21,17 @@ public class UIManager : Singleton<UIManager>
         base.Awake();
         SceneManager.sceneLoaded += OnSceneLoaded;
         uiList = new Dictionary<string, BaseUI>();
-        mainCanvas = GameObject.Find("MainCanvas").GetComponent<Canvas>();
+        GameObject obj = GameObject.Find("MainCanvas");
+        if (obj == null)
+        {
+            mainCanvas = Instantiate(ResourceManager.Instance.Load<GameObject>(ResourceType.UI, "MainCanvas").GetComponent<Canvas>());
+            mainCanvas.worldCamera = GameManager.Instance.uiCam;
+        }
+        else
+        {
+            mainCanvas = obj.GetComponent<Canvas>();
+            mainCanvas.worldCamera = GameManager.Instance.uiCam;
+        }
     }
 
     public T show<T>() where T : BaseUI
