@@ -4,7 +4,7 @@ public abstract class PlayerState : MonoBehaviour
 {
     protected Player _player;
 
-    public PlayerState (Player player)
+    public PlayerState(Player player)
     {
         _player = player;
     }

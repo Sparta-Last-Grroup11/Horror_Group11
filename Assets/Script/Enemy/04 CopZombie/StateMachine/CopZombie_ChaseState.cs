@@ -44,6 +44,7 @@ public class CopZombie_ChaseState : E_BaseState
     public override void Exit()
     {
         copZombie.copzombieAgent.speed = 1.5f;
+        GameManager.Instance.player.isChased = false;
     }
 
     private bool PlayerDisappear()

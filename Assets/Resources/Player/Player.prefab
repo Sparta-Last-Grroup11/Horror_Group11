@@ -392,23 +392,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13067785e90c5a141984dde5fd620fc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateMachine: {fileID: 0}
+  characterController: {fileID: 0}
   footStep: {fileID: 8300000, guid: 1a7741daba5446e46a40f8074aae75dc, type: 3}
-  footSpeedRate: 0.5
-  hardBreath: {fileID: 8300000, guid: fa58336c9b3e83c4e8fc3fde368af922, type: 3}
+  footSpeedRate: 0.8
+  chasedCilp: {fileID: 8300000, guid: fa58336c9b3e83c4e8fc3fde368af922, type: 3}
   isChased: 0
   moveInput: {x: 0, y: 0}
   lookInput: {x: 0, y: 0}
   jumpPressed: 0
   runPressing: 0
   moveSpeed: 2
-  runSpeed: 2
+  runSpeed: 4
   cameraContainer: {fileID: 7951512017635878670}
   lookSensitivity: 0.1
   minXLook: -85
   maxXLook: 85
   curRotX: 0
   curRotY: 0
-  jumpPower: 2.2
+  jumpPower: 3
   gravity: -9.81
   verticalVelocity: 0
   virtualCamera: {fileID: 0}

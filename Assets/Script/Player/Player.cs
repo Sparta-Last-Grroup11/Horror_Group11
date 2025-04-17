@@ -1,24 +1,22 @@
-using UnityEngine.InputSystem;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Cinemachine;
-using Unity.VisualScripting;
 
 public class Player : PlayerInputController
 {
-    // Components
-    private PlayerStateMachine P_StateMachine;
-    private CharacterController characterController;
-    public CharacterController CharacterController => characterController;
+    public PlayerStateMachine stateMachine;
+    public CharacterController characterController;
 
-    // footStep
+    // 발소리 관련
     public AudioClip footStep;
     public float footSpeedRate = 0.2f;
 
-    // ChasedState
-    [SerializeField] private AudioClip hardBreath;
+    // 쫓기는 상태 관련
+    [SerializeField] private AudioClip chasedCilp;
     public bool isChased = false;
+    private bool isChasedBGM = false;
 
-    // Input Value
+    // 입력 값
     public Vector2 moveInput;
     public Vector2 lookInput;
     public bool jumpPressed;
@@ -26,7 +24,7 @@ public class Player : PlayerInputController
 
     [Header("Move")]
     public float moveSpeed = 2f;
-    public float runSpeed = 2f;
+    public float runSpeed = 4f;
 
     [Header("Look")]
     public Transform cameraContainer;
@@ -50,12 +48,12 @@ public class Player : PlayerInputController
     public float shakeDuration = 0.1f;
     [HideInInspector] public float shakeTimer = 0f;
     [HideInInspector] public CinemachineBasicMultiChannelPerlin camNoise;
-    
 
     public override void Awake()
     {
         base.Awake();
         characterController = GetComponent<CharacterController>();
+        stateMachine = new PlayerStateMachine();
 
         moveAction.performed += OnMovePerformed;
         moveAction.canceled += OnMoveCanceled;
@@ -65,14 +63,13 @@ public class Player : PlayerInputController
         jumpAction.canceled += OnJumpCanceled;
         runAction.performed += OnRunPerformed;
         runAction.canceled += OnRunCanceled;
-
-        P_StateMachine = new PlayerStateMachine();
     }
 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        P_StateMachine.ChangeState(new PlayerMoveState(this));
+        // 초기 상태를 Idle로 설정
+        stateMachine.ChangeState(new PlayerIdleState(this));
 
         if (virtualCamera != null)
         {
@@ -82,14 +79,18 @@ public class Player : PlayerInputController
 
     private void Update()
     {
-        P_StateMachine.Update();
+        stateMachine.Update();
         if (isChased)
         {
-            AudioManager.Instance.Audio3DPlay(hardBreath, transform.position);
-            isChased = false;
+            ChasingByEnemy();
+        }
+        else
+        {
+            isChasedBGM = false;
         }
     }
 
+    // 입력 콜백들
     private void OnMovePerformed(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
@@ -128,5 +129,32 @@ public class Player : PlayerInputController
     private void OnRunCanceled(InputAction.CallbackContext context)
     {
         runPressing = false;
+    }
+
+    // 카메라 흔들림 관련 메서드
+    public void StartCameraShake(float intensity, float frequency, float duration)
+    {
+        if (camNoise != null)
+        {
+            camNoise.m_AmplitudeGain = intensity;
+            camNoise.m_FrequencyGain = frequency;
+            shakeTimer = duration;
+        }
+    }
+
+    public void StopCameraShake()
+    {
+        // 흔들림을 멈추는 로직, 예: 진폭이나 진동수 0으로 설정
+        camNoise.m_AmplitudeGain = 0f;
+        camNoise.m_FrequencyGain = 0f;
+    }
+
+    private void ChasingByEnemy()
+    {
+        if (!isChasedBGM)
+        {
+            AudioManager.Instance.Audio2DPlay(chasedCilp);
+            isChasedBGM = true;
+        }
     }
 }

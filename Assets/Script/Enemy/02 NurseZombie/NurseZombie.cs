@@ -1,18 +1,41 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플레이어가 뒤돌면 쫓아옴)
 {
-    public Animator nurseZombieAnim { get; private set; }
-    public Rigidbody rb;
-    public float moveSpeed = 4f;  // 이동 속도
-    public float attackRange = 2f;  // 공격 범위
+    // Components
+    [HideInInspector] public NavMeshAgent nurseZombieAgent;
+    [HideInInspector] public Animator nurseZombieAnim;
+    [HideInInspector] public Rigidbody rb;
+
+    // Chase, Attack
+    public float moveSpeed = 4f;
+    public float attackRange = 2f;
+
+    // Door
+    public float detectDoorRange = 2f;
+    public float detectDoorRate = 0.5f;
+    public float afterDetectDoor;
+    [SerializeField] private LayerMask doorLayerMask;
+
+    public LayerMask DoorLayerMask
+    {
+        get { return doorLayerMask; }
+    }
+
+    private void Awake()
+    {
+        nurseZombieAnim = GetComponentInChildren<Animator>();
+        nurseZombieAgent = GetComponent<NavMeshAgent>();
+        rb = GetComponent<Rigidbody>();
+        rb.isKinematic = true;
+    }
 
     protected override void Start()
     {
         base.Start();
-        nurseZombieAnim = GetComponentInChildren<Animator>();
-        rb = GetComponent<Rigidbody>();
-        rb.isKinematic = true;
+
+        doorLayerMask = LayerMask.GetMask("Interactable");
 
         Collider nurseCollider = GetComponent<Collider>();
         Collider playerCollider = PlayerTransform.GetComponent<Collider>();
@@ -29,11 +52,6 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
         fsm = new E_StateMachine();
         fsm.ChangeState(new NurseZombie_IdleState(this, fsm));
     }
-
-    //protected override void Update()
-    //{
-    //    base.Update();
-    //}
 
     public bool IsPlayerLookingAtMe()
     {
@@ -57,17 +75,4 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
             transform.position += direction * speed * Time.deltaTime;
         }
     }
-
-    public bool IsNearPlayer()
-    {
-        float distance = Vector3.Distance(transform.position, PlayerTransform.position);  // 몬스터와 플레이어의 거리
-        return distance <= attackRange;  // 공격 범위 안에 들어왔는지 확인
-    }
-
-    public bool FinishAttack()  // 공격 애니메이션이 끝났는지 확인하는 메서드
-    {
-        AnimatorStateInfo stateInfo = nurseZombieAnim.GetCurrentAnimatorStateInfo(0);
-        return !(stateInfo.IsName("Attack") && stateInfo.normalizedTime < 1.0f);
-    }
-
 }
