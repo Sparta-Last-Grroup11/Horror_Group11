@@ -156,7 +156,7 @@ public class Player : PlayerInputController
     {
         if (!isChasedBGM)
         {
-            AudioManager.Instance.Audio2DPlay(chasedCilp);
+            AudioManager.Instance.Audio2DPlay(chasedCilp, 0.5f);
             isChasedBGM = true;
         }
     }
