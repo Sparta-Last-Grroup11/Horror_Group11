@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class E_BaseState : MonoBehaviour
+public class EnemyBaseState : MonoBehaviour
 {
     protected Enemy enemy;
-    protected E_StateMachine fsm;
+    protected EnemyStateMachine fsm;
 
-    public E_BaseState(Enemy enemy, E_StateMachine fsm)
+    public EnemyBaseState(Enemy enemy, EnemyStateMachine fsm)
     {
         this.enemy = enemy;
         this.fsm = fsm;

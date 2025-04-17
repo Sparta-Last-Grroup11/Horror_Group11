@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NurseZombie_AttackState : E_BaseState  // 플레이어를 공격하는 상태
+public class NurseZombie_AttackState : EnemyBaseState  // 플레이어를 공격하는 상태
 {
     private NurseZombie nurseZombie;
 
@@ -8,7 +8,7 @@ public class NurseZombie_AttackState : E_BaseState  // 플레이어를 공격하
     private float dashSpeed = 8f; // 돌진 속도, 일반 추격보다 빠르게
     private bool hasDashed = false; // 돌진 완료 여부
 
-    public NurseZombie_AttackState(Enemy enemy, E_StateMachine fsm) : base(enemy, fsm)
+    public NurseZombie_AttackState(Enemy enemy, EnemyStateMachine fsm) : base(enemy, fsm)
     {
         nurseZombie = enemy as NurseZombie;
     }
@@ -44,7 +44,7 @@ public class NurseZombie_AttackState : E_BaseState  // 플레이어를 공격하
         {
             if (FinishAttack())
             {
-                // ex) GameManager.Instance.GameOver();  // 즉사하는 ui 띄우는 메서드
+                EndAttack(); // 글리치 종료하고 GameOver UI 띄우기
             }
         }
     }
@@ -54,4 +54,23 @@ public class NurseZombie_AttackState : E_BaseState  // 플레이어를 공격하
         AnimatorStateInfo stateInfo = nurseZombie.nurseZombieAnim.GetCurrentAnimatorStateInfo(0);
         return !(stateInfo.IsName("Attack") && stateInfo.normalizedTime < 1.0f);
     }
+
+    private void EndAttack()
+    {
+        GlitchUI glitchUI = UIManager.Instance.Get<GlitchUI>();
+        if (glitchUI != null)
+        {
+            glitchUI.GlitchEnd();
+        }
+
+        HeartBeat heartBeat = UIManager.Instance.Get<HeartBeat>(); 
+        if (heartBeat != null)
+        {
+            heartBeat.ChanbeatSpeed(0f);
+            heartBeat.gameObject.SetActive(false);
+        }
+
+        // GameOverUi 띄우고 GameOver 처리
+    }
+
 }

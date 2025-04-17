@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CopZombie_ChaseState : E_BaseState
+public class CopZombie_ChaseState : EnemyBaseState
 {
     private CopZombie copZombie;
     private float afterPlayerDisappear;
     private float detectPlayerRate = 5f;
 
-    public CopZombie_ChaseState(Enemy enemy, E_StateMachine fsm) : base(enemy, fsm)
+    public CopZombie_ChaseState(Enemy enemy, EnemyStateMachine fsm) : base(enemy, fsm)
     {
         copZombie = enemy as CopZombie;
     }
