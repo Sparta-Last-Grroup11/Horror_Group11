@@ -663,12 +663,8 @@ MonoBehaviour:
   openClip: {fileID: 8300000, guid: 9485bf88f1650ae478281426b0bff7aa, type: 3}
   closeClip: {fileID: 8300000, guid: 7975f480e88c7b64a83256f8a1f102d5, type: 3}
   duration: 1
-  keyID: -1
-  itemList: {fileID: 0}
+  key: {fileID: 11400000, guid: 96aac170066675445a8d877934f7a013, type: 2}
   interactCooldown: 1
-  navMeshVolume: {fileID: 0}
-  closedArea: 1
-  openArea: 3
 --- !u!65 &5420070125398141120
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -740,12 +736,8 @@ MonoBehaviour:
   openClip: {fileID: 8300000, guid: 9485bf88f1650ae478281426b0bff7aa, type: 3}
   closeClip: {fileID: 8300000, guid: 7975f480e88c7b64a83256f8a1f102d5, type: 3}
   duration: 1
-  keyID: -1
-  itemList: {fileID: 0}
+  key: {fileID: 11400000, guid: 96aac170066675445a8d877934f7a013, type: 2}
   interactCooldown: 1
-  navMeshVolume: {fileID: 0}
-  closedArea: 1
-  openArea: 3
 --- !u!65 &8774709686529483191
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -204,6 +204,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 764010492}
+    - targetCorrespondingSourceObject: {fileID: 9205738888731919138, guid: 4fe122e13fea7994ba098a9b94b9e2c8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 764010493}
   m_SourcePrefab: {fileID: 100100000, guid: 4fe122e13fea7994ba098a9b94b9e2c8, type: 3}
 --- !u!1 &543141937 stripped
 GameObject:
@@ -262,7 +266,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c47d0c1d73b48a42bb90c40c0f7b85a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dontDestroy: 1
   GateHouseSaveDial: {fileID: 543141942}
+--- !u!114 &764010493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764010486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c8e0c345541c244581a9c98229455a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroy: 1
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +414,11 @@ PrefabInstance:
     - target: {fileID: 8472856131185639946, guid: 599377784fe3089478c1dc8f30f33ff2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598421615874309600, guid: 599377784fe3089478c1dc8f30f33ff2,
+        type: 3}
+      propertyPath: m_Cameras.Array.size
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
