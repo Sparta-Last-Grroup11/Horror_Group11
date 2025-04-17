@@ -410,8 +410,8 @@ MonoBehaviour:
   maxXLook: 85
   curRotX: 0
   curRotY: 0
-  jumpPower: 3
-  gravity: -9.81
+  jumpPower: 5
+  gravity: -20
   verticalVelocity: 0
   virtualCamera: {fileID: 0}
   walkShakeIntensity: 0.8

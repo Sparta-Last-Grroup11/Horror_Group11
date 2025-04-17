@@ -15,6 +15,13 @@ public class PlayerWalkState : PlayerState
     {
         HandleLook();
 
+        footTimer += Time.deltaTime;
+        if (footTimer > _player.footSpeedRate)
+        {
+            AudioManager.Instance.Audio3DPlay(_player.footStep, _player.transform.position);
+            footTimer = 0f;
+        }
+
         // 점프 입력이 있으면 Jump 상태로 전환
         if (_player.jumpPressed && _player.characterController.isGrounded)
         {
@@ -42,12 +49,6 @@ public class PlayerWalkState : PlayerState
         // 이동 중 발소리와 카메라 흔들림 처리
         if (_player.moveInput.magnitude > 0.2f && _player.characterController.isGrounded)
         {
-            footTimer += Time.deltaTime;
-            if (footTimer > _player.footSpeedRate)
-            {
-                AudioManager.Instance.Audio3DPlay(_player.footStep, _player.transform.position);
-                footTimer = 0f;
-            }
             _player.StartCameraShake(_player.walkShakeIntensity, _player.walkShakeFrequency, _player.shakeDuration);
         }
 
