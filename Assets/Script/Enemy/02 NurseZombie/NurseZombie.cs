@@ -79,6 +79,6 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
 
     public void MoveToSpawnPosition()
     {
-        // 여기에 스폰위치를 가져와주면 될듯.
+        // 이후에 여기에 스폰위치를 가져올 예정.
     }
 }
