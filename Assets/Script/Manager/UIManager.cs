@@ -4,10 +4,13 @@ using System.Resources;
 using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Windows.WebCam;
 
 public class UIManager : Singleton<UIManager>
 {
+    [Header("No Need to Allocate")]
+    private Dictionary<string, BaseUI> uiList;
     public Canvas mainCanvas;
     public bool IsUiActing;
     public BaseUI CurUI3D;
@@ -16,13 +19,50 @@ public class UIManager : Singleton<UIManager>
     protected override void Awake()
     {
         base.Awake();
-        mainCanvas = Instantiate(Resources.Load<GameObject>("UI/MainCanvas")).GetComponent<Canvas>();
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        uiList = new Dictionary<string, BaseUI>();
+        mainCanvas = GameObject.Find("MainCanvas").GetComponent<Canvas>();
     }
 
     public T show<T>() where T : BaseUI
     {
-        var ui = ResourceManager.Instance.LoadUI<T>();
-        return Instantiate(ui, mainCanvas.transform);
+        string key = typeof(T).Name;
+        var uiPrefab = ResourceManager.Instance.Load<T>(ResourceType.UI, typeof(T).Name);
+        var uiInstance = Instantiate(uiPrefab, mainCanvas.transform);
+        uiList[key] = uiInstance;
+        return uiInstance;
+    }
+
+    public T Get<T>() where T: BaseUI
+    {
+        string key = typeof(T).Name;
+        if (uiList.TryGetValue(key,out BaseUI ui))
+        {
+            return ui as T;
+        }
+        Debug.LogWarning($"UI Not Found: {key}");
+        return null;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        ClearList();
+    }
+
+    public void ClearList()
+    {
+        uiList.Clear();
+    }
+
+    public void RemoveUIInList(string name)
+    {
+        uiList.Remove(name);
+        Debug.Log($"{name} is Delete");
+        if (!uiList.Remove(name))
+            Debug.LogWarning($"UIManager: {name} is Delete");
+        else
+            Debug.LogWarning($"UIManager: {name} is Not Found In List");
+
     }
 
     #region 3D관련

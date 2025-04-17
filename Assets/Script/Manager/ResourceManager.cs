@@ -2,20 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ResourceType
+{
+    None,
+    Player,
+    Sound,
+    UI,
+    Material
+}
 public class ResourceManager : Singleton<ResourceManager>
 {
     public Dictionary<string, BaseUI> UIList = new Dictionary<string, BaseUI>();
 
-    public T LoadUI<T>() where T : BaseUI
+    public T Load<T>(ResourceType type, string name) where T : UnityEngine.Object
     {
-        if(UIList.ContainsKey(typeof(T).Name))
+        if (string.IsNullOrEmpty(name))
         {
-            Debug.Log("딕셔너리에 발견");
-            return UIList[typeof(T).Name] as T;
+            Debug.LogWarning("[ResourceManager] Load failed: name is null or empty.");
+            return null;
         }
 
-        var ui = Resources.Load<BaseUI>($"UI/{typeof(T).Name}") as T;
-        UIList.Add(ui.name, ui);
-        return ui;
+        string path = (type == ResourceType.None) ? name : $"{type}/{name}";
+        T obj = Resources.Load<T>(path);
+
+        if (obj == null)
+        {
+            Debug.LogError($"[ResourceManager] Failed to load GameObject at path: Resources/{path}");
+            return null;
+        }
+
+        return obj;
     }
 }
