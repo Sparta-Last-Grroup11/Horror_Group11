@@ -18,7 +18,7 @@ public class PlayerRunState : PlayerState
         footTimer += Time.deltaTime;
         if (footTimer > _player.footSpeedRate / 2)
         {
-            AudioManager.Instance.Audio3DPlay(_player.footStep, _player.transform.position);
+            AudioManager.Instance.Audio3DPlay(_player.footStepClip, _player.transform.position);
             footTimer = 0f;
         }
 

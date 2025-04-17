@@ -6,6 +6,7 @@ public class PlayerJumpState : PlayerState
 
     public override void Enter()
     {
+        AudioManager.Instance.Audio3DPlay(_player.jumpStartClip, _player.transform.position);
         if (_player.characterController.isGrounded)
         {
             _player.verticalVelocity = _player.jumpPower;
@@ -30,6 +31,7 @@ public class PlayerJumpState : PlayerState
         if (_player.characterController.isGrounded)
         {
             _player.jumpPressed = false;
+            AudioManager.Instance.Audio3DPlay(_player.jumpLandClip, _player.transform.position);
             if (_player.moveInput.magnitude > 0.2f)
             {
                 if (_player.runPressing)
