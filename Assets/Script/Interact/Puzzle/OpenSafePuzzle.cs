@@ -14,6 +14,6 @@ public class OpenPuzzle : MonoBehaviour, I_Interactable
     public void OpenSaveDoor()
     {
         gameObject.layer = 0;
-        door.OpenTheDoor();
+        door.Open();
     }
 }

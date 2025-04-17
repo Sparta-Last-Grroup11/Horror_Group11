@@ -8,6 +8,7 @@ using UnityEngine;
 public abstract class BaseUI : MonoBehaviour
 {
     [SerializeField] private bool isCursorFree;
+    public Action destroyAction;
 
     protected virtual void Start()
     {
@@ -19,6 +20,7 @@ public abstract class BaseUI : MonoBehaviour
     {
         if (isCursorFree)
             Cursor.lockState = CursorLockMode.Locked;
+        UIManager.Instance.RemoveUIInList(GetType().Name);
     }
 
     public virtual void DestroySelf()

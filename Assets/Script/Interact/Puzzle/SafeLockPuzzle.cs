@@ -3,8 +3,7 @@ using UnityEngine;
 public class SafeLockPuzzle : ItemOnUI
 {
     [SerializeField] private int[] rightArray = {0,0,0,0};
-    [SerializeField] private ControlDoor door;
-    [SerializeField] private AudioSource audio;
+    [SerializeField] private AudioClip clip;
     [SerializeField] private Surprise surprise;
     [SerializeField] private int randomRange;
 
@@ -16,7 +15,6 @@ public class SafeLockPuzzle : ItemOnUI
 
     public override void Init(string description = "")
     {
-        audio = GetComponent<AudioSource>();
         for (int i = 0; i < rightArray.Length; i++) //암호 초기화
         {
             rightArray[i] = Random.Range(0,maxNumber+1);
@@ -36,7 +34,7 @@ public class SafeLockPuzzle : ItemOnUI
             {
                 answer = (answer + 1) % (maxNumber + 1);
                 if (answer == rightArray[rotateCount])
-                    audio.Play();
+                    AudioManager.Instance.Audio2DPlay(clip);
             }
             else  //직전에 오른쪽으로 돌렸다면
             {
@@ -54,7 +52,7 @@ public class SafeLockPuzzle : ItemOnUI
             {
                 answer = (answer + 1) % (maxNumber + 1);
                 if (answer == rightArray[rotateCount])
-                    audio.Play();
+                    AudioManager.Instance.Audio2DPlay(clip);
             }
             else //직전에 왼쪽으로 회전했을 때
             {
