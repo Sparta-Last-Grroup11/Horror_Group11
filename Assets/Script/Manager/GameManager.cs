@@ -9,6 +9,7 @@ public class GameManager : Singleton<GameManager>
     public Player player;
     [SerializeField] Vector3 spawnPoint;
     public Camera subCam;
+    public Camera uiCam;
 
     public Vector3 SpawnPoint => spawnPoint;
 
@@ -17,6 +18,7 @@ public class GameManager : Singleton<GameManager>
         base.Awake();
         SpawnCharacter();
         subCam = GameObject.Find("Sub Camera").GetComponent<Camera>();
+        uiCam = GameObject.Find("UI Camera").GetComponent<Camera>();
     }
 
     void SpawnCharacter()
