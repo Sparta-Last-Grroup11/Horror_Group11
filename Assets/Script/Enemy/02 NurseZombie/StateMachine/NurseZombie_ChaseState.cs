@@ -30,6 +30,7 @@ public class NurseZombie_ChaseState : EnemyBaseState    // 플레이어를 추�
 
         // GlitchUI
         glitchUI = UIManager.Instance.show<GlitchUI>();
+        glitchUI.GlitchStart(0f);
         isGlitchOn = false;
 
         // HeartBeatUI
@@ -44,6 +45,7 @@ public class NurseZombie_ChaseState : EnemyBaseState    // 플레이어를 추�
         }
 
         heartBeat.ChanbeatSpeed(1f);
+
         heartBeatClip = Resources.Load<AudioClip>("Sound/HeartbeatSound");
         heartBeatSource = nurseZombie.GetComponent<AudioSource>();
         heartBeatSource = nurseZombie.gameObject.AddComponent<AudioSource>();
@@ -96,11 +98,16 @@ public class NurseZombie_ChaseState : EnemyBaseState    // 플레이어를 추�
 
     public void HandleGlitchEffectAndHeartBeat()
     {
+        float distance = Vector3.Distance(nurseZombie.transform.position, nurseZombie.PlayerTransform.position);
+        float detectionRnage = nurseZombie.detectionRange;
+
+        float noiseAmount = Mathf.Lerp(50f, 0f, distance / detectionRnage);
+
         if (nurseZombie.IsPlayerLookingAtMe())
         {
             if (!isGlitchOn && glitchUI != null)
             {
-                glitchUI.GlitchStart(50f);
+                glitchUI.GlitchStart(noiseAmount);
                 isGlitchOn = true;
             }
 

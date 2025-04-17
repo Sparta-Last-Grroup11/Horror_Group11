@@ -40,7 +40,7 @@ Material:
     m_Floats:
     - _Fullscreen_DepthWrite: 0
     - _GlitchStrength: 1
-    - _NoiseAmount: 0
+    - _NoiseAmount: 50
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
