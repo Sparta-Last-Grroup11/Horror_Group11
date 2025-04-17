@@ -60,7 +60,7 @@ public class AudioManager : Singleton<AudioManager>
     }
 
     #endregion
-    public void Audio2DPlay(AudioClip clip)
+    public void Audio2DPlay(AudioClip clip, float volume = 1f)
     {
         //게임 오브젝트를 만든 후에 오디오 소스를 붙여서 clip을 재생
         if (clip == null)
@@ -74,6 +74,7 @@ public class AudioManager : Singleton<AudioManager>
 
         AudioSource source = obj.GetComponent<AudioSource>();
         source.clip = clip;
+        source.volume = Mathf.Clamp01(volume);
         source.spatialBlend = 0f;
         source.Play();
 
@@ -81,7 +82,7 @@ public class AudioManager : Singleton<AudioManager>
         obj.GetComponent<SoundSource>().Play(clip.length);
     }
 
-    public AudioSource Audio3DPlay(AudioClip clip, Vector3 pos, bool isLoop = false)
+    public AudioSource Audio3DPlay(AudioClip clip, Vector3 pos, float volume = 1f, bool isLoop = false)
     {
         if (clip == null)
         {
@@ -96,6 +97,7 @@ public class AudioManager : Singleton<AudioManager>
         AudioSource source = obj.GetComponent<AudioSource>();
         source.clip = clip;
         source.loop = isLoop;
+        source.volume = Mathf.Clamp01(volume);
         source.spatialBlend = 1f;
         source.Play();
 

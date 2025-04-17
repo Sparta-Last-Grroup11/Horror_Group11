@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+    [Header("No Need to Allocate")]
     public Player player;
-    public Camera subCam;
     [SerializeField] Vector3 spawnPoint;
+    public Camera subCam;
 
     public Vector3 SpawnPoint => spawnPoint;
 
@@ -15,7 +16,7 @@ public class GameManager : Singleton<GameManager>
     {
         base.Awake();
         SpawnCharacter();
-        subCam = Instantiate(Resources.Load<GameObject>("UI/Sub Camera")).GetComponent<Camera>();
+        subCam = GameObject.Find("Sub Camera").GetComponent<Camera>();
     }
 
     void SpawnCharacter()

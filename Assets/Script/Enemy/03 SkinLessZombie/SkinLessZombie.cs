@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class SkinLessZombie : Enemy   // 점프스케어 (플레이어 보면 빠르게 달려와서 깜놀시키고, 사라짐, 무해함)
+public class SkinLessZombie : Enemy   // 점프스케어 (플레이어 보면 빠르게 달려와서 깜놀시키고 사라짐, 무해함)
 {
-    public Animator skinLessZombieAnim { get; private set; }
+    public Animator skinLessZombieAnim;
 
     public float timer = 0f;  // 달려든 후 일정 시간 지나면 사라지게 만들 타이머
     public float rushSpeed = 30f;         // 달려드는 속도

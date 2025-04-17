@@ -2881,7 +2881,6 @@ MonoBehaviour:
   notEnemyLayer:
     serializedVersion: 2
     m_Bits: 767
-  isPlayersighted: 0
   viewAngle: 90
   rb: {fileID: 0}
   moveSpeed: 4

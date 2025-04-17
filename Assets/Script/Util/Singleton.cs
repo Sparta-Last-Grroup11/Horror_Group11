@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
+    [SerializeField] private bool dontDestroy = true;
+    public bool DontDestroy { get { return dontDestroy; } }
     private static T _instance;
     public static T Instance
     {
@@ -11,7 +13,7 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         {
             if (_instance == null)
             {
-                // æ¿ø°º≠ ¿ŒΩ∫≈œΩ∫ √£±‚
+                // Ïî¨ÏóêÏÑú Ïù∏Ïä§ÌÑ¥Ïä§ Ï∞æÍ∏∞
                 _instance = FindObjectOfType<T>();
 
                 if (_instance == null)
@@ -25,10 +27,16 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 
     protected virtual void Awake()
     {
+        if (transform.parent != null) 
+            transform.SetParent(null);
         if (_instance == null)
         {
             _instance = this as T;
         }
+
+        if (DontDestroy)
+            DontDestroyOnLoad(gameObject);
+
         else if (_instance != this)
         {
             Debug.LogWarning($"Duplicate Singleton<{typeof(T)}> detected. Destroying duplicate.");

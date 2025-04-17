@@ -16,7 +16,7 @@ RenderSettings:
   serializedVersion: 9
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_FogMode: 3
+  m_FogMode: 2
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
@@ -181,6 +181,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7071141023187793598, guid: 4fe122e13fea7994ba098a9b94b9e2c8,
+        type: 3}
+      propertyPath: spawnPoint.x
+      value: 5.6201963
+      objectReference: {fileID: 0}
     - target: {fileID: 9205738888731919138, guid: 4fe122e13fea7994ba098a9b94b9e2c8,
         type: 3}
       propertyPath: m_Name
@@ -289,74 +294,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebfc7ffc6c1f90649a37858111536676, type: 3}
---- !u!1001 &1418662455
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4281672837547360350, guid: 7561a871e24868244a11675752ef8db3,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -13
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281672837547360350, guid: 7561a871e24868244a11675752ef8db3,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.017751694
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281672837547360350, guid: 7561a871e24868244a11675752ef8db3,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281672837547360350, guid: 7561a871e24868244a11675752ef8db3,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.72532034
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281672837547360350, guid: 7561a871e24868244a11675752ef8db3,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281672837547360350, guid: 7561a871e24868244a11675752ef8db3,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.68841153
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281672837547360350, guid: 7561a871e24868244a11675752ef8db3,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281672837547360350, guid: 7561a871e24868244a11675752ef8db3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281672837547360350, guid: 7561a871e24868244a11675752ef8db3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 87.009
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281672837547360350, guid: 7561a871e24868244a11675752ef8db3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8630633793470372901, guid: 7561a871e24868244a11675752ef8db3,
-        type: 3}
-      propertyPath: m_Name
-      value: NurseZombie
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7561a871e24868244a11675752ef8db3, type: 3}
 --- !u!1001 &1669222477
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -616,7 +553,7 @@ PrefabInstance:
     - target: {fileID: 479824356600414189, guid: 50c99bf2cc9aa50428af2b2b698a8c80,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -12.089
       objectReference: {fileID: 0}
     - target: {fileID: 479824356600414189, guid: 50c99bf2cc9aa50428af2b2b698a8c80,
         type: 3}
@@ -626,7 +563,7 @@ PrefabInstance:
     - target: {fileID: 479824356600414189, guid: 50c99bf2cc9aa50428af2b2b698a8c80,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -9.672
       objectReference: {fileID: 0}
     - target: {fileID: 479824356600414189, guid: 50c99bf2cc9aa50428af2b2b698a8c80,
         type: 3}
@@ -673,6 +610,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: CopZombie
       objectReference: {fileID: 0}
+    - target: {fileID: 4706402974268970911, guid: 50c99bf2cc9aa50428af2b2b698a8c80,
+        type: 3}
+      propertyPath: copZombieChaseClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 97b94f2134c874241bf3f69edab77088, type: 3}
+    - target: {fileID: 4706402974268970911, guid: 50c99bf2cc9aa50428af2b2b698a8c80,
+        type: 3}
+      propertyPath: doorLayerMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -689,4 +636,3 @@ SceneRoots:
   - {fileID: 1911519206}
   - {fileID: 4835203549728879239}
   - {fileID: 1707621967}
-  - {fileID: 1418662455}

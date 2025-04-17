@@ -8,7 +8,6 @@ public class CopZombie_PatrolState : E_BaseState
     private CopZombie copZombie;
 
     private float afterSetPoint;
-    private float setPointRate = 10f;
 
     public CopZombie_PatrolState(Enemy enemy, E_StateMachine fsm) : base(enemy, fsm)
     {
@@ -43,9 +42,18 @@ public class CopZombie_PatrolState : E_BaseState
             copZombie.copZombieAnim.SetFloat("MoveSpeed", 0);
             copZombie.viewAngle = 120f;
         }
+        else
+        {
+            copZombie.afterLastFootStep += Time.deltaTime;
+            if (copZombie.afterLastFootStep > copZombie.footStepRate)
+            {
+                AudioManager.Instance.Audio3DPlay(copZombie.copZombieFootStep, copZombie.transform.position);
+                copZombie.afterLastFootStep = 0;
+            }
+        }
 
         // 시간 지나면 새로운 목적지 설정
-        if (afterSetPoint > setPointRate)
+        if (afterSetPoint > copZombie.setPointRate)
         {
             Vector3 randomPosition = GetRandomPositionOnNavMesh();
             copZombie.copzombieAgent.SetDestination(randomPosition);

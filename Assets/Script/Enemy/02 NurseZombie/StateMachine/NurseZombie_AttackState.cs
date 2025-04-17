@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class NurseZombie_AttackState : E_BaseState  // 플레이어를 공격하는 상태
@@ -44,11 +42,16 @@ public class NurseZombie_AttackState : E_BaseState  // 플레이어를 공격하
         }
         else
         {
-            if (nurseZombie.FinishAttack())  // 공격 애니메이션이 끝났을 때
+            if (FinishAttack())
             {
                 // ex) GameManager.Instance.GameOver();  // 즉사하는 ui 띄우는 메서드
             }
         }
- 
+    }
+
+    public bool FinishAttack()  // 공격 애니메이션이 끝났는지 확인
+    {
+        AnimatorStateInfo stateInfo = nurseZombie.nurseZombieAnim.GetCurrentAnimatorStateInfo(0);
+        return !(stateInfo.IsName("Attack") && stateInfo.normalizedTime < 1.0f);
     }
 }
