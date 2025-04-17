@@ -29,6 +29,7 @@ public class PlayerJumpState : PlayerState
         // 착지하면 상태 전환
         if (_player.characterController.isGrounded)
         {
+            _player.jumpPressed = false;
             if (_player.moveInput.magnitude > 0.2f)
             {
                 if (_player.runPressing)
