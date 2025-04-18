@@ -82,7 +82,6 @@ public class Player : PlayerInputController
 
     private void Update()
     {
-        stateMachine.Update();
         if (isChased)
         {
             ChasingByEnemy();
@@ -92,7 +91,7 @@ public class Player : PlayerInputController
             isChasedBGM = false;
         }
 
-        if (UIManager.Instance.IsUiActing)
+        if (!UIManager.Instance.IsUiActing)
         {
             stateMachine.Update();
         }

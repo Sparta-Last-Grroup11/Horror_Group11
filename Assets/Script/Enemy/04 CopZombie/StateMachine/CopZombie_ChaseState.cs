@@ -5,8 +5,6 @@ using UnityEngine;
 public class CopZombie_ChaseState : EnemyBaseState
 {
     private CopZombie copZombie;
-    private float afterPlayerDisappear;
-    private float detectPlayerRate = 5f;
 
     public CopZombie_ChaseState(Enemy enemy, EnemyStateMachine fsm) : base(enemy, fsm)
     {
