@@ -7,6 +7,9 @@ public abstract class Enemy : MonoBehaviour
     public Transform PlayerTransform => playerTransform;  // 외부 접근용 getter
     [SerializeField] private LayerMask notEnemyLayer;
 
+    private float afterPlayerDisappear;
+    private float detectPlayerRate = 5f;
+
     public float viewAngle = 90f;  
 
     protected virtual void Start()
@@ -58,6 +61,20 @@ public abstract class Enemy : MonoBehaviour
         }
 
         return false;
+    }
+
+    public bool HasLostPlayer()
+    {
+        if (CanSeePlayer())
+        {
+            afterPlayerDisappear = 0;
+            return false;
+        }
+        else
+        {
+            afterPlayerDisappear += Time.deltaTime;
+            return afterPlayerDisappear > detectPlayerRate;
+        }
     }
 
     public void LookAtPlayer()  // 플레이어를 향해 몸을 돌리게 해줌
