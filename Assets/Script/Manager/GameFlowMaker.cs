@@ -41,7 +41,7 @@ public class GameFlowMaker : MonoBehaviour
             foreach (Vector3 v in flow.value)
             {
                 Handles.Label(v + Vector3.up * 1f, flow.key + " " + num.ToString(), labelStyle);
-                Gizmos.DrawCube(transform.position + v, Vector3.one);
+                Gizmos.DrawCube(transform.position + v, Vector3.one * 0.5f);
                 num++;
             }
 
