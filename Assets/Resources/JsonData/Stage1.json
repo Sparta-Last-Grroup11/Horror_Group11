@@ -1,0 +1,19 @@
+﻿{
+  "Stage1": [
+    {
+      "type": "Item",
+      "prefabname": "ClipBoard",
+      "position": [
+        2.45,
+        1.0,
+        -7.0
+      ],
+      "rotation": [
+        0.0,
+        -90.0,
+        0.0
+      ],
+      "description": "The first Example of Parsing"
+    }
+  ]
+}

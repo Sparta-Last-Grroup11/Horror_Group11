@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class CopZombie_AttackState : EnemyBaseState
@@ -13,11 +14,19 @@ public class CopZombie_AttackState : EnemyBaseState
 
     public override void Enter()
     {
+        GameManager.Instance.player.stateMachine.ChangeState(new PlayerCaughtState(GameManager.Instance.player));
+        copZombie.copZombieVirtualCamera.Priority = 12;
+        copZombie.playableDirector.Play();
         copZombie.copZombieAnim.SetTrigger("DoAttack");
     }
 
     public override void Update()
     {
         
+    }
+
+    public override void Exit()
+    {
+
     }
 }

@@ -25,7 +25,9 @@ public class UIManager : Singleton<UIManager>
         if (obj == null)
         {
             mainCanvas = Instantiate(ResourceManager.Instance.Load<GameObject>(ResourceType.UI, "MainCanvas").GetComponent<Canvas>());
+            mainCanvas.renderMode = RenderMode.ScreenSpaceCamera;
             mainCanvas.worldCamera = GameManager.Instance.uiCam;
+            mainCanvas.planeDistance = 900f;
         }
         else
         {

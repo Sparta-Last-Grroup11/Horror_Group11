@@ -31,7 +31,7 @@ public class CopZombie_ChaseState : EnemyBaseState
             AudioManager.Instance.Audio3DPlay(copZombie.copZombieFootStep, copZombie.transform.position);
             copZombie.afterLastFootStep = 0;
         }
-        if (Vector3.Distance(GameManager.Instance.player.transform.position, copZombie.transform.position) < 1f)
+        if (Vector3.Distance(GameManager.Instance.player.transform.position, copZombie.transform.position) < 1.8f)
         {
             fsm.ChangeState(new CopZombie_AttackState(copZombie, fsm));
         }
