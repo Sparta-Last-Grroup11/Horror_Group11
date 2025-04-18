@@ -14,6 +14,51 @@
         0.0
       ],
       "description": "The first Example of Parsing"
+    },
+    {
+      "type": "Enemy",
+      "prefabname": "NurseZombie",
+      "position": [
+        -21.0,
+        0.0,
+        -8.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "description": ""
+    },
+    {
+      "type": "Enemy",
+      "prefabname": "SkinLessZombie",
+      "position": [
+        27.25,
+        0.0,
+        -11.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "description": ""
+    },
+    {
+      "type": "Enemy",
+      "prefabname": "CopZombie",
+      "position": [
+        22.1,
+        0.0,
+        -29.3
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "description": ""
     }
   ]
 }

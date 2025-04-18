@@ -6,6 +6,13 @@ using UnityEditor;
 using UnityEngine;
 
 [System.Serializable]
+public class Vector3AndRotation
+{
+    public Vector3 Vec;
+    public Quaternion Rot;
+}
+
+[System.Serializable]
 public class Flow
 {
     public string key;
@@ -13,10 +20,11 @@ public class Flow
     public Color textColor;
     [Range(0,40)]
     public int fontSize;
-    public List<Vector3> value;
+    public List<Vector3AndRotation> value;
 }
 public class GameFlowMaker : MonoBehaviour
 {
+    [SerializeField] private float boxSize = 0.5f;
     [SerializeField] List<Flow> unitFlow;
     public List<Flow> UnitFlow => unitFlow;
 
@@ -38,15 +46,15 @@ public class GameFlowMaker : MonoBehaviour
             labelStyle.fontSize = flow.fontSize;
 
             int num = 1;
-            foreach (Vector3 v in flow.value)
+            foreach (var v in flow.value)
             {
-                Handles.Label(v + Vector3.up * 1f, flow.key + " " + num.ToString(), labelStyle);
-                Gizmos.DrawCube(transform.position + v, Vector3.one);
+                Handles.Label(v.Vec + Vector3.up * 1f, flow.key + " " + num.ToString(), labelStyle);
+                Gizmos.DrawCube(transform.position + v.Vec, Vector3.one * boxSize);
                 num++;
             }
 
             for (int i = 0; i < flow.value.Count - 1; i++)
-                Gizmos.DrawLine(flow.value[i], flow.value[i + 1]);
+                Gizmos.DrawLine(flow.value[i].Vec, flow.value[i + 1].Vec);
         }
 #endif
     }

@@ -1,7 +1,12 @@
+using System;
+using Unity;
+using System.Collections.Generic;
+using UnityEngine;
+
 public class PuzzleManager : Singleton<PuzzleManager>
 {
     public OpenPuzzle GateHouseSaveDial;
-    private bool isPowerOn;
+    [SerializeField] private bool isPowerOn;
 
     public void OnPower()
     {
