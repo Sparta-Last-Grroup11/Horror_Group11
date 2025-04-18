@@ -5,6 +5,7 @@ using UnityEngine;
 public enum ResourceType
 {
     None,
+    JsonData,
     Player,
     Sound,
     UI,

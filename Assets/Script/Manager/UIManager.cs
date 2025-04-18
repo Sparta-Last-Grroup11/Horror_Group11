@@ -21,7 +21,17 @@ public class UIManager : Singleton<UIManager>
         base.Awake();
         SceneManager.sceneLoaded += OnSceneLoaded;
         uiList = new Dictionary<string, BaseUI>();
-        mainCanvas = GameObject.Find("MainCanvas").GetComponent<Canvas>();
+        GameObject obj = GameObject.Find("MainCanvas");
+        if (obj == null)
+        {
+            mainCanvas = Instantiate(ResourceManager.Instance.Load<GameObject>(ResourceType.UI, "MainCanvas").GetComponent<Canvas>());
+            mainCanvas.worldCamera = GameManager.Instance.uiCam;
+        }
+        else
+        {
+            mainCanvas = obj.GetComponent<Canvas>();
+            mainCanvas.worldCamera = GameManager.Instance.uiCam;
+        }
     }
 
     public T show<T>() where T : BaseUI
@@ -52,6 +62,19 @@ public class UIManager : Singleton<UIManager>
     public void ClearList()
     {
         uiList.Clear();
+    }
+
+    public void ClearListAndDestroy(BaseUI script = null)
+    {
+        foreach(var ui in uiList)
+        {
+            if (ui.Value != null && ui.Value.gameObject != null)
+            {
+                if (ui.Value != script) 
+                    Destroy(ui.Value.gameObject);
+            }
+        }
+        ClearList();
     }
 
     public void RemoveUIInList(string name)

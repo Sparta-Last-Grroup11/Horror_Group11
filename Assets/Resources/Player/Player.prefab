@@ -394,7 +394,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateMachine: {fileID: 0}
   characterController: {fileID: 0}
-  footStep: {fileID: 8300000, guid: 1a7741daba5446e46a40f8074aae75dc, type: 3}
+  footStepClip: {fileID: 8300000, guid: 1a7741daba5446e46a40f8074aae75dc, type: 3}
+  runStepClip: {fileID: 8300000, guid: 82354d1fee336984994fbdcc8154c89c, type: 3}
+  jumpStartClip: {fileID: 8300000, guid: 866abdf3a931850498786581089be202, type: 3}
+  jumpLandClip: {fileID: 8300000, guid: c2e0d3f88cb48f240af40a1f1bac7e8c, type: 3}
   footSpeedRate: 0.8
   chasedCilp: {fileID: 8300000, guid: fa58336c9b3e83c4e8fc3fde368af922, type: 3}
   isChased: 0
@@ -410,8 +413,8 @@ MonoBehaviour:
   maxXLook: 85
   curRotX: 0
   curRotY: 0
-  jumpPower: 3
-  gravity: -9.81
+  jumpPower: 5
+  gravity: -20
   verticalVelocity: 0
   virtualCamera: {fileID: 0}
   walkShakeIntensity: 0.8

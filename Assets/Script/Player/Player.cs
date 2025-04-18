@@ -8,7 +8,10 @@ public class Player : PlayerInputController
     public CharacterController characterController;
 
     // 발소리 관련
-    public AudioClip footStep;
+    public AudioClip footStepClip;
+    public AudioClip runStepClip;
+    public AudioClip jumpStartClip;
+    public AudioClip jumpLandClip;
     public float footSpeedRate = 0.2f;
 
     // 쫓기는 상태 관련
@@ -153,7 +156,7 @@ public class Player : PlayerInputController
     {
         if (!isChasedBGM)
         {
-            AudioManager.Instance.Audio2DPlay(chasedCilp);
+            AudioManager.Instance.Audio2DPlay(chasedCilp, 0.5f);
             isChasedBGM = true;
         }
     }

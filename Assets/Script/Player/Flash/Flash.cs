@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Flash : MonoBehaviour
 {
-    private P_Flash p_Flash;
+    private PlayerFlash playerFlash;
     [Range(0f, 100f)] public float flashBattery = 100.0f;
 
     private Light spotLight;
@@ -25,13 +25,13 @@ public class Flash : MonoBehaviour
     private void OnEnable()
     {
         spotLight = GetComponent<Light>();
-        p_Flash = GetComponentInParent<P_Flash>();
+        playerFlash = GetComponentInParent<PlayerFlash>();
         spotLight.enabled = false;
     }
 
     private void Update()
     {
-        if (p_Flash.isFlash)
+        if (playerFlash.isFlash)
         {
             if (flashBattery > 0)
             {
@@ -90,7 +90,7 @@ public class Flash : MonoBehaviour
         {
             gameObject.SetActive(false);
         }, 0.5f));
-        p_Flash.isFlash = false;
+        playerFlash.isFlash = false;
     }
 
     private IEnumerator Flicker(System.Action onFinish, float flickerTime)

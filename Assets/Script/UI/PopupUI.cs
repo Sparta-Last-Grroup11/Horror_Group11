@@ -22,7 +22,7 @@ public abstract class PopupUI : BaseUI
 
         StartCoroutine(FadeIn());
 
-        if (DestroyByTime == false)
+        if (!DestroyByTime) 
             return;
 
         Invoke(nameof(FadeOutAndDestroyFunc), DestroyTime + duration);

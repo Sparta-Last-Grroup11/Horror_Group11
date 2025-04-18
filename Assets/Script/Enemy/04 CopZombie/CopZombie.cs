@@ -1,5 +1,7 @@
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Playables;
 
 public class CopZombie : Enemy
 {
@@ -9,6 +11,9 @@ public class CopZombie : Enemy
     public Animator copZombieAnim;
     public AudioClip copZombieFootStep;
     public AudioClip copZombieChaseClip;
+    public Transform cameraContainer;
+    public CinemachineVirtualCamera copZombieVirtualCamera;
+    public PlayableDirector playableDirector;
 
     // Patrol
     public float patrolRange = 20f;
@@ -28,6 +33,7 @@ public class CopZombie : Enemy
     {
         copzombieAgent = GetComponent<NavMeshAgent>();
         copZombieAnim = GetComponentInChildren<Animator>();
+        playableDirector = GetComponent<PlayableDirector>();
     }
 
     protected override void Start()

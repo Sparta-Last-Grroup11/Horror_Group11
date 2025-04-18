@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Author: Trung Dong
  * www.trung-dong.com
  * Last update: 2018/01/21
@@ -38,6 +38,8 @@ using System;
 using System.Net;
 using System.IO;
 using System.Threading;
+using Unity.VisualScripting.YamlDotNet.Serialization;
+using UnityEditor.PackageManager;
 
 public class GSpreadSheetsToJson : EditorWindow {
 
@@ -299,167 +301,167 @@ public class GSpreadSheetsToJson : EditorWindow {
 
 				string strVal = values[rowId][columnId];
 
-				switch(dataTypes[columnId])
+				switch (dataTypes[columnId])
 				{
 					case "string":
-					{
-						data.Add(propertyNames[columnId], strVal);
-						break;
-					}
+						{
+							data.Add(propertyNames[columnId], strVal);
+							break;
+						}
 					case "int":
-					{
-						int val = 0;
-						if(!string.IsNullOrEmpty(strVal))
-						{
-							try
-							{
-								val = int.Parse(strVal);
-							}
-							catch(System.Exception e)
-							{
-								Debug.LogError(string.Format("There is exception when parse value of property {0} of {1} class.\nDetail: {2}",  propertyNames[columnId], fileName, e.ToString()));
-								thisRowHasError = true;
-								continue;
-							}
-						}
-						data.Add(propertyNames[columnId], val);
-						break;
-					}
-					case "bool":
-					{
-						bool val = false;
-						if(!string.IsNullOrEmpty(strVal))
-						{
-							try
-							{
-								val = bool.Parse(strVal);
-							}
-							catch(System.Exception e)
-							{
-								Debug.LogError(string.Format("There is exception when parse value of property {0} of {1} class.\nDetail: {2}",  propertyNames[columnId], fileName, e.ToString()));
-								continue;
-							}
-						}
-						data.Add(propertyNames[columnId], val);
-						break;
-					}
-					case "float":
-					{
-						float val = 0f;
-						if(!string.IsNullOrEmpty(strVal))
-						{
-							try
-							{
-								val = float.Parse(strVal);
-							}
-							catch(System.Exception e)
-							{
-								Debug.LogError(string.Format("There is exception when parse value of property {0} of {1} class.\nDetail: {2}",  propertyNames[columnId], fileName, e.ToString()));
-								continue;
-							}
-						}
-						data.Add(propertyNames[columnId], val);
-						break;
-					}
-					case "string[]":
-					{
-						string[] valArr = strVal.Split(new char[]{','});
-						data.Add(propertyNames[columnId], valArr);
-						break;
-					}
-					case "int[]":
-					{
-						string[] strValArr = strVal.Split(new char[]{','});
-						int[] valArr = new int[strValArr.Length];
-						if (string.IsNullOrEmpty (strVal.Trim ())) {
-							valArr = new int[0];
-						}
-						bool error = false;
-						for(int i = 0; i < valArr.Length; i++)
 						{
 							int val = 0;
-							if(!string.IsNullOrEmpty(strValArr[i]))
+							if (!string.IsNullOrEmpty(strVal))
 							{
 								try
 								{
-									val = int.Parse(strValArr[i]);
+									val = int.Parse(strVal);
 								}
-								catch(System.Exception e)
+								catch (System.Exception e)
 								{
-									Debug.LogError(string.Format("There is exception when parse value of property {0} of {1} class.\nDetail: {2}",  propertyNames[columnId], fileName, e.ToString()));
-									error = true;
-									break;
+									Debug.LogError(string.Format("There is exception when parse value of property {0} of {1} class.\nDetail: {2}", propertyNames[columnId], fileName, e.ToString()));
+									thisRowHasError = true;
+									continue;
 								}
 							}
-							valArr[i] = val;
+							data.Add(propertyNames[columnId], val);
+							break;
 						}
-						if(error)
-							continue;
-						data.Add(propertyNames[columnId], valArr);
-						break;
-					}
-					case "bool[]":
-					{
-						string[] strValArr = strVal.Split(new char[]{','});
-						bool[] valArr = new bool[strValArr.Length];
-						if (string.IsNullOrEmpty (strVal.Trim ())) {
-							valArr = new bool[0];
-						}
-						bool error = false;
-						for(int i = 0; i < valArr.Length; i++)
+					case "bool":
 						{
 							bool val = false;
-							if(!string.IsNullOrEmpty(strValArr[i]))
+							if (!string.IsNullOrEmpty(strVal))
 							{
 								try
 								{
-									val = bool.Parse(strValArr[i]);
+									val = bool.Parse(strVal);
 								}
-								catch(System.Exception e)
+								catch (System.Exception e)
 								{
-									Debug.LogError(string.Format("There is exception when parse value of property {0} of {1} class.\nDetail: {2}",  propertyNames[columnId], fileName, e.ToString()));
-									error = true;
-									break;
+									Debug.LogError(string.Format("There is exception when parse value of property {0} of {1} class.\nDetail: {2}", propertyNames[columnId], fileName, e.ToString()));
+									continue;
 								}
 							}
-							valArr[i] = val;
+							data.Add(propertyNames[columnId], val);
+							break;
 						}
-						if(error)
-							continue;
-						data.Add(propertyNames[columnId], valArr);
-						break;
-					}
-					case "float[]":
-					{
-						string[] strValArr = strVal.Split(new char[]{','});
-						float[] valArr = new float[strValArr.Length];
-						if (string.IsNullOrEmpty (strVal.Trim ())) {
-							valArr = new float[0];
-						}
-						bool error = false;
-						for(int i = 0; i < valArr.Length; i++)
+					case "float":
 						{
 							float val = 0f;
-							if(!string.IsNullOrEmpty(strValArr[i]))
+							if (!string.IsNullOrEmpty(strVal))
 							{
 								try
 								{
-									val = float.Parse(strValArr[i]);
+									val = float.Parse(strVal);
 								}
-								catch(System.Exception e)
+								catch (System.Exception e)
 								{
-									Debug.LogError(string.Format("There is exception when parse value of property {0} of {1} class.\nDetail: {2}",  propertyNames[columnId], fileName, e.ToString()));
-									error = true;
-									break;
+									Debug.LogError(string.Format("There is exception when parse value of property {0} of {1} class.\nDetail: {2}", propertyNames[columnId], fileName, e.ToString()));
+									continue;
 								}
 							}
-							valArr[i] = val;
+							data.Add(propertyNames[columnId], val);
+							break;
 						}
-						if(error)
-							continue;
-						data.Add(propertyNames[columnId], valArr);
-						break;
-					}
+					case "string[]":
+						{
+							string[] valArr = strVal.Split(new char[] { ',' });
+							data.Add(propertyNames[columnId], valArr);
+							break;
+						}
+					case "int[]":
+						{
+							string[] strValArr = strVal.Split(new char[] { ',' });
+							int[] valArr = new int[strValArr.Length];
+							if (string.IsNullOrEmpty(strVal.Trim())) {
+								valArr = new int[0];
+							}
+							bool error = false;
+							for (int i = 0; i < valArr.Length; i++)
+							{
+								int val = 0;
+								if (!string.IsNullOrEmpty(strValArr[i]))
+								{
+									try
+									{
+										val = int.Parse(strValArr[i]);
+									}
+									catch (System.Exception e)
+									{
+										Debug.LogError(string.Format("There is exception when parse value of property {0} of {1} class.\nDetail: {2}", propertyNames[columnId], fileName, e.ToString()));
+										error = true;
+										break;
+									}
+								}
+								valArr[i] = val;
+							}
+							if (error)
+								continue;
+							data.Add(propertyNames[columnId], valArr);
+							break;
+						}
+					case "bool[]":
+						{
+							string[] strValArr = strVal.Split(new char[] { ',' });
+							bool[] valArr = new bool[strValArr.Length];
+							if (string.IsNullOrEmpty(strVal.Trim())) {
+								valArr = new bool[0];
+							}
+							bool error = false;
+							for (int i = 0; i < valArr.Length; i++)
+							{
+								bool val = false;
+								if (!string.IsNullOrEmpty(strValArr[i]))
+								{
+									try
+									{
+										val = bool.Parse(strValArr[i]);
+									}
+									catch (System.Exception e)
+									{
+										Debug.LogError(string.Format("There is exception when parse value of property {0} of {1} class.\nDetail: {2}", propertyNames[columnId], fileName, e.ToString()));
+										error = true;
+										break;
+									}
+								}
+								valArr[i] = val;
+							}
+							if (error)
+								continue;
+							data.Add(propertyNames[columnId], valArr);
+							break;
+						}
+					case "float[]":
+						{
+							string[] strValArr = strVal.Split(new char[] { ',' });
+							float[] valArr = new float[strValArr.Length];
+							if (string.IsNullOrEmpty(strVal.Trim())) {
+								valArr = new float[0];
+							}
+							bool error = false;
+							for (int i = 0; i < valArr.Length; i++)
+							{
+								float val = 0f;
+								if (!string.IsNullOrEmpty(strValArr[i]))
+								{
+									try
+									{
+										val = float.Parse(strValArr[i]);
+									}
+									catch (System.Exception e)
+									{
+										Debug.LogError(string.Format("There is exception when parse value of property {0} of {1} class.\nDetail: {2}", propertyNames[columnId], fileName, e.ToString()));
+										error = true;
+										break;
+									}
+								}
+								valArr[i] = val;
+							}
+							if (error)
+								continue;
+							data.Add(propertyNames[columnId], valArr);
+							break;
+						}
 					default: break;	//This data type is strange, may be this column is used for comments, not for store data, so do nothing and read next column.
 				}
 			}
