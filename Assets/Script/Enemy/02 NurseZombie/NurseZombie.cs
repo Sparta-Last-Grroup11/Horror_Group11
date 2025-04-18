@@ -11,7 +11,7 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
     // Chase, Attack
     public float moveSpeed = 2;
     public float attackRange = 2f;
-    public float detectionRange = 5f;
+    public float detectionRange = 10f;
     public float dashSpeed = 6f; // 돌진 속도, 일반 추격보다 빠르게
 
     // Door
