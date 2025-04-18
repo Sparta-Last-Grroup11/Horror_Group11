@@ -28,6 +28,7 @@ public class GameManager : Singleton<GameManager>
         player.virtualCamera = VirtualCam.GetComponent<CinemachineVirtualCamera>();
         VirtualCam.GetComponent<CinemachineVirtualCamera>().Follow = player.cameraContainer;
     }
+
     private void OnDrawGizmos()
     {
 #if UNITY_EDITOR

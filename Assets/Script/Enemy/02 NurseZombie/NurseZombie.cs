@@ -11,6 +11,7 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
     // Chase, Attack
     public float moveSpeed = 4f;
     public float attackRange = 2f;
+    public float detectionRange = 10f;
 
     // Door
     public float detectDoorRange = 2f;
@@ -49,7 +50,7 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
 
     private void InitNurseFSM()
     {
-        fsm = new E_StateMachine();
+        fsm = new EnemyStateMachine();
         fsm.ChangeState(new NurseZombie_IdleState(this, fsm));
     }
 
@@ -74,5 +75,10 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
         {
             transform.position += direction * speed * Time.deltaTime;
         }
+    }
+
+    public void MoveToSpawnPosition()
+    {
+        // 이후에 여기에 스폰위치를 가져올 예정.
     }
 }

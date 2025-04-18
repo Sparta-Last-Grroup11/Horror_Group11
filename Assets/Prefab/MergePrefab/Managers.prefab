@@ -94,6 +94,7 @@ MonoBehaviour:
   player: {fileID: 0}
   spawnPoint: {x: 0, y: 0.75, z: -9.75}
   subCam: {fileID: 0}
+  uiCam: {fileID: 0}
 --- !u!1 &2390712063069300656
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,6 +246,53 @@ MonoBehaviour:
     - {x: 6.25, y: 0.5, z: -3.25}
     - {x: -0.25, y: 0.5, z: -3.25}
     - {x: -6.75, y: 0.5, z: -3.25}
+--- !u!1 &7509382442583345689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3012204578423052315}
+  - component: {fileID: 1306532699961544782}
+  m_Layer: 0
+  m_Name: StageManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3012204578423052315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7509382442583345689}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 727623475304333735}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1306532699961544782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7509382442583345689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2ac7d6f925b8df4d89191f0cf448afd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroy: 0
+  textAsset: {fileID: 0}
+  currentStage: []
 --- !u!1 &9098617118543747147
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,6 +374,7 @@ Transform:
   - {fileID: 946936705458987099}
   - {fileID: 4370850537192681970}
   - {fileID: 4325041893903529960}
+  - {fileID: 3012204578423052315}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4639128334927883752

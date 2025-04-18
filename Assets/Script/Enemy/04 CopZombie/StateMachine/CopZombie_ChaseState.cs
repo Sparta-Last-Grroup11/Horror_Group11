@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CopZombie_ChaseState : E_BaseState
+public class CopZombie_ChaseState : EnemyBaseState
 {
     private CopZombie copZombie;
     private float afterPlayerDisappear;
     private float detectPlayerRate = 5f;
 
-    public CopZombie_ChaseState(Enemy enemy, E_StateMachine fsm) : base(enemy, fsm)
+    public CopZombie_ChaseState(Enemy enemy, EnemyStateMachine fsm) : base(enemy, fsm)
     {
         copZombie = enemy as CopZombie;
     }
@@ -31,7 +31,7 @@ public class CopZombie_ChaseState : E_BaseState
             AudioManager.Instance.Audio3DPlay(copZombie.copZombieFootStep, copZombie.transform.position);
             copZombie.afterLastFootStep = 0;
         }
-        if (Vector3.Distance(GameManager.Instance.player.transform.position, copZombie.transform.position) < 1f)
+        if (Vector3.Distance(GameManager.Instance.player.transform.position, copZombie.transform.position) < 1.8f)
         {
             fsm.ChangeState(new CopZombie_AttackState(copZombie, fsm));
         }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
-    protected E_StateMachine fsm;
+    protected EnemyStateMachine fsm;
     protected Transform playerTransform;
     public Transform PlayerTransform => playerTransform;  // 외부 접근용 getter
     [SerializeField] private LayerMask notEnemyLayer;

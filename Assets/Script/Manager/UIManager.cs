@@ -25,7 +25,9 @@ public class UIManager : Singleton<UIManager>
         if (obj == null)
         {
             mainCanvas = Instantiate(ResourceManager.Instance.Load<GameObject>(ResourceType.UI, "MainCanvas").GetComponent<Canvas>());
+            mainCanvas.renderMode = RenderMode.ScreenSpaceCamera;
             mainCanvas.worldCamera = GameManager.Instance.uiCam;
+            mainCanvas.planeDistance = 900f;
         }
         else
         {
@@ -62,6 +64,19 @@ public class UIManager : Singleton<UIManager>
     public void ClearList()
     {
         uiList.Clear();
+    }
+
+    public void ClearListAndDestroy(BaseUI script = null)
+    {
+        foreach(var ui in uiList)
+        {
+            if (ui.Value != null && ui.Value.gameObject != null)
+            {
+                if (ui.Value != script) 
+                    Destroy(ui.Value.gameObject);
+            }
+        }
+        ClearList();
     }
 
     public void RemoveUIInList(string name)

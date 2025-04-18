@@ -33,4 +33,9 @@ public class PSJTest : MonoBehaviour
     {
         UIManager.Instance.Get<HeartBeat>().ChanbeatSpeed(0);
     }
+
+    void DyingUI()
+    {
+        UIManager.Instance.show<DyingUI>();
+    }
 }

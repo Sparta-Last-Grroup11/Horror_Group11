@@ -39,7 +39,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Fullscreen_DepthWrite: 0
-    - _GlitchStrength: 1
+    - _GlitchStrength: 0
     - _NoiseAmount: 0
     - _QueueControl: 0
     - _QueueOffset: 0
