@@ -1,8 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Cinemachine;
-using UnityEngine;
-
 public class CopZombie_AttackState : EnemyBaseState
 {
     private CopZombie copZombie;
