@@ -1,6 +1,7 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
@@ -10,12 +11,15 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] Vector3 spawnPoint;
     public Camera subCam;
     public Camera uiCam;
+    private NavMeshSurface surface;
 
     public Vector3 SpawnPoint => spawnPoint;
 
     protected override void Awake()
     {
         base.Awake();
+        surface = Instantiate(ResourceManager.Instance.Load<GameObject>(ResourceType.Enemy, "NavMeshSurface")).GetComponent<NavMeshSurface>();
+        InvokeRepeating(nameof(SurfaceUpdate), 0, 0.5f);
         SpawnCharacter();
         subCam = GameObject.Find("Sub Camera").GetComponent<Camera>();
         uiCam = GameObject.Find("UI Camera").GetComponent<Camera>();
@@ -27,6 +31,11 @@ public class GameManager : Singleton<GameManager>
         player = Instantiate(Resources.Load<GameObject>("Player/Player"), spawnPoint, Quaternion.identity).GetComponent<Player>();
         player.virtualCamera = VirtualCam.GetComponent<CinemachineVirtualCamera>();
         VirtualCam.GetComponent<CinemachineVirtualCamera>().Follow = player.cameraContainer;
+    }
+
+    private void SurfaceUpdate()
+    {
+        surface.BuildNavMesh();
     }
 
     private void OnDrawGizmos()
