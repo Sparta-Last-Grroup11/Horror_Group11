@@ -2896,6 +2896,8 @@ MonoBehaviour:
   doorLayerMask:
     serializedVersion: 2
     m_Bits: 0
+  nurseZombieChaseClip: {fileID: 8300000, guid: 6f3c8a80c34da8949a7c39bbfd3cbc04,
+    type: 3}
 --- !u!54 &1389980022007079389
 Rigidbody:
   m_ObjectHideFlags: 0
