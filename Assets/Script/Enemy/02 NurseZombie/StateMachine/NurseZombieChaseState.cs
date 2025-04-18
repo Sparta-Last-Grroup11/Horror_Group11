@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NurseZombie_ChaseState : EnemyBaseState    // 플레이어를 추격하는 상태일 때
+public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격하는 상태일 때
 {
     public NurseZombie nurseZombie;
 
@@ -9,10 +9,9 @@ public class NurseZombie_ChaseState : EnemyBaseState    // 플레이어를 추�
     private float waitTimer = 0f;
 
     // Glitch
-    private GlitchUI glitchUI;
     private bool isGlitchOn = false;
 
-    public NurseZombie_ChaseState(Enemy enemy, EnemyStateMachine fsm) : base(enemy, fsm)
+    public NurseZombieChaseState(Enemy enemy, EnemyStateMachine fsm) : base(enemy, fsm)
     {
         nurseZombie = enemy as NurseZombie;
     }
@@ -22,10 +21,6 @@ public class NurseZombie_ChaseState : EnemyBaseState    // 플레이어를 추�
         nurseZombie.nurseZombieAnim.SetBool("IsChasing", true);
         GameManager.Instance.player.isChased = true;
         waitTimer = 0f;
-
-        // GlitchUI
-        glitchUI = UIManager.Instance.show<GlitchUI>();
-        glitchUI.GlitchStart(0f);
         isGlitchOn = false;
 
     }
@@ -69,7 +64,7 @@ public class NurseZombie_ChaseState : EnemyBaseState    // 플레이어를 추�
         if (waitTimer >= PlayerDisappearTime)  // 방 밖에서 일정 시간 대기 후 스폰 위치로 이동, 다시 IdleState로 전환
         {
             nurseZombie.MoveToSpawnPosition();
-            fsm.ChangeState(new NurseZombie_IdleState(nurseZombie, fsm));
+            fsm.ChangeState(new NurseZombieIdleState(nurseZombie, fsm));
         }
         return;
     }
@@ -83,38 +78,34 @@ public class NurseZombie_ChaseState : EnemyBaseState    // 플레이어를 추�
 
         if (nurseZombie.IsPlayerLookingAtMe())
         {
-            if (!isGlitchOn && glitchUI != null)
+            UIManager.Instance.Get<GlitchUI>().GlitchStart(noiseAmount);
+            isGlitchOn = true;
+
+            if (enemy.HasLostPlayer())
             {
-                glitchUI.GlitchStart(noiseAmount);
-                isGlitchOn = true;
+                UIManager.Instance.Get<GlitchUI>().GlitchEnd();
+                isGlitchOn = false;
             }
-
-            fsm.ChangeState(new NurseZombie_IdleState(nurseZombie, fsm));
+                
+            fsm.ChangeState(new NurseZombieIdleState(nurseZombie, fsm));
             return;
-
         }
         else
         {
-            if (isGlitchOn && glitchUI != null)
-            {
-                glitchUI.GlitchEnd();
-                isGlitchOn = false;
-
-            }
+            UIManager.Instance.Get<GlitchUI>().GlitchEnd();
+            isGlitchOn = false;
         }
+    
     }
+
 
     public void TransitionToAttack()
     {
         if (IsNearPlayer())  // 천사가 일정 거리 안에 있다면 Attack 상태로 전환
         {
-            if (isGlitchOn && glitchUI != null)
-            {
-                glitchUI.GlitchEnd();
-                isGlitchOn = false;
-            }
-
-            fsm.ChangeState(new NurseZombie_AttackState(nurseZombie, fsm));
+            UIManager.Instance.Get<GlitchUI>().GlitchEnd();
+            isGlitchOn = false;
+            fsm.ChangeState(new NurseZombieAttackState(nurseZombie, fsm));
         }
     }
 

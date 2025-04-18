@@ -9,9 +9,10 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
     [HideInInspector] public Rigidbody rb;
 
     // Chase, Attack
-    public float moveSpeed = 4f;
+    public float moveSpeed = 2;
     public float attackRange = 2f;
-    public float detectionRange = 10f;
+    public float detectionRange = 5f;
+    public float dashSpeed = 6f; // 돌진 속도, 일반 추격보다 빠르게
 
     // Door
     public float detectDoorRange = 2f;
@@ -51,7 +52,7 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
     private void InitNurseFSM()
     {
         fsm = new EnemyStateMachine();
-        fsm.ChangeState(new NurseZombie_IdleState(this, fsm));
+        fsm.ChangeState(new NurseZombieIdleState(this, fsm));
     }
 
     public bool IsPlayerLookingAtMe()
@@ -71,6 +72,7 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
         direction.y = 0;
         float distance = Vector3.Distance(transform.position, PlayerTransform.position);
         float minDistance = 1.0f;  //  플레이어와 최소 거리 유지
+
         if (distance > minDistance)
         {
             transform.position += direction * speed * Time.deltaTime;

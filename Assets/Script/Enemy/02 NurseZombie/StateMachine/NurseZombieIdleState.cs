@@ -1,8 +1,8 @@
-public class NurseZombie_IdleState : EnemyBaseState  // 기본 상태일 때
+public class NurseZombieIdleState : EnemyBaseState  // 기본 상태일 때
 {
     private NurseZombie nurseZombie;
 
-    public NurseZombie_IdleState(Enemy enemy, EnemyStateMachine fsm) : base(enemy, fsm)
+    public NurseZombieIdleState(Enemy enemy, EnemyStateMachine fsm) : base(enemy, fsm)
     {
         nurseZombie = enemy as NurseZombie;
     }
@@ -20,7 +20,7 @@ public class NurseZombie_IdleState : EnemyBaseState  // 기본 상태일 때
 
         if (canSee && !isPlayerLooking)
         {
-            fsm.ChangeState(new NurseZombie_ChaseState(nurseZombie, fsm));
+            fsm.ChangeState(new NurseZombieChaseState(nurseZombie, fsm));
         }
     }
 }
