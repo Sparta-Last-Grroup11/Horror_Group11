@@ -19,7 +19,6 @@ public class GameManager : Singleton<GameManager>
     {
         base.Awake();
         surface = Instantiate(ResourceManager.Instance.Load<GameObject>(ResourceType.Enemy, "NavMeshSurface")).GetComponent<NavMeshSurface>();
-        InvokeRepeating(nameof(SurfaceUpdate), 0, 0.5f);
         SpawnCharacter();
         subCam = GameObject.Find("Sub Camera").GetComponent<Camera>();
         uiCam = GameObject.Find("UI Camera").GetComponent<Camera>();
@@ -33,7 +32,7 @@ public class GameManager : Singleton<GameManager>
         VirtualCam.GetComponent<CinemachineVirtualCamera>().Follow = player.cameraContainer;
     }
 
-    private void SurfaceUpdate()
+    public void SurfaceUpdate()
     {
         surface.BuildNavMesh();
     }

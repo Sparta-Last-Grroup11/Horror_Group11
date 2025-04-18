@@ -44,6 +44,21 @@
         0.0
       ],
       "description": ""
+    },
+    {
+      "type": "Enemy",
+      "prefabname": "CopZombie",
+      "position": [
+        22.1,
+        0.0,
+        -29.3
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "description": ""
     }
   ]
 }
