@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class PlayerState : MonoBehaviour
+public abstract class PlayerState
 {
     protected Player _player;
 
