@@ -321,6 +321,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 554e0eedc0a4cf3458b85c0e6b50e839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightObject: {fileID: 1595947403}
+  clip: {fileID: 8300000, guid: 06793e7d5584ef6449812448b17adbd7, type: 3}
+  roomManage: {fileID: 0}
 --- !u!1001 &1262675346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -467,6 +470,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7561a871e24868244a11675752ef8db3, type: 3}
+--- !u!1 &1595947403 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6314401933726351595, guid: ebfc7ffc6c1f90649a37858111536676,
+    type: 3}
+  m_PrefabInstance: {fileID: 2070205257}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1726350360
 PrefabInstance:
   m_ObjectHideFlags: 0
