@@ -6,6 +6,7 @@ public class Player : PlayerInputController
 {
     public PlayerStateMachine stateMachine;
     public CharacterController characterController;
+    public PlayerInventory playerInventory;
 
     // 발소리 관련
     public AudioClip footStepClip;
@@ -57,6 +58,7 @@ public class Player : PlayerInputController
         base.Awake();
         characterController = GetComponent<CharacterController>();
         stateMachine = new PlayerStateMachine();
+        playerInventory = new PlayerInventory();
 
         moveAction.performed += OnMovePerformed;
         moveAction.canceled += OnMoveCanceled;
@@ -82,6 +84,7 @@ public class Player : PlayerInputController
 
     private void Update()
     {
+        InventoryOpen();
         stateMachine.Update();
         if (isChased)
         {
@@ -164,5 +167,12 @@ public class Player : PlayerInputController
             AudioManager.Instance.Audio2DPlay(chasedCilp, 0.5f);
             isChasedBGM = true;
         }
+    }
+
+    //인벤토리 열기
+    private void InventoryOpen()
+    {
+        if(Input.GetKeyDown(KeyCode.Tab))
+            playerInventory.ShowInventory();
     }
 }
