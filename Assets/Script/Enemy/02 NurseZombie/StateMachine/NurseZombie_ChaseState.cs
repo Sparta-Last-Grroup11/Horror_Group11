@@ -12,11 +12,6 @@ public class NurseZombie_ChaseState : EnemyBaseState    // 플레이어를 추�
     private GlitchUI glitchUI;
     private bool isGlitchOn = false;
 
-    // HeartBeat
-    private HeartBeat heartBeat;
-    private AudioClip heartBeatClip;
-    AudioSource heartBeatSource;
-
     public NurseZombie_ChaseState(Enemy enemy, EnemyStateMachine fsm) : base(enemy, fsm)
     {
         nurseZombie = enemy as NurseZombie;
@@ -33,22 +28,6 @@ public class NurseZombie_ChaseState : EnemyBaseState    // 플레이어를 추�
         glitchUI.GlitchStart(0f);
         isGlitchOn = false;
 
-        // HeartBeatUI
-        heartBeat = UIManager.Instance.Get<HeartBeat>();
-        if (heartBeat == null)
-        {
-            heartBeat = UIManager.Instance.show<HeartBeat>();
-        }
-        else
-        {
-            heartBeat.gameObject.SetActive(true);
-        }
-
-        heartBeat.ChanbeatSpeed(1f);
-
-        heartBeatClip = Resources.Load<AudioClip>("Sound/HeartbeatSound");
-        heartBeatSource = nurseZombie.GetComponent<AudioSource>();
-        heartBeatSource = nurseZombie.gameObject.AddComponent<AudioSource>();
     }
 
     public override void Update()
@@ -56,7 +35,7 @@ public class NurseZombie_ChaseState : EnemyBaseState    // 플레이어를 추�
         if (nurseZombie.PlayerTransform == null) return;
 
         CheckIfPlayerInRoom();
-        HandleGlitchEffectAndHeartBeat();
+        HandleGlitchEffect();
         TransitionToAttack();
 
         nurseZombie.MoveTowardsPlayer(nurseZombie.moveSpeed);  // 플레이어를 뒤쫓아 움직임
@@ -87,7 +66,6 @@ public class NurseZombie_ChaseState : EnemyBaseState    // 플레이어를 추�
     public void PlayerInRoom()
     {
         waitTimer += Time.deltaTime;
-        heartBeat.ChanbeatSpeed(0f);
         if (waitTimer >= PlayerDisappearTime)  // 방 밖에서 일정 시간 대기 후 스폰 위치로 이동, 다시 IdleState로 전환
         {
             nurseZombie.MoveToSpawnPosition();
@@ -96,7 +74,7 @@ public class NurseZombie_ChaseState : EnemyBaseState    // 플레이어를 추�
         return;
     }
 
-    public void HandleGlitchEffectAndHeartBeat()
+    public void HandleGlitchEffect()
     {
         float distance = Vector3.Distance(nurseZombie.transform.position, nurseZombie.PlayerTransform.position);
         float detectionRnage = nurseZombie.detectionRange;
@@ -111,11 +89,6 @@ public class NurseZombie_ChaseState : EnemyBaseState    // 플레이어를 추�
                 isGlitchOn = true;
             }
 
-            heartBeat.ChanbeatSpeed(0f);
-
-            if (heartBeatSource != null && heartBeatSource.isPlaying)
-                heartBeatSource.Stop();
-
             fsm.ChangeState(new NurseZombie_IdleState(nurseZombie, fsm));
             return;
 
@@ -128,14 +101,6 @@ public class NurseZombie_ChaseState : EnemyBaseState    // 플레이어를 추�
                 isGlitchOn = false;
 
             }
-
-            heartBeat.ChanbeatSpeed(1f);
-
-            if (!heartBeatSource.isPlaying)
-            {
-                heartBeatSource.Play(); // 다시 재생
-            }
-
         }
     }
 
