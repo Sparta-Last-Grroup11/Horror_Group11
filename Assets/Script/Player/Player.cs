@@ -82,7 +82,6 @@ public class Player : PlayerInputController
 
     private void Update()
     {
-        stateMachine.Update();
         if (isChased)
         {
             ChasingByEnemy();
@@ -92,7 +91,7 @@ public class Player : PlayerInputController
             isChasedBGM = false;
         }
 
-        if (UIManager.Instance.IsUiActing)
+        if (!UIManager.Instance.IsUiActing)
         {
             stateMachine.Update();
         }
@@ -161,7 +160,7 @@ public class Player : PlayerInputController
     {
         if (!isChasedBGM)
         {
-            AudioManager.Instance.Audio2DPlay(chasedCilp, 0.5f);
+            AudioManager.Instance.Audio2DPlay(chasedCilp, 1f);
             isChasedBGM = true;
         }
     }

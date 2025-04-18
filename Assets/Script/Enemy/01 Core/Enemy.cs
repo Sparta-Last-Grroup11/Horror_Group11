@@ -10,7 +10,7 @@ public abstract class Enemy : MonoBehaviour
     private float afterPlayerDisappear;
     private float detectPlayerRate = 5f;
 
-    public float viewAngle = 90f;  
+    public float viewAngle = 90f;
 
     protected virtual void Start()
     {

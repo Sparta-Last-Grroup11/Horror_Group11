@@ -147,6 +147,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 3954581341630897393, guid: 599377784fe3089478c1dc8f30f33ff2,
+        type: 3}
+      propertyPath: m_DefaultBlend.m_Time
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8472856131185639946, guid: 599377784fe3089478c1dc8f30f33ff2,
         type: 3}
       propertyPath: m_LocalPosition.x
