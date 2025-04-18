@@ -539,7 +539,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4238493164227154}
-  m_Layer: 0
+  - component: {fileID: 5816997832454321083}
+  - component: {fileID: 2202933183744875413}
+  m_Layer: 6
   m_Name: DoorD_V2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -565,6 +567,44 @@ Transform:
   - {fileID: 425809776607458779}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5816997832454321083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793096737568600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 883fd3b1b0c986b43852eb5400f3ab9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: {fileID: 0}
+  doors:
+  - {fileID: 159785954093840688}
+  - {fileID: 3975707662332171012}
+  interactCooldown: 1
+--- !u!65 &2202933183744875413
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793096737568600}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 2, z: 0.5}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &2803866009681518149
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,7 +662,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1755716658240436366}
-  - component: {fileID: 2996124076652327198}
+  - component: {fileID: 3975707662332171012}
   - component: {fileID: 5420070125398141120}
   m_Layer: 6
   m_Name: D_Right
@@ -648,7 +688,7 @@ Transform:
   - {fileID: 4009549000909392}
   m_Father: {fileID: 4238493164227154}
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
---- !u!114 &2996124076652327198
+--- !u!114 &3975707662332171012
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -657,14 +697,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6374398637364314595}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fe155e6cfac6e5448f4c232cbdc7d57, type: 3}
+  m_Script: {fileID: 11500000, guid: 82801f3fb85714144a7ab54c03ea4acc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   openClip: {fileID: 8300000, guid: 9485bf88f1650ae478281426b0bff7aa, type: 3}
   closeClip: {fileID: 8300000, guid: 7975f480e88c7b64a83256f8a1f102d5, type: 3}
   duration: 1
-  key: {fileID: 0}
-  interactCooldown: 1
 --- !u!65 &5420070125398141120
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -695,7 +733,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1145349590978482716}
-  - component: {fileID: 1782670713342686074}
+  - component: {fileID: 159785954093840688}
   - component: {fileID: 8774709686529483191}
   m_Layer: 6
   m_Name: D_Left
@@ -721,7 +759,7 @@ Transform:
   - {fileID: 4116950318631592}
   m_Father: {fileID: 4238493164227154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1782670713342686074
+--- !u!114 &159785954093840688
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -730,14 +768,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8867805894167307106}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fe155e6cfac6e5448f4c232cbdc7d57, type: 3}
+  m_Script: {fileID: 11500000, guid: 82801f3fb85714144a7ab54c03ea4acc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   openClip: {fileID: 8300000, guid: 9485bf88f1650ae478281426b0bff7aa, type: 3}
   closeClip: {fileID: 8300000, guid: 7975f480e88c7b64a83256f8a1f102d5, type: 3}
   duration: 1
-  key: {fileID: 0}
-  interactCooldown: 1
 --- !u!65 &8774709686529483191
 BoxCollider:
   m_ObjectHideFlags: 0

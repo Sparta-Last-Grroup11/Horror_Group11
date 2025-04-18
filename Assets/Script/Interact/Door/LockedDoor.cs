@@ -20,12 +20,6 @@ public class LockedDoor : ControlDoor,I_Interactable
 
     void OpenLockedDoor()
     {
-/*        if (itemList == null)
-        {
-            Debug.LogWarning("itemList가 연결되지 않았습니다.");
-            return;
-        }
-*/
         if ( key != null && !Inventory.Instance.HaveItem(key))
         {
                 Debug.Log("You don't have key");
