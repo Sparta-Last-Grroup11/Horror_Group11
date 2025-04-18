@@ -48,7 +48,7 @@ public class HeartBeat : BaseUI
         if(curTime >= targetBeatTime)
         {
             curTime = 0;
-            main.startColor = color.Evaluate(beatTimeMultiplier - 1);
+            main.startColor = GameManager.Instance.player.isChased ? Color.red : color.Evaluate(beatTimeMultiplier - 1);
             targetBeatTime = beatTime * (1 / beatTimeMultiplier);
             Shoot();
         }    
@@ -79,7 +79,7 @@ public class HeartBeat : BaseUI
 
     void audioPlay()
     {
-        AudioManager.Instance.Audio2DPlay(beatSound, beatTimeMultiplier - 1 + 0.1f);
+        AudioManager.Instance.Audio2DPlay(beatSound, GameManager.Instance.player.isChased ? beatTimeMultiplier - 1 + 1f : beatTimeMultiplier - 1 + 0.4f);
     }
 
     public void ChanbeatSpeed(float ratio)
