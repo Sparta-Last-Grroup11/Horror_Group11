@@ -535,6 +535,7 @@ GameObject:
   - component: {fileID: 5748891430973016653}
   - component: {fileID: 1734149423324033964}
   - component: {fileID: 1287425304884230022}
+  - component: {fileID: 1985573771468678453}
   m_Layer: 6
   m_Name: Safe
   m_TagString: Untagged
@@ -574,6 +575,27 @@ MonoBehaviour:
   puzzle: {fileID: 4693144216193190947, guid: 5a1aa709d7d7f97469853131a73356e0, type: 3}
   door: {fileID: 3612643875533458559}
 --- !u!65 &1287425304884230022
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6389900037777466958}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.4, y: 1.5, z: 1.3}
+  m_Center: {x: 0, y: 0.7, z: 0}
+--- !u!65 &1985573771468678453
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1116,7 +1138,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1, y: 0.03, z: 0.2}
+  m_Size: {x: 0.15, y: 0.1, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7269291136355863908
 MonoBehaviour:
@@ -1130,7 +1152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b629a86cf403914d8b6b4ec23296474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyID: 1
+  item: {fileID: 11400000, guid: 66ca6a2cd639cbb43840c0db721dd165, type: 2}
 --- !u!4 &6837537287291315097 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3445352999058701222, guid: 05e314c9e067138498f7c1e1f6aca83d,

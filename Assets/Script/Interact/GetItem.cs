@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class GetItem : MonoBehaviour, I_Interactable
 {
-    [SerializeField] private EItemID keyID;
+    [SerializeField] private ItemData item;
     public void OnInteraction()
     {
-        // 전원실 키 획득
-        Debug.Log("전원실 키 획득");
+        Inventory.Instance.GetItem(item);
         gameObject.SetActive(false);
     }
 }
