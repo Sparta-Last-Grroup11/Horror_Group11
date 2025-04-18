@@ -262,12 +262,8 @@ MonoBehaviour:
   openClip: {fileID: 8300000, guid: b1334dbf63b8b12469d492e285f8003d, type: 3}
   closeClip: {fileID: 8300000, guid: d7f59595aa88d4148b306f5e4a1b5096, type: 3}
   duration: 1
-  keyID: 0
-  itemList: {fileID: 0}
-  interactCooldown: 1
-  navMeshVolume: {fileID: 0}
-  closedArea: 1
-  openArea: 3
+  key: {fileID: 0}
+  interactCooldown: 0.5
 --- !u!1 &2024690703149927618
 GameObject:
   m_ObjectHideFlags: 0

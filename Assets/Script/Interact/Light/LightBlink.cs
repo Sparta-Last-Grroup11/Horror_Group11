@@ -24,6 +24,7 @@ public class LightBlink : Receiver
     }
     public override void ReceiveTrigger()
     {
+        if (!PuzzleManager.Instance.GetIsPowerOn()) return;
         lights.Clear();
 
         Vector3 center = transform.position + transform.rotation * boxOffset;
@@ -31,7 +32,7 @@ public class LightBlink : Receiver
         Light light = null;
         foreach (Collider col in colliders)
         {
-            if (col.TryGetComponent<Light>(out light))
+            if (col.TryGetComponent<Light>(out light)&&light.intensity > 0)
             {
                 lights.Add(light);
             }
