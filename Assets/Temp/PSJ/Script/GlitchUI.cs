@@ -58,4 +58,10 @@ public class GlitchUI : BaseUI
         curCourt = null;
         yield return null;
     }
+
+    protected override void OnDestroy()
+    {
+        GlitchEnd();
+        base.OnDestroy();
+    }
 }
