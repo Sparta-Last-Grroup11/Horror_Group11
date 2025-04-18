@@ -4,31 +4,31 @@ using UnityEngine;
 
 public class Inventory : Singleton<Inventory>
 {
-    [SerializeField] private Dictionary<ItemData, int> itemList;
+    [SerializeField] private Dictionary<ItemData, InventoryItem> itemList;
 
     protected override void Awake()
     {
         base.Awake();
-        itemList = new Dictionary<ItemData, int>();
+        itemList = new Dictionary<ItemData, InventoryItem>();
 
     }
     public void GetItem(ItemData item, int num = 1)
     {
         if (itemList.ContainsKey(item))
         {
-            itemList[item] += num;
+            itemList[item].count += num;
         }
         else
         {
-            itemList.Add(item, num);
+            itemList.Add(item, new InventoryItem(item, num));
         }
     }
-    public bool UseItem(ItemData item, int num)
+    public bool ConsumeItem(ItemData item, int num = 0)
     {
-        if (itemList.ContainsKey(item) && itemList[item] >= num)
+        if (itemList.ContainsKey(item) && itemList[item].count >= num)
         {
-            itemList[item]-= num;
-            if (itemList[item] == 0)
+            itemList[item].count -= num;
+            if (itemList[item].count == 0)
             {
                 itemList.Remove(item);
             }

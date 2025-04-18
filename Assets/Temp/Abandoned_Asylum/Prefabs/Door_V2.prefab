@@ -261,8 +261,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openClip: {fileID: 8300000, guid: 1c657965ef0f7b844b193b88edbe45b9, type: 3}
   closeClip: {fileID: 8300000, guid: f80c4491ef7b09b4ca4854859ae0c054, type: 3}
-  duration: 1
-  key: {fileID: 11400000, guid: 96aac170066675445a8d877934f7a013, type: 2}
+  duration: 0.5
+  key: {fileID: 0}
   interactCooldown: 1
 --- !u!1 &8000370963832720327
 GameObject:

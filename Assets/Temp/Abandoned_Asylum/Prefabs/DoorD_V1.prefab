@@ -134,8 +134,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openClip: {fileID: 8300000, guid: 9485bf88f1650ae478281426b0bff7aa, type: 3}
   closeClip: {fileID: 8300000, guid: 7975f480e88c7b64a83256f8a1f102d5, type: 3}
-  duration: 1
-  key: {fileID: 11400000, guid: 96aac170066675445a8d877934f7a013, type: 2}
+  duration: 0.5
+  key: {fileID: 0}
   interactCooldown: 1
 --- !u!64 &64743008532172070
 MeshCollider:
@@ -258,8 +258,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openClip: {fileID: 8300000, guid: 9485bf88f1650ae478281426b0bff7aa, type: 3}
   closeClip: {fileID: 8300000, guid: 7975f480e88c7b64a83256f8a1f102d5, type: 3}
-  duration: 1
-  key: {fileID: 11400000, guid: 96aac170066675445a8d877934f7a013, type: 2}
+  duration: 0.5
+  key: {fileID: 0}
   interactCooldown: 1
 --- !u!64 &64332218561538894
 MeshCollider:

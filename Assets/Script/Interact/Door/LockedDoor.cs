@@ -26,7 +26,7 @@ public class LockedDoor : ControlDoor,I_Interactable
             return;
         }
 */
-        if ( key.Id != E_Item.None && !Inventory.Instance.HaveItem(key))
+        if ( key != null && !Inventory.Instance.HaveItem(key))
         {
                 Debug.Log("You don't have key");
                 return;

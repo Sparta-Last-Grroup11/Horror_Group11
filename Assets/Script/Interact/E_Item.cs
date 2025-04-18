@@ -8,7 +8,6 @@ public enum E_Item
 
 public enum E_ItemType
 {
-    NotItem = -1,
     Consumable,
     Key,
     Document
