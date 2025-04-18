@@ -16,7 +16,7 @@ public class GameFlowMakerEditor : Editor
             Flow f = gameFlow.UnitFlow[a];
             for (int b = 0; b < f.value.Count; b++)
             {
-                Vector3 worldPos = gameFlow.transform.position + f.value[b];
+                Vector3 worldPos = gameFlow.transform.position + f.value[b].Vec;
                 EditorGUI.BeginChangeCheck();
                 Vector3 newWorldPos = Handles.PositionHandle(worldPos, Quaternion.identity);
 
@@ -24,7 +24,7 @@ public class GameFlowMakerEditor : Editor
                 {
                     Undo.RecordObject(gameFlow, "Move Flow Point");
 
-                    f.value[b] = newWorldPos - gameFlow.transform.position;
+                    f.value[b].Vec = newWorldPos - gameFlow.transform.position;
 
                     EditorUtility.SetDirty(gameFlow);
                 }
