@@ -35,7 +35,7 @@ public class CopZombie_ChaseState : EnemyBaseState
         {
             fsm.ChangeState(new CopZombie_AttackState(copZombie, fsm));
         }
-        if (PlayerDisappear())
+        if (copZombie.HasLostPlayer())
         {
             fsm.ChangeState(new CopZombie_PatrolState(copZombie, fsm));
         }
@@ -45,24 +45,5 @@ public class CopZombie_ChaseState : EnemyBaseState
     {
         copZombie.copzombieAgent.speed = 1.5f;
         GameManager.Instance.player.isChased = false;
-    }
-
-    private bool PlayerDisappear()
-    {
-        if (copZombie.CanSeePlayer())
-        {
-            afterPlayerDisappear = 0;
-            return false;
-        }
-        else
-        {
-            //Debug.Log("플레이어 사라짐");
-            afterPlayerDisappear += Time.deltaTime;
-            if (afterPlayerDisappear > detectPlayerRate)
-            {
-                return true;
-            }
-            return false;
-        }
     }
 }
