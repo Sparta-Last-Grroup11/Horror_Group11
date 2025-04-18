@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class SkinLessZombie_AmbushState : E_BaseState
+public class SkinLessZombie_AmbushState : EnemyBaseState
 {
     private SkinLessZombie skinLessZombie;
 
@@ -11,7 +11,7 @@ public class SkinLessZombie_AmbushState : E_BaseState
     //public float disappearTime = 1.5f;    // 사라지기까지 시간
     //public float rushDelay = 0.5f; // 달려들기 전에 대기하는 시간
 
-    public SkinLessZombie_AmbushState(Enemy enemy, E_StateMachine fsm) : base(enemy, fsm)
+    public SkinLessZombie_AmbushState(Enemy enemy, EnemyStateMachine fsm) : base(enemy, fsm)
     {
         skinLessZombie = enemy as SkinLessZombie;
     }

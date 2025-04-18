@@ -6,10 +6,12 @@ public enum ResourceType
 {
     None,
     JsonData,
+    Item,
     Player,
     Sound,
     UI,
-    Material
+    Material,
+    Enemy
 }
 public class ResourceManager : Singleton<ResourceManager>
 {

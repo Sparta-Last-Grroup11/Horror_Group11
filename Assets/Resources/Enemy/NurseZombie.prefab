@@ -2858,14 +2858,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8630633793470372901}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.68841153, z: 0, w: 0.72532034}
-  m_LocalPosition: {x: 2.875, y: 0.017751694, z: 0.89}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6271707761213779988}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 87.009, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5408059843520758620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2882,9 +2882,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 767
   viewAngle: 90
+  nurseZombieAgent: {fileID: 0}
+  nurseZombieAnim: {fileID: 0}
   rb: {fileID: 0}
   moveSpeed: 4
   attackRange: 2
+  detectionRange: 10
+  detectDoorRange: 2
+  detectDoorRate: 0.5
+  afterDetectDoor: 0
+  doorLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!54 &1389980022007079389
 Rigidbody:
   m_ObjectHideFlags: 0

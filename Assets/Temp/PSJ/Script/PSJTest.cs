@@ -12,7 +12,6 @@ public class PSJTest : MonoBehaviour
     {
         Invoke(nameof(HeartBeatStart), 2f);
         Invoke(nameof(HeartBeatStop), 5f);
-        Invoke(nameof(DyingUI), 7f);
     }
 
     private void Update()

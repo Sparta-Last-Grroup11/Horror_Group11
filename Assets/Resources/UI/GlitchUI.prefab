@@ -49,4 +49,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCursorFree: 0
-  glitchMat: {fileID: 0}
+  maxGlitch: 50

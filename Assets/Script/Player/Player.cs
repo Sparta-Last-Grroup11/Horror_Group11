@@ -91,6 +91,11 @@ public class Player : PlayerInputController
         {
             isChasedBGM = false;
         }
+
+        if (UIManager.Instance.IsUiActing)
+        {
+            stateMachine.Update();
+        }
     }
 
     // 입력 콜백들

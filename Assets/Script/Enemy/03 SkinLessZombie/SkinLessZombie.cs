@@ -20,7 +20,7 @@ public class SkinLessZombie : Enemy   // 점프스케어 (플레이어 보면 �
 
     private void InitSkinLessFSM()
     {
-        fsm = new E_StateMachine();
+        fsm = new EnemyStateMachine();
         fsm.ChangeState(new SkinLessZombie_AmbushState(this, fsm));
     }
 

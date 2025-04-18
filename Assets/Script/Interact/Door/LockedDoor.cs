@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class LockedDoor : ControlDoor,I_Interactable
 {
-    [SerializeField] private EItemID keyID;
-    [SerializeField] private GetItemList itemList;
+    [SerializeField] private ItemData key;
 
     private bool canInteract = true;
     [SerializeField] private float interactCooldown = 1.0f;
@@ -27,7 +26,7 @@ public class LockedDoor : ControlDoor,I_Interactable
             return;
         }
 */
-        if ( keyID != EItemID.None && !itemList.HaveItem(keyID))
+        if ( key != null && !Inventory.Instance.HaveItem(key))
         {
                 Debug.Log("You don't have key");
                 return;

@@ -25,7 +25,9 @@ public class UIManager : Singleton<UIManager>
         if (obj == null)
         {
             mainCanvas = Instantiate(ResourceManager.Instance.Load<GameObject>(ResourceType.UI, "MainCanvas").GetComponent<Canvas>());
+            mainCanvas.renderMode = RenderMode.ScreenSpaceCamera;
             mainCanvas.worldCamera = GameManager.Instance.uiCam;
+            mainCanvas.planeDistance = 900f;
         }
         else
         {
@@ -91,6 +93,11 @@ public class UIManager : Singleton<UIManager>
     #region 3D관련
     public GameObject MakePrefabInSubCam(GameObject obj)
     {
+        if (cur3DObject != null)
+        {
+            Destroy(cur3DObject.gameObject);
+            cur3DObject = null;
+        }    
         GameObject prefab = Instantiate(obj, GameManager.Instance.subCam.transform);
         prefab.transform.localPosition = new Vector3(0, 0, 1);
         prefab.transform.LookAt(GameManager.Instance.subCam.transform);

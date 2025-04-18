@@ -1,8 +1,8 @@
-public class E_StateMachine
+public class EnemyStateMachine
 {
-    private E_BaseState _currentState;
+    private EnemyBaseState _currentState;
 
-    public void ChangeState(E_BaseState newState)
+    public void ChangeState(EnemyBaseState newState)
     {
         _currentState?.Exit();
         _currentState = newState; 

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class CopZombie_PatrolState : E_BaseState
+public class CopZombie_PatrolState : EnemyBaseState
 {
     private CopZombie copZombie;
 
     private float afterSetPoint;
 
-    public CopZombie_PatrolState(Enemy enemy, E_StateMachine fsm) : base(enemy, fsm)
+    public CopZombie_PatrolState(Enemy enemy, EnemyStateMachine fsm) : base(enemy, fsm)
     {
         copZombie = enemy as CopZombie;
     }
