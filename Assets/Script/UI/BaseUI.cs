@@ -20,7 +20,8 @@ public abstract class BaseUI : MonoBehaviour
     {
         if (isCursorFree)
             Cursor.lockState = CursorLockMode.Locked;
-        UIManager.Instance.RemoveUIInList(GetType().Name);
+        if (UIManager.Instance != null)
+            UIManager.Instance.RemoveUIInList(GetType().Name);
     }
 
     public virtual void DestroySelf()
