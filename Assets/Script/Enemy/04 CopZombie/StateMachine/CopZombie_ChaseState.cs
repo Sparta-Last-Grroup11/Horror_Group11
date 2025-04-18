@@ -15,7 +15,7 @@ public class CopZombie_ChaseState : EnemyBaseState
     {
         copZombie.copzombieAgent.speed = 3f;
         Debug.Log("추격 시작");
-        AudioManager.Instance.Audio3DPlay(copZombie.copZombieChaseClip, copZombie.transform.position);
+        AudioManager.Instance.Audio3DPlay(copZombie.copZombieChaseClip, copZombie.transform.position, 10f);
         GameManager.Instance.player.isChased = true;
     }
 

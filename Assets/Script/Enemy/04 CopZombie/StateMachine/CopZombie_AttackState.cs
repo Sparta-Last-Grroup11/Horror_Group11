@@ -16,8 +16,9 @@ public class CopZombie_AttackState : EnemyBaseState
     {
         GameManager.Instance.player.stateMachine.ChangeState(new PlayerCaughtState(GameManager.Instance.player));
         copZombie.copZombieVirtualCamera.Priority = 12;
-        copZombie.playableDirector.Play();
+        //copZombie.playableDirector.Play();
         copZombie.copZombieAnim.SetTrigger("DoAttack");
+        AudioManager.Instance.Audio2DPlay(copZombie.copZomicCatchPlayerClip, 1f);
     }
 
     public override void Update()

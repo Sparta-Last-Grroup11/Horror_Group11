@@ -11,6 +11,7 @@ public class CopZombie : Enemy
     public Animator copZombieAnim;
     public AudioClip copZombieFootStep;
     public AudioClip copZombieChaseClip;
+    public AudioClip copZomicCatchPlayerClip;
     public Transform cameraContainer;
     public CinemachineVirtualCamera copZombieVirtualCamera;
     public PlayableDirector playableDirector;
@@ -64,5 +65,10 @@ public class CopZombie : Enemy
             }
             afterDetectDoor = 0;
         }
+    }
+
+    public void PlayerDown()
+    {
+        playableDirector.Play();
     }
 }
