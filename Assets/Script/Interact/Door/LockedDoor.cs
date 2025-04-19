@@ -20,7 +20,7 @@ public class LockedDoor : ControlDoor,I_Interactable
 
     void OpenLockedDoor()
     {
-        if ( key != null && !Inventory.Instance.HaveItem(key))
+        if (key != null && !GameManager.Instance.player.playerInventory.HasItem(key))
         {
                 Debug.Log("You don't have key");
                 return;

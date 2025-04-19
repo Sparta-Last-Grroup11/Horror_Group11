@@ -1576,9 +1576,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 1
+  m_Height: 1.8
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!114 &4706402974268970911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1600,6 +1600,8 @@ MonoBehaviour:
   copZombieAnim: {fileID: 0}
   copZombieFootStep: {fileID: 8300000, guid: fdc05ea2699023143ba7e93533cc5a0b, type: 3}
   copZombieChaseClip: {fileID: 8300000, guid: 97b94f2134c874241bf3f69edab77088, type: 3}
+  copZomicCatchPlayerClip: {fileID: 8300000, guid: 97b94f2134c874241bf3f69edab77088,
+    type: 3}
   cameraContainer: {fileID: 4194841993480859005}
   copZombieVirtualCamera: {fileID: 380728128716373910}
   playableDirector: {fileID: 0}

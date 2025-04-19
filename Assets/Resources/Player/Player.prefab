@@ -399,7 +399,7 @@ MonoBehaviour:
   jumpStartClip: {fileID: 8300000, guid: 866abdf3a931850498786581089be202, type: 3}
   jumpLandClip: {fileID: 8300000, guid: c2e0d3f88cb48f240af40a1f1bac7e8c, type: 3}
   footSpeedRate: 0.8
-  chasedCilp: {fileID: 8300000, guid: fa58336c9b3e83c4e8fc3fde368af922, type: 3}
+  chasedCilp: {fileID: 8300000, guid: 468e8fa67df0a144fb63eeab18ec6e38, type: 3}
   isChased: 0
   moveInput: {x: 0, y: 0}
   lookInput: {x: 0, y: 0}

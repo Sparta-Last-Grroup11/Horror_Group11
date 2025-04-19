@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PopupInventoryUI : PopupUI
+public class PopupInventoryUI : BaseUI
 {
     [SerializeField] private RawImage image;
     [SerializeField] private TextMeshProUGUI inventoryTitle;
@@ -23,13 +23,17 @@ public class PopupInventoryUI : PopupUI
     {
         base.Start();
         UIManager.Instance.IsUiActing = true;
-        for (int i = 0; i < slots.Count; i++)
+        GameObject slotPrefab = ResourceManager.Instance.Load<GameObject>(ResourceType.UI, "ItemSlot");
+        Dictionary<string, ItemData> inven = GameManager.Instance.player.playerInventory.Inventory;
+        foreach (var item in inven)
         {
-            /*
-            slots[i].transform.SetParent(itemSlotGroup.transform);
-            slots[i].transform.SetAsLastSibling();
-            */
-            var slot = slots[i];
+            Slot slot = Instantiate(slotPrefab, itemSlotGroup.transform).GetComponent<Slot>();
+            slot.Init(item.Value.Icon, item.Value.name, 1);
+            slot.Object3D = item.Value.ObjectIn3D;
+            slots.Add(slot);
+        }
+        foreach(var slot in slots)
+        {
             slot.TryGetComponent<Button>(out Button but);
             if (but != null)
                 but.onClick.AddListener(() => {
@@ -43,10 +47,13 @@ public class PopupInventoryUI : PopupUI
     protected void Update()
     {
         Rotate();
+        if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.Escape))
+            Destroy(gameObject);
     }
 
     protected override void OnDestroy()
     {
+        base.OnDestroy();
         UIManager.Instance.RemovePrefabInSumCam();
     }
 

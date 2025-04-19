@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
-public class InventoryItem
+public class InventoryItem : MonoBehaviour, I_Interactable
 {
-    public ItemData itemData;
-    public int count;
+    [SerializeField] ItemData itemData;
+    public ItemData ItemData => itemData;
 
-    public InventoryItem(ItemData itemData, int count)
+    public virtual void OnInteraction()
     {
-        this.itemData = itemData;
-        this.count = count;
+        GameManager.Instance.player.playerInventory.AddItem(itemData);
+        Destroy(gameObject);
     }
 }

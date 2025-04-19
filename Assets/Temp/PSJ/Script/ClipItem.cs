@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.Windows;
 
-public class ClipItem : MonoBehaviour, I_Interactable
+public class ClipItem : MonoBehaviour , I_Interactable
 {
     [SerializeField] string description;
     public string Description { get { return description; } set { description = value; } }
