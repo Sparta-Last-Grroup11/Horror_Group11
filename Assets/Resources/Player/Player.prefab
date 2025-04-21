@@ -164,10 +164,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashBattery: 100
-  minInnerSpotAngle: 15
-  maxInnerSpotAngle: 25
-  minSpotAngle: 55
-  maxSpotAngle: 65
+  minInnerSpotAngle: 10
+  maxInnerSpotAngle: 20
+  minSpotAngle: 45
+  maxSpotAngle: 55
   angleLerpSpeed: 0.5
   deadFlicker: 0
 --- !u!114 &2575666161747899168

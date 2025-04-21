@@ -18,6 +18,7 @@ public class Player : PlayerInputController
     [SerializeField] private AudioClip chasedCilp;
     public bool isChased = false;
     private bool isChasedBGM = false;
+    public bool isCaught = false;
 
     // 입력 값
     public Vector2 moveInput;
@@ -73,6 +74,7 @@ public class Player : PlayerInputController
         Cursor.lockState = CursorLockMode.Locked;
         // 초기 상태를 Idle로 설정
         stateMachine.ChangeState(new PlayerIdleState(this));
+        isCaught = false;
 
         if (virtualCamera != null)
         {
@@ -91,7 +93,7 @@ public class Player : PlayerInputController
             isChasedBGM = false;
         }
 
-        if (!UIManager.Instance.IsUiActing)
+        if (!UIManager.Instance.IsUiActing && !isCaught)
         {
             stateMachine.Update();
         }
