@@ -6,10 +6,12 @@ public abstract class Enemy : MonoBehaviour
     protected Transform playerTransform;
     public Transform PlayerTransform => playerTransform;  // 외부 접근용 getter
     [SerializeField] private LayerMask notEnemyLayer;
+    [SerializeField] private LayerMask playerLayer;
 
     private float afterPlayerDisappear;
     private float detectPlayerRate = 5f;
 
+    public float viewDistance = 10f;
     public float viewAngle = 90f;
 
     protected virtual void Start()
@@ -63,9 +65,33 @@ public abstract class Enemy : MonoBehaviour
         return false;
     }
 
+    public bool CanSeePlayerWithFanShape()
+    {
+        Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewDistance, playerLayer);
+
+        foreach (var target in targetsInViewRadius)
+        {
+            Vector3 dirToTarget = (target.transform.position - transform.position).normalized;
+            float angle = Vector3.Angle(transform.forward, dirToTarget);
+
+            // 부채꼴 영역 내에 있을 경우
+            if (angle < viewAngle / 2f)
+            {
+                if (!Physics.Linecast(transform.position + Vector3.up, target.transform.position + Vector3.up, notEnemyLayer))
+                {
+                        return true;
+
+                }
+            }
+        }
+
+        return false;
+    }
+
+
     public bool HasLostPlayer()
     {
-        if (CanSeePlayer())
+        if (CanSeePlayer() || CanSeePlayerWithFanShape())
         {
             afterPlayerDisappear = 0;
             return false;

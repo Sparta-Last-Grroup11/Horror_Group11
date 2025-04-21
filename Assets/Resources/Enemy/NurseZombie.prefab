@@ -2882,7 +2882,11 @@ MonoBehaviour:
   notEnemyLayer:
     serializedVersion: 2
     m_Bits: 767
-  viewAngle: 90
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  viewDistance: 10
+  viewAngle: 360
   nurseZombieAgent: {fileID: 0}
   nurseZombieAnim: {fileID: 0}
   rb: {fileID: 0}
@@ -2893,9 +2897,10 @@ MonoBehaviour:
   detectDoorRange: 2
   detectDoorRate: 0.5
   afterDetectDoor: 0
+  hasDetectedPlayer: 0
   doorLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   nurseZombieChaseClip: {fileID: 8300000, guid: 6f3c8a80c34da8949a7c39bbfd3cbc04,
     type: 3}
 --- !u!54 &1389980022007079389

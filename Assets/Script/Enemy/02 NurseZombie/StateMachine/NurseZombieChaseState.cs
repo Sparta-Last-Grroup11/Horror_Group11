@@ -8,9 +8,6 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
     private float PlayerDisappearTime = 3.0f;
     private float waitTimer = 0f;
 
-    // Glitch
-    private bool isGlitchOn = false;
-
     public NurseZombieChaseState(Enemy enemy, EnemyStateMachine fsm) : base(enemy, fsm)
     {
         nurseZombie = enemy as NurseZombie;
@@ -22,16 +19,29 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
         AudioManager.Instance.Audio2DPlay(nurseZombie.nurseZombieChaseClip, 10f);
         GameManager.Instance.player.isChased = true;
         waitTimer = 0f;
-        isGlitchOn = false;
 
     }
 
     public override void Update()
     {
-        if (nurseZombie.PlayerTransform == null) return;
+        if (nurseZombie.IsPlayerLookingAtMe())
+        {
+            fsm.ChangeState(new NurseZombieIdleState(nurseZombie, fsm));
+            return;
+        }
+
+        if (!nurseZombie.hasDetectedPlayer && enemy.HasLostPlayer())
+        {
+            fsm.ChangeState(new NurseZombieIdleState(nurseZombie, fsm));
+            return;
+        }
+
+        if (!nurseZombie.hasDetectedPlayer && enemy.CanSeePlayer())
+        {
+            nurseZombie.hasDetectedPlayer = true;
+        }
 
         CheckIfPlayerInRoom();
-        HandleGlitchEffect();
         TransitionToAttack();
 
         nurseZombie.LookAtPlayer();
@@ -65,48 +75,17 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
         waitTimer += Time.deltaTime;
         if (waitTimer >= PlayerDisappearTime)  // 방 밖에서 일정 시간 대기 후 스폰 위치로 이동, 다시 IdleState로 전환
         {
+            nurseZombie.hasDetectedPlayer = false;
             nurseZombie.MoveToSpawnPosition();
             fsm.ChangeState(new NurseZombieIdleState(nurseZombie, fsm));
         }
         return;
     }
 
-    public void HandleGlitchEffect()
-    {
-        float distance = Vector3.Distance(nurseZombie.transform.position, nurseZombie.PlayerTransform.position);
-        float detectionRnage = nurseZombie.detectionRange;
-
-        float noiseAmount = Mathf.Lerp(50f, 0f, distance / detectionRnage);
-
-        if (nurseZombie.IsPlayerLookingAtMe())
-        {
-            UIManager.Instance.Get<GlitchUI>().GlitchStart(noiseAmount);
-            isGlitchOn = true;
-
-            if (enemy.HasLostPlayer())
-            {
-                UIManager.Instance.Get<GlitchUI>().GlitchEnd();
-                isGlitchOn = false;
-            }
-                
-            fsm.ChangeState(new NurseZombieIdleState(nurseZombie, fsm));
-            return;
-        }
-        else
-        {
-            UIManager.Instance.Get<GlitchUI>().GlitchEnd();
-            isGlitchOn = false;
-        }
-    
-    }
-
-
     public void TransitionToAttack()
     {
         if (IsNearPlayer())  // 천사가 일정 거리 안에 있다면 Attack 상태로 전환
         {
-            UIManager.Instance.Get<GlitchUI>().GlitchEnd();
-            isGlitchOn = false;
             fsm.ChangeState(new NurseZombieAttackState(nurseZombie, fsm));
         }
     }
