@@ -9,9 +9,7 @@ public class UITestCOde : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            item.OnInteraction();
-        else if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q))
             UIManager.Instance.show<PopupInventoryUI>();
     }
 }

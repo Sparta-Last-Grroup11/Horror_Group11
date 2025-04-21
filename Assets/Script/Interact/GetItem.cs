@@ -7,7 +7,7 @@ public class GetItem : MonoBehaviour, I_Interactable
     [SerializeField] private ItemData item;
     public void OnInteraction()
     {
-        Inventory.Instance.GetItem(item);
-        gameObject.SetActive(false);
+        GameManager.Instance.player.playerInventory.AddItem(item);
+        Destroy(gameObject);
     }
 }

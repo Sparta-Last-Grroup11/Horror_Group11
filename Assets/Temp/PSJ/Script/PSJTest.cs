@@ -5,6 +5,7 @@ using UnityEngine;
 public class PSJTest : MonoBehaviour
 {
     [SerializeField] List<AudioClip> bgm;
+    [SerializeField] GameObject testPrefab;
 
     [SerializeField] AudioClip clip;
 
@@ -22,6 +23,8 @@ public class PSJTest : MonoBehaviour
             AudioManager.Instance.AudioBGMPlay(bgm[1]);
         else if (Input.GetKeyDown(KeyCode.KeypadEnter))
             AudioManager.Instance.Audio3DPlay(clip, transform.position);
+        else if (Input.GetKeyDown(KeyCode.T))
+            GameManager.Instance.player.playerInventory.AddItem(testPrefab.GetComponent<InventoryItem>().ItemData);
     }
 
     private void HeartBeatStart()

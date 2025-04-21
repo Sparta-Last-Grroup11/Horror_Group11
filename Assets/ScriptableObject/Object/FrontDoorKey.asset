@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c40f9e3b608064f4ca9bece8f3c14026, type: 3}
+  m_Name: FrontDoorKey
+  m_EditorClassIdentifier: 
+  id: -1
+  type: 0
+  itemName: FrontDoorKey
+  description: Can open door
+  icon: {fileID: 21300000, guid: 13c925c9c6716194f9fe832914b37154, type: 3}
+  objectIn3D: {fileID: 2293668841722004548, guid: 641030a0a5a78e44fb093e463fd55a35,
+    type: 3}
