@@ -54,6 +54,7 @@ public class PopupInventoryUI : BaseUI
     protected override void OnDestroy()
     {
         base.OnDestroy();
+        UIManager.Instance.IsUiActing = false;
         UIManager.Instance.RemovePrefabInSumCam();
     }
 
