@@ -10,7 +10,12 @@ public class InventoryItem : MonoBehaviour, I_Interactable
 
     public virtual void OnInteraction()
     {
-        GameManager.Instance.player.playerInventory.AddItem(itemData);
+        ItemData newItemData = Instantiate(itemData);
+        newItemData.name = itemData.name;
+        newItemData.ItemName = itemData.ItemName;
+        newItemData.Description = itemData.Description;
+        newItemData.ObjectIn3D = ResourceManager.Instance.Load<GameObject>(ResourceType.Item, this.name);
+        GameManager.Instance.player.playerInventory.AddItem(newItemData);
         Destroy(gameObject);
     }
 }

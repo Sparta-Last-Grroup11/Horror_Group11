@@ -23,16 +23,23 @@ public class StageManager : Singleton<StageManager>
     [SerializeField] private TextAsset textAsset;
 
     public List<StageInfo> currentStage;
+    protected override bool dontDestroy => false;
 
     protected override void Awake()
     {
         base.Awake();
+    }
+
+    public void StageMake()
+    {
+        //디버깅 코드
         StageNum.StageNumber = 1;
+        //디버깅 코드
         string name = $"Stage{StageNum.StageNumber}";
         textAsset = ResourceManager.Instance.Load<TextAsset>(ResourceType.JsonData, name);
         var allStages = JsonConvert.DeserializeObject<Dictionary<string, List<StageInfo>>>(textAsset.text);
 
-        if (allStages.TryGetValue(name, out var stageList)) 
+        if (allStages.TryGetValue(name, out var stageList))
         {
             currentStage = stageList;
 
@@ -41,6 +48,7 @@ public class StageManager : Singleton<StageManager>
                 Debug.Log($"Type: {info.type}, Prefab: {info.prefabname}, Pos: {string.Join(",", info.position)}");
                 GameObject obj = ResourceManager.Instance.Load<GameObject>(StringToEnum<ResourceType>(info.type), info.prefabname);
                 GameObject prefab = Instantiate(obj, info.position.FloatToVector3(), info.rotation.FloatToQuaternion());
+                prefab.name = obj.name;
                 if (info.type.Equals(ResourceType.Item.ToString()))
                 {
                     prefab.TryGetComponent<ClipItem>(out ClipItem clip);
