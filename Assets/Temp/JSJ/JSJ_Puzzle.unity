@@ -241,6 +241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dontDestroy: 1
   GateHouseSaveDial: {fileID: 543141942}
+  isPowerOn: 0
 --- !u!114 &764010493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,6 +325,7 @@ MonoBehaviour:
   lightObject: {fileID: 1595947403}
   clip: {fileID: 8300000, guid: 06793e7d5584ef6449812448b17adbd7, type: 3}
   roomManage: {fileID: 0}
+  flash: 0.2
 --- !u!1001 &1262675346
 PrefabInstance:
   m_ObjectHideFlags: 0

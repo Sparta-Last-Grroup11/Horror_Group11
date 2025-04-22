@@ -5,6 +5,7 @@ public class TurnLight : MonoBehaviour, I_Interactable
 {
     [SerializeField] private GameObject parentObject;
     [SerializeField] private float intensity;
+    public float range;
     [SerializeField] private RoomsLightManage mananger;
     private List<Light> lightsList;
     private bool isTurnOn;
@@ -37,6 +38,10 @@ public class TurnLight : MonoBehaviour, I_Interactable
                     lightsList.Add(light);
             }
         }
+        foreach (Light light in lightsList)
+        {
+            light.range = range;
+        }
     }
 
     public void SetLightsIntensity()
@@ -55,6 +60,7 @@ public class TurnLight : MonoBehaviour, I_Interactable
             foreach (Light light in lightsList)
             {
                 light.intensity = intensity;
+                light.range = range;
             }
         }
     }
