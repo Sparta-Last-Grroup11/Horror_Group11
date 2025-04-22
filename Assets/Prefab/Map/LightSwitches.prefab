@@ -675,6 +675,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8071113621990711127}
     m_Modifications:
+    - target: {fileID: 2316891884646080528, guid: 394c0b83e145a1a41b4fb3921e929856,
+        type: 3}
+      propertyPath: intensity
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4448056097320466936, guid: 394c0b83e145a1a41b4fb3921e929856,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1044,6 +1049,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8071113621990711127}
     m_Modifications:
+    - target: {fileID: 2316891884646080528, guid: 394c0b83e145a1a41b4fb3921e929856,
+        type: 3}
+      propertyPath: intensity
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4448056097320466936, guid: 394c0b83e145a1a41b4fb3921e929856,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1140,6 +1150,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8071113621990711127}
     m_Modifications:
+    - target: {fileID: 2316891884646080528, guid: 394c0b83e145a1a41b4fb3921e929856,
+        type: 3}
+      propertyPath: intensity
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4448056097320466936, guid: 394c0b83e145a1a41b4fb3921e929856,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1797,6 +1812,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8071113621990711127}
     m_Modifications:
+    - target: {fileID: 2316891884646080528, guid: 394c0b83e145a1a41b4fb3921e929856,
+        type: 3}
+      propertyPath: intensity
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4448056097320466936, guid: 394c0b83e145a1a41b4fb3921e929856,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1979,6 +1999,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8071113621990711127}
     m_Modifications:
+    - target: {fileID: 2316891884646080528, guid: 394c0b83e145a1a41b4fb3921e929856,
+        type: 3}
+      propertyPath: intensity
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4448056097320466936, guid: 394c0b83e145a1a41b4fb3921e929856,
         type: 3}
       propertyPath: m_LocalScale.x
