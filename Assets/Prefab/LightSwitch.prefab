@@ -49,6 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentObject: {fileID: 0}
   intensity: 5
+  range: 10
+  mananger: {fileID: 0}
 --- !u!65 &6619562715739649611
 BoxCollider:
   m_ObjectHideFlags: 0
