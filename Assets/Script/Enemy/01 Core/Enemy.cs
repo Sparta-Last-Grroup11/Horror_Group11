@@ -6,10 +6,12 @@ public abstract class Enemy : MonoBehaviour
     protected Transform playerTransform;
     public Transform PlayerTransform => playerTransform;  // 외부 접근용 getter
     [SerializeField] private LayerMask notEnemyLayer;
+    [SerializeField] private LayerMask playerLayer;
 
     private float afterPlayerDisappear;
     private float detectPlayerRate = 5f;
 
+    public float viewDistance = 10f;
     public float viewAngle = 90f;
 
     protected virtual void Start()
