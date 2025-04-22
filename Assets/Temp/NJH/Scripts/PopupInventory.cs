@@ -37,6 +37,8 @@ public class PopupInventoryUI : BaseUI
             slot.TryGetComponent<Button>(out Button but);
             if (but != null)
                 but.onClick.AddListener(() => {
+                    if (UIManager.Instance.cur3DObject != null)
+                        UIManager.Instance.RemovePrefabInSumCam();
                     cur3DObject = UIManager.Instance.MakePrefabInSubCam(slot.Object3D); // 이제 안전!
                 });
         }

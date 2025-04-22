@@ -12,7 +12,6 @@ public class GameManager : Singleton<GameManager>
     public Camera subCam;
     public Camera uiCam;
     private NavMeshSurface surface;
-    protected override bool dontDestroy => false;
 
     public Vector3 SpawnPoint => spawnPoint;
 
@@ -23,16 +22,12 @@ public class GameManager : Singleton<GameManager>
         SpawnCharacter();
         subCam = GameObject.Find("Sub Camera").GetComponent<Camera>();
         uiCam = GameObject.Find("UI Camera").GetComponent<Camera>();
-        StageManager.Instance.StageMake();
     }
 
     void SpawnCharacter()
     {
-        if (player != null)
-            return;
         GameObject VirtualCam = Instantiate(Resources.Load<GameObject>("Player/Virtual Camera"));
-        GameObject playerPrefab = ResourceManager.Instance.Load<GameObject>(ResourceType.Player, "Player");
-        player = Instantiate(playerPrefab, spawnPoint, Quaternion.identity).GetComponent<Player>();
+        player = Instantiate(Resources.Load<GameObject>("Player/Player"), spawnPoint, Quaternion.identity).GetComponent<Player>();
         player.virtualCamera = VirtualCam.GetComponent<CinemachineVirtualCamera>();
         VirtualCam.GetComponent<CinemachineVirtualCamera>().Follow = player.cameraContainer;
     }

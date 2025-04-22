@@ -6,7 +6,6 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Windows.WebCam;
-using static Extension;
 
 public class UIManager : Singleton<UIManager>
 {
@@ -102,7 +101,6 @@ public class UIManager : Singleton<UIManager>
         GameObject prefab = Instantiate(obj, GameManager.Instance.subCam.transform);
         prefab.transform.localPosition = new Vector3(0, 0, 1);
         prefab.transform.LookAt(GameManager.Instance.subCam.transform);
-        SetLayerRecursively(prefab, LayerMask.NameToLayer("UIItem"));
         prefab.layer = LayerMask.NameToLayer("UIItem");
         cur3DObject = prefab;
         return prefab;
