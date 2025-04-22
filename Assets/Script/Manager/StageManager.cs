@@ -16,6 +16,9 @@ public class StageInfo
     public float[] position;
     public float[] rotation;
     public string description;
+    /*
+    public int position;
+    */
 }
 
 public class StageManager : Singleton<StageManager>
