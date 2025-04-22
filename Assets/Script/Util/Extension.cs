@@ -40,4 +40,16 @@ public static class Extension
 
         return Quaternion.Euler(arr[0], arr[1], arr[2]);
     }
+
+    public static void SetLayerRecursively(GameObject obj, int newLayer)
+    {
+        if (obj == null) return;
+
+        obj.layer = newLayer;
+
+        foreach (Transform child in obj.transform)
+        {
+            SetLayerRecursively(child.gameObject, newLayer);
+        }
+    }
 }
