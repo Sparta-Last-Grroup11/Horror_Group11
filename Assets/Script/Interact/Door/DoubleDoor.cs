@@ -9,7 +9,7 @@ public class DoubleDoor : MonoBehaviour,I_Interactable
 
     private bool canInteract = true;
     [SerializeField] private float interactCooldown = 1.0f;
-    private bool isOpened;
+    protected bool isOpened;
 
     public void OnInteraction()
     {
