@@ -5,5 +5,5 @@ using UnityEngine;
 public class EventManager : Singleton<EventManager>
 {
     public bool IsEventRun;
-
+    protected override bool dontDestroy => false;
 }

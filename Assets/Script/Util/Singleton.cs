@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    [SerializeField] private bool dontDestroy = true;
+    protected virtual bool dontDestroy => true;
     private static T _instance;
     public static T Instance
     {
@@ -12,34 +13,59 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         {
             if (_instance == null)
             {
-                // 씬에서 인스턴스 찾기
-                _instance = FindObjectOfType<T>();
-
-                if (_instance == null)
-                {
-                    Debug.LogError($"Singleton<{typeof(T)}> instance not found in the scene."); 
-                }
+                Create();
             }
+
             return _instance;
         }
     }
 
     protected virtual void Awake()
     {
-        if (transform.parent != null) 
-            transform.SetParent(null);
-        if (_instance == null)
-        {
-            _instance = this as T;
-        }
+        Create();
 
-        if (dontDestroy)
-            DontDestroyOnLoad(gameObject);
-
-        else if (_instance != this)
+        if (_instance != this)
         {
-            Debug.LogWarning($"Duplicate Singleton<{typeof(T)}> detected. Destroying duplicate.");
             Destroy(gameObject);
         }
+        else if (dontDestroy) 
+        {
+            DontDestroyOnLoad(this);
+        }
+    }
+
+    protected static void Create()
+    {
+        if (_instance == null)
+        {
+            T[] objects = FindObjectsOfType<T>();
+
+            if (objects.Length > 0)
+            {
+                _instance = objects[0];
+
+                for (int i = 1; i < objects.Length; ++i)
+                {
+                    if (Application.isPlaying)
+                    {
+                        Destroy(objects[i].gameObject);
+                    }
+                    else
+                    {
+                        DestroyImmediate(objects[i].gameObject);
+                    }
+                }
+            }
+            else
+            {
+                GameObject go = new GameObject(string.Format("{0}", typeof(T).Name));
+                _instance = go.AddComponent<T>();
+            }
+        }
+    }
+
+    protected virtual void OnDestroy()
+    {
+        _instance = null;
     }
 }
