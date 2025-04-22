@@ -7,6 +7,7 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
     [HideInInspector] public NavMeshAgent nurseZombieAgent;
     [HideInInspector] public Animator nurseZombieAnim;
     [HideInInspector] public Rigidbody rb;
+    private EnemyVisionSystem visionSystem;
 
     // Chase, Attack
     public float moveSpeed = 2;
@@ -18,6 +19,7 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
     public float detectDoorRange = 2f;
     public float detectDoorRate = 0.5f;
     public float afterDetectDoor;
+    public bool hasDetectedPlayer = false;
     [SerializeField] private LayerMask doorLayerMask;
 
     // Sound
