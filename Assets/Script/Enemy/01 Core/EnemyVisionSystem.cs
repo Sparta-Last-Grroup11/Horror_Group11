@@ -12,7 +12,7 @@ public class EnemyVisionSystem : MonoBehaviour
     [SerializeField] private LayerMask notEnemyLayer;
     public LayerMask playerLayer;
 
-    public bool CanSeePlayerNewVer(Transform enemyTransform, out Transform seenPlayer)  // 기존 메서드에서는 간호사가 
+    public bool CanSeePlayerNewVer(Transform enemyTransform, out Transform seenPlayer) 
     {
         seenPlayer = null;
         Collider[] targetsInViewRadius = Physics.OverlapSphere(enemyTransform.position, viewDistance, playerLayer);
