@@ -9,7 +9,7 @@ public class DoubleDoor : MonoBehaviour,I_Interactable
 
     private bool canInteract = true;
     [SerializeField] private float interactCooldown = 1.0f;
-    protected bool isOpened;
+    [SerializeField] protected bool isOpened;
 
     public void OnInteraction()
     {
@@ -69,7 +69,7 @@ public class DoubleDoor : MonoBehaviour,I_Interactable
         {
             foreach (var door in doors)
             {
-                door.Open();
+                door.Close();
             }
             isOpened = false;
         }
