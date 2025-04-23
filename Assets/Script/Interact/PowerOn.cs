@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PowerOn : MonoBehaviour, I_Interactable
 {
-    [SerializeField] private GameObject lightObject;
-    [SerializeField] private AudioClip clip;
     [SerializeField] private RoomsLightManage roomManage;
     [SerializeField] private float flash = 0.2f;
     [SerializeField] private bool isAct;
@@ -14,14 +12,13 @@ public class PowerOn : MonoBehaviour, I_Interactable
         if (isAct) return;
         isAct = true;
         PuzzleManager.Instance.OnPower();
-        StartCoroutine(Blink());
+        //StartCoroutine(Blink());
     }
 
     IEnumerator Blink()
     {
         for (int i = 0; i < 2; i++)
         {
-            Debug.Log("a");
             roomManage.TurnBMLight();
             yield return new WaitForSeconds(flash++);
             roomManage.TurnBMLight();
