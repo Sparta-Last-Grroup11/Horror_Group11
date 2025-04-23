@@ -51,6 +51,10 @@ MonoBehaviour:
   notEnemyLayer:
     serializedVersion: 2
     m_Bits: 767
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  viewDistance: 10
   viewAngle: 90
   skinLessZombieAnim: {fileID: 0}
   rigidbody: {fileID: 0}
