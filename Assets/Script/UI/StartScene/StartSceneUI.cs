@@ -1,18 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using static Extension;
 
-public class StartSceneUI : MonoBehaviour
+public class StartSceneUI : BaseUI
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] Button startBut;
+    [SerializeField] Button SettingBut;
+    [SerializeField] Button ExitBut;
 
-    // Update is called once per frame
-    void Update()
+    protected override void Start()
     {
-        
+        startBut.onClick.AddListener(() =>
+        {
+            //씬 이동 추후 구현
+        });
+
+        SettingBut.onClick.AddListener(() =>
+        {
+            UIManager.Instance.show<SettingUI>();
+        });
+
+        ExitBut.onClick.AddListener(() =>
+        {
+            onClickExit();      
+        });
     }
 }
