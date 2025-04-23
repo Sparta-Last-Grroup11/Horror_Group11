@@ -1,18 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class Interacting : MonoBehaviour
+public class Interacting : BaseUI
 {
-    // Start is called before the first frame update
-    void Start()
+    TextMeshProUGUI text;
+
+    public void Awake()
     {
-        
+        text = GetComponentInChildren<TextMeshProUGUI>();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void Start()
     {
-        
+        base.Start();
+        text.enabled = false;
+    }
+
+    public void InteractOn()
+    {
+        text.enabled = true;
+    }
+
+    public void InteractOff()
+    {
+        text.enabled = false;
     }
 }
