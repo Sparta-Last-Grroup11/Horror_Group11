@@ -44,7 +44,7 @@ public class NurseZombieAttackState : EnemyBaseState  // 플레이어를 공격�
     private void EndAttack()
     {
         UIManager.Instance.Get<GlitchUI>().GlitchEnd();
-        GameManager.Instance.player.stateMachine.ChangeState(new PlayerCaughtState(GameManager.Instance.player));
+   //     GameManager.Instance.player.stateMachine.ChangeState(new PlayerCaughtState(GameManager.Instance.player));
         UIManager.Instance.show<DyingUI>();
     }
 }
