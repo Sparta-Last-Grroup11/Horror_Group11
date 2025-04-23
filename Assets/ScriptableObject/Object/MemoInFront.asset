@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c40f9e3b608064f4ca9bece8f3c14026, type: 3}
   m_Name: MemoInFront
   m_EditorClassIdentifier: 
-  id: 202
-  type: 2
+  id: -1
+  type: 0
   itemName: MemoInFront
   description: 
   icon: {fileID: 0}
+  objectIn3D: {fileID: 0}

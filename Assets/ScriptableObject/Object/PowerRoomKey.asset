@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c40f9e3b608064f4ca9bece8f3c14026, type: 3}
   m_Name: PowerRoomKey
   m_EditorClassIdentifier: 
-  id: 100
-  type: 1
+  id: -1
+  type: 0
   itemName: PowerRoom Key
-  description: It's the key to the power room
-  icon: {fileID: 21300000, guid: 13c925c9c6716194f9fe832914b37154, type: 3}
+  description: Can open door
+  icon: {fileID: 0}
+  objectIn3D: {fileID: 0}
