@@ -7,12 +7,20 @@ public abstract class Enemy : MonoBehaviour
     public Transform PlayerTransform => playerTransform;  // 외부 접근용 getter
     [SerializeField] private LayerMask notEnemyLayer;
     [SerializeField] private LayerMask playerLayer;
+    [SerializeField] protected LayerMask doorLayer;
+    [HideInInspector] public bool isDoorOpened = false;
+    [SerializeField] protected float doorDetectRange = 2f;
 
     private float afterPlayerDisappear;
     private float detectPlayerRate = 5f;
 
     public float viewDistance = 10f;
     public float viewAngle = 90f;
+
+    protected virtual void Awake()
+    {
+        doorLayer = LayerMask.GetMask("Interactable");
+    }
 
     protected virtual void Start()
     {
@@ -84,6 +92,33 @@ public abstract class Enemy : MonoBehaviour
         Vector3 dir = PlayerTransform.position - transform.position;
         dir.y = 0;  // y축 회전 제거
         transform.rotation = Quaternion.LookRotation(dir);
+    }
+
+    // Door 앞에 빈 오브젝트 만들고 거기에 스크립트 붙여서 콜라이더 감지만 되게.
+    // 옵저버가 될 오브젝트(콜라이더 가지고 있음)에 스크립트를 붙여주고.
+    // 리시버가 좀비. 
+
+    public virtual void CheckDoorOpen()
+    {
+        Ray ray = new Ray(transform.position + Vector3.up, transform.forward);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, doorDetectRange, doorLayer))
+        {
+            GameObject doorObj = hit.collider.gameObject;
+
+            Debug.Log("Door Detected: " + doorObj.activeInHierarchy);
+
+            // 문이 비활성화되었을 때 열린 걸로 간주
+            isDoorOpened = !doorObj.activeInHierarchy;
+        }
+        else
+        {
+            // 문이 아예 없으면 열린 공간
+            isDoorOpened = true;
+        }
+
+        Debug.Log("isDoorOpened: " + isDoorOpened);
     }
 
 }
