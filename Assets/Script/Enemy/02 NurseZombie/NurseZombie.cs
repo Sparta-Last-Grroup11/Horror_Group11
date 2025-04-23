@@ -4,10 +4,9 @@ using UnityEngine.AI;
 public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플레이어가 뒤돌면 쫓아옴)
 {
     // Components
-    [HideInInspector] public NavMeshAgent nurseZombieAgent;
+    public NavMeshAgent nurseZombieAgent;
     [HideInInspector] public Animator nurseZombieAnim;
     [HideInInspector] public Rigidbody rb;
-    private EnemyVisionSystem visionSystem;
 
     // Chase, Attack
     public float moveSpeed = 2;

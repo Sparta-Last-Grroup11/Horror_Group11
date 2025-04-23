@@ -79,7 +79,7 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    public void LookAtPlayer()  // 플레이어를 향해 몸을 돌리게 해줌
+    public void LookAtPlayer() 
     {
         Vector3 dir = PlayerTransform.position - transform.position;
         dir.y = 0;  // y축 회전 제거
