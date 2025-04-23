@@ -9,5 +9,6 @@ public class InGameUI : MonoBehaviour
     {
         UIManager.Instance.show<HeartBeat>();
         UIManager.Instance.show<GlitchUI>();
+        UIManager.Instance.show<Interacting>();
     }
 }

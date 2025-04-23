@@ -19,7 +19,7 @@ public class GameManager : Singleton<GameManager>
     protected override void Awake()
     {
         base.Awake();
-        surface = Instantiate(ResourceManager.Instance.Load<GameObject>(ResourceType.Enemy, "NavMeshSurface")).GetComponent<NavMeshSurface>();
+        surface = Instantiate(ResourceManager.Instance.Load<GameObject>(ResourceType.Enemy, "NavMeshSurface_Hospital")).GetComponent<NavMeshSurface>();
         SpawnCharacter();
         subCam = GameObject.Find("Sub Camera").GetComponent<Camera>();
         uiCam = GameObject.Find("UI Camera").GetComponent<Camera>();
