@@ -13,6 +13,7 @@ public class EventTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("check");
             receiver.ReceiveTrigger();
         }
     }

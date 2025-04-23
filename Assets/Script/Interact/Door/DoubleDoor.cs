@@ -31,7 +31,7 @@ public class DoubleDoor : MonoBehaviour,I_Interactable
         }
     }
 
-    void OpenCloseDoor()
+     void OpenCloseDoor()
     {
         if (!isOpened)
         {
@@ -63,5 +63,16 @@ public class DoubleDoor : MonoBehaviour,I_Interactable
             isOpened = true;
         }
     }
-
+    public void CloseBecauseEnter(ItemData changeKey)
+    {
+        if (isOpened)
+        {
+            foreach (var door in doors)
+            {
+                door.Open();
+            }
+            isOpened = false;
+        }
+        key = changeKey;
+    }
 }

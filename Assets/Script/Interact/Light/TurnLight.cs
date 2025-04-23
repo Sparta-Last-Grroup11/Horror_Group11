@@ -7,7 +7,7 @@ public class TurnLight : MonoBehaviour, I_Interactable
     [SerializeField] private float intensity;
     public float range;
     [SerializeField] private RoomsLightManage mananger;
-    private List<Light> lightsList;
+    [SerializeField] private List<Light> lightsList;
     private bool isTurnOn;
 
     private void Start()

@@ -8,7 +8,7 @@ public class PowerOn : MonoBehaviour, I_Interactable
     [SerializeField] private AudioClip clip;
     [SerializeField] private RoomsLightManage roomManage;
     [SerializeField] private float flash = 0.2f;
-    private bool isAct;
+    [SerializeField] private bool isAct;
     public void OnInteraction()
     {
         if (isAct) return;
