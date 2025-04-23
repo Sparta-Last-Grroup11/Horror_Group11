@@ -1594,6 +1594,10 @@ MonoBehaviour:
   notEnemyLayer:
     serializedVersion: 2
     m_Bits: 767
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  viewDistance: 10
   viewAngle: 90
   copzombieAgent: {fileID: 0}
   target: {fileID: 0}

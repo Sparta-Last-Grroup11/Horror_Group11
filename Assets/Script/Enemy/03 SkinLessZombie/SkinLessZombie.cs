@@ -22,6 +22,11 @@ public class SkinLessZombie : Enemy   // 점프스케어 기믹 (플레이어 �
     {
         skinLessZombieAnim = GetComponentInChildren<Animator>();
         rigidbody = GetComponent<Rigidbody>();
+
+        if (cameraTransform == null && Camera.main != null)
+        {
+            cameraTransform = Camera.main.transform;
+        }
     }
 
     protected override void Start()
