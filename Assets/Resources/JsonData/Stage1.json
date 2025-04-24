@@ -19,31 +19,31 @@
       "type": "Enemy",
       "prefabname": "NurseZombie",
       "position": [
-        -21.0,
-        0.0,
-        -8.5
+        -8.933,
+        0.988,
+        15.283
       ],
       "rotation": [
         0.0,
         0.0,
         0.0
       ],
-      "description": ""
+      "description": "전기실 가는 길목에 배치"
     },
     {
       "type": "Enemy",
       "prefabname": "SkinLessZombie",
       "position": [
-        27.25,
-        0.0,
-        -11.0
+        -3.39,
+        1.02,
+        -19.28
       ],
       "rotation": [
         0.0,
         0.0,
         0.0
       ],
-      "description": ""
+      "description": "플레이어 동선에 따라 위치 확정할 필요"
     },
     {
       "type": "Enemy",
@@ -59,6 +59,51 @@
         0.0
       ],
       "description": ""
+    },
+    {
+      "type": "Enemy",
+      "prefabname": "SkinLessZombie",
+      "position": [
+        -9.05,
+        5.45,
+        -11.97
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "description": "2층 욕실"
+    },
+    {
+      "type": "Enemy",
+      "prefabname": "SkinLessZombie",
+      "position": [
+        -9.05,
+        5.45,
+        0.38
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "description": "2층 중앙 방"
+    },
+    {
+      "type": "Enemy",
+      "prefabname": "SkinLessZombie",
+      "position": [
+        -9.05,
+        1.43,
+        11.97
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "description": "1층 화장실"
     }
   ]
 }
