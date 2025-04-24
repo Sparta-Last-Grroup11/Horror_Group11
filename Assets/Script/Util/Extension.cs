@@ -52,4 +52,13 @@ public static class Extension
             SetLayerRecursively(child.gameObject, newLayer);
         }
     }
+
+    public static void onClickExit()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit(); // 어플리케이션 종료
+#endif
+    }
 }

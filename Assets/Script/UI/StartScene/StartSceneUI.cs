@@ -1,18 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using static Extension;
 
-public class StartSceneUI : MonoBehaviour
+public class StartSceneUI : BaseUI
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] Button startBut;
+    [SerializeField] Button SettingBut;
+    [SerializeField] Button ExitBut;
 
-    // Update is called once per frame
-    void Update()
+    protected override void Start()
     {
-        
+        startBut.onClick.AddListener(() =>
+        {
+            SceneManager.LoadScene("LobbyScene");
+        });
+
+        SettingBut.onClick.AddListener(() =>
+        {
+            UIManager.Instance.show<SettingUI>();
+        });
+
+        ExitBut.onClick.AddListener(() =>
+        {
+            onClickExit();      
+        });
     }
 }
