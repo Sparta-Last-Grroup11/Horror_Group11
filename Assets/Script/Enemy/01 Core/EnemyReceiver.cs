@@ -21,7 +21,8 @@ public class EnemyReceiver : Receiver
 
     private void Awake()
     {
-        trigger = TriggerManager.Instance.triggers[0];
+        // 맵에다 따로 깔아서 테스트
+        trigger = TriggerManager.Instance.triggers[0];  
         trigger.AddReceiver(this);
     }
 
