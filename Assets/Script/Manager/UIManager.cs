@@ -24,6 +24,11 @@ public class UIManager : Singleton<UIManager>
         base.Awake();
         SceneManager.sceneLoaded += OnSceneLoaded;
         uiList = new Dictionary<string, BaseUI>();
+        ManagerSetting();
+    }
+
+    private void ManagerSetting()
+    {
         GameObject obj = GameObject.Find("MainCanvas");
         subCam = GameObject.Find("Sub Camera").GetComponent<Camera>();
         uiCam = GameObject.Find("UI Camera").GetComponent<Camera>();
@@ -64,6 +69,7 @@ public class UIManager : Singleton<UIManager>
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         ClearList();
+        ManagerSetting();
     }
 
     public void ClearList()
