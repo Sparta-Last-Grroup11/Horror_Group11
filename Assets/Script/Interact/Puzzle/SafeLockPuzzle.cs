@@ -6,7 +6,7 @@ public class SafeLockPuzzle : ItemOnUI
     [SerializeField] private int[] rightArray = {0,0,0,0};
     [SerializeField] private int randomRange;
     [SerializeField]private int maxNumber = 9;
-
+    [SerializeField] private OpenPuzzle safe;
     [Header("References")]
     [SerializeField] private Transform dialTransform;
     [SerializeField] private AudioClip clip;
@@ -37,6 +37,10 @@ public class SafeLockPuzzle : ItemOnUI
         isRotating = false;
     }
 
+    public void SetSafe(OpenPuzzle puzzle)
+    {
+        safe = puzzle;
+    }
     protected  void Update()
     {
         RotateDial();
@@ -124,7 +128,7 @@ public class SafeLockPuzzle : ItemOnUI
     void SuccessOpen() // 비밀번호를 맞췄을 경우
     {
         Debug.Log("clear");
-        PuzzleManager.Instance.GateHouseSaveDial.OpenSaveDoor();
+        safe.OpenSaveDoor();
         UIManager.Instance.CurUI3D.DestroySelf();
     }
 }
