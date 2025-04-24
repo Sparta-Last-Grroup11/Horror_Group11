@@ -1,6 +1,5 @@
-using Unity.VisualScripting;
+using System.Collections.Generic;
 using UnityEngine;
-
 public class OpenPuzzle : MonoBehaviour, I_Interactable
 {
     [SerializeField] private GameObject puzzle;
@@ -9,6 +8,7 @@ public class OpenPuzzle : MonoBehaviour, I_Interactable
     public void OnInteraction()
     {
         UIManager.Instance.show<UI3D>().Init(puzzle);
+        FindObjectOfType<SafeLockPuzzle>().SetSafe(this);
     }
 
     public void OpenSaveDoor()
