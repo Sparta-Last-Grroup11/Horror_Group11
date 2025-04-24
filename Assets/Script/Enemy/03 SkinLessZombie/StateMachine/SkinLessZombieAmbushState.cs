@@ -20,12 +20,14 @@ public class SkinLessZombieAmbushState : EnemyBaseState
 
     public override void Update()
     {
-        if (!hasTriggered && enemy.CanSeePlayer())
+        enemy.CheckDoorOpen();
+
+        if (!hasTriggered && enemy.CanSeePlayer() && enemy.isDoorOpened)
         {
             GameManager.Instance.player.isChased = true;
             UIManager.Instance.Get<GlitchUI>().GlitchStart(10f);
             isGlitchOn = true;
-            AudioManager.Instance.Audio2DPlay(skinLessZombie.spottedRoarClip, 1f); // 2) 플레이어 발견 순간 포효
+            AudioManager.Instance.Audio2DPlay(skinLessZombie.spottedRoarClip, 1f); // 플레이어 발견 순간 포효
             skinLessZombie.LookAtPlayer();
             skinLessZombie.skinLessZombieAnim.SetTrigger("Chase");
             skinLessZombie.StartCoroutine(StartRushDelay(skinLessZombie.rushDelay));

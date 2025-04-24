@@ -34,7 +34,11 @@ public class PlayerInteraction : PlayerInputController
         }
         else
         {
-            UIManager.Instance.Get<Interacting>().InteractOff();
+            Interacting interacting = UIManager.Instance.Get<Interacting>();
+            if (interacting != null)
+            {
+                interacting.InteractOff();
+            }
             curInteractGameObject = null;
             curInteractable = null;
         }
@@ -44,7 +48,7 @@ public class PlayerInteraction : PlayerInputController
     {
         if (curInteractGameObject != null)
         {
-            if (curInteractGameObject == null || curInteractable == null) return;
+            if (curInteractGameObject == null || curInteractable == null || UIManager.Instance.IsUiActing) return;
             curInteractable.OnInteraction();
         }
     }

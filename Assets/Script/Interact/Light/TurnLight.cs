@@ -6,22 +6,15 @@ public class TurnLight : MonoBehaviour, I_Interactable
     [SerializeField] private GameObject parentObject;
     [SerializeField] private float intensity;
     public float range;
-    [SerializeField] private RoomsLightManage mananger;
     [SerializeField] private List<Light> lightsList;
     private bool isTurnOn;
-
+    private bool isPowerOn = false;
     private void Start()
     {
         lightsList = new List<Light>();
         if (parentObject != null)
             GetChildsLights(parentObject.transform);
     }
-
-    public void SetManager(RoomsLightManage roomManager)
-    {
-        this.mananger = roomManager;
-    }
-
     void GetChildsLights(Transform root)
     {
         lightsList = new List<Light>(root.GetComponentsInChildren<Light>(true));
@@ -55,12 +48,12 @@ public class TurnLight : MonoBehaviour, I_Interactable
 
     public void OnInteraction()
     {
-        if (!PuzzleManager.Instance.GetIsPowerOn()) return;
+        if (!isPowerOn) return;
         SetLightsIntensity();
     }
 
-    public List<Light> GetList()
+    public void OnPower()
     {
-        return lightsList;
+        isPowerOn = true;
     }
 }

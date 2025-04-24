@@ -11,4 +11,9 @@ public class InGameUI : MonoBehaviour
         UIManager.Instance.show<GlitchUI>();
         UIManager.Instance.show<Interacting>();
     }
+
+    private void Awake()
+    {
+        StageManager.Instance.StageMake();
+    }
 }

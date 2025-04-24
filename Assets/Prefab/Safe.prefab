@@ -103,6 +103,7 @@ MonoBehaviour:
   openClip: {fileID: 8300000, guid: dd532fdb2a61e4cc5bc727f3b32a69a8, type: 3}
   closeClip: {fileID: 0}
   duration: 1
+  openDegree: -120
 --- !u!1 &1244602453024429779
 GameObject:
   m_ObjectHideFlags: 0
