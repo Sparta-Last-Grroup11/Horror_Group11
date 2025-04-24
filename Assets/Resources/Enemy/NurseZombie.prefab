@@ -2884,6 +2884,11 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
+  doorLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  isDoorOpened: 0
+  doorDetectRange: 2
   viewDistance: 10
   viewAngle: 360
   nurseZombieAgent: {fileID: 0}
@@ -2971,7 +2976,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: 1
   m_WalkableMask: 9
   m_ObstacleAvoidanceType: 4
 --- !u!1 &8794990791605349959

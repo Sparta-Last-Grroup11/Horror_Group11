@@ -1,12 +1,28 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class EnemyReceiver : Receiver
 {
     private Enemy enemy;
+    private SkinLessZombie skinLessZombie;
+    [SerializeField] private EventTrigger trigger;
+
+    public void Init(SkinLessZombie zombie, Enemy linkedEnemy = null)
+    {
+        skinLessZombie = zombie;
+        enemy = linkedEnemy;
+    }
 
     private void Start()
     {
-        enemy = GetComponent<Enemy>();
+        skinLessZombie = GetComponent<SkinLessZombie>();
+
+    }
+
+    private void Awake()
+    {
+        trigger = TriggerManager.Instance.triggers[0];
+        trigger.AddReceiver(this);
     }
 
     public override void ReceiveTrigger()
@@ -14,7 +30,12 @@ public class EnemyReceiver : Receiver
         if (enemy != null)
         {
             enemy.isDoorOpened = true;
-            Debug.Log("[ZombieReceiver] 문 열림 트리거 수신 -> isDoorOpened = true");
         }
+
+        if (skinLessZombie != null)
+        {
+            skinLessZombie.TriggerAmbush();
+        }
+
     }
 }
