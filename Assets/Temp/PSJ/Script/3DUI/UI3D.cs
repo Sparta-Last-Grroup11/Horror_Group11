@@ -25,7 +25,7 @@ public class UI3D : BaseUI
     {
         UIManager.Instance.IsUiActing = true;
         var canvas = UIManager.Instance.mainCanvas;
-        var subCam = GameManager.Instance.subCam;
+        var subCam = UIManager.Instance.subCam;
 
         curObj = UIManager.Instance.MakePrefabInSubCam(prefab);
         objOriginalPos = curObj.transform.localPosition;

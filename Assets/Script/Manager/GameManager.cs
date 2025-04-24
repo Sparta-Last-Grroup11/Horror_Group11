@@ -9,8 +9,6 @@ public class GameManager : Singleton<GameManager>
     [Header("No Need to Allocate")]
     public Player player;
     [SerializeField] Vector3 spawnPoint;
-    public Camera subCam;
-    public Camera uiCam;
     private NavMeshSurface surface;
     protected override bool dontDestroy => false;
 
@@ -21,9 +19,6 @@ public class GameManager : Singleton<GameManager>
         base.Awake();
         surface = Instantiate(ResourceManager.Instance.Load<GameObject>(ResourceType.Enemy, "NavMeshSurface_Hospital")).GetComponent<NavMeshSurface>();
         SpawnCharacter();
-        subCam = GameObject.Find("Sub Camera").GetComponent<Camera>();
-        uiCam = GameObject.Find("UI Camera").GetComponent<Camera>();
-        StageManager.Instance.StageMake();
     }
 
     void SpawnCharacter()

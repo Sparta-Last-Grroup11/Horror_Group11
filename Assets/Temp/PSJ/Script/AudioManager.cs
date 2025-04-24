@@ -4,9 +4,18 @@ using UnityEngine;
 using UnityEngine.Audio;
 using Unity.VisualScripting;
 using UnityEngine.Pool;
+using UnityEngine.UI;
+
+public enum EAudioType
+{
+    Master,
+    BGM,
+    SFX
+}
 
 public class AudioManager : Singleton<AudioManager>
 {
+    [SerializeField] AudioMixer audioMixer;
     [SerializeField] SoundSource curBgm;
 
     ObjectPool<SoundSource> audioPool;
@@ -18,6 +27,7 @@ public class AudioManager : Singleton<AudioManager>
     protected override void Awake()
     {
         base.Awake();
+        audioMixer = ResourceManager.Instance.Load<AudioMixer>(ResourceType.Sound, "BasicAudioMixer");
         // 풀 초기화
         audioPool = new ObjectPool<SoundSource>(
             CreatePooledItem,
@@ -34,6 +44,11 @@ public class AudioManager : Singleton<AudioManager>
 
         bgmRoot = new GameObject("BGM").transform;
         bgmRoot.SetParent(transform);
+    }
+
+    private void Start()
+    {
+        LoadAllAudioSetting();
     }
 
     #region 풀링
@@ -141,5 +156,46 @@ public class AudioManager : Singleton<AudioManager>
             audioPool.Release(curBgm);
             curBgm = null;
         }
+    }
+
+    void LoadAllAudioSetting()
+    {
+        foreach (EAudioType type in System.Enum.GetValues(typeof(EAudioType)))
+        {
+            if (PlayerPrefs.HasKey(type.ToString()))
+            {
+                float CurrentValue = PlayerPrefs.GetFloat(type.ToString());
+                SetLevel(CurrentValue, type);
+            }
+        }
+    }
+
+    public void SetLevel(float value, EAudioType type)
+    {
+        float ChangeValue;
+        if (value <= 0.001f)
+            ChangeValue = -80;
+        else
+            ChangeValue = Mathf.Log10(value) * 20;
+        audioMixer.SetFloat(type.ToString(), ChangeValue);
+        SaveAudioSetting(value, type);
+    }
+
+    public void LoadAudioSetting(EAudioType type, Slider slider = null)
+    {
+        if (PlayerPrefs.HasKey(type.ToString()))
+        {
+            float CurrentValue = PlayerPrefs.GetFloat(type.ToString());
+            if (slider != null)
+            {
+                slider.value = Mathf.Clamp(CurrentValue, slider.minValue, slider.maxValue);
+                SetLevel(CurrentValue, type);
+            }
+        }
+    }
+
+    public void SaveAudioSetting(float value, EAudioType type)
+    {
+        PlayerPrefs.SetFloat(type.ToString(), value);
     }
 }

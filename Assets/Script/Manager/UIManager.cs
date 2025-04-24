@@ -16,6 +16,8 @@ public class UIManager : Singleton<UIManager>
     public bool IsUiActing;
     public BaseUI CurUI3D;
     public GameObject cur3DObject;
+    public Camera subCam;
+    public Camera uiCam;
 
     protected override void Awake()
     {
@@ -23,17 +25,19 @@ public class UIManager : Singleton<UIManager>
         SceneManager.sceneLoaded += OnSceneLoaded;
         uiList = new Dictionary<string, BaseUI>();
         GameObject obj = GameObject.Find("MainCanvas");
+        subCam = GameObject.Find("Sub Camera").GetComponent<Camera>();
+        uiCam = GameObject.Find("UI Camera").GetComponent<Camera>();
         if (obj == null)
         {
             mainCanvas = Instantiate(ResourceManager.Instance.Load<GameObject>(ResourceType.UI, "MainCanvas").GetComponent<Canvas>());
             mainCanvas.renderMode = RenderMode.ScreenSpaceCamera;
-            mainCanvas.worldCamera = GameManager.Instance.uiCam;
+            mainCanvas.worldCamera = uiCam;
             mainCanvas.planeDistance = 900f;
         }
         else
         {
             mainCanvas = obj.GetComponent<Canvas>();
-            mainCanvas.worldCamera = GameManager.Instance.uiCam;
+            mainCanvas.worldCamera = uiCam;
         }
     }
 
@@ -99,9 +103,9 @@ public class UIManager : Singleton<UIManager>
             Destroy(cur3DObject.gameObject);
             cur3DObject = null;
         }    
-        GameObject prefab = Instantiate(obj, GameManager.Instance.subCam.transform);
+        GameObject prefab = Instantiate(obj, subCam.transform);
         prefab.transform.localPosition = new Vector3(0, 0, 1);
-        prefab.transform.LookAt(GameManager.Instance.subCam.transform);
+        prefab.transform.LookAt(subCam.transform);
         SetLayerRecursively(prefab, LayerMask.NameToLayer("UIItem"));
         prefab.layer = LayerMask.NameToLayer("UIItem");
         cur3DObject = prefab;
