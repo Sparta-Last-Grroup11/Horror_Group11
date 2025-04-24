@@ -19,7 +19,6 @@ public class GameManager : Singleton<GameManager>
         base.Awake();
         surface = Instantiate(ResourceManager.Instance.Load<GameObject>(ResourceType.Enemy, "NavMeshSurface_Hospital")).GetComponent<NavMeshSurface>();
         SpawnCharacter();
-        StageManager.Instance.StageMake();
     }
 
     void SpawnCharacter()
