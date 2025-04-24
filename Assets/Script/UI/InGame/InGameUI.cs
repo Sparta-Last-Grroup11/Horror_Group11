@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class InGameUI : MonoBehaviour
 {
+    private void Awake()
+    {
+        StageManager.Instance.StageMake();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -11,10 +15,5 @@ public class InGameUI : MonoBehaviour
         UIManager.Instance.show<GlitchUI>();
         UIManager.Instance.show<Interacting>();
         UIManager.Instance.show<DialogUI>();
-    }
-
-    private void Awake()
-    {
-        StageManager.Instance.StageMake();
     }
 }
