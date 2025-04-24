@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1816215056197352840}
   - component: {fileID: 7982271832615390225}
+  - component: {fileID: 2674038120681392110}
   m_Layer: 0
   m_Name: Lamp_02
   m_TagString: Untagged
@@ -63,6 +64,22 @@ LODGroup:
     renderers:
     - renderer: {fileID: 5124466439751267892}
   m_Enabled: 1
+--- !u!114 &2674038120681392110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715336051373508103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c342973a73f5d7344bbdf67db4483f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switchController: {fileID: 0}
+  rand: 0
+  lampLights:
+  - {fileID: 6981934745564238618}
 --- !u!1 &1083567731485271867
 GameObject:
   m_ObjectHideFlags: 0
