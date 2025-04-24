@@ -29,11 +29,12 @@ public class PlayerInteraction : PlayerInputController
             {
                 curInteractGameObject = hit.collider.gameObject;
                 curInteractable = hit.collider.GetComponent<I_Interactable>();
-                // 여기에 상호작용 UI 뜨게 하면 됨.
+                UIManager.Instance.Get<Interacting>().InteractOn();
             }
         }
         else
         {
+            UIManager.Instance.Get<Interacting>().InteractOff();
             curInteractGameObject = null;
             curInteractable = null;
         }
