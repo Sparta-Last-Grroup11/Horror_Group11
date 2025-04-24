@@ -34,7 +34,11 @@ public class PlayerInteraction : PlayerInputController
         }
         else
         {
-            UIManager.Instance.Get<Interacting>().InteractOff();
+            Interacting interacting = UIManager.Instance.Get<Interacting>();
+            if (interacting != null)
+            {
+                interacting.InteractOff();
+            }
             curInteractGameObject = null;
             curInteractable = null;
         }
