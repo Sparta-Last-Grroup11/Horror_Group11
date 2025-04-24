@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static Extension;
 
@@ -14,7 +15,7 @@ public class StartSceneUI : BaseUI
     {
         startBut.onClick.AddListener(() =>
         {
-            //씬 이동 추후 구현
+            SceneManager.LoadScene("LobbyScene");
         });
 
         SettingBut.onClick.AddListener(() =>

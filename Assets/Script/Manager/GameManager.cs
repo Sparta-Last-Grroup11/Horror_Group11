@@ -9,7 +9,6 @@ public class GameManager : Singleton<GameManager>
     [Header("No Need to Allocate")]
     public Player player;
     [SerializeField] Vector3 spawnPoint;
-    private NavMeshSurface surface;
     protected override bool dontDestroy => false;
 
     public Vector3 SpawnPoint => spawnPoint;
@@ -17,7 +16,6 @@ public class GameManager : Singleton<GameManager>
     protected override void Awake()
     {
         base.Awake();
-        surface = Instantiate(ResourceManager.Instance.Load<GameObject>(ResourceType.Enemy, "NavMeshSurface_Hospital")).GetComponent<NavMeshSurface>();
         SpawnCharacter();
     }
 
@@ -30,11 +28,6 @@ public class GameManager : Singleton<GameManager>
         player = Instantiate(playerPrefab, spawnPoint, Quaternion.identity).GetComponent<Player>();
         player.virtualCamera = VirtualCam.GetComponent<CinemachineVirtualCamera>();
         VirtualCam.GetComponent<CinemachineVirtualCamera>().Follow = player.cameraContainer;
-    }
-
-    public void SurfaceUpdate()
-    {
-        surface.BuildNavMesh();
     }
 
     private void OnDrawGizmos()

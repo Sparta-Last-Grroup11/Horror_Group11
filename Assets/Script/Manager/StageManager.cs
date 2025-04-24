@@ -7,6 +7,7 @@ using UnityEngine;
 using Newtonsoft;
 using static Extension;
 using Newtonsoft.Json;
+using Unity.AI.Navigation;
 
 [System.Serializable]
 public class StageInfo
@@ -28,9 +29,17 @@ public class StageManager : Singleton<StageManager>
     public List<StageInfo> currentStage;
     protected override bool dontDestroy => false;
 
+    private NavMeshSurface surface;
+
     protected override void Awake()
     {
         base.Awake();
+        surface = Instantiate(ResourceManager.Instance.Load<GameObject>(ResourceType.Enemy, "NavMeshSurface_Hospital")).GetComponent<NavMeshSurface>();
+    }
+
+    public void SurfaceUpdate()
+    {
+        surface.BuildNavMesh();
     }
 
     public void StageMake()

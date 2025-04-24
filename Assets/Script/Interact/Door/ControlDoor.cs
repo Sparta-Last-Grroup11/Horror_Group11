@@ -22,7 +22,6 @@ public class ControlDoor : OpenableObject
         }
 
         transform.rotation = endRotation;
-        GameManager.Instance.SurfaceUpdate();
     }
 
     protected override IEnumerator CloseRoutine() //문 회전
@@ -40,6 +39,5 @@ public class ControlDoor : OpenableObject
         }
 
         transform.rotation = endRotation;
-        GameManager.Instance.SurfaceUpdate();
     }
 }
