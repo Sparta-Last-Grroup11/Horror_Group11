@@ -52,6 +52,7 @@ public class UIManager : Singleton<UIManager>
         var uiPrefab = ResourceManager.Instance.Load<T>(ResourceType.UI, typeof(T).Name);
         var uiInstance = Instantiate(uiPrefab, mainCanvas.transform);
         uiList[key] = uiInstance;
+        Debug.Log($"{key} : {uiInstance.name} Instantiate");
         return uiInstance;
     }
 
