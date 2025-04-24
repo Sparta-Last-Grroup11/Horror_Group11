@@ -9,7 +9,7 @@ public class DoubleDoor : MonoBehaviour,I_Interactable
 
     private bool canInteract = true;
     [SerializeField] private float interactCooldown = 1.0f;
-    protected bool isOpened;
+    [SerializeField] protected bool isOpened;
 
     public void OnInteraction()
     {
@@ -31,7 +31,7 @@ public class DoubleDoor : MonoBehaviour,I_Interactable
         }
     }
 
-    void OpenCloseDoor()
+     void OpenCloseDoor()
     {
         if (!isOpened)
         {
@@ -63,5 +63,16 @@ public class DoubleDoor : MonoBehaviour,I_Interactable
             isOpened = true;
         }
     }
-
+    public void CloseBecauseEnter(ItemData changeKey)
+    {
+        if (isOpened)
+        {
+            foreach (var door in doors)
+            {
+                door.Close();
+            }
+            isOpened = false;
+        }
+        key = changeKey;
+    }
 }

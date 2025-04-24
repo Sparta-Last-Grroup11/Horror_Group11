@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class EventTrigger : MonoBehaviour
 {
-    //Ontrigger, Receiver
-    //or 스크립트 하나에 Ontrigger or OverlapBox
-    //이 스크립트가 아마 Ontrigger 역할
-    //변수는 이제 Receiver를 Serialize로 할당하고 Receiver에서 받아서 이벤트 작동.
-    [SerializeField] private Receiver receiver;
+    [SerializeField] private List<Receiver> receivers = new List<Receiver>();
+
+    public void AddReceiver(Receiver receiver)
+    {
+        if (!receivers.Contains(receiver))
+        {
+            receivers.Add(receiver);
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if(other.GetComponent<CharacterController>() != null)
+        foreach(Receiver receiver in receivers)
         {
             receiver.ReceiveTrigger();
         }
+        gameObject.SetActive(false);
     }
 }

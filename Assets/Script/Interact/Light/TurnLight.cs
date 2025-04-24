@@ -7,7 +7,7 @@ public class TurnLight : MonoBehaviour, I_Interactable
     [SerializeField] private float intensity;
     public float range;
     [SerializeField] private RoomsLightManage mananger;
-    private List<Light> lightsList;
+    [SerializeField] private List<Light> lightsList;
     private bool isTurnOn;
 
     private void Start()
@@ -24,22 +24,10 @@ public class TurnLight : MonoBehaviour, I_Interactable
 
     void GetChildsLights(Transform root)
     {
-        int childCount = root.childCount;
-        for(int i = 0; i < childCount; i++)
-        {
-            Transform child = root.GetChild(i);
-            int grandChildCount = child.childCount;
-
-            for(int j = 0; j < grandChildCount; j++)
-            {
-                Transform grandChild = child.GetChild(j);
-                Light light = grandChild.GetComponent<Light>();
-                if(light != null)
-                    lightsList.Add(light);
-            }
-        }
+        lightsList = new List<Light>(root.GetComponentsInChildren<Light>(true));
         foreach (Light light in lightsList)
         {
+            light.intensity = 0;
             light.range = range;
         }
     }
