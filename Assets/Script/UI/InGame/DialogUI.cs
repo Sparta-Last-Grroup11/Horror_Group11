@@ -7,14 +7,13 @@ public class DialogUI : BaseUI
 {
     Queue<string> dialogQueue;
     [SerializeField] TextMeshProUGUI text;
-    bool isEnd;
+    bool isPlaying = false;
 
     // Start is called before the first frame update
     protected override void Start()
     {
         dialogQueue = new Queue<string>();
         text = GetComponentInChildren<TextMeshProUGUI>(true);
-        isEnd = false;
         text.enabled = false;
     }
 
@@ -25,17 +24,17 @@ public class DialogUI : BaseUI
 
     private void Update()
     {
-        if (dialogQueue.Count > 0 && isEnd == false)
+        if (dialogQueue.Count > 0 && isPlaying == false)
             StartCoroutine(DialogAction());
     }
 
     IEnumerator DialogAction()
     {
-        isEnd = false;
+        isPlaying = true;
         text.text = dialogQueue.Dequeue();
         text.enabled = true;
         yield return new WaitForSeconds(3);
-        isEnd = true;
         text.enabled = false;
+        isPlaying = false;
     }
 }
