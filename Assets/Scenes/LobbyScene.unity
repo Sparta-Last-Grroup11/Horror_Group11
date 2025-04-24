@@ -131,6 +131,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3227687617072680899, guid: aaeea512099bafb4e9c76ee5e98f3b91,
+        type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 561441646}
     - target: {fileID: 4153831747368400745, guid: aaeea512099bafb4e9c76ee5e98f3b91,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -194,6 +199,12 @@ PrefabInstance:
 --- !u!20 &231393471 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 5761653756781931373, guid: 05c68cc74b4a25342a1b87336dc80d45,
+    type: 3}
+  m_PrefabInstance: {fileID: 720824016}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &561441646 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7275691222769299704, guid: 05c68cc74b4a25342a1b87336dc80d45,
     type: 3}
   m_PrefabInstance: {fileID: 720824016}
   m_PrefabAsset: {fileID: 0}
