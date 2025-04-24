@@ -59,6 +59,51 @@
         0.0
       ],
       "description": ""
+    },
+    {
+      "type": "Enemy",
+      "prefabname": "SkinLessZombie",
+      "position": [
+        -9.05,
+        5.45,
+        -11.97
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "description": "2층 욕실"
+    },
+    {
+      "type": "Enemy",
+      "prefabname": "SkinLessZombie",
+      "position": [
+        -9.05,
+        5.45,
+        0.38
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "description": "2층 중앙 방"
+    },
+    {
+      "type": "Enemy",
+      "prefabname": "SkinLessZombie",
+      "position": [
+        -9.05,
+        1.43,
+        11.97
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "description": "1층 화장실"
     }
   ]
 }
