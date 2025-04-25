@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3054711311720059963}
   - component: {fileID: 3834004240544140460}
-  - component: {fileID: 1562012755963836884}
+  - component: {fileID: 5352513787865002465}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -178,7 +178,7 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &1562012755963836884
+--- !u!114 &5352513787865002465
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -294,6 +294,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6168004839583239906}
   - component: {fileID: 8019751778122236254}
+  - component: {fileID: 5379947510089563274}
   m_Layer: 0
   m_Name: Lamp_01
   m_TagString: Untagged
@@ -342,3 +343,19 @@ LODGroup:
     renderers:
     - renderer: {fileID: 7600868711886781001}
   m_Enabled: 1
+--- !u!114 &5379947510089563274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9032465853452245015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c342973a73f5d7344bbdf67db4483f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switchController: {fileID: 0}
+  rand: 0
+  lampLights:
+  - {fileID: 3834004240544140460}

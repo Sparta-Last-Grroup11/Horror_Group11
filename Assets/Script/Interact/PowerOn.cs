@@ -6,7 +6,7 @@ public class PowerOn : MonoBehaviour, I_Interactable
 {
     [SerializeField] private float flash = 0.2f;
     [SerializeField] private bool isAct;
-    [SerializeField] private TurnLight lights;
+    [SerializeField] private SwitchController lights;
     public void OnInteraction()
     {
         if (isAct) return;
