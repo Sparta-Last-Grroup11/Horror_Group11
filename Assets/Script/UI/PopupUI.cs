@@ -13,12 +13,12 @@ public abstract class PopupUI : BaseUI
     [SerializeField] private bool DestroyByTime;
     [SerializeField] private float DestroyTime;
 
-    private void OnEnable()
+    public virtual void Init(string input = null)
     {
-        gameObject.AddComponent<CanvasGroup>();
+        canvasGroup = GetComponent<CanvasGroup>();
 
         if (canvasGroup == null)
-            canvasGroup = GetComponent<CanvasGroup>();
+            canvasGroup = gameObject.AddComponent<CanvasGroup>();
 
         StartCoroutine(FadeIn());
 
