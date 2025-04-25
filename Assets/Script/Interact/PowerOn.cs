@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class PowerOn : MonoBehaviour, I_Interactable
 {
-    [SerializeField] private float flash = 0.2f;
     [SerializeField] private bool isAct;
-    [SerializeField] private SwitchController lights;
+    [SerializeField] private SwitchController elecBox;
+    [SerializeField] private AudioClip clip;
     public void OnInteraction()
     {
         if (isAct) return;
         isAct = true;
-        lights.OnPower();
+        if(clip != null)
+            AudioManager.Instance.Audio2DPlay(clip);
+        elecBox.OnPower();
     }
 }
