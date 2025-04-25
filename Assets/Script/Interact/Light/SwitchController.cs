@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.InputSystem.Controls.AxisControl;
@@ -6,15 +7,16 @@ public class SwitchController : MonoBehaviour, I_Interactable
 {
     [SerializeField] private float intensity;
     [SerializeField] private float range;
-    [SerializeField] private List<Lamp> lightsList = new List<Lamp>();
+    [SerializeField] private HashSet<Lamp> lightsList = new HashSet<Lamp>();
     private bool isTurnOn = false;
     [SerializeField] private bool isPowerOn = false;
-    [SerializeField] private int ran = 10;
+    [SerializeField] private int rand = 10;
+    [SerializeField] private float shutdownTime = 90f;
 
     public void AddLight(Lamp lamp) //목록에 lamp 추가
     {
         lightsList.Add(lamp);
-        lamp.SetLight(intensity, range, ran);
+        lamp.SetLight(intensity, range, rand);
     }
 
     public void SetLightsState() //lamp의 불 켜기
@@ -41,10 +43,17 @@ public class SwitchController : MonoBehaviour, I_Interactable
     {
         if (!isPowerOn || isTurnOn) return;
         SetLightsState();
+        StartCoroutine(Shutdown());
     }
 
     public void OnPower() //전원 전환
     {
         isPowerOn = true;
+    }
+
+    IEnumerator Shutdown()
+    {
+        yield return new WaitForSeconds(shutdownTime);
+        SetLightsState();
     }
 }
