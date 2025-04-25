@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LobbySceneController : MonoBehaviour
 {
-    private void Awake()
+    private void Start()
     {
         UIManager.Instance.show<Interacting>();
     }
