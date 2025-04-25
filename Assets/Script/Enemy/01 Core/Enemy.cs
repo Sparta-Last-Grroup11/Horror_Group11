@@ -4,6 +4,8 @@ public abstract class Enemy : MonoBehaviour
 {
     protected EnemyStateMachine fsm;
     protected Transform playerTransform;
+    protected SkinLessZombie skinLessZombie;
+
     public Transform PlayerTransform => playerTransform;  // 외부 접근용 getter
     [SerializeField] private LayerMask notEnemyLayer;
     [SerializeField] private LayerMask playerLayer;
@@ -93,5 +95,7 @@ public abstract class Enemy : MonoBehaviour
         dir.y = 0;  // y축 회전 제거
         transform.rotation = Quaternion.LookRotation(dir);
     }
+
+    public abstract void TriggerEventEnemy();
 
 }

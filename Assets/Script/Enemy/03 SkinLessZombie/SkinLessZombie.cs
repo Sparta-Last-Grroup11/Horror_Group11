@@ -40,4 +40,9 @@ public class SkinLessZombie : Enemy   // 점프스케어 기믹 (플레이어 �
         fsm.ChangeState(new SkinLessZombieAmbushState(this, fsm));
     }
 
+    public override void TriggerEventEnemy()
+    {
+        TriggerAmbush();
+    }
+
 }
