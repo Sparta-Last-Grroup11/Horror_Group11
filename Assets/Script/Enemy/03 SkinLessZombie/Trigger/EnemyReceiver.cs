@@ -6,7 +6,7 @@ public class EnemyReceiver : Receiver
 {
     private Enemy enemy;
 
-    private void Start()
+    private void Awake()
     {
         enemy = GetComponent<Enemy>();
     }

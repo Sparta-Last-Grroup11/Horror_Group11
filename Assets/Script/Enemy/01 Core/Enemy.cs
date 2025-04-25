@@ -96,6 +96,7 @@ public abstract class Enemy : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(dir);
     }
 
-    public abstract void TriggerEventEnemy();
+    public virtual void TriggerEventEnemy() { }
+
 
 }

@@ -1,10 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
+using System;
+using UnityEngine.EventSystems;
 
 public class StageTriggerController : MonoBehaviour
 {
     [SerializeField] private List<GameObject> observers;  // Trigger가 되는 각 콜라이더 오브젝트
+    [SerializeField] private List<EventTrigger> eventTriggers;
     [SerializeField] private TextAsset triggerJson;  // 스테이지별로 활성화할 오브젝트 인덱스를 담는 테스트용 json 파일
     private List<TriggerGroupData> triggerGroups;
     private int currentStage;
@@ -21,12 +24,22 @@ public class StageTriggerController : MonoBehaviour
             {
                 for (int i = 0; i < observers.Count; i++)
                 {
-                    // 현재 스테이지에서 활성화할 인덱스에 포함되어 있는 오브젝트만 켜기
                     observers[i].SetActive(group.activeIndices.Contains(i));
+
                 }
             }
         }
+
+        foreach (var eventTrigger in eventTriggers)
+        {
+            foreach (var receiver in eventTrigger.GetReceivers())
+            {
+                eventTrigger.AddReceiver(receiver);
+            }
+        }
+
     }
+
 
 }
 
