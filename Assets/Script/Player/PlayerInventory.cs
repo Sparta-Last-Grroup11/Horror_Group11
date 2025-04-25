@@ -3,24 +3,47 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+public class InventoryItemInfo
+{
+    public ItemData ItemData;
+    public int quantity;
+
+    public InventoryItemInfo(ItemData itemData, int quantity)
+    {
+        this.ItemData = itemData;
+        this.quantity = quantity;
+    }
+}
+
 public class PlayerInventory
 {
-    Dictionary<string, ItemData> inventory;
-    public Dictionary<string, ItemData> Inventory => inventory;
+    Dictionary<string, InventoryItemInfo> inventory;
+    public Dictionary<string, InventoryItemInfo> Inventory => inventory;
 
     public PlayerInventory()
     {
-        inventory = new Dictionary<string, ItemData>();
+        inventory = new Dictionary<string, InventoryItemInfo>();
     }
 
     public void AddItem(ItemData data)
     {
-        inventory[data.name] = data;
+        if (inventory.ContainsKey(data.name))
+        {
+            inventory[data.name].quantity++;
+            return;
+        }
+        inventory.Add(data.name, new InventoryItemInfo(data, 1));
     }
 
-    public void RemoveItem(ItemData data)
+    public void UseItem(ItemData data)
     {
-        inventory.Remove(data.name);
+        if (!inventory.ContainsKey(data.name))
+            return;
+        inventory[data.name].quantity--;
+        if (inventory[data.name].quantity <= 0)
+        {
+            inventory.Remove(data.name);
+        }
     }
 
     public bool HasItem(ItemData data)

@@ -12,6 +12,7 @@ public class PopupInventoryUI : BaseUI
     [SerializeField] private List<Slot> slots; // 갖고 있는 아이템으로 변경 필요
     [SerializeField] private TextMeshProUGUI itemDescription;
     [SerializeField] private Image manualImage; // 조작법 이미지
+    GameObject slotPrefab;
     [Header("Rotate")]
     public float rotationSpeed = 20f;
 
@@ -23,23 +24,8 @@ public class PopupInventoryUI : BaseUI
     {
         base.Start();
         UIManager.Instance.IsUiActing = true;
-        GameObject slotPrefab = ResourceManager.Instance.Load<GameObject>(ResourceType.UI, "ItemSlot");
-        Dictionary<string, ItemData> inven = GameManager.Instance.player.playerInventory.Inventory;
-        foreach (var item in inven)
-        {
-            Slot slot = Instantiate(slotPrefab, itemSlotGroup.transform).GetComponent<Slot>();
-            slot.Init(item.Value.Icon, item.Value.name, 1);
-            slot.Object3D = item.Value.ObjectIn3D;
-            slots.Add(slot);
-        }
-        foreach(var slot in slots)
-        {
-            slot.TryGetComponent<Button>(out Button but);
-            if (but != null)
-                but.onClick.AddListener(() => {
-                    cur3DObject = UIManager.Instance.MakePrefabInSubCam(slot.Object3D); // 이제 안전!
-                });
-        }
+        slotPrefab = ResourceManager.Instance.Load<GameObject>(ResourceType.UI, "ItemSlot");
+        InventorySetting();
     }
 
     protected void Update()
@@ -56,6 +42,25 @@ public class PopupInventoryUI : BaseUI
         UIManager.Instance.RemovePrefabInSumCam();
     }
 
+    void InventorySetting()
+    {
+        Dictionary<string, InventoryItemInfo> inven = GameManager.Instance.player.playerInventory.Inventory;
+        foreach (var item in inven)
+        {
+            Slot slot = Instantiate(slotPrefab, itemSlotGroup.transform).GetComponent<Slot>();
+            slot.Init(item.Value.ItemData.Icon, item.Value.ItemData.name, 1);
+            slot.Object3D = item.Value.ItemData.ObjectIn3D;
+            slots.Add(slot);
+        }
+        foreach (var slot in slots)
+        {
+            slot.TryGetComponent<Button>(out Button but);
+            if (but != null)
+                but.onClick.AddListener(() => {
+                    cur3DObject = UIManager.Instance.MakePrefabInSubCam(slot.Object3D); // 이제 안전!
+                });
+        }
+    }
     void Rotate()
     {
         if (cur3DObject == null)
