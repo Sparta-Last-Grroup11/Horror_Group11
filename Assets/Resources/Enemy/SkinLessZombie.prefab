@@ -55,10 +55,10 @@ MonoBehaviour:
     m_Bits: 767
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   doorLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 767
   isDoorOpened: 0
   doorDetectRange: 2
   viewDistance: 10

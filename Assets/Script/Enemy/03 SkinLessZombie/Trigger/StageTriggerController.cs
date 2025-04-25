@@ -30,16 +30,7 @@ public class StageTriggerController : MonoBehaviour
             }
         }
 
-        foreach (var eventTrigger in eventTriggers)
-        {
-            foreach (var receiver in eventTrigger.GetReceivers())
-            {
-                eventTrigger.AddReceiver(receiver);
-            }
-        }
-
     }
-
 
 }
 
