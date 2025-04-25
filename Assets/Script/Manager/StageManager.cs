@@ -27,6 +27,7 @@ public class StageManager : Singleton<StageManager>
     [SerializeField] private TextAsset textAsset;
 
     public List<StageInfo> currentStage;
+    Dictionary<string, GameObject> typeNames;
     protected override bool dontDestroy => false;
 
     private NavMeshSurface surface;
@@ -34,6 +35,7 @@ public class StageManager : Singleton<StageManager>
     protected override void Awake()
     {
         base.Awake();
+        typeNames = new Dictionary<string, GameObject>();
         surface = Instantiate(ResourceManager.Instance.Load<GameObject>(ResourceType.Enemy, "NavMeshSurface_Hospital")).GetComponent<NavMeshSurface>();
     }
 
@@ -59,7 +61,13 @@ public class StageManager : Singleton<StageManager>
             {
                 Debug.Log($"Type: {info.type}, Prefab: {info.prefabname}, Pos: {string.Join(",", info.position)}");
                 GameObject obj = ResourceManager.Instance.Load<GameObject>(StringToEnum<ResourceType>(info.type), info.prefabname);
-                GameObject prefab = Instantiate(obj, info.position.FloatToVector3(), info.rotation.FloatToQuaternion());
+                GameObject prefab;
+                if (!typeNames.ContainsKey(info.type))
+                {
+                    GameObject parent = new GameObject(info.type);
+                    typeNames.Add(info.type, parent);
+                }
+                prefab = Instantiate(obj, info.position.FloatToVector3(), info.rotation.FloatToQuaternion(), typeNames[info.type].transform);
                 prefab.name = obj.name;
                 if (info.type.Equals(ResourceType.Item.ToString()))
                 {
