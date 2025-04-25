@@ -104,6 +104,81 @@
         0.0
       ],
       "description": "1층 화장실"
+    },
+    {
+      "type": "Item",
+      "prefabname": "BatteryAA",
+      "position": [
+        -11.5,
+        5.8,
+        15.7
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "description": ""
+    },
+    {
+      "type": "Item",
+      "prefabname": "BatteryAA",
+      "position": [
+        -13.1,
+        6.2,
+        -10.6
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "description": ""
+    },
+    {
+      "type": "Item",
+      "prefabname": "BatteryAA",
+      "position": [
+        4.6,
+        2.0,
+        -15.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "description": ""
+    },
+    {
+      "type": "Item",
+      "prefabname": "BatteryAA",
+      "position": [
+        -11.2,
+        2.0,
+        -17.35
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "description": ""
+    },
+    {
+      "type": "Item",
+      "prefabname": "BatteryAA",
+      "position": [
+        -9.0,
+        1.96,
+        -0.2
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "description": ""
     }
   ]
 }
