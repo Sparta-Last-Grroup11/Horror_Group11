@@ -1,0 +1,10 @@
+[
+  {
+    "stage": 1,
+    "activeIndices": [0, 1]
+  },
+  {
+    "stage": 2,
+    "activeIndices": [2, 3]
+  }
+]
