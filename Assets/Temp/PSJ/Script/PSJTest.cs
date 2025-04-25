@@ -4,41 +4,21 @@ using UnityEngine;
 
 public class PSJTest : MonoBehaviour
 {
-    [SerializeField] List<AudioClip> bgm;
-    [SerializeField] GameObject testPrefab;
-
-    [SerializeField] AudioClip clip;
-
     private void Start()
     {
-        Invoke(nameof(HeartBeatStart), 2f);
-        Invoke(nameof(HeartBeatStop), 5f);
+        Invoke(nameof(DialogTest), 3.0f);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-            AudioManager.Instance.AudioBGMPlay(bgm[0]);
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-            AudioManager.Instance.AudioBGMPlay(bgm[1]);
-        else if (Input.GetKeyDown(KeyCode.KeypadEnter))
-            AudioManager.Instance.Audio3DPlay(clip, transform.position);
-        else if (Input.GetKeyDown(KeyCode.T))
-            GameManager.Instance.player.playerInventory.AddItem(testPrefab.GetComponent<InventoryItem>().ItemData);
+
     }
 
-    private void HeartBeatStart()
+    private void DialogTest()
     {
-        UIManager.Instance.Get<HeartBeat>().ChanbeatSpeed(1);
-    }
-
-    private void HeartBeatStop()
-    {
-        UIManager.Instance.Get<HeartBeat>().ChanbeatSpeed(0);
-    }
-
-    void DyingUI()
-    {
-        UIManager.Instance.show<DyingUI>();
+        DialogUI dialog = UIManager.Instance.Get<DialogUI>();
+        dialog.DialogPlay("Example in Dialog");
+        dialog.DialogPlay("See Change In Dialog");
+        dialog.DialogPlay("DialogEnd");
     }
 }

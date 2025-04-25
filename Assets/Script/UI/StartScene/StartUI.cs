@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StartUI : MonoBehaviour
 {
-    private void Awake()
+    private void Start()
     {
         UIManager.Instance.show<StartSceneUI>();
     }
