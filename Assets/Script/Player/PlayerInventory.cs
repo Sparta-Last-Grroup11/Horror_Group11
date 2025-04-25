@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -15,12 +16,18 @@ public class PlayerInventory
 
     public void AddItem(ItemData data)
     {
+        if (inventory.ContainsKey(data.name))
+        {
+            inventory[data.name].count++;
+        }
         inventory[data.name] = data;
     }
 
-    public void RemoveItem(ItemData data)
+    public void UseItem(ItemData data)
     {
-        inventory.Remove(data.name);
+        inventory[data.name].count--;
+        if (inventory[data.name].count <= 0) 
+            inventory.Remove(data.name);
     }
 
     public bool HasItem(ItemData data)

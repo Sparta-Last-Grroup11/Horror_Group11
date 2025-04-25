@@ -24,6 +24,7 @@ public class StageInfo
 
 public class StageManager : Singleton<StageManager>
 {
+    Dictionary<string, GameObject> ActiveObjects;
     [SerializeField] private TextAsset textAsset;
 
     public List<StageInfo> currentStage;

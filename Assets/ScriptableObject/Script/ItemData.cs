@@ -8,6 +8,8 @@ public class ItemData : ScriptableObject
     [SerializeField] private string itemName;
     [SerializeField] private string description;
     [SerializeField] private Sprite icon;
+    [HideInInspector]
+    public int count = 1;
     private GameObject objectIn3D;
 
     public E_Item Id => id;

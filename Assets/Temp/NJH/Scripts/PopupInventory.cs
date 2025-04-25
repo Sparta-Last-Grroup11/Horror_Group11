@@ -28,7 +28,7 @@ public class PopupInventoryUI : BaseUI
         foreach (var item in inven)
         {
             Slot slot = Instantiate(slotPrefab, itemSlotGroup.transform).GetComponent<Slot>();
-            slot.Init(item.Value.Icon, item.Value.name, 1);
+            slot.Init(item.Value.Icon, item.Value.name, item.Value.count, item.Value.Description);
             slot.Object3D = item.Value.ObjectIn3D;
             slots.Add(slot);
         }
@@ -37,7 +37,8 @@ public class PopupInventoryUI : BaseUI
             slot.TryGetComponent<Button>(out Button but);
             if (but != null)
                 but.onClick.AddListener(() => {
-                    cur3DObject = UIManager.Instance.MakePrefabInSubCam(slot.Object3D); // 이제 안전!
+                    cur3DObject = UIManager.Instance.MakePrefabInSubCam(slot.Object3D);
+                    itemDescription.text = slot.description;
                 });
         }
     }

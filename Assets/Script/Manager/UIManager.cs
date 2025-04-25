@@ -115,6 +115,9 @@ public class UIManager : Singleton<UIManager>
         prefab.transform.LookAt(subCam.transform);
         SetLayerRecursively(prefab, LayerMask.NameToLayer("UIItem"));
         prefab.layer = LayerMask.NameToLayer("UIItem");
+        Rigidbody rigid = prefab.GetComponent<Rigidbody>();
+        if (rigid != null)
+            rigid.useGravity = false;
         cur3DObject = prefab;
         return prefab;
     }
