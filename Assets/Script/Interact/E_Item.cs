@@ -2,7 +2,7 @@ public enum E_Item
 {
     None = -1,
     Battery = 0, BoxInDiningRoom,
-    PowerRoomKey = 100, MovieRoomKey, FrontDoorKey,
+    PowerRoomKey = 100, MovieRoomKey, FrontDoorKey, SurgeryRoomKey, TortureRoomKey, EmptyRoomKey,
     FileA = 200, FileB, MemoInFront, MemoInOffice,
 }
 
