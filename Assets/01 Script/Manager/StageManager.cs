@@ -8,6 +8,7 @@ using Newtonsoft;
 using static Extension;
 using Newtonsoft.Json;
 using Unity.AI.Navigation;
+using System.Linq;
 
 [System.Serializable]
 public class StageInfo
@@ -17,17 +18,26 @@ public class StageInfo
     public float[] position;
     public float[] rotation;
     public string description;
-    /*
-    public int position;
-    */
+}
+
+public class TriggerInfo
+{
+    public int stageid;
+    public int[] triggers;
 }
 
 public class StageManager : Singleton<StageManager>
 {
+    [Header("Spawn About")]
     [SerializeField] private TextAsset textAsset;
-
     public List<StageInfo> currentStage;
     Dictionary<string, GameObject> typeNames;
+
+    [Header("TriggerAbout")]
+    [SerializeField] private TextAsset triggerAsset;
+    public List<TriggerInfo> triggers;
+    private StageTriggerController controller;
+
     protected override bool dontDestroy => false;
 
     private NavMeshSurface surface;
@@ -80,6 +90,34 @@ public class StageManager : Singleton<StageManager>
         else
         {
             Debug.LogWarning("Stage1 key not found in JSON");
+        }
+        TriggerMake();
+        
+    }
+
+    public void TriggerMake()
+    {
+        string name = "StageTriggerInfo";
+        triggerAsset = ResourceManager.Instance.Load<TextAsset>(ResourceType.JsonData, name);
+
+        if (triggerAsset == null)
+        {
+            Debug.Log("[StageManager]: TextAsset Loading Failed");
+            return;
+        }
+
+        var stageTrigger = JsonConvert.DeserializeObject<Dictionary<string, List<TriggerInfo>>>(triggerAsset.text);
+
+        if(stageTrigger.TryGetValue(name, out var stageTriggerList))
+        {
+            triggers = stageTriggerList;
+            foreach(var trigger in triggers)
+            {
+                if (trigger.stageid == StageNum.StageNumber)
+                {
+                    controller.ActivateTriggers(trigger.triggers.ToList());
+                }
+            }
         }
     }
 }
