@@ -179,6 +179,61 @@
         0.0
       ],
       "description": ""
+    },
+    {
+      "type": "Item",
+      "prefabname": "Puzzle01",
+      "position": [
+        -11.0,
+        1.24,
+        17.53
+      ],
+      "rotation": [],
+      "description": "마지막 퍼즐 1"
+    },
+    {
+      "type": "Item",
+      "prefabname": "Puzzle02",
+      "position": [
+        -11.12,
+        2.32,
+        -12.23
+      ],
+      "rotation": [],
+      "description": "마지막 퍼즐 2"
+    },
+    {
+      "type": "Item",
+      "prefabname": "Puzzle03",
+      "position": [
+        -10.47,
+        5.25,
+        -18.42
+      ],
+      "rotation": [],
+      "description": "마지막 퍼즐 3"
+    },
+    {
+      "type": "Item",
+      "prefabname": "Puzzle04",
+      "position": [
+        -11.21,
+        5.9,
+        0.01
+      ],
+      "rotation": [],
+      "description": "마지막 퍼즐 4"
+    },
+    {
+      "type": "Item",
+      "prefabname": "Puzzle05",
+      "position": [
+        3.3,
+        5.26,
+        -19.76
+      ],
+      "rotation": [],
+      "description": "마지막 퍼즐 5"
     }
   ]
 }
