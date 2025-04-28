@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7330959024922229882}
   - component: {fileID: 8587907012594857705}
-  - component: {fileID: 7102538733038400604}
+  - component: {fileID: -8510210082179454930}
   m_Layer: 6
   m_Name: PowerKey
   m_TagString: Untagged
@@ -55,7 +55,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.15, y: 0.1, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7102538733038400604
+--- !u!114 &-8510210082179454930
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,10 +64,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7235472857623452323}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b629a86cf403914d8b6b4ec23296474, type: 3}
+  m_Script: {fileID: 11500000, guid: 58a76a97501903743810beef4b1c9c0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 66ca6a2cd639cbb43840c0db721dd165, type: 2}
+  itemData: {fileID: 11400000, guid: 66ca6a2cd639cbb43840c0db721dd165, type: 2}
 --- !u!1001 &5547240943693308207
 PrefabInstance:
   m_ObjectHideFlags: 0
