@@ -86,6 +86,7 @@ public class StageManager : Singleton<StageManager>
                     rot = info.rotation.FloatToQuaternion();
                 prefab = Instantiate(obj, info.position.FloatToVector3(), rot, typeNames[info.type].transform);
                 prefab.name = obj.name;
+
                 if (info.type.Equals(ResourceType.Item.ToString()))
                 {
                     prefab.TryGetComponent<ClipItem>(out ClipItem clip);
@@ -123,7 +124,9 @@ public class StageManager : Singleton<StageManager>
                 Debug.Log(trigger);
                 if (trigger.stageid == StageNum.StageNumber)
                 {
+                    StageTriggerController.Instance.SetupReceivers();
                     StageTriggerController.Instance.ActivateTriggers(trigger.triggers.ToList());
+                    StageTriggerController.Instance.DeactivateUnregisteredReceivers();
                     Debug.Log(trigger.triggers);
                 }
             }

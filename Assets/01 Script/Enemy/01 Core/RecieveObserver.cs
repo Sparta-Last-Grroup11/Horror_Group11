@@ -6,12 +6,30 @@ using UnityEngine.EventSystems;
 public class RecieveObserver : MonoBehaviour
 {
     public EventTrigger eventTrigger;
+    private EnemyReceiver registeredReceiver;
+
+    private void Awake()
+    {
+        if (eventTrigger == null)
+            eventTrigger = GetComponentInParent<EventTrigger>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("SkinLess"))
         {
-            eventTrigger.AddReceiver(other.GetComponent<EnemyReceiver>());
-            other.GetComponent<EnemyReceiver>().SetEventTrigger(eventTrigger);
+            var enemyReceiver = other.GetComponent<EnemyReceiver>();
+            if (enemyReceiver != null)
+            {
+                eventTrigger.AddReceiver(enemyReceiver);
+                enemyReceiver.SetEventTrigger(eventTrigger);
+                registeredReceiver = enemyReceiver;
+            }
         }
+    }
+
+    public bool IsRegistered()
+    {
+        return registeredReceiver != null;
     }
 }
