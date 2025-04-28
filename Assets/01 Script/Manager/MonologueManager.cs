@@ -20,6 +20,11 @@ public class MonologueManager : Singleton<MonologueManager>
         dialogQueue.Enqueue(input);
     }
 
+    public void DialogPlay(int number)
+    {
+        //Json 파싱
+    }
+
     private void Update()
     {
         if (dialogQueue.Count > 0 && isPlaying == false)
