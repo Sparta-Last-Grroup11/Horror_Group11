@@ -20,6 +20,7 @@ public class StageInfo
     public string description;
 }
 
+[System.Serializable]
 public class TriggerInfo
 {
     public int stageid;
@@ -71,13 +72,20 @@ public class StageManager : Singleton<StageManager>
             {
                 Debug.Log($"Type: {info.type}, Prefab: {info.prefabname}, Pos: {string.Join(",", info.position)}");
                 GameObject obj = ResourceManager.Instance.Load<GameObject>(StringToEnum<ResourceType>(info.type), info.prefabname);
+                if (obj == null)
+                    continue;
                 GameObject prefab;
                 if (!typeNames.ContainsKey(info.type))
                 {
                     GameObject parent = new GameObject(info.type);
                     typeNames.Add(info.type, parent);
                 }
-                prefab = Instantiate(obj, info.position.FloatToVector3(), info.rotation.FloatToQuaternion(), typeNames[info.type].transform);
+                Quaternion rot;
+                if (info.rotation == null)
+                    rot = Quaternion.identity;
+                else
+                    rot = info.rotation.FloatToQuaternion();
+                prefab = Instantiate(obj, info.position.FloatToVector3(), rot, typeNames[info.type].transform);
                 prefab.name = obj.name;
                 if (info.type.Equals(ResourceType.Item.ToString()))
                 {
@@ -113,9 +121,11 @@ public class StageManager : Singleton<StageManager>
             triggers = stageTriggerList;
             foreach(var trigger in triggers)
             {
+                Debug.Log(trigger);
                 if (trigger.stageid == StageNum.StageNumber)
                 {
                     controller.ActivateTriggers(trigger.triggers.ToList());
+                    Debug.Log(trigger.triggers);
                 }
             }
         }
