@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StageTriggerController : MonoBehaviour
+public class StageTriggerController : Singleton<StageTriggerController>
 {
     [SerializeField] private List<GameObject> observers;  // Trigger가 되는 각 콜라이더 오브젝트
 
