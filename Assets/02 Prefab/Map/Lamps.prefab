@@ -3799,6 +3799,12 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8620555529002160417, guid: c81cded30e8a08245b9a731b4c63b97d,
+        type: 3}
+      propertyPath: lightState
+      value: 
+      objectReference: {fileID: 11400000, guid: 405e8d03f4a7c9042ab2184b737341d1,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
