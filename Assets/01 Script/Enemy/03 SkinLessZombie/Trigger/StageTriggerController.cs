@@ -1,36 +1,26 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Newtonsoft.Json;
-using System;
-using UnityEngine.EventSystems;
 
 public class StageTriggerController : MonoBehaviour
 {
     [SerializeField] private List<GameObject> observers;  // Trigger가 되는 각 콜라이더 오브젝트
-    [SerializeField] private List<EventTrigger> eventTriggers;
-    [SerializeField] private TextAsset triggerJson;  // 스테이지별로 활성화할 오브젝트 인덱스를 담는 테스트용 json 파일
-    private List<TriggerGroupData> triggerGroups;
-    private int currentStage;
 
-    private void Start()
+    /// <summary>
+    /// StageManager가 호출해서 필요한 트리거만 활성화시키는 메서드
+    /// </summary>
+    /// <param name="activeIndices">활성화할 오브젝트 인덱스 리스트</param>
+    public void ActivateTriggers(List<int> activeIndices)
     {
-        currentStage = StageNum.StageNumber;  
-        triggerGroups = JsonConvert.DeserializeObject<List<TriggerGroupData>>(triggerJson.text);
-
-        // 나중에 json 파일에서 각 스테이지마다 활성할 인덱스를 받아오는 구조입니다.
-        foreach (var group in triggerGroups)
+        if (activeIndices == null)
         {
-            if (group.stage == currentStage)
-            {
-                for (int i = 0; i < observers.Count; i++)
-                {
-                    observers[i].SetActive(group.activeIndices.Contains(i));
-
-                }
-            }
+            Debug.LogError("[StageTriggerController] 활성화할 인덱스 리스트가 null입니다.");
+            return;
         }
 
+        for (int i = 0; i < observers.Count; i++)
+        {
+            observers[i].SetActive(activeIndices.Contains(i));
+        }
     }
-
 }
 
