@@ -17,10 +17,9 @@ public class PSJTest : MonoBehaviour
 
     private void DialogTest()
     {
-        DialogUI dialog = UIManager.Instance.Get<DialogUI>();
-        dialog.DialogPlay("Example in Dialog");
-        dialog.DialogPlay("See Change In Dialog");
-        dialog.DialogPlay("DialogEnd");
+        MonologueManager.Instance.DialogPlay("TestString");
+        MonologueManager.Instance.DialogPlay("TestString2");
+        MonologueManager.Instance.DialogPlay("TestString3");
     }
 
     private void PopUpTest()
