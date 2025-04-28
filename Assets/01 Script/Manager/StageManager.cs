@@ -8,6 +8,7 @@ using Newtonsoft;
 using static Extension;
 using Newtonsoft.Json;
 using Unity.AI.Navigation;
+using System.Linq;
 
 [System.Serializable]
 public class StageInfo
@@ -17,17 +18,27 @@ public class StageInfo
     public float[] position;
     public float[] rotation;
     public string description;
-    /*
-    public int position;
-    */
+}
+
+[System.Serializable]
+public class TriggerInfo
+{
+    public int stageid;
+    public int[] triggers;
 }
 
 public class StageManager : Singleton<StageManager>
 {
+    [Header("Spawn About")]
     [SerializeField] private TextAsset textAsset;
-
     public List<StageInfo> currentStage;
     Dictionary<string, GameObject> typeNames;
+
+    [Header("TriggerAbout")]
+    [SerializeField] private TextAsset triggerAsset;
+    public List<TriggerInfo> triggers;
+    private StageTriggerController controller;
+
     protected override bool dontDestroy => false;
 
     private NavMeshSurface surface;
@@ -61,13 +72,20 @@ public class StageManager : Singleton<StageManager>
             {
                 Debug.Log($"Type: {info.type}, Prefab: {info.prefabname}, Pos: {string.Join(",", info.position)}");
                 GameObject obj = ResourceManager.Instance.Load<GameObject>(StringToEnum<ResourceType>(info.type), info.prefabname);
+                if (obj == null)
+                    continue;
                 GameObject prefab;
                 if (!typeNames.ContainsKey(info.type))
                 {
                     GameObject parent = new GameObject(info.type);
                     typeNames.Add(info.type, parent);
                 }
-                prefab = Instantiate(obj, info.position.FloatToVector3(), info.rotation.FloatToQuaternion(), typeNames[info.type].transform);
+                Quaternion rot;
+                if (info.rotation == null)
+                    rot = Quaternion.identity;
+                else
+                    rot = info.rotation.FloatToQuaternion();
+                prefab = Instantiate(obj, info.position.FloatToVector3(), rot, typeNames[info.type].transform);
                 prefab.name = obj.name;
                 if (info.type.Equals(ResourceType.Item.ToString()))
                 {
@@ -80,6 +98,36 @@ public class StageManager : Singleton<StageManager>
         else
         {
             Debug.LogWarning("Stage1 key not found in JSON");
+        }
+        TriggerMake();
+        
+    }
+
+    public void TriggerMake()
+    {
+        string name = "StageTriggerInfo";
+        triggerAsset = ResourceManager.Instance.Load<TextAsset>(ResourceType.JsonData, name);
+
+        if (triggerAsset == null)
+        {
+            Debug.Log("[StageManager]: TextAsset Loading Failed");
+            return;
+        }
+
+        var stageTrigger = JsonConvert.DeserializeObject<Dictionary<string, List<TriggerInfo>>>(triggerAsset.text);
+
+        if(stageTrigger.TryGetValue(name, out var stageTriggerList))
+        {
+            triggers = stageTriggerList;
+            foreach(var trigger in triggers)
+            {
+                Debug.Log(trigger);
+                if (trigger.stageid == StageNum.StageNumber)
+                {
+                    controller.ActivateTriggers(trigger.triggers.ToList());
+                    Debug.Log(trigger.triggers);
+                }
+            }
         }
     }
 }

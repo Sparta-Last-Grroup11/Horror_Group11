@@ -1,15 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public abstract class Receiver : MonoBehaviour
 {
-    [SerializeField] private EventTrigger eventTrigger;
+    [SerializeField] protected EventTrigger eventTrigger;
 
-    private void Awake()
+    protected virtual void Awake()
     {
-        eventTrigger.AddReceiver(this);
+        if (eventTrigger != null)
+        {
+            eventTrigger.AddReceiver(this);
+        }
+        else
+        {
+            Debug.LogWarning($"[Receiver] {name}의 eventTrigger가 설정되지 않았습니다.");
+        }
     }
     public abstract void ReceiveTrigger();
 }

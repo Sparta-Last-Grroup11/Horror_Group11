@@ -183,4 +183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cfa582d3c39da84685f9b2226654e72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCursorFree: 0
+  duration: 0.5
+  DestroyByTime: 1
+  DestroyTime: 2
   text: {fileID: 0}
