@@ -96,6 +96,19 @@ public abstract class Enemy : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(dir);
     }
 
+    public void MoveTowardsPlayer(float speed)
+    {
+        Vector3 direction = (PlayerTransform.position - transform.position).normalized;
+        direction.y = 0;
+        float distance = Vector3.Distance(transform.position, PlayerTransform.position);
+        float minDistance = 1.0f;  //  플레이어와 최소 거리 유지
+
+        if (distance > minDistance)
+        {
+            transform.position += direction * speed * Time.deltaTime;
+        }
+    }
+
     public virtual void TriggerEventEnemy() { }
 
 

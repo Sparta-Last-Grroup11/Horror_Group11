@@ -18,6 +18,12 @@ public class EnemyReceiver : Receiver
     public override void ReceiveTrigger()
     {
         enemy.TriggerEventEnemy();
-
     }
+
+
+    public void SetEventTrigger(EventTrigger trigger)
+    {
+        eventTrigger = trigger;
+    }
+
 }
