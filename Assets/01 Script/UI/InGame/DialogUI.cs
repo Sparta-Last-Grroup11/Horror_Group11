@@ -3,38 +3,23 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class DialogUI : BaseUI
+public class DialogUI : PopupUI
 {
-    Queue<string> dialogQueue;
     [SerializeField] TextMeshProUGUI text;
     bool isPlaying = false;
 
-    // Start is called before the first frame update
-    protected override void Start()
+    public override void Init(string input)
     {
-        dialogQueue = new Queue<string>();
+        MonologueManager.Instance.isPlaying = true;
         text = GetComponentInChildren<TextMeshProUGUI>(true);
-        text.enabled = false;
-    }
-
-    public void DialogPlay(string input)
-    {
-        dialogQueue.Enqueue(input);
-    }
-
-    private void Update()
-    {
-        if (dialogQueue.Count > 0 && isPlaying == false)
-            StartCoroutine(DialogAction());
-    }
-
-    IEnumerator DialogAction()
-    {
-        isPlaying = true;
-        text.text = dialogQueue.Dequeue();
+        base.Init(input);
+        text.text = input;
         text.enabled = true;
-        yield return new WaitForSeconds(3);
-        text.enabled = false;
-        isPlaying = false;
+    }
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        MonologueManager.Instance.isPlaying = false;
     }
 }
