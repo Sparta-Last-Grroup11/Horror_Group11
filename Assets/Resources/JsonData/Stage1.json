@@ -4,16 +4,16 @@
       "type": "Item",
       "prefabname": "ClipBoard",
       "position": [
-        2.45,
-        1.0,
-        -7.0
+        2.913,
+        2.445,
+        11.045
       ],
       "rotation": [
         0.0,
-        -90.0,
+        90.0,
         0.0
       ],
-      "description": "The first Example of Parsing"
+      "description": "Key is in cop"
     },
     {
       "type": "Enemy",
@@ -176,6 +176,65 @@
       "rotation": [
         0.0,
         0.0,
+        0.0
+      ],
+      "description": ""
+    },
+    {
+      "type": "Item",
+      "prefabname": "TortureRoomKey",
+      "position": [
+        0.475,
+        1.907,
+        -12.045
+      ],
+      "rotation": [],
+      "description": ""
+    },
+    {
+      "type": "Item",
+      "prefabname": "SurgeryRoomKey",
+      "position": [
+        -10.875,
+        1.907,
+        -18.409
+      ],
+      "rotation": [],
+      "description": ""
+    },
+    {
+      "type": "Item",
+      "prefabname": "EmptyRoomKey",
+      "position": [
+        -10.656,
+        5.851,
+        11.398
+      ],
+      "rotation": [],
+      "description": ""
+    },
+    {
+      "type": "Item",
+      "prefabname": "Ritual",
+      "position": [
+        2.995,
+        5.02,
+        -17.615
+      ],
+      "rotation": [],
+      "description": ""
+    },
+    {
+      "type": "Item",
+      "prefabname": "Safe",
+      "position": [
+        -8.787,
+        1.045,
+        -1.309
+      ],
+      "rotation": [
+        0.0,
+        -90.0,
         0.0
       ],
       "description": ""
