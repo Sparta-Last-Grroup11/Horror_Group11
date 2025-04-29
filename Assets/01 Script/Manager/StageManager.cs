@@ -86,12 +86,14 @@ public class StageManager : Singleton<StageManager>
                     rot = info.rotation.FloatToQuaternion();
                 prefab = Instantiate(obj, info.position.FloatToVector3(), rot, typeNames[info.type].transform);
                 prefab.name = obj.name;
+
                 if (info.type.Equals(ResourceType.Item.ToString()))
                 {
                     prefab.TryGetComponent<ClipItem>(out ClipItem clip);
                     if (clip != null)
                         clip.Description = info.description;
                 }
+
             }
         }
         else
@@ -104,6 +106,8 @@ public class StageManager : Singleton<StageManager>
 
     public void TriggerMake()
     {
+        Debug.Log("[StageManager] TriggerMake() 호출됨");
+
         string name = "StageTriggerInfo";
         triggerAsset = ResourceManager.Instance.Load<TextAsset>(ResourceType.JsonData, name);
 
@@ -123,7 +127,7 @@ public class StageManager : Singleton<StageManager>
                 Debug.Log(trigger);
                 if (trigger.stageid == StageNum.StageNumber)
                 {
-                    StageTriggerController.Instance.ActivateTriggers(trigger.triggers.ToList());
+                    StageTriggerController.Instance.GetTriggers(trigger.triggers.ToList()); 
                     Debug.Log(trigger.triggers);
                 }
             }

@@ -33,10 +33,7 @@ public class SkinLessZombieAmbushState : EnemyBaseState
         if (distance < 1.0f)
         {
             GameObject.Destroy(skinLessZombie.gameObject);
+            GameManager.Instance.player.isChased = false;
         }
-    }
-    public override void Exit()
-    {
-        GameManager.Instance.player.isChased = false;
     }
 }

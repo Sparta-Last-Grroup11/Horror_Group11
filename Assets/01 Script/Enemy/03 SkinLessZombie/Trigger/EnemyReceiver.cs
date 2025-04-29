@@ -24,6 +24,7 @@ public class EnemyReceiver : Receiver
     public void SetEventTrigger(EventTrigger trigger)
     {
         eventTrigger = trigger;
+        eventTrigger.AddReceiver(this);
     }
 
 }
