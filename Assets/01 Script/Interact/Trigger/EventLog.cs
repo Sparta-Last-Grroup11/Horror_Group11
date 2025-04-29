@@ -8,10 +8,9 @@ public class EventLog : Receiver
 
     public override void ReceiveTrigger()
     {
-        Debug.Log("a");
         foreach(int i in commentID)
         {
-            MonologueManager.Instance.DialogPlay(commentID[i]);
+            MonologueManager.Instance.DialogPlay(i);
         }
         gameObject.SetActive(false);
     }

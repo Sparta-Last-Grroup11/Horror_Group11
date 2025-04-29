@@ -30,8 +30,8 @@ public class SwitchController : MonoBehaviour, I_Interactable
             foreach (Lamp lamp in lightsList)
             {
                 lamp.TurnOn();
-                MonologueManager.Instance.DialogPlay(13);
             }
+            MonologueManager.Instance.DialogPlay(13);
         }
         else
         {
@@ -39,8 +39,8 @@ public class SwitchController : MonoBehaviour, I_Interactable
             foreach (Lamp lamp in lightsList)
             {
                 lamp.TurnOff();
-                MonologueManager.Instance.DialogPlay(1);
             }
+            MonologueManager.Instance.DialogPlay(1);
         }
         if (lightState != null)
         {
