@@ -24,7 +24,7 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
 
     public override void Update()
     {
-        if (nurseZombie.IsPlayerLookingAtMe())
+        if (nurseZombie.lightStateSO.IsLightOn)
         {
             fsm.ChangeState(new NurseZombieIdleState(nurseZombie, fsm));
             return;
