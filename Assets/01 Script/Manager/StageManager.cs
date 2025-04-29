@@ -46,7 +46,7 @@ public class StageManager : Singleton<StageManager>
     {
         base.Awake();
         typeNames = new Dictionary<string, GameObject>();
-        surface = Instantiate(ResourceManager.Instance.Load<GameObject>(ResourceType.Enemy, "NavMeshSurface_Hospital")).GetComponent<NavMeshSurface>();
+        surface = Instantiate(ResourceManager.Instance.Load<GameObject>(ResourceType.Enemy, "NavMeshSurface")).GetComponent<NavMeshSurface>();
     }
 
     public void SurfaceUpdate()
