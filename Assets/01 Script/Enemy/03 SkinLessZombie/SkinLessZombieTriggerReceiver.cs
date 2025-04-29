@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ReceiveObserver : MonoBehaviour
+public class SkinLessZombieTriggerReceiver : MonoBehaviour
 {
     public EventTrigger eventTrigger;
     private bool isZombieOn;
