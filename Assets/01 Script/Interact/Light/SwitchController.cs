@@ -31,6 +31,7 @@ public class SwitchController : MonoBehaviour, I_Interactable
             {
                 lamp.TurnOn();
             }
+            MonologueManager.Instance.DialogPlay(13);
         }
         else
         {
@@ -39,6 +40,7 @@ public class SwitchController : MonoBehaviour, I_Interactable
             {
                 lamp.TurnOff();
             }
+            MonologueManager.Instance.DialogPlay(1);
         }
         if (lightState != null)
         {

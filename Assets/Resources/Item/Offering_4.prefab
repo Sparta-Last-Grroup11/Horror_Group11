@@ -77,6 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 4447bea7a5207f643b9728e104fc3234, type: 2}
+  commentID: 14
 --- !u!65 &3125151180580231932
 BoxCollider:
   m_ObjectHideFlags: 0

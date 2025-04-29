@@ -111,5 +111,30 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void TriggerEventEnemy() { }
 
+    protected void FirstVisible(bool hasBeenVisible, int monologueNum)
+    {
+        if (hasBeenVisible == false)
+        {
+            Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
 
+            bool isInView = viewPos.z > 0 && viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1;
+
+            if (isInView)
+            {
+                Vector3 cameraPos = Camera.main.transform.position;
+                Vector3 direction = transform.position - cameraPos;
+                float distance = direction.magnitude;
+
+                if (Physics.Raycast(cameraPos, direction, out RaycastHit hit, distance))
+                {
+                    if (hit.transform == this.transform)
+                    {
+                        MonologueManager.Instance.DialogPlay(monologueNum);
+                        hasBeenVisible = !hasBeenVisible;
+                    }
+                }
+            }
+        }
+        else return;
+    }
 }

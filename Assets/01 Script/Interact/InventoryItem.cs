@@ -6,8 +6,9 @@ using static UnityEditor.Progress;
 public class InventoryItem : MonoBehaviour, I_Interactable
 {
     [SerializeField] ItemData itemData;
+    [SerializeField] private int commentID = -1;
     public ItemData ItemData => itemData;
-
+    
     public virtual void OnInteraction()
     {
         ItemData newItemData = Instantiate(itemData);
@@ -16,6 +17,12 @@ public class InventoryItem : MonoBehaviour, I_Interactable
         newItemData.Description = itemData.Description;
         newItemData.ObjectIn3D = ResourceManager.Instance.Load<GameObject>(ResourceType.Item, this.name);
         GameManager.Instance.player.playerInventory.AddItem(newItemData);
+
+        if(commentID != -1)
+        {
+            MonologueManager.Instance.DialogPlay(commentID);
+        }
+
         Destroy(gameObject);
     }
 }

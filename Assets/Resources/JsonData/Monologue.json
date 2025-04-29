@@ -10,7 +10,7 @@
     },
     {
       "ID": 2,
-      "Content": "That's weird."
+      "Content": "That's weird.Some kind of Ritual?"
     },
     {
       "ID": 3,
@@ -18,7 +18,7 @@
     },
     {
       "ID": 4,
-      "Content": "Stare It.Don't look away."
+      "Content": "Jesus."
     },
     {
       "ID": 5,
@@ -42,7 +42,7 @@
     },
     {
       "ID": 10,
-      "Content": "Good,Now Work."
+      "Content": "Good,Now Work.But still Dark."
     },
     {
       "ID": 11,
@@ -62,7 +62,11 @@
     },
     {
       "ID": 15,
-      "Content": "Place Something Cultistic.Let's Find those."
+      "Content": "Place Something Cultistic."
+    },
+    {
+      "ID": 16,
+      "Content": ""
     }
   ]
 }
