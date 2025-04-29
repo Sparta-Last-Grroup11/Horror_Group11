@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoadManager : Singleton<SceneLoadManager>
 {
-    public bool isDontDestroy = false;
-
     public string NowSceneName = "";
 
     protected override void Awake()
@@ -18,13 +16,17 @@ public class SceneLoadManager : Singleton<SceneLoadManager>
         NowSceneName = SceneManager.GetActiveScene().name;
     }
 
-    public async void ChangeScene(string SceneName, Action callback = null, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
+    public async Task ChangeScene(string SceneName, Action callback = null, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
     {
+        LoadingUI loadingUI = UIManager.Instance.show<LoadingUI>();
+        loadingUI.Init();
+
+        await Task.Delay(1000);
         var op = SceneManager.LoadSceneAsync(SceneName, loadSceneMode);
 
         while (!op.isDone)
         {
-            Debug.Log("�ε�â ����");
+            loadingUI.SetLoadingProgress(op.progress);
             await Task.Yield();
         }
 
@@ -34,7 +36,7 @@ public class SceneLoadManager : Singleton<SceneLoadManager>
         callback?.Invoke();
     }
 
-    public async void UnLoadScene(string SceneName, Action callback = null)
+    public async Task UnLoadScene(string SceneName, Action callback = null)
     {
         var op = SceneManager.UnloadSceneAsync(SceneName);
 
