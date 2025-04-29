@@ -31,6 +31,9 @@ public class CopZombie : Enemy
     public float footStepRate = 1f;
     public float afterLastFootStep;
 
+    // Visibility check
+    private bool hasBeenVisible = false;
+
     private void Awake()
     {
         copzombieAgent = GetComponent<NavMeshAgent>();
@@ -49,6 +52,8 @@ public class CopZombie : Enemy
     {
         base.Update();
         Debug.DrawRay(transform.position + Vector3.up, transform.forward, Color.red, 2f);
+
+        FirstVisible();
 
         afterDetectDoor += Time.deltaTime;
         if (afterDetectDoor >= detectDoorRate)
@@ -71,5 +76,18 @@ public class CopZombie : Enemy
     public void PlayerDown()
     {
         playableDirector.Play();
+    }
+
+    public void FirstVisible()
+    {
+        if (!hasBeenVisible)
+        {
+            Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
+            if (viewPos.z > 0 && viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1)
+            {
+                
+                hasBeenVisible = true;
+            }
+        }
     }
 }
