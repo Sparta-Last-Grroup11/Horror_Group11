@@ -41,9 +41,8 @@ public class CopZombie : Enemy
     protected override void Start()
     {
         base.Start();
-        copZombieAnim.SetTrigger("DoDirectedVideo");
-        //fsm = new EnemyStateMachine();
-        //fsm.ChangeState(new CopZombie_PatrolState(this, fsm));
+        fsm = new EnemyStateMachine();
+        fsm.ChangeState(new CopZombie_PatrolState(this, fsm));
     }
 
     protected override void Update()
