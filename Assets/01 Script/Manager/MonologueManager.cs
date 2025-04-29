@@ -25,6 +25,13 @@ public class MonologueManager : Singleton<MonologueManager>
         base.Awake();
         monologueAsset = ResourceManager.Instance.Load<TextAsset>(ResourceType.JsonData, "Monologue");
         dialogQueue = new Queue<string>();
+        var path = "Monologue";
+        var Dialog = JsonConvert.DeserializeObject<Dictionary<string, List<MonologueInfo>>>(monologueAsset.text);
+
+        if (Dialog.TryGetValue(path, out var monologues))
+        {
+            dialogList = monologues;
+        }
     }
 
     public void DialogPlay(string input)
@@ -34,21 +41,8 @@ public class MonologueManager : Singleton<MonologueManager>
 
     public void DialogPlay(int number)
     {
-        //Json 파싱
-        if (monologueAsset == null)
-        {
-            var path = "Monologue";
-            var playerMonologue = JsonConvert.DeserializeObject<Dictionary<string, MonologueInfo>>(monologueAsset.text);
-
-            var Dialog = JsonConvert.DeserializeObject<Dictionary<string, List<MonologueInfo>>>(monologueAsset.text);
-
-            if (Dialog.TryGetValue(path, out var monologues))
-            {
-                dialogList = monologues;
-            }
-        }
-
-        dialogQueue.Enqueue(dialogList[number].content);
+        if (dialogList.Count >= number)
+            dialogQueue.Enqueue(dialogList[number].content);
     }
 
     private void Update()

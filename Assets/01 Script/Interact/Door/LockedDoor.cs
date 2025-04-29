@@ -10,7 +10,7 @@ public class LockedDoor : ControlDoor,I_Interactable
     private bool canInteract = true;
     [SerializeField] private float interactCooldown = 1.0f;
     private bool isOpened;
-
+    [SerializeField] private AudioClip lockedSound;
     public void OnInteraction()
     {
         if (!canInteract) return;
@@ -22,8 +22,12 @@ public class LockedDoor : ControlDoor,I_Interactable
     {
         if (key != null && !GameManager.Instance.player.playerInventory.HasItem(key))
         {
-                Debug.Log("You don't have key");
-                return;
+            MonologueManager.Instance.DialogPlay("This door is locked.");
+            if (lockedSound != null)
+            {
+                AudioManager.Instance.Audio3DPlay(lockedSound, transform.position);
+            }
+            return;
         }
         else
         {
