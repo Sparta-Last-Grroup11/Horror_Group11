@@ -7,7 +7,7 @@ public class EnterEvent : Receiver
     [SerializeField] private ItemData changeKey;
     public override void ReceiveTrigger()
     {
-        MonologueManager.Instance.DialogPlay("The Door is Open");
+        MonologueManager.Instance.DialogPlay(7);
         GetComponent<DoubleDoor>().CloseBecauseEnter(changeKey);
     }
 }

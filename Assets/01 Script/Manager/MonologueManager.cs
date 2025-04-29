@@ -35,11 +35,9 @@ public class MonologueManager : Singleton<MonologueManager>
     public void DialogPlay(int number)
     {
         //Json 파싱
-        if (monologueAsset == null)
+        if (dialogList == null)
         {
             var path = "Monologue";
-            var playerMonologue = JsonConvert.DeserializeObject<Dictionary<string, MonologueInfo>>(monologueAsset.text);
-
             var Dialog = JsonConvert.DeserializeObject<Dictionary<string, List<MonologueInfo>>>(monologueAsset.text);
 
             if (Dialog.TryGetValue(path, out var monologues))
