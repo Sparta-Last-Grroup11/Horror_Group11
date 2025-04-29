@@ -14,6 +14,7 @@ public class PlayerInputController : MonoBehaviour
     protected InputAction interactAction;
     protected InputAction flashAction;
     protected InputAction reloadAction;
+    protected InputAction crouchAction;
 
     public virtual void Awake()
     {
@@ -28,5 +29,6 @@ public class PlayerInputController : MonoBehaviour
         interactAction = inputActionMap.FindAction("Interact");
         flashAction = inputActionMap.FindAction("Flash");
         reloadAction = inputActionMap.FindAction("Reload");
+        crouchAction = inputActionMap.FindAction("Crouch"); 
     }
 }
