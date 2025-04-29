@@ -35,4 +35,8 @@ public class SkinLessZombieAmbushState : EnemyBaseState
             GameObject.Destroy(skinLessZombie.gameObject);
         }
     }
+    public override void Exit()
+    {
+        GameManager.Instance.player.isChased = false;
+    }
 }

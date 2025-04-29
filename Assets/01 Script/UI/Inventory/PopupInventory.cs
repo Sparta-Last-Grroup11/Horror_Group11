@@ -48,7 +48,7 @@ public class PopupInventoryUI : BaseUI
         foreach (var item in inven)
         {
             Slot slot = Instantiate(slotPrefab, itemSlotGroup.transform).GetComponent<Slot>();
-            slot.Init(item.Value.ItemData.Icon, item.Value.ItemData.name, 1);
+            slot.Init(item.Value.ItemData.Icon, item.Value.ItemData.ItemName, item.Value.quantity);
             slot.Object3D = item.Value.ItemData.ObjectIn3D;
             slots.Add(slot);
         }

@@ -401,6 +401,7 @@ MonoBehaviour:
   footSpeedRate: 0.8
   chasedCilp: {fileID: 8300000, guid: 468e8fa67df0a144fb63eeab18ec6e38, type: 3}
   isChased: 0
+  isCaught: 0
   moveInput: {x: 0, y: 0}
   lookInput: {x: 0, y: 0}
   jumpPressed: 0
@@ -456,4 +457,6 @@ MonoBehaviour:
   flashLight: {fileID: 7988162216196769904}
   flash: {fileID: 4038644480697039233}
   flashSwitchClip: {fileID: 8300000, guid: 909cea977fde82746ac047d08cac8c1a, type: 3}
+  batterSwitchClip: {fileID: 8300000, guid: a0c8d52d4d661684c9aca73ef74deca0, type: 3}
+  battery: {fileID: 11400000, guid: 96aac170066675445a8d877934f7a013, type: 2}
   isFlash: 0

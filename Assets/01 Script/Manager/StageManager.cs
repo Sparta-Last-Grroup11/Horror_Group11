@@ -37,7 +37,6 @@ public class StageManager : Singleton<StageManager>
     [Header("TriggerAbout")]
     [SerializeField] private TextAsset triggerAsset;
     public List<TriggerInfo> triggers;
-    private StageTriggerController controller;
 
     protected override bool dontDestroy => false;
 
@@ -124,7 +123,7 @@ public class StageManager : Singleton<StageManager>
                 Debug.Log(trigger);
                 if (trigger.stageid == StageNum.StageNumber)
                 {
-                    controller.ActivateTriggers(trigger.triggers.ToList());
+                    StageTriggerController.Instance.ActivateTriggers(trigger.triggers.ToList());
                     Debug.Log(trigger.triggers);
                 }
             }
