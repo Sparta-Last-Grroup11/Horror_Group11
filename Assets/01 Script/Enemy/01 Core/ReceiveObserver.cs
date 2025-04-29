@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class RecieveObserver : MonoBehaviour
+public class ReceiveObserver : MonoBehaviour
 {
     public EventTrigger eventTrigger;
-    private EnemyReceiver registeredReceiver;
+    private bool isZombieOn;
 
     private void Awake()
     {
@@ -23,13 +23,15 @@ public class RecieveObserver : MonoBehaviour
             {
                 eventTrigger.AddReceiver(enemyReceiver);
                 enemyReceiver.SetEventTrigger(eventTrigger);
-                registeredReceiver = enemyReceiver;
             }
+            if (isZombieOn == false)
+            {
+                isZombieOn = true;
+                enemyReceiver.gameObject.SetActive(false);
+                eventTrigger.transform.parent.gameObject.SetActive(false);
+            }
+
         }
     }
 
-    public bool IsRegistered()
-    {
-        return registeredReceiver != null;
-    }
 }
