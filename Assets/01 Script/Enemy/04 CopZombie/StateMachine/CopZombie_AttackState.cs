@@ -9,7 +9,7 @@ public class CopZombie_AttackState : EnemyBaseState
 
     public override void Enter()
     {
-        GameManager.Instance.player.isCaught = true;
+        GameManager.Instance.player.cantMove = true;
         copZombie.copZombieVirtualCamera.Priority = 12;
         copZombie.copZombieAnim.SetTrigger("DoAttack");
         AudioManager.Instance.Audio2DPlay(copZombie.copZomicCatchPlayerClip, 1f);
