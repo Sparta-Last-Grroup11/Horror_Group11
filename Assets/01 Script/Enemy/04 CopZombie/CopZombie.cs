@@ -31,6 +31,9 @@ public class CopZombie : Enemy
     public float footStepRate = 1f;
     public float afterLastFootStep;
 
+    // Visibility check
+    private bool copHasBeenVisible = false;
+
     private void Awake()
     {
         copzombieAgent = GetComponent<NavMeshAgent>();
@@ -49,6 +52,8 @@ public class CopZombie : Enemy
     {
         base.Update();
         Debug.DrawRay(transform.position + Vector3.up, transform.forward, Color.red, 2f);
+
+        FirstVisible(copHasBeenVisible, 3);
 
         afterDetectDoor += Time.deltaTime;
         if (afterDetectDoor >= detectDoorRate)
