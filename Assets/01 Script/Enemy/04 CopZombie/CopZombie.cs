@@ -1,4 +1,5 @@
 using Cinemachine;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Playables;
