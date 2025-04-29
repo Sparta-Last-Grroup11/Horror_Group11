@@ -1,7 +1,12 @@
 fileFormatVersion: 2
-guid: 95ddea32f7926814a9fb364e2de3d1d7
+<<<<<<<< HEAD:Assets/01 Script/Test.meta
+guid: 1345b310092a1d9438c625ed65fe4010
 folderAsset: yes
 DefaultImporter:
+========
+guid: a96e1eb1de36efc4aa4b6735245d8c9e
+PrefabImporter:
+>>>>>>>> JH_Player:Assets/02 Prefab/NavMesh/NavMeshSurface.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
