@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,8 @@ public class SwitchController : MonoBehaviour, I_Interactable
     [SerializeField] private bool isPowerOn = false;
     [SerializeField] private int rand = 10;
     [SerializeField] private float shutdownTime = 90f;
+
+    [SerializeField] private LightStateSO lightState;
 
     public void AddLight(Lamp lamp) //목록에 lamp 추가
     {
@@ -36,6 +39,10 @@ public class SwitchController : MonoBehaviour, I_Interactable
             {
                 lamp.TurnOff();
             }
+        }
+        if (lightState != null)
+        {
+            lightState.SetLightState(isTurnOn);
         }
     }
 

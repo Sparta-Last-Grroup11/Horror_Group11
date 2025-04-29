@@ -3,16 +3,11 @@ using UnityEngine;
 
 public class EventTrigger : MonoBehaviour
 {
-    [SerializeField] private List<Receiver> receivers = new List<Receiver>();
-
-    public List<Receiver> GetReceivers()
-    {
-        return receivers;
-    }
+    public List<Receiver> receivers = new List<Receiver>();
 
     public void AddReceiver(Receiver receiver)
     {
-        if (!receivers.Contains(receiver))
+        if (receiver !=  null && !receivers.Contains(receiver))
         {
             receivers.Add(receiver);
         }

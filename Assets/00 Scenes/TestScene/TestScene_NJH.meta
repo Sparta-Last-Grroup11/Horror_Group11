@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/01 Script/Audio.meta
+guid: 3c584cb7910a7f641b31cd986c4298dd
+========
 guid: 2afb0d7939848b1429e73c41581aa210
+>>>>>>>> JH_Player:Assets/00 Scenes/TestScene/TestScene_NJH.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

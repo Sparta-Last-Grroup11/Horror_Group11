@@ -23,4 +23,5 @@ public class NurseZombieIdleState : EnemyBaseState  // 기본 상태일 때
             fsm.ChangeState(new NurseZombieChaseState(nurseZombie, fsm));
         }
     }
+
 }

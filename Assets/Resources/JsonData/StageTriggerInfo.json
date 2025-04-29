@@ -1,0 +1,18 @@
+﻿{
+  "StageTriggerInfo": [
+    {
+      "stageid": 1,
+      "triggers": [
+        0,
+        1
+      ]
+    },
+    {
+      "stageid": 2,
+      "triggers": [
+        2,
+        3
+      ]
+    }
+  ]
+}

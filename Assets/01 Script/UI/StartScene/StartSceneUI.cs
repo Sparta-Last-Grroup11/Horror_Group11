@@ -13,9 +13,10 @@ public class StartSceneUI : BaseUI
 
     protected override void Start()
     {
-        startBut.onClick.AddListener(() =>
+        startBut.onClick.AddListener(async () =>
         {
-            SceneManager.LoadScene("LobbyScene");
+            await SceneLoadManager.Instance.ChangeScene("LobbyScene");
+            //SceneManager.LoadScene("LobbyScene");
         });
 
         SettingBut.onClick.AddListener(() =>

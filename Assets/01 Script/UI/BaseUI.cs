@@ -9,9 +9,11 @@ public abstract class BaseUI : MonoBehaviour
 {
     [SerializeField] private bool isCursorFree;
     public Action destroyAction;
+    CursorLockMode mode;
 
     protected virtual void Start()
     {
+        mode = Cursor.lockState;
         if(isCursorFree)
             Cursor.lockState = CursorLockMode.None;
     }
@@ -19,7 +21,7 @@ public abstract class BaseUI : MonoBehaviour
     protected virtual void OnDestroy()
     {
         if (isCursorFree)
-            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = mode;
         if (UIManager.Instance != null)
             UIManager.Instance.RemoveUIInList(GetType().Name);
     }
