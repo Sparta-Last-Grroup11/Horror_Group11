@@ -24,7 +24,7 @@ public class CopZombie : Enemy
     // Door
     private float detectDoorRate = 0.5f;
     private float afterDetectDoor;
-    private float detectDoorRange = 2f;
+    private float detectDoorRange = 3f;
     [SerializeField] private LayerMask doorLayerMask;
 
     // FootStep
