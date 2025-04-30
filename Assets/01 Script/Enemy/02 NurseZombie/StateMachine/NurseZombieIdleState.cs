@@ -17,7 +17,7 @@ public class NurseZombieIdleState : EnemyBaseState  // 기본 상태일 때
     {
         bool canSee = enemy.CanSeePlayer();
 
-        if (canSee && !nurseZombie.lightStateSO.IsLightOn)
+        if (canSee && !nurseZombie.lightStateSO.IsLightOn && !nurseZombie.IsPlayerLookingAtMe())
         {
             fsm.ChangeState(new NurseZombieChaseState(nurseZombie, fsm));
         }
