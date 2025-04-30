@@ -102,11 +102,6 @@ public class UIManager : Singleton<UIManager>
     {
         uiList.Remove(name);
         Debug.Log($"{name} is Delete");
-        if (!uiList.Remove(name))
-            Debug.LogWarning($"UIManager: {name} is Delete");
-        else
-            Debug.LogWarning($"UIManager: {name} is Not Found In List");
-
     }
 
     protected override void OnDestroy()
