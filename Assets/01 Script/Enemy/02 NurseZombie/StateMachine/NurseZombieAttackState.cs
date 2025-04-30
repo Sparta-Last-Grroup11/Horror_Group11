@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.AI;
 
 public class NurseZombieAttackState : EnemyBaseState  // 플레이어를 공격하는 상태
 {
@@ -24,13 +25,17 @@ public class NurseZombieAttackState : EnemyBaseState  // 플레이어를 공격�
 
         if (!nurseZombie.hasDashed && distance > nurseZombie.dashTriggerRange)
         {
-            nurseZombie.MoveTowardsPlayer(nurseZombie.dashSpeed);
+            nurseZombie.nurseZombieAgent.speed = nurseZombie.dashSpeed;
+            nurseZombie.nurseZombieAgent.acceleration = 100f;
+            nurseZombie.nurseZombieAgent.autoBraking = false;
+            nurseZombie.nurseZombieAgent.SetDestination(nurseZombie.PlayerTransform.position);
         }
     }
 
     private IEnumerator AttackRoutine()
     {
         nurseZombie.nurseZombieAnim.SetTrigger("Attack");
+
         yield return new WaitForSeconds(1.0f);
         nurseZombie.hasDashed = true;
         EndAttack();
