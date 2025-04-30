@@ -18,17 +18,23 @@ public class UIManager : Singleton<UIManager>
     public GameObject cur3DObject;
     public Camera subCam;
     public Camera uiCam;
+    [Header("Glitch")]
+    Material glitchMat;
+    [SerializeField] float maxGlitch = 50f;
+    Coroutine curCourt;
 
     protected override void Awake()
     {
         base.Awake();
         SceneManager.sceneLoaded += OnSceneLoaded;
         uiList = new Dictionary<string, BaseUI>();
+        glitchMat = ResourceManager.Instance.Load<Material>(ResourceType.Material, "ScreenGlitchShader");
         ManagerSetting();
     }
 
     private void ManagerSetting()
     {
+        GlitchEnd();
         GameObject obj = GameObject.Find("MainCanvas");
         subCam = GameObject.Find("Sub Camera").GetComponent<Camera>();
         uiCam = GameObject.Find("UI Camera").GetComponent<Camera>();
@@ -102,6 +108,12 @@ public class UIManager : Singleton<UIManager>
 
     }
 
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        GlitchEnd();
+    }
+
     #region 3D관련
     public GameObject MakePrefabInSubCam(GameObject obj)
     {
@@ -128,6 +140,54 @@ public class UIManager : Singleton<UIManager>
             return;
         Destroy(cur3DObject);
         cur3DObject = null;
+    }
+    #endregion
+
+    #region 글리치 관련
+    public void GlitchStartWithTime(float time, float amount = 50f)
+    {
+        if (curCourt != null)
+            StopCoroutine(curCourt);
+        curCourt = StartCoroutine(GlitchEffect(time, amount));
+    }
+
+    public void GlitchWithDistance(float ratio)
+    {
+        glitchMat.SetFloat("_NoiseAmount", maxGlitch * ratio);
+        if (ratio < 0.33f)
+        {
+            glitchMat.SetFloat("_NoiseAmount", 0);
+        }
+        else
+        {
+            glitchMat.SetFloat("_GlitchStrength", 1);
+        }
+    }
+
+    public void GlitchStart(float amount)
+    {
+        glitchMat.SetFloat("_NoiseAmount", amount);
+        glitchMat.SetFloat("_GlitchStrength", 1);
+    }
+
+    public void GlitchEnd()
+    {
+        glitchMat.SetFloat("_NoiseAmount", 0);
+        glitchMat.SetFloat("_GlitchStrength", 0);
+    }
+
+    IEnumerator GlitchEffect(float time, float amount)
+    {
+        glitchMat.SetFloat("_NoiseAmount", amount);
+        glitchMat.SetFloat("_GlitchStrength", 1);
+
+        yield return new WaitForSeconds(time);
+
+        glitchMat.SetFloat("_NoiseAmount", 0);
+        glitchMat.SetFloat("_GlitchStrength", 0);
+
+        curCourt = null;
+        yield return null;
     }
     #endregion
 }

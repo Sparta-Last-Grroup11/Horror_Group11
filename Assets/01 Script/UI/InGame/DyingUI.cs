@@ -1,13 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class DyingUI : PopupUI
 {
-    protected override void Start()
+    protected override async void Start()
     {
         base.Start();
         UIManager.Instance.IsUiActing = true;
-        UIManager.Instance.ClearListAndDestroy(this);
+        await GoTosStartScene();
+    }
+
+    async Task GoTosStartScene()
+    {
+        await Task.Delay(1000);
+        await SceneLoadManager.Instance.ChangeScene("StartScene");
     }
 }
