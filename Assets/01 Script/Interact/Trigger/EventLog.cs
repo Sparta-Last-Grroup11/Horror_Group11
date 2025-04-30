@@ -12,6 +12,5 @@ public class EventLog : Receiver
         {
             MonologueManager.Instance.DialogPlay(i);
         }
-        base.ReceiveTrigger();
     }
 }

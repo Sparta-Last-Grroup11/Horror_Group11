@@ -20,5 +20,6 @@ public class EventTrigger : MonoBehaviour
         {
             receiver.ReceiveTrigger();
         }
+        gameObject.SetActive(false);
     }
 }
