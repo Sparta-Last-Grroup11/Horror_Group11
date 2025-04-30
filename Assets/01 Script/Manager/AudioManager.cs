@@ -121,7 +121,7 @@ public class AudioManager : Singleton<AudioManager>
         return source;
     }
 
-    public void AudioBGMPlay(AudioClip clip, bool isLoop = true)
+    public void AudioBGMPlay(AudioClip clip, bool isLoop = true, float volume = 1f)
     {
         if (clip == null)
         {
@@ -140,6 +140,7 @@ public class AudioManager : Singleton<AudioManager>
         AudioSource source = obj.GetComponent<AudioSource>();
         source.clip = clip;
         source.spatialBlend = 0f;
+        source.volume = volume;
         source.loop = isLoop;
         source.Play();
 
