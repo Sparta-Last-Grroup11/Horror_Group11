@@ -24,6 +24,9 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
     // Sound
     public AudioClip nurseZombieChaseClip;
 
+    // Light
+    public LightStateSO lightStateSO;
+
     public LayerMask DoorLayerMask
     {
         get { return doorLayerMask; }

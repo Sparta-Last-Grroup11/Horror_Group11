@@ -10,7 +10,7 @@
     },
     {
       "ID": 2,
-      "Content": "That's weird.Place Something Cultistic."
+      "Content": "That's weird.Some kind of Ritual?"
     },
     {
       "ID": 3,
@@ -18,7 +18,7 @@
     },
     {
       "ID": 4,
-      "Content": "Stare It.Don't look away."
+      "Content": "Jesus."
     },
     {
       "ID": 5,
@@ -35,6 +35,38 @@
     {
       "ID": 8,
       "Content": "Safe now."
+    },
+    {
+      "ID": 9,
+      "Content": "Now,I have to find Power switch"
+    },
+    {
+      "ID": 10,
+      "Content": "Good,Now Work.But still Dark."
+    },
+    {
+      "ID": 11,
+      "Content": "I can use this battery.Just fit my Flash."
+    },
+    {
+      "ID": 12,
+      "Content": "Finally I got Exit key."
+    },
+    {
+      "ID": 13,
+      "Content": "Lights On."
+    },
+    {
+      "ID": 14,
+      "Content": "This one is something cultistic"
+    },
+    {
+      "ID": 15,
+      "Content": "Place Something Cultistic."
+    },
+    {
+      "ID": 16,
+      "Content": ""
     }
   ]
 }
