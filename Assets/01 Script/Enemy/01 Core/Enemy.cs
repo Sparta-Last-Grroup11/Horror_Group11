@@ -111,7 +111,7 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void TriggerEventEnemy() { }
 
-    protected void FirstVisible(ref bool hasBeenVisible, int monologueNum)
+    public void FirstVisible(ref bool hasBeenVisible, int monologueNum)
     {
         if (hasBeenVisible == false)
         {

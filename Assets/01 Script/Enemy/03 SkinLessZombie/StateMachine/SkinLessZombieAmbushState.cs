@@ -15,6 +15,7 @@ public class SkinLessZombieAmbushState : EnemyBaseState
         GameManager.Instance.player.isChased = true;
         // UIManager.Instance.Get<GlitchUI>().GlitchStart(10f);
         skinLessZombie.skinLessZombieAnim.SetTrigger("Chase");
+        skinLessZombie.FirstVisible(ref skinLessZombie.hasBeenSeenByPlayer, skinLessZombie.firstMonologueNum);
         AudioManager.Instance.Audio2DPlay(skinLessZombie.spottedRoarClip, 1f);
 
         Vector3 target = enemy.PlayerTransform.position;

@@ -27,6 +27,10 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
     // Light
     public LightStateSO lightStateSO;
 
+    // Monologue
+    public bool hasBeenSeenByPlayer = false;
+    public int firstMonologueNum = 4; 
+
     public LayerMask DoorLayerMask
     {
         get { return doorLayerMask; }

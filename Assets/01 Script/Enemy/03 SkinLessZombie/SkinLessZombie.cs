@@ -18,6 +18,10 @@ public class SkinLessZombie : Enemy   // 점프스케어 기믹 (플레이어 �
     public AudioClip rushFootstepsLoop;
     public AudioClip disappearWooshClip;
 
+    // Monologue
+    public bool hasBeenSeenByPlayer = false;
+    public int firstMonologueNum = 0;
+
     private void Awake()
     {
         skinLessZombieAnim = GetComponentInChildren<Animator>();
