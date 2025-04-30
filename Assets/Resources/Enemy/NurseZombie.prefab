@@ -2890,7 +2890,7 @@ MonoBehaviour:
   isDoorOpened: 0
   doorDetectRange: 2
   viewDistance: 10
-  viewAngle: 180
+  viewAngle: 360
   nurseZombieAgent: {fileID: 0}
   nurseZombieAnim: {fileID: 0}
   rb: {fileID: 0}
@@ -2898,8 +2898,6 @@ MonoBehaviour:
   attackRange: 2
   detectionRange: 10
   dashSpeed: 6
-  wasLookedByPlayer: 0
-  isTriggeredByBackTurn: 0
   detectDoorRange: 2
   detectDoorRate: 0.5
   afterDetectDoor: 0
@@ -2910,8 +2908,6 @@ MonoBehaviour:
   nurseZombieChaseClip: {fileID: 8300000, guid: 6f3c8a80c34da8949a7c39bbfd3cbc04,
     type: 3}
   lightStateSO: {fileID: 11400000, guid: 405e8d03f4a7c9042ab2184b737341d1, type: 2}
-  hasBeenSeenByPlayer: 0
-  firstMonologueNum: 4
 --- !u!54 &1389980022007079389
 Rigidbody:
   m_ObjectHideFlags: 0
