@@ -14,14 +14,14 @@ public abstract class BaseUI : MonoBehaviour
     protected virtual void Start()
     {
         mode = Cursor.lockState;
+        Debug.Log(mode);
         if(isCursorFree)
             Cursor.lockState = CursorLockMode.None;
     }
 
     protected virtual void OnDestroy()
     {
-        if (isCursorFree)
-            Cursor.lockState = mode;
+        Cursor.lockState = mode;
         if (UIManager.Instance != null)
             UIManager.Instance.RemoveUIInList(GetType().Name);
     }
