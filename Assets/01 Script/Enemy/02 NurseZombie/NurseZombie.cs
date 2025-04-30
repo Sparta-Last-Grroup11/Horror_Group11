@@ -68,4 +68,23 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
         return Vector3.Dot(toNurse, playerforward) > 0.8f;
     }
 
+    public void MoveTowardsPlayer(float speed)
+    {
+        if (PlayerTransform == null) return;
+
+        nurseZombieAgent.speed = speed;
+        
+        float distance = Vector3.Distance(transform.position, PlayerTransform.position);
+        float minDistance = 2.0f;  //  플레이어와 최소 거리 유지
+
+        if (distance > minDistance)
+        {
+            nurseZombieAgent.SetDestination(PlayerTransform.position);
+        }
+        else
+        {
+            nurseZombieAgent.ResetPath();
+        }
+    }
+
 }

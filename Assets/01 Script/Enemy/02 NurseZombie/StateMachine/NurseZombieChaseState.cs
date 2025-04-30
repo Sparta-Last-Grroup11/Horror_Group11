@@ -11,9 +11,10 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
 
     public override void Enter()
     {
-        nurseZombie.nurseZombieAnim.SetBool("IsChasing", false);
-        AudioManager.Instance.Audio2DPlay(nurseZombie.nurseZombieChaseClip, 10f);
         GameManager.Instance.player.isChased = true;
+        nurseZombie.nurseZombieAnim.SetBool("IsChasing", true);
+        AudioManager.Instance.Audio2DPlay(nurseZombie.nurseZombieChaseClip, 10f);
+        nurseZombie.FirstVisible(ref nurseZombie.hasBeenSeenByPlayer, nurseZombie.firstMonologueNum);
         nurseZombie.waitTimer = 0f;
 
     }
@@ -23,9 +24,9 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
         if (HandleLightOn()) return;
         if (HandleLostPlayer()) return;
 
-        UpdatePlayerSightInfo();
-        CheckBackTurnTrigger();
-        TryStartChase();
+        nurseZombie.LookAtPlayer();
+        nurseZombie.MoveTowardsPlayer(nurseZombie.moveSpeed);
+
         CheckIfPlayerInRoom();
         TransitionToAttack();
 
@@ -49,37 +50,6 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
             return true;
         }
         return false;
-    }
-
-    private void UpdatePlayerSightInfo()
-    {
-        bool isLookingnow = nurseZombie.IsPlayerLookingAtMe();
-        nurseZombie.wasLookedByPlayer = isLookingnow;
-        nurseZombie.FirstVisible(ref nurseZombie.hasBeenSeenByPlayer, nurseZombie.firstMonologueNum);
-    }
-
-    private void CheckBackTurnTrigger()
-    {
-        bool isLookingnow = nurseZombie.IsPlayerLookingAtMe();
-        bool canSeePlayer = nurseZombie.CanSeePlayer();
-
-        if (!nurseZombie.isTriggeredByBackTurn &&
-            nurseZombie.wasLookedByPlayer &&
-            !isLookingnow &&
-            canSeePlayer)
-        {
-            nurseZombie.isTriggeredByBackTurn = true;
-        }
-    }
-
-    private void TryStartChase()
-    {
-        if (!nurseZombie.isTriggeredByBackTurn) return;
-        {
-            nurseZombie.nurseZombieAnim.SetBool("IsChasing", true);
-            nurseZombie.LookAtPlayer();
-            enemy.MoveTowardsPlayer(nurseZombie.moveSpeed);
-        }
     }
 
     private void CheckIfPlayerInRoom()
