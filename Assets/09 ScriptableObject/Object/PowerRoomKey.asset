@@ -15,5 +15,5 @@ MonoBehaviour:
   id: 100
   type: 1
   itemName: PowerRoom Key
-  description: Can open door
-  icon: {fileID: 0}
+  description: Key of PowerRoom
+  icon: {fileID: 21300000, guid: 638b030945966cb489cfe57a48dcc5d3, type: 3}

@@ -10,5 +10,6 @@ public class EnterEvent : Receiver
     {
         MonologueManager.Instance.DialogPlay(7);
         GetComponent<DoubleDoor>().CloseBecauseEnter(changeKey);
+        base.ReceiveTrigger();
     }
 }

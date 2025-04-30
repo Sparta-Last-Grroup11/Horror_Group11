@@ -15,5 +15,8 @@ public abstract class Receiver : MonoBehaviour
             Debug.LogWarning($"[Receiver] {name}의 eventTrigger가 설정되지 않았습니다.");
         }
     }
-    public abstract void ReceiveTrigger();
+    public virtual void ReceiveTrigger()
+    {
+        eventTrigger.gameObject.SetActive(false);
+    }
 }
