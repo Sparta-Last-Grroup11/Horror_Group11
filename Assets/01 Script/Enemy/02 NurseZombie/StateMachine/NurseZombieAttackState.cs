@@ -43,8 +43,8 @@ public class NurseZombieAttackState : EnemyBaseState  // 플레이어를 공격�
 
     private void EndAttack()
     {
-        UIManager.Instance.Get<GlitchUI>().GlitchEnd();
         GameManager.Instance.player.cantMove = true;
-        UIManager.Instance.show<DyingUI>();
+        var dyingUI = UIManager.Instance.show<DyingUI>();
+        Debug.Log(dyingUI != null ? "DyingUI 호출 성공" : "DyingUI 로딩 실패");
     }
 }
