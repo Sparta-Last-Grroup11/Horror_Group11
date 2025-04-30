@@ -2907,6 +2907,7 @@ MonoBehaviour:
     m_Bits: 64
   nurseZombieChaseClip: {fileID: 8300000, guid: 6f3c8a80c34da8949a7c39bbfd3cbc04,
     type: 3}
+  lightStateSO: {fileID: 11400000, guid: 405e8d03f4a7c9042ab2184b737341d1, type: 2}
 --- !u!54 &1389980022007079389
 Rigidbody:
   m_ObjectHideFlags: 0

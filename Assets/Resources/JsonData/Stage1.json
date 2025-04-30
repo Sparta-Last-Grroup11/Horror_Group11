@@ -4,16 +4,16 @@
       "type": "Item",
       "prefabname": "ClipBoard",
       "position": [
-        2.45,
-        1.0,
-        -7.0
+        2.913,
+        2.445,
+        11.045
       ],
       "rotation": [
         0.0,
-        -90.0,
+        90.0,
         0.0
       ],
-      "description": "The first Example of Parsing"
+      "description": "Key is in Security Room Safe."
     },
     {
       "type": "Enemy",
@@ -47,31 +47,16 @@
     },
     {
       "type": "Enemy",
-      "prefabname": "CopZombie",
-      "position": [
-        22.1,
-        0.0,
-        -29.3
-      ],
-      "rotation": [
-        0.0,
-        0.0,
-        0.0
-      ],
-      "description": ""
-    },
-    {
-      "type": "Enemy",
       "prefabname": "SkinLessZombie",
       "position": [
-        -9.05,
-        5.45,
-        -11.97
+        -10.16,
+        5.06,
+        -13.21
       ],
       "rotation": [
-        0.0,
-        0.0,
-        0.0
+        -10.19,
+        28.0,
+        -0.09
       ],
       "description": "2층 욕실"
     },
@@ -80,7 +65,7 @@
       "prefabname": "SkinLessZombie",
       "position": [
         -9.05,
-        5.45,
+        5.02,
         0.38
       ],
       "rotation": [
@@ -182,58 +167,83 @@
     },
     {
       "type": "Item",
-      "prefabname": "Puzzle01",
+      "prefabname": "TortureRoomKey",
       "position": [
-        -11.0,
-        1.24,
-        17.53
+        0.475,
+        1.907,
+        -12.045
       ],
       "rotation": [],
-      "description": "마지막 퍼즐 1"
+      "description": ""
     },
     {
       "type": "Item",
-      "prefabname": "Puzzle02",
+      "prefabname": "SurgeryRoomKey",
       "position": [
-        -11.12,
-        2.32,
-        -12.23
+        -10.875,
+        1.907,
+        -18.409
       ],
       "rotation": [],
-      "description": "마지막 퍼즐 2"
+      "description": ""
     },
     {
       "type": "Item",
-      "prefabname": "Puzzle03",
+      "prefabname": "EmptyRoomKey",
       "position": [
-        -10.47,
-        5.25,
-        -18.42
+        -10.656,
+        5.851,
+        11.398
       ],
       "rotation": [],
-      "description": "마지막 퍼즐 3"
+      "description": ""
     },
     {
       "type": "Item",
-      "prefabname": "Puzzle04",
+      "prefabname": "Ritual",
       "position": [
-        -11.21,
-        5.9,
-        0.01
+        2.995,
+        5.02,
+        -17.615
       ],
       "rotation": [],
-      "description": "마지막 퍼즐 4"
+      "description": ""
     },
     {
       "type": "Item",
-      "prefabname": "Puzzle05",
+      "prefabname": "Safe",
       "position": [
-        3.3,
-        5.26,
-        -19.76
+        -8.787,
+        1.045,
+        -1.309
       ],
+      "rotation": [
+        0.0,
+        -90.0,
+        0.0
+      ],
+      "description": ""
+    },
+    {
+      "type": "Item",
+      "prefabname": "descriptedboard01",
+      "position": [],
       "rotation": [],
-      "description": "마지막 퍼즐 5"
+      "description": "Find Five Offerings"
+    },
+    {
+      "type": "Item",
+      "prefabname": "MonsterInfoDoc",
+      "position": [],
+      "rotation": [],
+      "description": "Nurse:Stare her"
+    },
+    {
+      "type": "Item",
+      "prefabname": "descriptedboard02",
+      "position": [],
+      "rotation": [],
+      "description": "2F corridor Switch Box"
     }
   ]
 }

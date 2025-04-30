@@ -96,7 +96,45 @@ public abstract class Enemy : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(dir);
     }
 
+    public void MoveTowardsPlayer(float speed)
+    {
+        Vector3 direction = (PlayerTransform.position - transform.position).normalized;
+        direction.y = 0;
+        float distance = Vector3.Distance(transform.position, PlayerTransform.position);
+        float minDistance = 1.0f;  //  플레이어와 최소 거리 유지
+
+        if (distance > minDistance)
+        {
+            transform.position += direction * speed * Time.deltaTime;
+        }
+    }
+
     public virtual void TriggerEventEnemy() { }
 
+    public void FirstVisible(ref bool hasBeenVisible, int monologueNum)
+    {
+        if (hasBeenVisible == false)
+        {
+            Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
 
+            bool isInView = viewPos.z > 0 && viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1;
+
+            if (isInView)
+            {
+                Vector3 cameraPos = Camera.main.transform.position;
+                Vector3 direction = transform.position - cameraPos;
+                float distance = direction.magnitude;
+
+                if (Physics.Raycast(cameraPos, direction, out RaycastHit hit, distance))
+                {
+                    if (hit.transform == this.transform)
+                    {
+                        MonologueManager.Instance.DialogPlay(monologueNum);
+                        hasBeenVisible = !hasBeenVisible;
+                    }
+                }
+            }
+        }
+        else return;
+    }
 }

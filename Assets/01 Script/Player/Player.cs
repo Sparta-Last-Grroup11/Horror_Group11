@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Cinemachine;
+using DG.Tweening;
 
 public class Player : PlayerInputController
 {
@@ -19,7 +20,7 @@ public class Player : PlayerInputController
     [SerializeField] private AudioClip chasedCilp;
     public bool isChased = false;
     private bool isChasedBGM = false;
-    public bool isCaught = false;
+    public bool cantMove = false;
 
     // 입력 값
     public Vector2 moveInput;
@@ -30,6 +31,7 @@ public class Player : PlayerInputController
     [Header("Move")]
     public float moveSpeed = 2f;
     public float runSpeed = 4f;
+    private bool isCrouching;
 
     [Header("Look")]
     public Transform cameraContainer;
@@ -69,6 +71,8 @@ public class Player : PlayerInputController
         jumpAction.canceled += OnJumpCanceled;
         runAction.performed += OnRunPerformed;
         runAction.canceled += OnRunCanceled;
+        crouchAction.performed += OnCrouchPerformed;
+        crouchAction.canceled += OnCrouchCanceled;
     }
 
     private void Start()
@@ -76,7 +80,7 @@ public class Player : PlayerInputController
         Cursor.lockState = CursorLockMode.Locked;
         // 초기 상태를 Idle로 설정
         stateMachine.ChangeState(new PlayerIdleState(this));
-        isCaught = false;
+        cantMove = false;
 
         if (virtualCamera != null)
         {
@@ -96,7 +100,7 @@ public class Player : PlayerInputController
             isChasedBGM = false;
         }
 
-        if (!UIManager.Instance.IsUiActing && !isCaught)
+        if (!UIManager.Instance.IsUiActing && !cantMove)
         {
             stateMachine.Update();
         }
@@ -135,12 +139,29 @@ public class Player : PlayerInputController
 
     private void OnRunPerformed(InputAction.CallbackContext context)
     {
-        runPressing = true;
+        if (!isCrouching)
+        {
+            runPressing = true;
+        }
     }
 
     private void OnRunCanceled(InputAction.CallbackContext context)
     {
         runPressing = false;
+    }
+
+    private void OnCrouchPerformed(InputAction.CallbackContext context)
+    {
+        transform.DOScaleY(0.6f, 0.2f);
+        moveSpeed--;
+        isCrouching = true;
+    }
+
+    private void OnCrouchCanceled(InputAction.CallbackContext context)
+    {
+        transform.DOScaleY(1f, 0.2f);
+        moveSpeed++;
+        isCrouching = false;
     }
 
     // 카메라 흔들림 관련 메서드

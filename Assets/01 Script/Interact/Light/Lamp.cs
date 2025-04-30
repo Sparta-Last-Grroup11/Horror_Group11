@@ -61,7 +61,7 @@ public class Lamp : MonoBehaviour
         WaitForSeconds blinkTime = new WaitForSeconds(0.2f);
         while (true)
         {
-            if (Random.Range(0, rand) == 1)
+            if (Random.Range(0, rand) == 0)
             {
                 foreach (Light light in lampLights)
                     light.enabled = false;

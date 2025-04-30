@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3820537100329920163}
   m_Layer: 8
   m_Name: SkinLessZombie
-  m_TagString: Untagged
+  m_TagString: SkinLess
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

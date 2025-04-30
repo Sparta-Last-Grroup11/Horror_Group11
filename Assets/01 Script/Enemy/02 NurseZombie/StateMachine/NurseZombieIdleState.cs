@@ -16,11 +16,11 @@ public class NurseZombieIdleState : EnemyBaseState  // 기본 상태일 때
     public override void Update()
     {
         bool canSee = enemy.CanSeePlayer();
-        bool isPlayerLooking = nurseZombie.IsPlayerLookingAtMe();
 
-        if (canSee && !isPlayerLooking)
+        if (canSee && !nurseZombie.lightStateSO.IsLightOn)
         {
             fsm.ChangeState(new NurseZombieChaseState(nurseZombie, fsm));
         }
     }
+
 }

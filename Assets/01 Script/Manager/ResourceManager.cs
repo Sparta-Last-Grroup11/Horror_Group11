@@ -14,6 +14,7 @@ public enum ResourceType
     Material,
     Enemy
 }
+
 public class ResourceManager : Singleton<ResourceManager>
 {
     public Dictionary<string, object> assetPool = new Dictionary<string, object>();

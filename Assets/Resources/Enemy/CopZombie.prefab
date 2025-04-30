@@ -1463,7 +1463,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &479824356600414189
 Transform:
   m_ObjectHideFlags: 0
@@ -1597,6 +1597,11 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 0
+  doorLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  isDoorOpened: 0
+  doorDetectRange: 2
   viewDistance: 10
   viewAngle: 90
   copzombieAgent: {fileID: 0}
