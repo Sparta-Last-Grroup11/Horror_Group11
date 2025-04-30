@@ -4,10 +4,6 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
 {
     public NurseZombie nurseZombie;
 
-    // Reset
-    private float PlayerDisappearTime = 3.0f;
-    private float waitTimer = 0f;
-
     public NurseZombieChaseState(Enemy enemy, EnemyStateMachine fsm) : base(enemy, fsm)
     {
         nurseZombie = enemy as NurseZombie;
@@ -18,51 +14,75 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
         nurseZombie.nurseZombieAnim.SetBool("IsChasing", false);
         AudioManager.Instance.Audio2DPlay(nurseZombie.nurseZombieChaseClip, 10f);
         GameManager.Instance.player.isChased = true;
-        waitTimer = 0f;
+        nurseZombie.waitTimer = 0f;
 
     }
 
     public override void Update()
     {
+        if (HandleLightOn()) return;
+        if (HandleLostPlayer()) return;
+
+        UpdatePlayerSightInfo();
+        CheckBackTurnTrigger();
+        TryStartChase();
+        CheckIfPlayerInRoom();
+        TransitionToAttack();
+
+    }
+
+    private bool HandleLightOn()
+    {
         if (nurseZombie.lightStateSO.IsLightOn)
         {
             fsm.ChangeState(new NurseZombieIdleState(nurseZombie, fsm));
-            return;
+            return true;
         }
+        return false;
+    }
 
+    private bool HandleLostPlayer()
+    {
         if (!nurseZombie.hasDetectedPlayer && enemy.HasLostPlayer())
         {
             fsm.ChangeState(new NurseZombieIdleState(nurseZombie, fsm));
-            return;
+            return true;
         }
+        return false;
+    }
 
+    private void UpdatePlayerSightInfo()
+    {
+        bool isLookingnow = nurseZombie.IsPlayerLookingAtMe();
+        nurseZombie.wasLookedByPlayer = isLookingnow;
+        nurseZombie.FirstVisible(ref nurseZombie.hasBeenSeenByPlayer, nurseZombie.firstMonologueNum);
+    }
+
+    private void CheckBackTurnTrigger()
+    {
         bool isLookingnow = nurseZombie.IsPlayerLookingAtMe();
         bool canSeePlayer = nurseZombie.CanSeePlayer();
 
-        // 봤다가 안 본 경우 -> 추격 트리거
         if (!nurseZombie.isTriggeredByBackTurn &&
-            nurseZombie.wasLookedByPlayer && 
+            nurseZombie.wasLookedByPlayer &&
             !isLookingnow &&
             canSeePlayer)
         {
             nurseZombie.isTriggeredByBackTurn = true;
         }
-
-        nurseZombie.wasLookedByPlayer = isLookingnow;
-        nurseZombie.FirstVisible(ref nurseZombie.hasBeenSeenByPlayer, nurseZombie.firstMonologueNum);
-
-        if (nurseZombie.isTriggeredByBackTurn)
-        {
-            nurseZombie.LookAtPlayer();
-            nurseZombie.nurseZombieAnim.SetBool("IsChasing", true);
-            enemy.MoveTowardsPlayer(nurseZombie.moveSpeed);  // 플레이어를 뒤쫓아 움직임
-        }
-
-        CheckIfPlayerInRoom();
-        TransitionToAttack();
     }
 
-    public void CheckIfPlayerInRoom()
+    private void TryStartChase()
+    {
+        if (!nurseZombie.isTriggeredByBackTurn) return;
+        {
+            nurseZombie.nurseZombieAnim.SetBool("IsChasing", true);
+            nurseZombie.LookAtPlayer();
+            enemy.MoveTowardsPlayer(nurseZombie.moveSpeed);
+        }
+    }
+
+    private void CheckIfPlayerInRoom()
     {
         nurseZombie.afterDetectDoor += Time.deltaTime;
         if (nurseZombie.afterDetectDoor >= nurseZombie.detectDoorRate)   // 문 닫힘 감지하면 Wait상태로 전환
@@ -76,7 +96,7 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
                 if (doorObj.activeInHierarchy)
                 {
                     Debug.Log("방 안에 있음");
-                    PlayerInRoom();
+                    HandlePlayerInRoom();
                     return;
                 }
             }
@@ -84,10 +104,10 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
         }
     }
 
-    public void PlayerInRoom()
+    private void HandlePlayerInRoom()
     {
-        waitTimer += Time.deltaTime;
-        if (waitTimer >= PlayerDisappearTime)  // 방 밖에서 일정 시간 대기 후 스폰 위치로 이동, 다시 IdleState로 전환
+        nurseZombie.waitTimer += Time.deltaTime;
+        if (nurseZombie.waitTimer >= nurseZombie.PlayerDisappearTime)  // 방 밖에서 일정 시간 대기 후 스폰 위치로 이동, 다시 IdleState로 전환
         {
             nurseZombie.hasDetectedPlayer = false;
             fsm.ChangeState(new NurseZombieIdleState(nurseZombie, fsm));
@@ -95,7 +115,7 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
         return;
     }
 
-    public void TransitionToAttack()
+    private void TransitionToAttack()
     {
         if (IsNearPlayer())  // 천사가 일정 거리 안에 있다면 Attack 상태로 전환
         {
@@ -103,7 +123,7 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
         }
     }
 
-    public bool IsNearPlayer()
+    private bool IsNearPlayer()
     {
         float distance = Vector3.Distance(nurseZombie.transform.position, nurseZombie.PlayerTransform.position);  // 몬스터와 플레이어의 거리
         return distance <= nurseZombie.attackRange;  // 공격 범위 안에 들어왔는지 확인

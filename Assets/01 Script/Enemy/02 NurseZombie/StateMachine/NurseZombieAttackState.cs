@@ -5,10 +5,6 @@ public class NurseZombieAttackState : EnemyBaseState  // 플레이어를 공격�
 {
     private NurseZombie nurseZombie;
 
-    // Dash
-    private float attackRange = 0.5f; // 공격 범위
-    private bool hasDashed = false; // 돌진 완료 여부
-
     public NurseZombieAttackState(Enemy enemy, EnemyStateMachine fsm) : base(enemy, fsm)
     {
         nurseZombie = enemy as NurseZombie;
@@ -16,7 +12,7 @@ public class NurseZombieAttackState : EnemyBaseState  // 플레이어를 공격�
 
     public override void Enter()
     {
-        hasDashed = false;
+        nurseZombie.hasDashed = false;
         nurseZombie.StartCoroutine(AttackRoutine());
     }
 
@@ -26,7 +22,7 @@ public class NurseZombieAttackState : EnemyBaseState  // 플레이어를 공격�
 
         float distance = Vector3.Distance(nurseZombie.transform.position, nurseZombie.PlayerTransform.position);
 
-        if (!hasDashed && distance > attackRange)
+        if (!nurseZombie.hasDashed && distance > nurseZombie.dashTriggerRange)
         {
             nurseZombie.MoveTowardsPlayer(nurseZombie.dashSpeed);
         }
@@ -36,7 +32,7 @@ public class NurseZombieAttackState : EnemyBaseState  // 플레이어를 공격�
     {
         nurseZombie.nurseZombieAnim.SetTrigger("Attack");
         yield return new WaitForSeconds(1.0f);
-        hasDashed = true;
+        nurseZombie.hasDashed = true;
         EndAttack();
 
     }
