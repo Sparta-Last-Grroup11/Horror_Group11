@@ -1,3 +1,6 @@
+using System.Collections;
+using UnityEngine;
+
 public class CopZombie_AttackState : EnemyBaseState
 {
     private CopZombie copZombie;
@@ -13,15 +16,12 @@ public class CopZombie_AttackState : EnemyBaseState
         copZombie.copZombieVirtualCamera.Priority = 12;
         copZombie.copZombieAnim.SetTrigger("DoAttack");
         AudioManager.Instance.Audio2DPlay(copZombie.copZomicCatchPlayerClip, 1f);
+        copZombie.StartCoroutine(PlayerDead());
     }
 
-    public override void Update()
+    private IEnumerator PlayerDead()
     {
-        
-    }
-
-    public override void Exit()
-    {
-
+        yield return new WaitForSeconds(5f);
+        UIManager.Instance.show<DyingUI>();
     }
 }

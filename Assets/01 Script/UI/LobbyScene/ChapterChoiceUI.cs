@@ -22,7 +22,7 @@ public class ChapterChoiceUI : BaseUI
         base.Start();
         chapter1BTN.onClick.AddListener(() =>
         {
-            SceneManager.LoadScene("GameScene");
+            SceneLoadManager.Instance.ChangeScene("GameScene");
         }
         );
     }
