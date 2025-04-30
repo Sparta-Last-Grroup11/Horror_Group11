@@ -13,6 +13,8 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
     public float attackRange = 2f;
     public float detectionRange = 10f;
     public float dashSpeed = 6f; // 돌진 속도, 일반 추격보다 빠르게
+    public bool wasLookedByPlayer = false;  // 지난 프레임에 나를 봤는지
+    public bool isTriggeredByBackTurn = false;  // "봤다가 안 보는" 순간에만 한 번 트리거됨
 
     // Door
     public float detectDoorRange = 2f;
@@ -77,8 +79,4 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
         return dot > lookThreshold;
     }
 
-    public void MoveToSpawnPosition()
-    {
-        // 이후에 여기에 스폰위치를 가져올 예정.
-    }
 }

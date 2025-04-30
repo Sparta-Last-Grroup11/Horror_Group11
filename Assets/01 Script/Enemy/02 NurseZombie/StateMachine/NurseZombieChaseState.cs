@@ -15,7 +15,7 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
 
     public override void Enter()
     {
-        nurseZombie.nurseZombieAnim.SetBool("IsChasing", true);
+        nurseZombie.nurseZombieAnim.SetBool("IsChasing", false);
         AudioManager.Instance.Audio2DPlay(nurseZombie.nurseZombieChaseClip, 10f);
         GameManager.Instance.player.isChased = true;
         waitTimer = 0f;
@@ -36,18 +36,30 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
             return;
         }
 
-        if (!nurseZombie.hasDetectedPlayer && enemy.CanSeePlayer())
+        bool isLookingnow = nurseZombie.IsPlayerLookingAtMe();
+        bool canSeePlayer = nurseZombie.CanSeePlayer();
+
+        // 봤다가 안 본 경우 -> 추격 트리거
+        if (!nurseZombie.isTriggeredByBackTurn &&
+            nurseZombie.wasLookedByPlayer && 
+            !isLookingnow &&
+            canSeePlayer)
         {
-            nurseZombie.hasDetectedPlayer = true;
+            nurseZombie.isTriggeredByBackTurn = true;
+        }
+
+        nurseZombie.wasLookedByPlayer = isLookingnow;
+        nurseZombie.FirstVisible(ref nurseZombie.hasBeenSeenByPlayer, nurseZombie.firstMonologueNum);
+
+        if (nurseZombie.isTriggeredByBackTurn)
+        {
+            nurseZombie.LookAtPlayer();
+            nurseZombie.nurseZombieAnim.SetBool("IsChasing", true);
+            enemy.MoveTowardsPlayer(nurseZombie.moveSpeed);  // 플레이어를 뒤쫓아 움직임
         }
 
         CheckIfPlayerInRoom();
         TransitionToAttack();
-
-        nurseZombie.LookAtPlayer();
-        nurseZombie.MoveTowardsPlayer(nurseZombie.moveSpeed);  // 플레이어를 뒤쫓아 움직임
-
-        nurseZombie.FirstVisible(ref nurseZombie.hasBeenSeenByPlayer, nurseZombie.firstMonologueNum);
     }
 
     public void CheckIfPlayerInRoom()
@@ -78,7 +90,6 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
         if (waitTimer >= PlayerDisappearTime)  // 방 밖에서 일정 시간 대기 후 스폰 위치로 이동, 다시 IdleState로 전환
         {
             nurseZombie.hasDetectedPlayer = false;
-            nurseZombie.MoveToSpawnPosition();
             fsm.ChangeState(new NurseZombieIdleState(nurseZombie, fsm));
         }
         return;
