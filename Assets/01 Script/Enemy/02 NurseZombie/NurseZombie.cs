@@ -40,8 +40,13 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
         nurseZombieAnim = GetComponentInChildren<Animator>();
         nurseZombieAgent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
-        rb.isKinematic = true;
+        rb.isKinematic = false;
         doorLayerMask = LayerMask.GetMask("Interactable");
+
+        nurseZombieAgent.updatePosition = true;
+        nurseZombieAgent.updateRotation = true;
+        nurseZombieAgent.baseOffset = 0f;
+        nurseZombieAgent.autoBraking = true;
     }
 
     protected override void Start()
@@ -67,6 +72,43 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
         float lookThreshold = 0.8f;  // 거의 같은 방향일 때
 
         return dot > lookThreshold;
+    }
+
+    public void MoveTowardsPlayer(float speed, bool isDash = false, bool forceWarp = false)
+    {
+        if (nurseZombieAgent == null || !nurseZombieAgent.isOnNavMesh) return;
+
+        float distance = Vector3.Distance(transform.position, PlayerTransform.position);
+        float minDistance = 1.0f;  //  플레이어와 최소 거리 유지
+
+        if (forceWarp)
+        {
+            Vector3 toPlayer = (PlayerTransform.position - transform.position).normalized;
+            float moveDistance = Mathf.Max(distance, minDistance, 0f);
+            Vector3 targetPos = PlayerTransform.position - toPlayer * 1.0f;
+
+            NavMeshHit hit;
+
+            if (NavMesh.SamplePosition(targetPos, out hit, 1f, NavMesh.AllAreas))
+            {
+                nurseZombieAgent.Warp(hit.position);
+            }
+            else
+            {
+                transform.position = targetPos; // NavMesh 아닌 경우 fallback
+            }
+            return;
+        }
+
+        if (distance > minDistance && nurseZombieAgent.isOnNavMesh)
+        {
+            nurseZombieAgent.speed = speed;
+            nurseZombieAgent.SetDestination(PlayerTransform.position);
+        }
+        else
+        {
+            nurseZombieAgent.ResetPath();
+        }
     }
 
     public void MoveToSpawnPosition()
