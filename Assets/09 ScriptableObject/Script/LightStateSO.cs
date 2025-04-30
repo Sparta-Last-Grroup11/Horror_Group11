@@ -17,6 +17,7 @@ public class LightStateSO : ScriptableObject
         {
             isLightOn = on;
             OnLightStateChanged?.Invoke(isLightOn);
+            Debug.Log("불 켜짐");
         }
     }
 }

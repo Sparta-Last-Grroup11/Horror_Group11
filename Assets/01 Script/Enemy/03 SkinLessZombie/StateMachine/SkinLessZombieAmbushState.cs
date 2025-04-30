@@ -13,7 +13,7 @@ public class SkinLessZombieAmbushState : EnemyBaseState
     {
         base.Enter();
         GameManager.Instance.player.isChased = true;
-        UIManager.Instance.Get<GlitchUI>().GlitchStart(10f);
+        // UIManager.Instance.Get<GlitchUI>().GlitchStart(10f);
         skinLessZombie.skinLessZombieAnim.SetTrigger("Chase");
         AudioManager.Instance.Audio2DPlay(skinLessZombie.spottedRoarClip, 1f);
 
@@ -33,8 +33,8 @@ public class SkinLessZombieAmbushState : EnemyBaseState
         if (distance < 1.0f)
         {
             GameObject.Destroy(skinLessZombie.gameObject);
+            // UIMananger.Instance.Get<GlithUI>().GlitchEnd(0f);
             GameManager.Instance.player.isChased = false;
-            UIManager.Instance.Get<GlitchUI>().GlitchStart(0f);
         }
     }
 }
