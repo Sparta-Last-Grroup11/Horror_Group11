@@ -34,6 +34,7 @@ public class UIManager : Singleton<UIManager>
 
     private void ManagerSetting()
     {
+        IsUiActing = false;
         GlitchEnd();
         GameObject obj = GameObject.Find("MainCanvas");
         subCam = GameObject.Find("Sub Camera").GetComponent<Camera>();
