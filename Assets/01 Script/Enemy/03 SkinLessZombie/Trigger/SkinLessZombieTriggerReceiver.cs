@@ -28,7 +28,7 @@ public class SkinLessZombieTriggerReceiver : MonoBehaviour
             {
                 isZombieOn = true;
                 enemyReceiver.gameObject.SetActive(false);
-                // eventTrigger.transform.parent.gameObject.SetActive(false);
+                eventTrigger.transform.parent.gameObject.SetActive(false);
 
             }
 
