@@ -1,6 +1,6 @@
 # Horror_Group11
 내일배움캠프 최종 팀프로젝트
-<br>
+<br><br>
 
 ## 침묵의 유산 (The Silent Inheritance)
 > Unity 3D로 제작된 1인칭 호러 게임.<br>
