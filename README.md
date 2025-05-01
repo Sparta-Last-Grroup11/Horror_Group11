@@ -38,20 +38,23 @@
 | `F` |  손전등 ON / OFF |
 
 ## 게임 플레이
-- 3D 1인칭 시점에서 진행
-- 마우스 및 키보드 기반 탐색
-- 병원 곳곳에 숨겨진 단서를 통해 탈출 루트 탐색
-- 특정 이벤트 트리거로 몬스터와 조우
+- Unity 3D 기반 1인칭 시점
+- 손전등과 조작키를 활용한 어두운 환경 탐색
+- 병원 내 단서 수집 및 퍼즐 해결
+- 몬스터에게서 도망치며 탈출 경로 확보
 
 ## 주요 기능
-### 플레이어 탐색 및 상호작용 시스템
+### 플레이어 상호작용 시스템
 ### 퍼즐 요소 2종 구현
 - 금고 여는 퍼즐
 - 의식 공간 퍼즐
 ### 몬스터 AI 3종
-- 웃는 천사형: 움직임 감지 기반 특수 AI
-- 점프스케어형: 특정 조건에서 등장하여 공포 연출
-- 순찰형: 일정 경로를 따라 이동하며 플레이어를 탐지
+본 프로젝트의 몬스터들은 모두 FSM(Finite State Machine) 구조를 기반으로 설계되어, 상황에 따라 다양한 행동을 유기적으로 전환함
+- EnemyStateMachine, EnemyBaseState, EnemyReceiver 등을 통해 상태 전이 관리,
+- 독립적인 StateMachine 디렉토리로 관리되어 유지보수 용이
+1) 웃는 천사형: 플레이어가 바라보는 동안 정지하고, 시야에서 벗어나면 플레이어를 추적. 불이 켜져있는 동안에는 발동하지 않음.
+2) 점프스케어형: 특정 조건에서 등장하여 공포 연출
+3) 순찰형: 일정 경로를 따라 이동하며 플레이어를 탐지
 ### UI 시스템
 ### 특수 효과 및 연출
 ### 데이터 관리
@@ -65,4 +68,6 @@
 | 에셋 이름     |출처| 라이선스        |
 |:-----------:|:---:|:-------------:|
 | Nurse of Horror   |https://sketchfab.com/3d-models/nurse-of-horror-1ff4e40c27724291ae4d9cfd51c57239| CC |
+| SkinLess Zombie   |https://assetstore.unity.com/packages/3d/characters/humanoids/skinless-zombie-226029| Standard |
+| Horror Elements   |https://assetstore.unity.com/packages/audio/sound-fx/horror-elements-112021| Standard |
 각자 임포트한 건 각자가 추가. 
