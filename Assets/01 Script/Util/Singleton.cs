@@ -7,12 +7,14 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     protected virtual bool dontDestroy => true;
     private static T _instance;
+    public static bool IsAlive;
     public static T Instance
     {
         get
         {
             if (_instance == null)
             {
+                IsAlive = true;
                 Create();
             }
 
@@ -67,5 +69,6 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     protected virtual void OnDestroy()
     {
         _instance = null;
+        IsAlive = false;
     }
 }
