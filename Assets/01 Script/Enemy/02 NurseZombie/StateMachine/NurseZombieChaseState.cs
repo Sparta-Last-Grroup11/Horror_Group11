@@ -25,6 +25,7 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
         if (nurseZombie.IsPlayerLookingAtMe())
         {
             nurseZombie.nurseZombieAgent.isStopped = true;
+            fsm.ChangeState(new NurseZombieIdleState(nurseZombie, fsm));
             return;
         }
         else
