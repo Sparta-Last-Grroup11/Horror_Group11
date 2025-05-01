@@ -15,11 +15,10 @@ public class NurseZombieIdleState : EnemyBaseState  // 기본 상태일 때
 
     public override void Update()
     {
-        bool canSee = enemy.CanSeePlayer();
-
-        if (canSee && !nurseZombie.lightStateSO.IsLightOn)
+        if (enemy.CanSeePlayer() && !nurseZombie.IsPlayerLookingAtMe() && !nurseZombie.lightStateSO.IsLightOn)
         {
             fsm.ChangeState(new NurseZombieChaseState(nurseZombie, fsm));
+            enemy.FirstVisible(ref nurseZombie.hasBeenSeenByPlayer, nurseZombie.firstMonologueNum);
         }
     }
 
