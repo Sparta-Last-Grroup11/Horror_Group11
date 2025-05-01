@@ -4,7 +4,6 @@ public abstract class Enemy : MonoBehaviour
 {
     protected EnemyStateMachine fsm;
     protected Transform playerTransform;
-    protected SkinLessZombie skinLessZombie;
 
     public Transform PlayerTransform => playerTransform;  // 외부 접근용 getter
     [SerializeField] private LayerMask notEnemyLayer;

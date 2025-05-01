@@ -74,7 +74,7 @@ public class CopZombie_PatrolState : EnemyBaseState
         }
         else
         {
-            return transform.position; // NavMesh 위의 랜덤 위치를 찾지 못한 경우 현재 위치를 반환합니다.
+            return copZombie.transform.position; // NavMesh 위의 랜덤 위치를 찾지 못한 경우 현재 위치를 반환합니다.
         }
     }
 
