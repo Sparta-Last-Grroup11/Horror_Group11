@@ -21,7 +21,8 @@ public abstract class BaseUI : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
-        Cursor.lockState = mode;
+        if (isCursorFree)
+            Cursor.lockState = mode;
         if (UIManager.Instance != null)
             UIManager.Instance.RemoveUIInList(GetType().Name);
     }

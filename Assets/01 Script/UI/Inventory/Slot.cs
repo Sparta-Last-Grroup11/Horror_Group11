@@ -9,12 +9,15 @@ public class Slot : MonoBehaviour
     [SerializeField] Image itemImage;
     [SerializeField] TextMeshProUGUI itemName;
     [SerializeField] TextMeshProUGUI itemCount;
+    public string Description;
     public GameObject Object3D;
 
-    public void Init(Sprite image,string name,int count)
+    public void Init(InventoryItemInfo item)
     {
-        itemImage.sprite = image;
-        itemName.text = name;
-        itemCount.text = count.ToString();
+        itemImage.sprite = item.ItemData.Icon;
+        itemName.text = item.ItemData.ItemName;
+        itemCount.text = item.quantity.ToString();
+        Description = item.ItemData.Description;
+        Object3D = item.ItemData.ObjectIn3D;
     }
 }
