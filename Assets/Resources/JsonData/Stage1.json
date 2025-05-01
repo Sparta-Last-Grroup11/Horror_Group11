@@ -13,7 +13,7 @@
         90.0,
         0.0
       ],
-      "description": "Key is in Security Room Safe."
+      "description": "v Inspect main breaker panel\n\nv Test emergency lights\n\nv Check cable connections\n\nv Key must be stored in the security room\n\nv Log maintenance in daily report"
     },
     {
       "type": "Enemy",

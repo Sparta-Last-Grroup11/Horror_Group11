@@ -20,10 +20,6 @@ public class ChapterChoiceUI : BaseUI
     protected override void Start()
     {
         base.Start();
-        chapter1BTN.onClick.AddListener(() =>
-        {
-            SceneLoadManager.Instance.ChangeScene("GameScene");
-        }
-        );
+        chapter1BTN.onClick.AddListener(() => { SceneLoadManager.Instance.ChangeScene("GameScene"); });
     }
 }

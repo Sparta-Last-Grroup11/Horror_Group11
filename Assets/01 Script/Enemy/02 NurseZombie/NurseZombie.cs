@@ -3,53 +3,55 @@ using UnityEngine.AI;
 
 public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플레이어가 뒤돌면 쫓아옴)
 {
-    // Components
+    [Header("Components")]
     public NavMeshAgent nurseZombieAgent;
-    [HideInInspector] public Animator nurseZombieAnim;
     [HideInInspector] public Rigidbody rb;
+    public Animator nurseZombieAnim;
+    public AudioClip nurseZombieChaseClip;
+    public LightStateSO lightStateSO;
 
-    // Chase, Attack
-    public float moveSpeed = 2;
-    public float attackRange = 2f;
+    [Header("Movement")]
+    public float moveSpeed = 2f;
+    public float dashSpeed = 6f;
+    public float attackRange = 1.2f;
+    public float dashTriggerRange = 0.5f;
+
+    [Header("Detection & States")]
     public float detectionRange = 10f;
-    public float dashSpeed = 6f; // 돌진 속도, 일반 추격보다 빠르게
+    public bool hasDetectedPlayer = false;
+    public bool hasBeenSeenByPlayer = false;
+    public int firstMonologueNum = 4;
+    public bool hasDashed = false;
 
-    // Door
+    [Header("Door Detection")]
     public float detectDoorRange = 2f;
     public float detectDoorRate = 0.5f;
     public float afterDetectDoor;
-    public bool hasDetectedPlayer = false;
     [SerializeField] private LayerMask doorLayerMask;
+    public LayerMask DoorLayerMask => doorLayerMask;
 
-    // Sound
-    public AudioClip nurseZombieChaseClip;
-
-    // Light
-    public LightStateSO lightStateSO;
-
-    // Monologue
-    public bool hasBeenSeenByPlayer = false;
-    public int firstMonologueNum = 4; 
-
-    public LayerMask DoorLayerMask
-    {
-        get { return doorLayerMask; }
-    }
+    [Header("Chase Reset")]
+    public float PlayerDisappearTime = 3.0f;
+    public float waitTimer = 0f;
+    [SerializeField] private Transform spawnPoint;
 
     private void Awake()
     {
         nurseZombieAnim = GetComponentInChildren<Animator>();
         nurseZombieAgent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
-        rb.isKinematic = true;
+        rb.isKinematic = false;
+        doorLayerMask = LayerMask.GetMask("Interactable");
+
+        nurseZombieAgent.updatePosition = true;
+        nurseZombieAgent.updateRotation = true;
+        nurseZombieAgent.baseOffset = 0f;
+        nurseZombieAgent.autoBraking = true;
     }
 
     protected override void Start()
     {
         base.Start();
-
-        doorLayerMask = LayerMask.GetMask("Interactable");
-
         Collider nurseCollider = GetComponent<Collider>();
         Collider playerCollider = PlayerTransform.GetComponent<Collider>();
         if (nurseCollider != null && playerCollider != null)
@@ -57,11 +59,6 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
             Physics.IgnoreCollision(nurseCollider, playerCollider);
         }
 
-        InitNurseFSM();
-    }
-
-    private void InitNurseFSM()
-    {
         fsm = new EnemyStateMachine();
         fsm.ChangeState(new NurseZombieIdleState(this, fsm));
     }
@@ -77,8 +74,59 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
         return dot > lookThreshold;
     }
 
+    public void MoveTowardsPlayer(float speed, bool isDash = false, bool forceWarp = false)
+    {
+        if (nurseZombieAgent == null || !nurseZombieAgent.isOnNavMesh) return;
+
+        float distance = Vector3.Distance(transform.position, PlayerTransform.position);
+        float minDistance = 1.3f;  //  플레이어와 최소 거리 유지
+
+        if (forceWarp)
+        {
+            Vector3 toPlayer = (PlayerTransform.position - transform.position).normalized;
+            float moveDistance = Mathf.Max(distance - minDistance, 0f);
+            Vector3 targetPos = PlayerTransform.position - toPlayer * 1.0f;
+
+            NavMeshHit hit;
+
+            if (NavMesh.SamplePosition(targetPos, out hit, 1f, NavMesh.AllAreas))
+            {
+                nurseZombieAgent.Warp(hit.position);
+            }
+            else
+            {
+                transform.position = targetPos;
+            }
+            return;
+        }
+
+        if (distance > minDistance && nurseZombieAgent.isOnNavMesh)
+        {
+            nurseZombieAgent.speed = speed;
+            nurseZombieAgent.SetDestination(PlayerTransform.position);
+        }
+        else
+        {
+            nurseZombieAgent.ResetPath();
+        }
+    }
+
     public void MoveToSpawnPosition()
     {
-        // 이후에 여기에 스폰위치를 가져올 예정.
+        if (spawnPoint == null)
+        {
+            Debug.LogWarning("NurseZombie's SpawnPoint가 설정되지 않음");
+            return;
+        }
+
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(spawnPoint.position, out hit, 2f, NavMesh.AllAreas))
+        {
+            nurseZombieAgent.Warp(hit.position);
+        }
+        else
+        {
+            Debug.LogWarning("NavMesh에서 유효한 위치를 찾지 못함");
+        }
     }
 }

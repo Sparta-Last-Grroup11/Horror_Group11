@@ -602,10 +602,12 @@ MonoBehaviour:
   rightArray: 00000000000000000000000000000000
   randomRange: 10
   maxNumber: 9
+  safe: {fileID: 0}
   dialTransform: {fileID: 7408641652117399636}
   clip: {fileID: 8300000, guid: a06d5fa8f6270af4f9f4c782cb74b798, type: 3}
   surprise: {fileID: 4580964219330440870}
   answer: 0
+  rotationSpeed: 72
 --- !u!1 &5806722226507870154
 GameObject:
   m_ObjectHideFlags: 0
