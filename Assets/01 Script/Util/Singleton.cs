@@ -30,9 +30,12 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        else if (dontDestroy) 
+        else
         {
-            DontDestroyOnLoad(this);
+            IsAlive = true;
+
+            if (dontDestroy)
+                DontDestroyOnLoad(this);
         }
     }
 
@@ -68,7 +71,10 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
-        _instance = null;
-        IsAlive = false;
+        if (_instance == this)
+        {
+            _instance = null;
+            IsAlive = false;
+        }
     }
 }
