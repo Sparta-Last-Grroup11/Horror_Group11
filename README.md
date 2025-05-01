@@ -58,7 +58,7 @@ NavMesh를 활용해 현실감 있는 이동 경로를 구현
 1) 웃는 천사형:
    - 플레이어가 바라보는 동안 정지하고, 시야에서 벗어나면 플레이어를 추적. 불이 켜져있는 동안에는 발동하지 않음.
    - Idle → Chase → Attack 상태 순환
-![image](https://github.com/user-attachments/assets/fc001524-52e9-45dd-9e8b-3bfba6b3ba0d)
+   ![image](https://github.com/user-attachments/assets/015d04bf-23cb-4d44-ae67-536b0fc1dac7)
 
 2) 점프스케어형: 특정 조건에서 발동하여 갑자기 튀어나오는 공포 연출, 무해한 몬스터
    - Ambush(매복) 상태 기반, TriggerReceiver로 이벤트 감지
