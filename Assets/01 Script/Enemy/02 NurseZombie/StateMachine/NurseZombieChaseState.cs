@@ -14,7 +14,6 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
         GameManager.Instance.player.isChased = true;
         nurseZombie.nurseZombieAnim.SetBool("IsChasing", true);
         AudioManager.Instance.Audio2DPlay(nurseZombie.nurseZombieChaseClip, 10f);
-        nurseZombie.FirstVisible(ref nurseZombie.hasBeenSeenByPlayer, nurseZombie.firstMonologueNum);
         nurseZombie.waitTimer = 0f;
     }
 
@@ -93,8 +92,10 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
 
     public void TransitionToAttack()
     {
+        Debug.Log("TransitionToAttack() 진입");
         if (IsNearPlayer())  // 천사가 일정 거리 안에 있다면 Attack 상태로 전환
         {
+            Debug.Log("Attack 상태 전환!");
             fsm.ChangeState(new NurseZombieAttackState(nurseZombie, fsm));
         }
     }

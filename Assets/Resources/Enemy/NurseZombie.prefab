@@ -2899,7 +2899,7 @@ MonoBehaviour:
   lightStateSO: {fileID: 11400000, guid: 405e8d03f4a7c9042ab2184b737341d1, type: 2}
   moveSpeed: 4
   dashSpeed: 6
-  attackRange: 2
+  attackRange: 1.2
   dashTriggerRange: 0.5
   detectionRange: 10
   hasDetectedPlayer: 0

@@ -4,7 +4,7 @@ using UnityEngine.AI;
 public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플레이어가 뒤돌면 쫓아옴)
 {
     [Header("Components")]
-    [HideInInspector] public NavMeshAgent nurseZombieAgent;
+    public NavMeshAgent nurseZombieAgent;
     [HideInInspector] public Rigidbody rb;
     public Animator nurseZombieAnim;
     public AudioClip nurseZombieChaseClip;
@@ -13,7 +13,7 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
     [Header("Movement")]
     public float moveSpeed = 2f;
     public float dashSpeed = 6f;
-    public float attackRange = 2f;
+    public float attackRange = 1.2f;
     public float dashTriggerRange = 0.5f;
 
     [Header("Detection & States")]
@@ -79,12 +79,12 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
         if (nurseZombieAgent == null || !nurseZombieAgent.isOnNavMesh) return;
 
         float distance = Vector3.Distance(transform.position, PlayerTransform.position);
-        float minDistance = 1.0f;  //  플레이어와 최소 거리 유지
+        float minDistance = 1.3f;  //  플레이어와 최소 거리 유지
 
         if (forceWarp)
         {
             Vector3 toPlayer = (PlayerTransform.position - transform.position).normalized;
-            float moveDistance = Mathf.Max(distance, minDistance, 0f);
+            float moveDistance = Mathf.Max(distance - minDistance, 0f);
             Vector3 targetPos = PlayerTransform.position - toPlayer * 1.0f;
 
             NavMeshHit hit;
@@ -95,7 +95,7 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
             }
             else
             {
-                transform.position = targetPos; // NavMesh 아닌 경우 fallback
+                transform.position = targetPos;
             }
             return;
         }
