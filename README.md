@@ -50,11 +50,20 @@
 - 의식 공간 퍼즐
 ### 몬스터 AI 3종
 본 프로젝트의 몬스터들은 모두 FSM(Finite State Machine) 구조를 기반으로 설계되어, 상황에 따라 다양한 행동을 유기적으로 전환함
-- EnemyStateMachine, EnemyBaseState, EnemyReceiver 등을 통해 상태 전이 관리,
-- 독립적인 StateMachine 디렉토리로 관리되어 유지보수 용이
-1) 웃는 천사형: 플레이어가 바라보는 동안 정지하고, 시야에서 벗어나면 플레이어를 추적. 불이 켜져있는 동안에는 발동하지 않음.
-2) 점프스케어형: 특정 조건에서 등장하여 공포 연출
+NavMesh를 활용해 현실감 있는 이동 경로를 구현
+#### 공통
+- FSM 구조기반 설계: EnemyStateMachine, EnemyBaseState, EnemyReceiver 등을 통해 상태 전이 관리
+- 각 몬스터는 독립적인 StateMachine 폴더로 구성되어 유지보수 및 확장 용이
+- Unity의 NavMesh를 통해 이동 범위 제어 및 경로 탐색 처리
+1) 웃는 천사형:
+   - 플레이어가 바라보는 동안 정지하고, 시야에서 벗어나면 플레이어를 추적. 불이 켜져있는 동안에는 발동하지 않음.
+   - Idle → Chase → Attack 상태 순환
+![image](https://github.com/user-attachments/assets/fc001524-52e9-45dd-9e8b-3bfba6b3ba0d)
+
+2) 점프스케어형: 특정 조건에서 발동하여 갑자기 튀어나오는 공포 연출, 무해한 몬스터
+   - Ambush(매복) 상태 기반, TriggerReceiver로 이벤트 감지
 3) 순찰형: 일정 경로를 따라 이동하며 플레이어를 탐지
+   재현님이 채워주시면 되겠습니다.
 ### UI 시스템
 ### 특수 효과 및 연출
 ### 데이터 관리
