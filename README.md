@@ -62,6 +62,8 @@ NavMesh를 활용해 현실감 있는 이동 경로를 구현
 
 2) 점프스케어형: 특정 조건에서 발동하여 갑자기 튀어나오는 공포 연출, 무해한 몬스터
    - Ambush(매복) 상태 기반, TriggerReceiver로 이벤트 감지
+   ![image](https://github.com/user-attachments/assets/42755460-2460-4910-b2e0-d85fc73aae77)
+
 3) 순찰형: 일정 경로를 따라 이동하며 플레이어를 탐지
    재현님이 채워주시면 되겠습니다.
 ### UI 시스템
