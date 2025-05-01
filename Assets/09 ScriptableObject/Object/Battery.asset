@@ -16,4 +16,4 @@ MonoBehaviour:
   type: 0
   itemName: Battery
   description: Can recharge flash
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 258b2879d3bdc1b428009397e2dda85f, type: 3}
