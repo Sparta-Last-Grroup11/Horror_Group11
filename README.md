@@ -51,10 +51,6 @@
 ### 몬스터 AI 3종
 본 프로젝트의 몬스터들은 모두 FSM(Finite State Machine) 구조를 기반으로 설계되어, 상황에 따라 다양한 행동을 유기적으로 전환함<br>
 NavMesh를 활용해 현실감 있는 이동 경로를 구현
-#### 공통
-- FSM 구조기반 설계: EnemyStateMachine, EnemyBaseState, EnemyReceiver 등을 통해 상태 전이 관리<br>
-- 각 몬스터는 독립적인 StateMachine 폴더로 구성되어 유지보수 및 확장 용이<br>
-- Unity의 NavMesh를 통해 이동 범위 제어 및 경로 탐색 처리<br>
 1) 웃는 천사형:<br>
 - 플레이어가 바라보는 동안 정지하고, 시야에서 벗어나면 플레이어를 추적. 불이 켜져있는 동안에는 발동하지 않음.<br>
 - Idle → Chase → Attack 상태 순환<br>
