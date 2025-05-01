@@ -51,13 +51,12 @@
 
 ## 주요 기능
 ### 🕹️ 플레이어 상호작용 시스템
-<br>
 오브젝트 상호작용
-- 문 개폐
-- 전등 On/Off
-- 아이템 획득
-- 퍼즐 실행
-
+ - 문 개폐
+ - 전등 On/Off
+ - 아이템 획득
+ - 퍼즐 실행
+<br>
 
 ### 🧩 퍼즐 요소 2종 구현
 - 금고 여는 퍼즐
@@ -98,16 +97,14 @@ NavMesh를 활용해 현실감 있는 이동 경로를 구현
 
 
 ## 트러블 슈팅
-<br>
 * 발표 자료와 동일한 형식으로 올려주시면 되겠습니다.
 
 오브젝트 상호작용
-문제 상황
+ 문제 상황
 - 전등 On/Off 시 몬스터가 정지/행동하는 기능을 구현하는 과정에서 동적 생성되는 몬스터에 접근할 방법이 없음
 
 시도한 방법
 - 몬스터 직접 참조 -> 동적 생성이라 연결 불가능
-- Find나 태그로의 접근 방식은 유지보수와 성능 면에서 부적절하다고 판단
 
 해결 방법
 - ScriptableObject를 이용해 전원 상태를 저장
@@ -116,8 +113,7 @@ NavMesh를 활용해 현실감 있는 이동 경로를 구현
 
 결과
 - 동적으로 생성되는 몬스터도 문제없이 전원 상태에 반응하도록 동작
-
-
+<br>
 
 
 ## 향후 추가 예정
@@ -130,4 +126,9 @@ NavMesh를 활용해 현실감 있는 이동 경로를 구현
 | Nurse of Horror   |https://sketchfab.com/3d-models/nurse-of-horror-1ff4e40c27724291ae4d9cfd51c57239| CC |
 | SkinLess Zombie   |https://assetstore.unity.com/packages/3d/characters/humanoids/skinless-zombie-226029| Standard |
 | Horror Elements   |https://assetstore.unity.com/packages/audio/sound-fx/horror-elements-112021| Standard |
+| Door, Cabinets & Lockers |https://assetstore.unity.com/packages/audio/sound-fx/foley/door-cabinets-lockers-free-257610 |
+| Doors Small Sound Pack |https://assetstore.unity.com/packages/p/doors-small-sound-pack-262071 |
+| Horror SFX - 082918 |https://assetstore.unity.com/packages/audio/sound-fx/horror-sfx-082918-127389 |
+| Safe |https://free3d.com/3d-model/safe-58973.html |
+| BankVault | https://pixabay.com/sound-effects/search/bank-vault/ |
 각자 임포트한 건 각자가 추가. 
