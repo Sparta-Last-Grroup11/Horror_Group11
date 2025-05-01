@@ -53,25 +53,17 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
 
     protected override void Start()
     {
-        base.Start();
-        //Collider nurseCollider = GetComponent<Collider>();
-        //Collider playerCollider = PlayerTransform.GetComponent<Collider>();
-        //if (nurseCollider != null && playerCollider != null)
-        //{
-        //    Physics.IgnoreCollision(nurseCollider, playerCollider);
-        //}
-      
+        base.Start();      
         fsm = new EnemyStateMachine();
         fsm.ChangeState(new NurseZombieIdleState(this, fsm));
     }
 
-    
     public bool IsPlayerLookingAtMe()
     {
         Vector3 toNurse = (transform.position - PlayerTransform.position);
         Vector3 playerForward = PlayerTransform.forward;
 
-        // y축 제거 (수평 방향만 비교)
+        // y축 제거 (수평 방향만 비교). 플레이어와 간호사좀비 눈높이 차이 조절. 
         toNurse.y = 0;
         playerForward.y = 0;
 
