@@ -44,11 +44,11 @@
 - 몬스터에게서 도망치며 탈출 경로 확보
 
 ## 주요 기능
-### 플레이어 상호작용 시스템
-### 퍼즐 요소 2종 구현
+### 🕹️ 플레이어 상호작용 시스템
+### 🧩 퍼즐 요소 2종 구현
 - 금고 여는 퍼즐
 - 의식 공간 퍼즐
-### 몬스터 AI 3종
+### 👹 몬스터 AI 3종
 본 프로젝트의 몬스터들은 모두 FSM(Finite State Machine) 구조를 기반으로 설계되어, 상황에 따라 다양한 행동을 유기적으로 전환함<br>
 NavMesh를 활용해 현실감 있는 이동 경로를 구현
 1) 웃는 천사형:<br>
@@ -56,19 +56,20 @@ NavMesh를 활용해 현실감 있는 이동 경로를 구현
 - Idle → Chase → Attack 상태 순환<br>
 <img src="https://github.com/user-attachments/assets/015d04bf-23cb-4d44-ae67-536b0fc1dac7" align="left" width="300"/>
 
-<br clear="both"/><br><br>
+<br clear="both"/><br>
 
-2) 점프스케어형: 특정 조건에서 발동하여 갑자기 튀어나오는 공포 연출, 무해한 몬스터<br>
+2) 점프스케어형:
+- 특정 조건에서 발동하여 갑자기 튀어나오는 공포 연출, 무해한 몬스터<br>
 - Ambush(매복) 상태 기반, TriggerReceiver로 이벤트 감지
 <img src="https://github.com/user-attachments/assets/42755460-2460-4910-b2e0-d85fc73aae77" align="left" width="300"/>
 
-<br clear="both"/><br><br>
+<br clear="both"/><br>
 
 3) 순찰형: 일정 경로를 따라 이동하며 플레이어를 탐지
    재현님이 채워주시면 되겠습니다.
-### UI 시스템
-### 특수 효과 및 연출
-### 데이터 관리
+### 🖥️ UI 시스템
+### 🎬 특수 효과 및 연출
+### 💾 데이터 관리
 - JSON 컨버터
 - 세이브 및 로드 시스템
 
