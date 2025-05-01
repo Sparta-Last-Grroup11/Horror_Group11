@@ -15,7 +15,15 @@
 - Unity 2022.3.17f1
 - C#
 - Json
-- 더 있으면 채워주세요
+- Singleton Pattern
+- Finite State Machine
+- SoundObjectPooling
+- Resource Manage
+- Cinemachine
+- Character Controller
+- Input System (Invoke C# Events)
+- Scriptable Object
+
 <br>
 
 ## 기획 / 개발
@@ -38,8 +46,10 @@
 |:-----------:|:-------:|
 | `W,S,A,D`       |  상,하,좌,우 이동   |
 | `SHIFT` |  달리기 |
+| `Left Control` | 앉기 |
 | `E`       | 오브젝트 상호작용  |
 | `F` |  손전등 ON / OFF |
+| `R` | 손전등 배터리 사용(Reload) |
 <br>
 
 ## 게임 플레이
@@ -80,8 +90,13 @@ NavMesh를 활용해 현실감 있는 이동 경로를 구현
 
 <br clear="both"/><br>
 
-3) 순찰형: 일정 경로를 따라 이동하며 플레이어를 탐지<br>
-   재현님이 채워주시면 되겠습니다.<br>
+3) 순찰형:
+- 일정 시간마다 랜덤 위치를 지정하여, 해당 위치로 이동하며 플레이어를 탐지<br>
+- 플레이어를 탐지하면, 플레이어에게 달려감<br>
+- 플레이어가 5초이상 감지 되지 않으면, 어그로가 풀림.<br>
+<img src = "https://github.com/user-attachments/assets/3a7e9dd3-5d6c-470e-b3b7-ee0b4d05499a" align="left" width="300"/>
+
+<br clear="both"/><br>
    
 ### 🖥️ UI 시스템
 - 리소스 매니저를 이용한 프리팹 불러오기.<br>
