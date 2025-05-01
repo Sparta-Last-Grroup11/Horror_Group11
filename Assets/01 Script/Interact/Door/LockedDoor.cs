@@ -10,6 +10,7 @@ public class LockedDoor : ControlDoor,I_Interactable
     private bool canInteract = true;
     [SerializeField] private float interactCooldown = 1.0f;
     private bool isOpened;
+    public bool IsOpened => isOpened;
     [SerializeField] private AudioClip lockedSound;
     public void OnInteraction()
     {

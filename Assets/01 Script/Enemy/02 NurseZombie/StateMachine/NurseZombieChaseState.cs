@@ -13,6 +13,7 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
     {
         GameManager.Instance.player.isChased = true;
         nurseZombie.nurseZombieAnim.SetBool("IsChasing", true);
+        nurseZombie.hasDetectedPlayer = true;
         AudioManager.Instance.Audio2DPlay(nurseZombie.nurseZombieChaseClip, 10f);
         nurseZombie.waitTimer = 0f;
     }
@@ -58,36 +59,21 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
 
     public void CheckIfPlayerInRoom()
     {
-        nurseZombie.afterDetectDoor += Time.deltaTime;
-        if (nurseZombie.afterDetectDoor >= nurseZombie.detectDoorRate)   // 문 닫힘 감지하면 Wait상태로 전환
-        {
-            Ray ray = new Ray(nurseZombie.transform.position + Vector3.up, nurseZombie.transform.forward);
-            RaycastHit hit;
+        Ray ray = new Ray(nurseZombie.transform.position + Vector3.up, nurseZombie.transform.forward);
+        RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, nurseZombie.detectDoorRange, nurseZombie.DoorLayerMask))
+        if (Physics.Raycast(ray, out hit, nurseZombie.detectDoorRange, nurseZombie.DoorLayerMask))
+        {
+            LockedDoor door = hit.collider.GetComponent<LockedDoor>();
+            if (door != null && !door.IsOpened)
             {
-                GameObject doorObj = hit.collider.gameObject;
-                if (doorObj.activeInHierarchy)
-                {
-                    Debug.Log("방 안에 있음");
-                    PlayerInRoom();
-                    return;
-                }
+                Debug.Log("LockedDoor 발견, Idle 전환");
+                nurseZombie.hasDetectedPlayer = false;
+                nurseZombie.MoveToSpawnPosition(new Vector3(-7f, 5.5f, 12.7f));
+                fsm.ChangeState(new NurseZombieIdleState(nurseZombie, fsm));
+                return;
             }
-            nurseZombie.afterDetectDoor = 0;
         }
-    }
-
-    public void PlayerInRoom()
-    {
-        nurseZombie.waitTimer += Time.deltaTime;
-        if (nurseZombie.waitTimer >= nurseZombie.PlayerDisappearTime)  // 방 밖에서 일정 시간 대기 후 스폰 위치로 이동, 다시 IdleState로 전환
-        {
-            nurseZombie.hasDetectedPlayer = false;
-            nurseZombie.MoveToSpawnPosition();
-            fsm.ChangeState(new NurseZombieIdleState(nurseZombie, fsm));
-        }
-        return;
     }
 
     public void TransitionToAttack()
