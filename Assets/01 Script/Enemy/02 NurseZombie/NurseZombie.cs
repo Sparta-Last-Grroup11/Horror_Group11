@@ -35,12 +35,13 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
     public float waitTimer = 0f;
     [SerializeField] private Transform spawnPoint;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         nurseZombieAnim = GetComponentInChildren<Animator>();
         nurseZombieAgent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
-        rb.isKinematic = false;
+        rb.isKinematic = true;
         doorLayerMask = LayerMask.GetMask("Interactable");
 
         nurseZombieAgent.updatePosition = true;
