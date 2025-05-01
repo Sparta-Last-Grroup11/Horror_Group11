@@ -401,7 +401,7 @@ MonoBehaviour:
   footSpeedRate: 0.8
   chasedCilp: {fileID: 8300000, guid: 468e8fa67df0a144fb63eeab18ec6e38, type: 3}
   isChased: 0
-  isCaught: 0
+  cantMove: 0
   moveInput: {x: 0, y: 0}
   lookInput: {x: 0, y: 0}
   jumpPressed: 0
