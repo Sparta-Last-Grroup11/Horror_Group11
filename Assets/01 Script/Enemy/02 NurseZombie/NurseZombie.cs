@@ -80,7 +80,7 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
         if (nurseZombieAgent == null || !nurseZombieAgent.isOnNavMesh) return;
 
         float distance = Vector3.Distance(transform.position, PlayerTransform.position);
-        float minDistance = 1.3f;  //  플레이어와 최소 거리 유지
+        float minDistance = 0.3f;  //  플레이어와 최소 거리 유지
 
         if (forceWarp)
         {

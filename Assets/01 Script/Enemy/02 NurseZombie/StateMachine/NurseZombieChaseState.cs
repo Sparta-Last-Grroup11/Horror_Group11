@@ -79,6 +79,8 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
 
     public void TransitionToAttack()
     {
+        if (nurseZombie.IsPlayerLookingAtMe()) return;
+
         Debug.Log("TransitionToAttack() 진입");
         if (IsNearPlayer())  // 천사가 일정 거리 안에 있다면 Attack 상태로 전환
         {

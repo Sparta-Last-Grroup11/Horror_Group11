@@ -23,7 +23,7 @@ public abstract class BaseUI : MonoBehaviour
     {
         if (isCursorFree)
             Cursor.lockState = mode;
-        if (UIManager.Instance != null)
+        if (UIManager.IsAlive)
             UIManager.Instance.RemoveUIInList(GetType().Name);
     }
 
