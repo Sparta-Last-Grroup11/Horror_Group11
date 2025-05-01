@@ -126,9 +126,8 @@ NavMesh를 활용해 현실감 있는 이동 경로를 구현
 | Nurse of Horror   |https://sketchfab.com/3d-models/nurse-of-horror-1ff4e40c27724291ae4d9cfd51c57239| CC |
 | SkinLess Zombie   |https://assetstore.unity.com/packages/3d/characters/humanoids/skinless-zombie-226029| Standard |
 | Horror Elements   |https://assetstore.unity.com/packages/audio/sound-fx/horror-elements-112021| Standard |
-| Door, Cabinets & Lockers |https://assetstore.unity.com/packages/audio/sound-fx/foley/door-cabinets-lockers-free-257610 |
-| Doors Small Sound Pack |https://assetstore.unity.com/packages/p/doors-small-sound-pack-262071 |
-| Horror SFX - 082918 |https://assetstore.unity.com/packages/audio/sound-fx/horror-sfx-082918-127389 |
-| Safe |https://free3d.com/3d-model/safe-58973.html |
-| BankVault | https://pixabay.com/sound-effects/search/bank-vault/ |
+| Door, Cabinets & Lockers |https://assetstore.unity.com/packages/audio/sound-fx/foley/door-cabinets-lockers-free-257610 | Standard |
+| Doors Small Sound Pack |https://assetstore.unity.com/packages/p/doors-small-sound-pack-262071 | Standard |
+| Horror SFX - 082918 |https://assetstore.unity.com/packages/audio/sound-fx/horror-sfx-082918-127389 | Standard |
+| Safe |https://free3d.com/3d-model/safe-58973.html | Personal Use License |
 각자 임포트한 건 각자가 추가. 
