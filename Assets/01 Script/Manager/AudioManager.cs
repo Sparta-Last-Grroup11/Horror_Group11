@@ -170,7 +170,9 @@ public class AudioManager : Singleton<AudioManager>
 
     public void StopAllSounds(Scene scene, LoadSceneMode mode)
     {
-        foreach (var source in activeSources)
+        if (activeSources == null) return;
+
+        foreach (var source in activeSources.ToArray())
         {
             audioPool.Release(source);
         }
