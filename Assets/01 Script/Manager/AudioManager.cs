@@ -82,9 +82,8 @@ public class AudioManager : Singleton<AudioManager>
     }
 
     #endregion
-    public void Audio2DPlay(AudioClip clip, float volume = 1f)
+    public void Audio2DPlay(AudioClip clip, float volume = 1f, bool isLoop = false, EAudioType type = EAudioType.Master)
     {
-        //게임 오브젝트를 만든 후에 오디오 소스를 붙여서 clip을 재생
         if (clip == null)
         {
             Debug.LogWarning("재생할 오디오 클립이 없습니다.");
@@ -98,13 +97,14 @@ public class AudioManager : Singleton<AudioManager>
         source.clip = clip;
         source.volume = Mathf.Clamp01(volume);
         source.spatialBlend = 0f;
+        SetOutputGroup(source, type);
         source.Play();
 
         // clip의 길이만큼 지난 후 오브젝트 파괴
         obj.GetComponent<SoundSource>().Play(clip.length);
     }
 
-    public AudioSource Audio3DPlay(AudioClip clip, Vector3 pos, float volume = 1f, bool isLoop = false)
+    public AudioSource Audio3DPlay(AudioClip clip, Vector3 pos, float volume = 1f, bool isLoop = false, EAudioType type = EAudioType.Master)
     {
         if (clip == null)
         {
@@ -120,6 +120,7 @@ public class AudioManager : Singleton<AudioManager>
         source.clip = clip;
         source.loop = isLoop;
         source.volume = Mathf.Clamp01(volume);
+        SetOutputGroup(source, type);
         source.spatialBlend = 1f;
         source.Play();
 
@@ -128,7 +129,7 @@ public class AudioManager : Singleton<AudioManager>
         return source;
     }
 
-    public void AudioBGMPlay(AudioClip clip, bool isLoop = true, float volume = 1f)
+    public void AudioBGMPlay(AudioClip clip, bool isLoop = true, float volume = 1f, EAudioType type = EAudioType.Master)
     {
         if (clip == null)
         {
@@ -149,6 +150,7 @@ public class AudioManager : Singleton<AudioManager>
         source.spatialBlend = 0f;
         source.volume = volume;
         source.loop = isLoop;
+        SetOutputGroup(source, type);
         source.Play();
 
         if (isLoop == true)
@@ -213,5 +215,14 @@ public class AudioManager : Singleton<AudioManager>
     public void SaveAudioSetting(float value, EAudioType type)
     {
         PlayerPrefs.SetFloat(type.ToString(), value);
+    }
+
+    private void SetOutputGroup(AudioSource source, EAudioType type)
+    {
+        AudioMixerGroup[] groups = audioMixer.FindMatchingGroups(type.ToString());
+        if (groups != null && groups.Length > 0)
+            source.outputAudioMixerGroup = groups[0];
+        else
+            source.outputAudioMixerGroup = null;
     }
 }

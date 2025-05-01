@@ -48,7 +48,10 @@ public class GameFlowMaker : MonoBehaviour
             int num = 1;
             foreach (var v in flow.value)
             {
-                Handles.Label(v.Vec + Vector3.up * 1f, flow.key + " " + num.ToString(), labelStyle);
+                if (num != 1)
+                    Handles.Label(v.Vec + Vector3.up * 1f, flow.key + " " + num.ToString(), labelStyle);
+                else
+                    Handles.Label(v.Vec + Vector3.up * 1f, flow.key, labelStyle);
                 Gizmos.DrawCube(transform.position + v.Vec, Vector3.one * boxSize);
                 num++;
             }
