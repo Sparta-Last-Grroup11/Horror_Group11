@@ -30,7 +30,6 @@ public class AudioManager : Singleton<AudioManager>
     protected override void Awake()
     {
         base.Awake();
-        SceneManager.sceneLoaded += StopAllSounds;
         activeSources = new List<SoundSource>();
         audioMixer = ResourceManager.Instance.Load<AudioMixer>(ResourceType.Sound, "BasicAudioMixer");
         // 풀 초기화
@@ -168,7 +167,7 @@ public class AudioManager : Singleton<AudioManager>
         }
     }
 
-    public void StopAllSounds(Scene scene, LoadSceneMode mode)
+    public void StopAllSounds()
     {
         if (activeSources == null) return;
 

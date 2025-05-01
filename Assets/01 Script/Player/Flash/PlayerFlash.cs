@@ -20,6 +20,7 @@ public class PlayerFlash : PlayerInputController
 
     public void OnFlashStarted(InputAction.CallbackContext context)
     {
+        //1. 인풋시스템 문제
         AudioManager.Instance.Audio3DPlay(flashSwitchClip, transform.position);
         isFlash = !isFlash;
         if (isFlash)
