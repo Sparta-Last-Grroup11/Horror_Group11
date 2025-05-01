@@ -49,21 +49,21 @@
 - 금고 여는 퍼즐
 - 의식 공간 퍼즐
 ### 몬스터 AI 3종
-본 프로젝트의 몬스터들은 모두 FSM(Finite State Machine) 구조를 기반으로 설계되어, 상황에 따라 다양한 행동을 유기적으로 전환함
+본 프로젝트의 몬스터들은 모두 FSM(Finite State Machine) 구조를 기반으로 설계되어, 상황에 따라 다양한 행동을 유기적으로 전환함<br>
 NavMesh를 활용해 현실감 있는 이동 경로를 구현
 #### 공통
-- FSM 구조기반 설계: EnemyStateMachine, EnemyBaseState, EnemyReceiver 등을 통해 상태 전이 관리
-- 각 몬스터는 독립적인 StateMachine 폴더로 구성되어 유지보수 및 확장 용이
-- Unity의 NavMesh를 통해 이동 범위 제어 및 경로 탐색 처리
-1) 웃는 천사형:
-   - 플레이어가 바라보는 동안 정지하고, 시야에서 벗어나면 플레이어를 추적. 불이 켜져있는 동안에는 발동하지 않음.
-   - Idle → Chase → Attack 상태 순환
+- FSM 구조기반 설계: EnemyStateMachine, EnemyBaseState, EnemyReceiver 등을 통해 상태 전이 관리<br>
+- 각 몬스터는 독립적인 StateMachine 폴더로 구성되어 유지보수 및 확장 용이<br>
+- Unity의 NavMesh를 통해 이동 범위 제어 및 경로 탐색 처리<br>
+1) 웃는 천사형:<br>
+- 플레이어가 바라보는 동안 정지하고, 시야에서 벗어나면 플레이어를 추적. 불이 켜져있는 동안에는 발동하지 않음.<br>
+- Idle → Chase → Attack 상태 순환<br>
 <img src="https://github.com/user-attachments/assets/015d04bf-23cb-4d44-ae67-536b0fc1dac7" align="left" width="300"/>
 
 <br clear="both"/>
 
-2) 점프스케어형: 특정 조건에서 발동하여 갑자기 튀어나오는 공포 연출, 무해한 몬스터
-   - Ambush(매복) 상태 기반, TriggerReceiver로 이벤트 감지
+2) 점프스케어형: 특정 조건에서 발동하여 갑자기 튀어나오는 공포 연출, 무해한 몬스터<br>
+- Ambush(매복) 상태 기반, TriggerReceiver로 이벤트 감지
 <img src="https://github.com/user-attachments/assets/42755460-2460-4910-b2e0-d85fc73aae77" align="left" width="300"/>
 
 <br clear="both"/>
