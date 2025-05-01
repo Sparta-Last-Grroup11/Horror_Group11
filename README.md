@@ -16,7 +16,8 @@
 - C#
 - Json
 - Singleton Pattern
-- Finite State Machine
+- Finite State Machine (FSM)
+- NavMesh
 - Sound Object Pooling
 - Resource Manage
 - Cinemachine
@@ -114,8 +115,6 @@ NavMesh를 활용해 현실감 있는 이동 경로를 구현
 
 
 ## 트러블 슈팅
-* 발표 자료와 동일한 형식으로 올려주시면 되겠습니다.
-
 오브젝트 상호작용
  문제 상황
 - 전등 On/Off 시 몬스터가 정지/행동하는 기능을 구현하는 과정에서 동적 생성되는 몬스터에 접근할 방법이 없음
