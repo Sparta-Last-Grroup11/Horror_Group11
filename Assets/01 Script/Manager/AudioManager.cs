@@ -5,6 +5,8 @@ using UnityEngine.Audio;
 using Unity.VisualScripting;
 using UnityEngine.Pool;
 using UnityEngine.UI;
+using static Unity.VisualScripting.Member;
+using UnityEngine.SceneManagement;
 
 public enum EAudioType
 {
@@ -23,10 +25,13 @@ public class AudioManager : Singleton<AudioManager>
 
     [SerializeField] Transform tempRoot;
     [SerializeField] Transform bgmRoot;
+    private List<SoundSource> activeSources;
 
     protected override void Awake()
     {
         base.Awake();
+        SceneManager.sceneLoaded += StopAllSounds;
+        activeSources = new List<SoundSource>();
         audioMixer = ResourceManager.Instance.Load<AudioMixer>(ResourceType.Sound, "BasicAudioMixer");
         // 풀 초기화
         audioPool = new ObjectPool<SoundSource>(
@@ -62,11 +67,13 @@ public class AudioManager : Singleton<AudioManager>
     void OnTakeFromPool(SoundSource obj)
     {
         obj.gameObject.SetActive(true);
+        activeSources.Add(obj);
     }
 
     void OnReturnedToPool(SoundSource obj)
     {
         obj.gameObject.SetActive(false);
+        activeSources.Remove(obj);
     }
 
     void OnDestroyPoolObject(SoundSource obj)
@@ -121,7 +128,7 @@ public class AudioManager : Singleton<AudioManager>
         return source;
     }
 
-    public void AudioBGMPlay(AudioClip clip, bool isLoop = true)
+    public void AudioBGMPlay(AudioClip clip, bool isLoop = true, float volume = 1f)
     {
         if (clip == null)
         {
@@ -140,6 +147,7 @@ public class AudioManager : Singleton<AudioManager>
         AudioSource source = obj.GetComponent<AudioSource>();
         source.clip = clip;
         source.spatialBlend = 0f;
+        source.volume = volume;
         source.loop = isLoop;
         source.Play();
 
@@ -155,6 +163,14 @@ public class AudioManager : Singleton<AudioManager>
         {
             audioPool.Release(curBgm);
             curBgm = null;
+        }
+    }
+
+    public void StopAllSounds(Scene scene, LoadSceneMode mode)
+    {
+        foreach (var source in activeSources)
+        {
+            audioPool.Release(source);
         }
     }
 
