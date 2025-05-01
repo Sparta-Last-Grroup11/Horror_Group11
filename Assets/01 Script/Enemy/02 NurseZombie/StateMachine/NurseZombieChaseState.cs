@@ -84,7 +84,7 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
         if (nurseZombie.waitTimer >= nurseZombie.PlayerDisappearTime)  // 방 밖에서 일정 시간 대기 후 스폰 위치로 이동, 다시 IdleState로 전환
         {
             nurseZombie.hasDetectedPlayer = false;
-            nurseZombie.MoveToSpawnPosition();
+            nurseZombie.MoveToSpawnPosition(new Vector3(-7f, 5.5f, 12.7f));
             fsm.ChangeState(new NurseZombieIdleState(nurseZombie, fsm));
         }
         return;

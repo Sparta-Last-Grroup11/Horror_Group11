@@ -111,16 +111,11 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
         }
     }
 
-    public void MoveToSpawnPosition()
+    public void MoveToSpawnPosition(Vector3 targetPosition)
     {
-        if (spawnPoint == null)
-        {
-            Debug.LogWarning("NurseZombie's SpawnPoint가 설정되지 않음");
-            return;
-        }
 
         NavMeshHit hit;
-        if (NavMesh.SamplePosition(spawnPoint.position, out hit, 2f, NavMesh.AllAreas))
+        if (NavMesh.SamplePosition(targetPosition, out hit, 2f, NavMesh.AllAreas))
         {
             nurseZombieAgent.Warp(hit.position);
         }
