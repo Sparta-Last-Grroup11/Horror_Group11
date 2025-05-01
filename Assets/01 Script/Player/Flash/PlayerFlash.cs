@@ -41,4 +41,10 @@ public class PlayerFlash : PlayerInputController
             GameManager.Instance.player.playerInventory.UseItem(battery);
         }
     }
+
+    private void OnDestroy()
+    {
+        flashAction.started -= OnFlashStarted;
+        reloadAction.started -= OnReloadStarted;
+    }
 }

@@ -29,6 +29,7 @@ public class PlayerInputController : MonoBehaviour
         interactAction = inputActionMap.FindAction("Interact");
         flashAction = inputActionMap.FindAction("Flash");
         reloadAction = inputActionMap.FindAction("Reload");
-        crouchAction = inputActionMap.FindAction("Crouch"); 
+        crouchAction = inputActionMap.FindAction("Crouch");
+        crouchAction = inputActionMap.FindAction("Crouch");
     }
 }
