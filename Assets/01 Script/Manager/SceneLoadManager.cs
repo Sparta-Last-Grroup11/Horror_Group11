@@ -18,6 +18,7 @@ public class SceneLoadManager : Singleton<SceneLoadManager>
 
     public async Task ChangeScene(string SceneName, Action callback = null, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
     {
+        AudioManager.Instance.StopAllSounds();
         LoadingUI loadingUI = UIManager.Instance.show<LoadingUI>();
         loadingUI.Init();
 
