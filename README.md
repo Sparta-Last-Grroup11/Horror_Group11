@@ -84,15 +84,17 @@ NavMesh를 활용해 현실감 있는 이동 경로를 구현
    재현님이 채워주시면 되겠습니다.<br>
    
 ### 🖥️ UI 시스템
+- 리소스 매니저를 이용한 프리팹 불러오기.<br>
+- 딕셔너리를 이용하여 현재 활성화된 UI를 저장, 외부 스크립트에서 접근 가능하도록 한다.<br>
+- UI에 3D 물체를 표현하는 것 또한 이쪽 매니저에서 관리.
 <br>
 
 ### 🎬 특수 효과 및 연출
+- 글리칭 효과 (화면의 왜곡) 쉐이더 그래프를 전체 화면 렌더링에 적용하여 쉐이더 그래프 값에 따라 글리칭 효과가 일어남
 <br>
 
 ### 💾 데이터 관리
 - JSON 컨버터
-- 세이브 및 로드 시스템
-- GameFlowMaker(기획자용 툴)
 <br>
 
 
@@ -118,6 +120,9 @@ NavMesh를 활용해 현실감 있는 이동 경로를 구현
 
 ## 향후 추가 예정
 영환님(기획적인 추가), 성준님(개발적인 추가)께서 작성해주시면 되겠습니다.
+- 캐릭터에게 다음 목표를 나타내는 유사 퀘스트 시스템
+- 다양한 점프 스케어 오브젝트 ex) 갑자기 쓰러지는 물체, 움직이는 의자
+- 다양한 퍼즐
 <br>
 
 ## 라이선스
@@ -144,4 +149,5 @@ Personal Use License |
 |RomanUncialModern|OFL|
 |Canterbury|FFC License|
 |BLKCHCRY|OFL|
+|Zombie Animations Set|https://assetstore.unity.com/packages/3d/animations/zombie-animations-set-220537|
 각자 임포트한 건 각자가 추가. 
