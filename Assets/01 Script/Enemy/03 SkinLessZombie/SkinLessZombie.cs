@@ -6,10 +6,8 @@ public class SkinLessZombie : Enemy   // 점프스케어 기믹 (플레이어 �
     public Animator skinLessZombieAnim;
     public Rigidbody rigidbody;
     public Transform cameraTransform;
-    public AudioClip ambientGrowClip;
     public AudioClip spottedRoarClip;
     public AudioClip rushFootstepsLoop;
-    public AudioClip disappearWooshClip;
 
     [Header("Movement")]
     public float rushSpeed = 30f;         // 달려드는 속도

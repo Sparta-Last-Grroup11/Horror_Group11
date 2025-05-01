@@ -1,14 +1,15 @@
 # Horror_Group11
 내일배움캠프 최종 팀프로젝트
+<br><br>
 
 ## 침묵의 유산 (The Silent Inheritance)
 > Unity 3D로 제작된 1인칭 호러 게임.<br>
 > 어느 날, 할아버지에게서 낯선 폐병원을 유산으로 물려받은 주인공.<br>
 > 병원을 둘러보던 중 정체불명의 존재와 마주하게 되며,<br>
 > 끊긴 기억과 숨겨진 진실을 파헤치며 이곳에서 탈출해야 한다.<br>
-> 두 종류의 퍼즐과 세 종류의 몬스터를 통해 심리적 긴장감과 공포를 극대화<br>
-> 개발 기간: 2025.04.04 ~ 2025.06.02<br>
-> 장르: 화이트 게임류 호러, 탈출
+- 개발 기간: 2025.04.04 ~ 2025.06.02<br>
+- 장르: 화이트 게임류 호러, 탈출<br>
+- 2종류의 퍼즐과 3종류의 몬스터를 통해 심리적 긴장감과 공포를 극대화
 <br>
 
 ## 기술 스택
@@ -24,7 +25,6 @@
 - Character Controller
 - Input System (Invoke C# Events)
 - Scriptable Object
-
 <br>
 
 ## 기획 / 개발
@@ -61,17 +61,21 @@
 <br>
 
 ## 주요 기능
-### 🕹️ 플레이어 상호작용 시스템
-오브젝트 상호작용
- - 문 개폐
- - 전등 On/Off
- - 아이템 획득
- - 퍼즐 실행
+### 🕹️ 오브젝트 상호작용 시스템
+1) 문 개폐: 조건 (특정 아이템 소유 등) 만족 및 상호작용 시 작동<br>
+2) 전등 On/Off<br>
+ - 발전기와 상호작용 후 2층의 전기 박스와 상호작용 시 전등 On<br>
+ - 일정 시간마다 소등 및 특정 몬스터의 행동 시작<br>
+3) 아이템 획득<br>
 <br>
 
 ### 🧩 퍼즐 요소 2종 구현
-- 금고 여는 퍼즐
-- 의식 공간 퍼즐
+1) 금고 여는 퍼즐<br>
+ - A,D를 통해 조작<br>
+ - 시계 방향으로 시작, 장치가 돌아가는 소리가 들린다면 반대 방향으로 조작<br>
+ - 총 4회 암호를 맞추면 금고가 열림<br>
+2) 의식 공간 퍼즐<br>
+- 맵에 숨겨진 특정 아이템들을 모아 촛불을 밝히고 상호작용 시 완료
 <br>
 
 ### 👹 몬스터 AI 3종
@@ -100,42 +104,23 @@ NavMesh를 활용해 현실감 있는 이동 경로를 구현
 <br clear="both"/><br>
    
 ### 🖥️ UI 시스템
-- 리소스 매니저를 이용한 프리팹 불러오기.<br>
-- 딕셔너리를 이용하여 현재 활성화된 UI를 저장, 외부 스크립트에서 접근 가능하도록 한다.<br>
-- UI에 3D 물체를 표현하는 것 또한 이쪽 매니저에서 관리.
+- 리소스 매니저를 이용한 프리팹 불러오기<br>
+- 딕셔너리를 이용하여 현재 활성화된 UI를 저장, 외부 스크립트에서 접근 가능하도록 함<br>
+- UI에 3D 물체를 표현하는 것 또한 이쪽 매니저에서 관리
 <br>
 
 ### 🎬 특수 효과 및 연출
-- 글리칭 효과 (화면의 왜곡) 쉐이더 그래프를 전체 화면 렌더링에 적용하여 쉐이더 그래프 값에 따라 글리칭 효과가 일어남
+- 글리칭 효과 (화면의 왜곡): 쉐이더 그래프를 전체 화면 렌더링에 적용하여 쉐이더 그래프 값에 따라 글리칭 효과가 일어남<br>
+- 심장 박동 효과: 몬스터에게 추적당하는 상태가 되면, 심장박동 진폭 및 사운드 증가하는 시그널
 <br>
 
 ### 💾 데이터 관리
 - JSON 컨버터
 <br>
 
-
-## 트러블 슈팅
-오브젝트 상호작용
- 문제 상황
-- 전등 On/Off 시 몬스터가 정지/행동하는 기능을 구현하는 과정에서 동적 생성되는 몬스터에 접근할 방법이 없음
-
-시도한 방법
-- 몬스터 직접 참조 -> 동적 생성이라 연결 불가능
-
-해결 방법
-- ScriptableObject를 이용해 전원 상태를 저장
-- 상태 변화 시. Event를 통해 몬스터에게 상태 변경을 통지
-- 각 몬스터는 SO의 이벤트에 구독, 상태 변화 시 행동 상태를 변하도록 구현
-
-결과
-- 동적으로 생성되는 몬스터도 문제없이 전원 상태에 반응하도록 동작
-<br>
-
-
 ## 향후 추가 예정
-영환님(기획적인 추가), 성준님(개발적인 추가)께서 작성해주시면 되겠습니다.
-- 캐릭터에게 다음 목표를 나타내는 유사 퀘스트 시스템
-- 다양한 점프 스케어 오브젝트 ex) 갑자기 쓰러지는 물체, 움직이는 의자
+- 캐릭터에게 다음 목표를 나타내는 유사 퀘스트 시스템<br>
+- 다양한 점프 스케어 오브젝트 ex) 갑자기 쓰러지는 물체, 움직이는 의자<br>
 - 다양한 퍼즐
 <br>
 
@@ -149,19 +134,13 @@ NavMesh를 활용해 현실감 있는 이동 경로를 구현
 | Doors Small Sound Pack |https://assetstore.unity.com/packages/p/doors-small-sound-pack-262071 | Standard |
 | Horror SFX - 082918 |https://assetstore.unity.com/packages/audio/sound-fx/horror-sfx-082918-127389 | Standard |
 | Safe |https://free3d.com/3d-model/safe-58973.html | Personal Use License |
-|horror mansion|
-https://assetstore.unity.com/packages/3d/environments/horror-mansion-254104|Personal Use License |
+|horror mansion|https://assetstore.unity.com/packages/3d/environments/horror-mansion-254104|Personal Use License |
 |Abandoned Psychiatric Hospital|https://assetstore.unity.com/packages/3d/environments/urban/abandoned-psychiatric-hospital-188270|Personal Use License |
-|Electric Substation Transformer Set|
-https://assetstore.unity.com/packages/3d/props/industrial/electric-substation-transformer-set-316718|
-Personal Use License |
-|Starter Horror Items|
-|https://assetstore.unity.com/packages/3d/props/tools/starter-horror-items-158511|
-|Standard Unity Asset Store EULA|
-|Xerography|FFC License|
-|SpecialElite|FFC License|
-|RomanUncialModern|OFL|
-|Canterbury|FFC License|
-|BLKCHCRY|OFL|
-|Zombie Animations Set|https://assetstore.unity.com/packages/3d/animations/zombie-animations-set-220537|
-각자 임포트한 건 각자가 추가. 
+|Electric Substation Transformer Set|https://assetstore.unity.com/packages/3d/props/industrial/electric-substation-transformer-set-316718|Personal Use License |
+|Starter Horror Items|https://assetstore.unity.com/packages/3d/props/tools/starter-horror-items-158511|Standard Unity Asset Store EULA|
+|Xerography||FFC License|
+|SpecialElite||FFC License|
+|RomanUncialModern||OFL|
+|Canterbury||FFC License|
+|BLKCHCRY||OFL|
+|Zombie Animations Set|https://assetstore.unity.com/packages/3d/animations/zombie-animations-set-220537||

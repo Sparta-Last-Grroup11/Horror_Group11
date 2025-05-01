@@ -66,11 +66,9 @@ MonoBehaviour:
   skinLessZombieAnim: {fileID: 0}
   rigidbody: {fileID: 0}
   cameraTransform: {fileID: 0}
-  ambientGrowClip: {fileID: 8300000, guid: 727c90cef4c97c545a8860dda29b53b1, type: 3}
   spottedRoarClip: {fileID: 8300000, guid: 410eeb4da8e5d5e479b65b68e7b997c2, type: 3}
   rushFootstepsLoop: {fileID: 8300000, guid: 5a5fe2a543e35ef44980fcf5ac79551a, type: 3}
-  disappearWooshClip: {fileID: 0}
-  rushSpeed: 5
+  rushSpeed: 10
   disappearTime: 1
   rushDelay: 0.15
   timer: 0
