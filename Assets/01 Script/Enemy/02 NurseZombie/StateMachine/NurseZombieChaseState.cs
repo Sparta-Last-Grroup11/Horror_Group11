@@ -11,6 +11,7 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
 
     public override void Enter()
     {
+        nurseZombie.nurseZombieAnim.ResetTrigger("Attack");
         GameManager.Instance.player.isChased = true;
         nurseZombie.nurseZombieAnim.SetBool("IsChasing", true);
         nurseZombie.hasDetectedPlayer = true;
@@ -19,8 +20,7 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
     }
 
     public override void Update()
-    {
-        if (ShouldReturnToIdle()) return;
+    { 
 
         if (nurseZombie.IsPlayerLookingAtMe())
         {
@@ -28,17 +28,22 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
             fsm.ChangeState(new NurseZombieIdleState(nurseZombie, fsm));
             return;
         }
-        else
-        {
-            nurseZombie.nurseZombieAgent.isStopped = false;
-        }
 
+        if (ShouldReturnToIdle()) return;
+
+        nurseZombie.nurseZombieAgent.isStopped = false;
         nurseZombie.LookAtPlayer();
         nurseZombie.MoveTowardsPlayer(nurseZombie.moveSpeed);
 
         CheckIfPlayerInRoom();
-        TransitionToAttack();
-        
+
+        Debug.Log(nurseZombie.IsPlayerLookingAtMe());
+        if (nurseZombie.IsPlayerLookingAtMe() == false)
+        {
+            TransitionToAttack();
+        }
+
+
     }
 
     private bool ShouldReturnToIdle()
@@ -79,12 +84,18 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
 
     public void TransitionToAttack()
     {
-        if (nurseZombie.IsPlayerLookingAtMe()) return;
-
-        Debug.Log("TransitionToAttack() 진입");
-        if (IsNearPlayer())  // 천사가 일정 거리 안에 있다면 Attack 상태로 전환
+        if (nurseZombie.IsPlayerLookingAtMe())
         {
-            Debug.Log("Attack 상태 전환!");
+            fsm.ChangeState(new NurseZombieIdleState(nurseZombie, fsm));
+            return;
+        }
+
+        if (!nurseZombie.canAttack) return;
+
+
+        if (IsNearPlayer() && !nurseZombie.IsPlayerLookingAtMe())  // 천사가 일정 거리 안에 있다면 Attack 상태로 전환
+        {
+            nurseZombie.canAttack = false;
             fsm.ChangeState(new NurseZombieAttackState(nurseZombie, fsm));
         }
     }

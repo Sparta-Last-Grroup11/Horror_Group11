@@ -13,7 +13,7 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
     [Header("Movement")]
     public float moveSpeed = 2f;
     public float dashSpeed = 6f;
-    public float attackRange = 1.2f;
+    public float attackRange;
     public float dashTriggerRange = 0.5f;
 
     [Header("Detection & States")]
@@ -21,7 +21,8 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
     public bool hasDetectedPlayer = false;
     public bool hasBeenSeenByPlayer = false;
     public int firstMonologueNum = 4;
-    public bool hasDashed = false;
+    [HideInInspector] public bool hasDashed = false;
+    [HideInInspector] public bool canAttack = true;
 
     [Header("Door Detection")]
     public float detectDoorRange = 2f;
@@ -53,23 +54,31 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
     protected override void Start()
     {
         base.Start();
-        Collider nurseCollider = GetComponent<Collider>();
-        Collider playerCollider = PlayerTransform.GetComponent<Collider>();
-        if (nurseCollider != null && playerCollider != null)
-        {
-            Physics.IgnoreCollision(nurseCollider, playerCollider);
-        }
-
+        //Collider nurseCollider = GetComponent<Collider>();
+        //Collider playerCollider = PlayerTransform.GetComponent<Collider>();
+        //if (nurseCollider != null && playerCollider != null)
+        //{
+        //    Physics.IgnoreCollision(nurseCollider, playerCollider);
+        //}
+      
         fsm = new EnemyStateMachine();
         fsm.ChangeState(new NurseZombieIdleState(this, fsm));
     }
 
+    
     public bool IsPlayerLookingAtMe()
     {
-        Vector3 toNurse = (transform.position - PlayerTransform.position).normalized;  // 플레이어에서 몬스터를 향하는 방향 벡터
-        Vector3 playerforward = PlayerTransform.forward.normalized;  // 플레이어가 보고 있는 방향 벡터
+        Vector3 toNurse = (transform.position - PlayerTransform.position);
+        Vector3 playerForward = PlayerTransform.forward;
 
-        float dot = Vector3.Dot(toNurse, playerforward);  // 1에 가까울수록 플레이어 = 몬스터 같은 방향
+        // y축 제거 (수평 방향만 비교)
+        toNurse.y = 0;
+        playerForward.y = 0;
+
+        toNurse.Normalize();
+        playerForward.Normalize();
+
+        float dot = Vector3.Dot(toNurse, playerForward);  // 1에 가까울수록 플레이어 = 몬스터 같은 방향
         float lookThreshold = 0.8f;  // 거의 같은 방향일 때
 
         return dot > lookThreshold;
