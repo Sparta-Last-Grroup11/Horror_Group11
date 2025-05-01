@@ -17,7 +17,7 @@
 - Json
 - Singleton Pattern
 - Finite State Machine
-- SoundObjectPooling
+- Sound Object Pooling
 - Resource Manage
 - Cinemachine
 - Character Controller
