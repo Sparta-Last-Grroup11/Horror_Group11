@@ -31,7 +31,7 @@ public class Player : PlayerInputController
     [Header("Move")]
     public float moveSpeed = 2f;
     public float runSpeed = 4f;
-    private bool isCrouching;
+    public bool isCrouching;
 
     [Header("Look")]
     public Transform cameraContainer;
