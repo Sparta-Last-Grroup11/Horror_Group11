@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyBaseState : MonoBehaviour
+public class EnemyBaseState
 {
     protected Enemy enemy;
     protected EnemyStateMachine fsm;
