@@ -130,4 +130,18 @@ NavMesh를 활용해 현실감 있는 이동 경로를 구현
 | Doors Small Sound Pack |https://assetstore.unity.com/packages/p/doors-small-sound-pack-262071 | Standard |
 | Horror SFX - 082918 |https://assetstore.unity.com/packages/audio/sound-fx/horror-sfx-082918-127389 | Standard |
 | Safe |https://free3d.com/3d-model/safe-58973.html | Personal Use License |
+|horror mansion|
+https://assetstore.unity.com/packages/3d/environments/horror-mansion-254104|Personal Use License |
+|Abandoned Psychiatric Hospital|https://assetstore.unity.com/packages/3d/environments/urban/abandoned-psychiatric-hospital-188270|Personal Use License |
+|Electric Substation Transformer Set|
+https://assetstore.unity.com/packages/3d/props/industrial/electric-substation-transformer-set-316718|
+Personal Use License |
+|Starter Horror Items|
+|https://assetstore.unity.com/packages/3d/props/tools/starter-horror-items-158511|
+|Standard Unity Asset Store EULA|
+|Xerography|FFC License|
+|SpecialElite|FFC License|
+|RomanUncialModern|OFL|
+|Canterbury|FFC License|
+|BLKCHCRY|OFL|
 각자 임포트한 건 각자가 추가. 
