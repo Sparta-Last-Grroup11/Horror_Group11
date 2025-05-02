@@ -73,10 +73,14 @@
 1) 금고 여는 퍼즐<br>
  - A,D를 통해 조작<br>
  - 시계 방향으로 시작, 장치가 돌아가는 소리가 들린다면 반대 방향으로 조작<br>
- - 총 4회 암호를 맞추면 금고가 열림<br>
+ - 총 4회 암호를 맞추면 금고가 열림
+<img src="https://github.com/user-attachments/assets/502fd93c-b0fe-4752-9b59-a581ad3ab3ef" align="left" width="300"/>
+ <br clear="both"/><br> 
+
 2) 의식 공간 퍼즐<br>
 - 맵에 숨겨진 특정 아이템들을 모아 촛불을 밝히고 상호작용 시 완료
-<br>
+ <img src="https://github.com/user-attachments/assets/7dc0c024-0155-45a3-94ca-79a975abb154" align="left" width="300"/>
+ <br clear="both"/><br> 
 
 ### 👹 몬스터 AI 3종
 본 프로젝트의 몬스터들은 모두 FSM(Finite State Machine) 구조를 기반으로 설계되어, 상황에 따라 다양한 행동을 유기적으로 전환함<br>
