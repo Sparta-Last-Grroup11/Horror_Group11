@@ -59,15 +59,6 @@ public class DoubleDoor : MonoBehaviour,I_Interactable
         canInteract = true;
     }
 
-    public void MonstersOpen()
-    {
-        if (!isOpened)
-        {
-            foreach (var door in doors)
-                door.Open();
-            isOpened = true;
-        }
-    }
     public void CloseBecauseEnter(ItemData changeKey)
     {
         if (isOpened)
