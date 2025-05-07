@@ -44,6 +44,11 @@ public class CopZombie : Enemy
     protected override void Start()
     {
         base.Start();
+        InitCopZombieFSM();
+    }
+
+    private void InitCopZombieFSM()
+    {
         fsm = new EnemyStateMachine();
         fsm.ChangeState(new CopZombie_PatrolState(this, fsm));
     }
@@ -51,7 +56,6 @@ public class CopZombie : Enemy
     protected override void Update()
     {
         base.Update();
-        Debug.DrawRay(transform.position + Vector3.up, transform.forward, Color.red, 2f);
 
         FirstVisible(ref copHasBeenVisible, 3);
 
