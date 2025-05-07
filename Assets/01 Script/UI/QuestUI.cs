@@ -18,8 +18,7 @@ public class QuestUI : BaseUI
 
         if (canvasGroup == null)
             canvasGroup = gameObject.AddComponent<CanvasGroup>();
-
-        StartCoroutine(FadeIn());
+        canvasGroup.alpha = 0f;
         QuestManager.Instance.GetQuestUI(this);
         text = GetComponentInChildren<TextMeshProUGUI>(true);
     }
@@ -30,7 +29,9 @@ public class QuestUI : BaseUI
 
     private IEnumerator PlayFadeSequence(string input)
     {
-        yield return StartCoroutine(FadeOut());
+        yield return null;
+        if(canvasGroup.alpha > 0)
+            yield return StartCoroutine(FadeOut());
 
         text.text = input;
 

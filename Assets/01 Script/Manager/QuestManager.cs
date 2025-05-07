@@ -12,6 +12,7 @@ public class QuestManager : Singleton<QuestManager>
     //GameObject dialogPrefab;
 
     protected override bool dontDestroy => false;
+
     int questNum;
 
     protected override void Awake()
@@ -34,7 +35,6 @@ public class QuestManager : Singleton<QuestManager>
             dialogList = new List<MonologueInfo>(); // 안전한 초기화
             Debug.LogWarning("퀘스트 대사가 로드되지 않았습니다.");
         }
-        QuestTrigger(questNum);
     }
 
     public void PlayQuest()
