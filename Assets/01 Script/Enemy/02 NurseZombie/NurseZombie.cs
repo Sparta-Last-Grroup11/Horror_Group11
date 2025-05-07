@@ -18,11 +18,9 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
 
     [Header("Detection & States")]
     public float detectionRange = 10f;
-    public bool hasDetectedPlayer = false;
     public bool hasBeenSeenByPlayer = false;
     public int firstMonologueNum = 4;
     [HideInInspector] public bool hasDashed = false;
-    [HideInInspector] public bool canAttack = true;
 
     [Header("Door Detection")]
     public float detectDoorRange = 2f;
@@ -60,57 +58,27 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
 
     public bool IsPlayerLookingAtMe()
     {
-        Vector3 toNurse = (transform.position - PlayerTransform.position);
-        Vector3 playerForward = PlayerTransform.forward;
+        Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
 
-        // y축 제거 (수평 방향만 비교). 플레이어와 간호사좀비 눈높이 차이 조절. 
-        toNurse.y = 0;
-        playerForward.y = 0;
+        bool isInView = viewPos.z > 0 && viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1;
 
-        toNurse.Normalize();
-        playerForward.Normalize();
-
-        float dot = Vector3.Dot(toNurse, playerForward);  // 1에 가까울수록 플레이어 = 몬스터 같은 방향
-        float lookThreshold = 0.8f;  // 거의 같은 방향일 때
-
-        return dot > lookThreshold;
-    }
-
-    public void MoveTowardsPlayer(float speed, bool isDash = false, bool forceWarp = false)
-    {
-        if (nurseZombieAgent == null || !nurseZombieAgent.isOnNavMesh) return;
-
-        float distance = Vector3.Distance(transform.position, PlayerTransform.position);
-        float minDistance = 0.3f;  //  플레이어와 최소 거리 유지
-
-        if (forceWarp)
+        if (isInView)
         {
-            Vector3 toPlayer = (PlayerTransform.position - transform.position).normalized;
-            float moveDistance = Mathf.Max(distance - minDistance, 0f);
-            Vector3 targetPos = PlayerTransform.position - toPlayer * 1.0f;
+            Vector3 cameraPos = Camera.main.transform.position + Camera.main.transform.forward;
+            Vector3 direction = (transform.position + Vector3.up * 1.68f) - cameraPos;
+            float distance = direction.magnitude;
 
-            NavMeshHit hit;
+            Debug.DrawRay(cameraPos, direction, Color.red, distance);
 
-            if (NavMesh.SamplePosition(targetPos, out hit, 1f, NavMesh.AllAreas))
+            if (Physics.Raycast(cameraPos, direction, out RaycastHit hit, distance))
             {
-                nurseZombieAgent.Warp(hit.position);
+                if (hit.transform == this.transform)
+                {
+                    return true;
+                }
             }
-            else
-            {
-                transform.position = targetPos;
-            }
-            return;
         }
-
-        if (distance > minDistance && nurseZombieAgent.isOnNavMesh)
-        {
-            nurseZombieAgent.speed = speed;
-            nurseZombieAgent.SetDestination(PlayerTransform.position);
-        }
-        else
-        {
-            nurseZombieAgent.ResetPath();
-        }
+        return false;
     }
 
     public void MoveToSpawnPosition(Vector3 targetPosition)

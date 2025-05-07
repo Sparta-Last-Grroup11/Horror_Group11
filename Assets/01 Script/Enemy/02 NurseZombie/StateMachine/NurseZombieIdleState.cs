@@ -12,26 +12,19 @@ public class NurseZombieIdleState : EnemyBaseState  // 기본 상태일 때
 
     public override void Enter()
     {
-        nurseZombie.canAttack = true;
-        nurseZombie.attackRange = 1f;
-        nurseZombie.nurseZombieAnim.ResetTrigger("Attack");
+        nurseZombie.nurseZombieAgent.isStopped = true;
         nurseZombie.nurseZombieAnim.SetBool("IsChasing", false);
         GameManager.Instance.player.isChased = false;
     }
 
     public override void Update()
     {
-        if (nurseZombie.IsPlayerLookingAtMe())
-        {
-            fsm.ChangeState(new NurseZombieIdleState(nurseZombie, fsm));
-            return;
-        }
+        nurseZombie.CanSeePlayer();
 
-        if (nurseZombie.CanSeePlayer() && !nurseZombie.IsPlayerLookingAtMe() && !nurseZombie.lightStateSO.IsLightOn)
+        if (nurseZombie.haveSeenPlayer && !nurseZombie.IsPlayerLookingAtMe() && !nurseZombie.lightStateSO.IsLightOn)
         {
             fsm.ChangeState(new NurseZombieChaseState(nurseZombie, fsm));
             enemy.FirstVisible(ref nurseZombie.hasBeenSeenByPlayer, nurseZombie.firstMonologueNum);
         }
     }
-
 }

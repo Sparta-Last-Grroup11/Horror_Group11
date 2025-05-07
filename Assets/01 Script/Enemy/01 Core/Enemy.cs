@@ -14,6 +14,7 @@ public abstract class Enemy : MonoBehaviour
 
     private float afterPlayerDisappear;
     private float detectPlayerRate = 5f;
+    public bool haveSeenPlayer = false; //플레이어를 한 번이라도 본 적이 있는지
 
     public float viewDistance = 10f;
     public float viewAngle = 90f;
@@ -62,6 +63,7 @@ public abstract class Enemy : MonoBehaviour
             {
                 if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Player"))
                 {
+                    haveSeenPlayer = true;
                     return true;
                 }
             }
