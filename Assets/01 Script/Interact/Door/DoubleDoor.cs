@@ -61,12 +61,8 @@ public class DoubleDoor : MonoBehaviour,I_Interactable
 
     public void MonstersOpen()
     {
-        if (!isOpened)
-        {
-            foreach (var door in doors)
-                door.Open();
-            isOpened = true;
-        }
+        //현재는 오류 방지용. 이후 양 문 추가 시 내용을 추가해 사용
+        return;
     }
     public void CloseBecauseEnter(ItemData changeKey)
     {

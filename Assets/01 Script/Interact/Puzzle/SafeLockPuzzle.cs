@@ -19,7 +19,7 @@ public class SafeLockPuzzle : ItemOnUI
     private bool isLeft;
     private float currentAngle;
     private float targetAngle;
-    private float rotationSpeed = 36f; // degrees per second
+    [SerializeField] private float rotationSpeed = 36f; // degrees per second
     private bool isRotating;
 
     public override void Init(string description = "")
@@ -93,7 +93,7 @@ public class SafeLockPuzzle : ItemOnUI
 
     private void SetRotationDial(bool goingLeft)
     {
-        float angleStep = 36f;
+        float angleStep = 360 / (maxNumber + 1);
         targetAngle += goingLeft ? -angleStep : angleStep;
         isRotating = true;
     }

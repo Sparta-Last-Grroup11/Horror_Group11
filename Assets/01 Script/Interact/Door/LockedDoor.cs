@@ -10,7 +10,9 @@ public class LockedDoor : ControlDoor,I_Interactable
     private bool canInteract = true;
     [SerializeField] private float interactCooldown = 1.0f;
     private bool isOpened;
+    public bool IsOpened => isOpened;
     [SerializeField] private AudioClip lockedSound;
+    private bool wasOpend = false;
     public void OnInteraction()
     {
         if (!canInteract) return;
@@ -40,6 +42,7 @@ public class LockedDoor : ControlDoor,I_Interactable
         if (!isOpened)
         {
             isOpened = true;
+            wasOpend = true;
             Open();
         }
         else
@@ -58,7 +61,7 @@ public class LockedDoor : ControlDoor,I_Interactable
     
     public void MonstersOpen()
     {
-        if (!isOpened)
+        if (!isOpened && (key == null || wasOpend))
         {
             Open();
             isOpened = true;

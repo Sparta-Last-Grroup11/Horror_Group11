@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyBaseState : MonoBehaviour
+public class EnemyBaseState
 {
     protected Enemy enemy;
     protected EnemyStateMachine fsm;
@@ -13,5 +13,6 @@ public class EnemyBaseState : MonoBehaviour
 
     public virtual void Enter() { }
     public virtual void Update() { }
-    public virtual void Exit() { } 
+    public virtual void Exit() { }
+
 }

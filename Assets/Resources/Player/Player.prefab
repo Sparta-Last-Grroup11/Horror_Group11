@@ -408,6 +408,7 @@ MonoBehaviour:
   runPressing: 0
   moveSpeed: 2
   runSpeed: 4
+  isCrouching: 0
   cameraContainer: {fileID: 7951512017635878670}
   lookSensitivity: 0.1
   minXLook: -85

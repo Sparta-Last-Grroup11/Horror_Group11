@@ -4,7 +4,6 @@ public abstract class Enemy : MonoBehaviour
 {
     protected EnemyStateMachine fsm;
     protected Transform playerTransform;
-    protected SkinLessZombie skinLessZombie;
 
     public Transform PlayerTransform => playerTransform;  // 외부 접근용 getter
     [SerializeField] private LayerMask notEnemyLayer;
@@ -94,19 +93,6 @@ public abstract class Enemy : MonoBehaviour
         Vector3 dir = PlayerTransform.position - transform.position;
         dir.y = 0;  // y축 회전 제거
         transform.rotation = Quaternion.LookRotation(dir);
-    }
-
-    public void MoveTowardsPlayer(float speed)
-    {
-        Vector3 direction = (PlayerTransform.position - transform.position).normalized;
-        direction.y = 0;
-        float distance = Vector3.Distance(transform.position, PlayerTransform.position);
-        float minDistance = 1.0f;  //  플레이어와 최소 거리 유지
-
-        if (distance > minDistance)
-        {
-            transform.position += direction * speed * Time.deltaTime;
-        }
     }
 
     public virtual void TriggerEventEnemy() { }
