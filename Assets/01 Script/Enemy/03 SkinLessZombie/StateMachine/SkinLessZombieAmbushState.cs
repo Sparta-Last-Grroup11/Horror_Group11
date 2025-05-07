@@ -42,6 +42,6 @@ public class SkinLessZombieAmbushState : EnemyBaseState
     {
         Vector3 target = enemy.PlayerTransform.position + Vector3.up * verticalOffset;
         Vector3 direction = (target - skinLessZombie.transform.position).normalized;
-        skinLessZombie.GetComponent<Rigidbody>().MovePosition(skinLessZombie.transform.position + direction * skinLessZombie.rushSpeed * Time.deltaTime);
+        skinLessZombie._rigidbody.MovePosition(skinLessZombie.transform.position + direction * skinLessZombie.rushSpeed * Time.deltaTime);
     }
 }

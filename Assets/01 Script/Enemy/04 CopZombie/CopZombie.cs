@@ -34,7 +34,12 @@ public class CopZombie : Enemy
     // Visibility check
     private bool copHasBeenVisible = false;
 
-    private void Awake()
+    // FSM
+    public CopZombiePatrolState copZombiePatrolState;
+    public CopZombieChaseState copZombieChaseState;
+    public CopZombieAttackState copZombieAttackState;
+
+    protected override void Awake()
     {
         copzombieAgent = GetComponent<NavMeshAgent>();
         copZombieAnim = GetComponentInChildren<Animator>();
@@ -45,7 +50,12 @@ public class CopZombie : Enemy
     {
         base.Start();
         fsm = new EnemyStateMachine();
-        fsm.ChangeState(new CopZombie_PatrolState(this, fsm));
+
+        copZombiePatrolState = new CopZombiePatrolState(this, fsm);
+        copZombieChaseState = new CopZombieChaseState(this, fsm);
+        copZombieAttackState = new CopZombieAttackState(this, fsm);
+
+        fsm.ChangeState(copZombiePatrolState);
     }
 
     protected override void Update()

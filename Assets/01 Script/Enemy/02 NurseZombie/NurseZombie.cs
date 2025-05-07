@@ -34,6 +34,11 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
     public float waitTimer = 0f;
     [SerializeField] private Transform spawnPoint;
 
+    //FSM
+    public NurseZombieIdleState nurseZombieIdleState;
+    public NurseZombieChaseState nurseZombieChaseState;
+    public NurseZombieAttackState nurseZombieAttackState;
+
     protected override void Awake()
     {
         base.Awake();
@@ -51,9 +56,15 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
 
     protected override void Start()
     {
-        base.Start();      
+        base.Start();
+
         fsm = new EnemyStateMachine();
-        fsm.ChangeState(new NurseZombieIdleState(this, fsm));
+
+        nurseZombieIdleState = new NurseZombieIdleState(this, fsm);
+        nurseZombieChaseState = new NurseZombieChaseState(this, fsm);
+        nurseZombieAttackState = new NurseZombieAttackState(this, fsm);
+
+        fsm.ChangeState(nurseZombieIdleState);
     }
 
     public bool IsPlayerLookingAtMe()
@@ -64,7 +75,7 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
 
         if (isInView)
         {
-            Vector3 cameraPos = Camera.main.transform.position + Camera.main.transform.forward;
+            Vector3 cameraPos = Camera.main.transform.position + Camera.main.transform.forward * 0.2f;
             Vector3 direction = (transform.position + Vector3.up * 1.68f) - cameraPos;
             float distance = direction.magnitude;
 
