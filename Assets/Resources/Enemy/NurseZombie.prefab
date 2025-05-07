@@ -2889,6 +2889,7 @@ MonoBehaviour:
     m_Bits: 959
   isDoorOpened: 0
   doorDetectRange: 2
+  haveSeenPlayer: 0
   viewDistance: 10
   viewAngle: 360
   nurseZombieAgent: {fileID: 0}

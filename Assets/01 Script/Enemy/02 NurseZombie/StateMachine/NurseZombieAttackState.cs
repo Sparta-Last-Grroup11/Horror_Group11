@@ -11,17 +11,8 @@ public class NurseZombieAttackState : EnemyBaseState  // 플레이어를 공격�
 
     public override void Enter()
     {
-        if (nurseZombie.IsPlayerLookingAtMe())
-        {
-            fsm.ChangeState(new NurseZombieIdleState(nurseZombie, fsm));
-            return;
-        }
-
         nurseZombie.nurseZombieAnim.SetTrigger("Attack");
-        nurseZombie.MoveTowardsPlayer(nurseZombie.dashSpeed, isDash: true, forceWarp: true);
-
         GameManager.Instance.player.cantMove = true;
         UIManager.Instance.show<DyingUI>();
-        
     }
 }

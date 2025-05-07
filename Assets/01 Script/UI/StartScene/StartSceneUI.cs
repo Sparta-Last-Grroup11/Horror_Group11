@@ -19,7 +19,8 @@ public class StartSceneUI : PopupUI
         door = GameObject.FindAnyObjectByType<DoubleDoor>();
         startBut.onClick.AddListener(async () =>
         {
-            door.MonstersOpen();
+            startBut.interactable = false;
+            door.OnInteraction();
             await Task.Delay(1000);
             await SceneLoadManager.Instance.ChangeScene("LobbyScene");
         });

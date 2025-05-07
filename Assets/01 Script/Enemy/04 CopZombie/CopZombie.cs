@@ -51,7 +51,6 @@ public class CopZombie : Enemy
     protected override void Update()
     {
         base.Update();
-        Debug.DrawRay(transform.position + Vector3.up, transform.forward, Color.red, 2f);
 
         FirstVisible(ref copHasBeenVisible, 3);
 
