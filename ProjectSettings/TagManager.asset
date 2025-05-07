@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - SkinLess
+  - NurseZombie
   layers:
   - Default
   - TransparentFX

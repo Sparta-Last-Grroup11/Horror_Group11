@@ -7,7 +7,6 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
     public NavMeshAgent nurseZombieAgent;
     [HideInInspector] public Rigidbody rb;
     public Animator nurseZombieAnim;
-    public AudioClip nurseZombieChaseClip;
     public LightStateSO lightStateSO;
 
     [Header("Movement")]
@@ -21,6 +20,8 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
     public bool hasBeenSeenByPlayer = false;
     public int firstMonologueNum = 4;
     [HideInInspector] public bool hasDashed = false;
+    public float attackReadyTimer = 0f;
+    public float requiredHoldTime = 0.5f;
 
     [Header("Door Detection")]
     public float detectDoorRange = 2f;
@@ -34,7 +35,11 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
     public float waitTimer = 0f;
     [SerializeField] private Transform spawnPoint;
 
-    //FSM
+    [Header("Sound")]
+    public AudioClip nurseZombieChaseClip;
+    [HideInInspector] public bool hasPlayedChaseSound = false;
+
+    [Header("FSM")]
     public NurseZombieIdleState nurseZombieIdleState;
     public NurseZombieChaseState nurseZombieChaseState;
     public NurseZombieAttackState nurseZombieAttackState;

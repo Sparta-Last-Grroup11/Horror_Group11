@@ -95,10 +95,6 @@ public class Player : PlayerInputController
         {
             ChasingByEnemy();
         }
-        else
-        {
-            isChasedBGM = false;
-        }
 
         if (!UIManager.Instance.IsUiActing && !cantMove)
         {
@@ -188,7 +184,14 @@ public class Player : PlayerInputController
         {
             AudioManager.Instance.Audio2DPlay(chasedCilp, 1f);
             isChasedBGM = true;
+
+            Invoke("ChasedBGMOff", 3f);
         }
+    }
+
+    private void ChasedBGMOff()
+    {
+        isChasedBGM = false;
     }
 
     //인벤토리 열기
