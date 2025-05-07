@@ -22,13 +22,13 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
     {
         if (nurseZombie.IsPlayerLookingAtMe() || nurseZombie.lightStateSO.IsLightOn || enemy.HasLostPlayer())
         {
-            fsm.ChangeState(new NurseZombieIdleState(nurseZombie, fsm));
+            fsm.ChangeState(nurseZombie.nurseZombieIdleState);
             return;
         }
 
         if (IsNearPlayer() && !nurseZombie.IsPlayerLookingAtMe()) // 천사가 일정 거리 안에 있다면 Attack 상태로 전환
         {
-            fsm.ChangeState(new NurseZombieAttackState(nurseZombie, fsm));
+            fsm.ChangeState(nurseZombie.nurseZombieAttackState);
         }
 
         nurseZombie.LookAtPlayer();
@@ -56,7 +56,7 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
             {
                 Debug.Log("LockedDoor 발견, Idle 전환");
                 nurseZombie.MoveToSpawnPosition(new Vector3(-7f, 5.5f, 12.7f));
-                fsm.ChangeState(new NurseZombieIdleState(nurseZombie, fsm));
+                fsm.ChangeState(nurseZombie.nurseZombieIdleState);
                 nurseZombie.haveSeenPlayer = false;
                 return;
             }
