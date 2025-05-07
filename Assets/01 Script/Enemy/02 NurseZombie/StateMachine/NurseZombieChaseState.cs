@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격하는 상태일 때
 {
@@ -12,15 +13,8 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
     public override void Enter()
     {
         nurseZombie.nurseZombieAgent.isStopped = false;
-        nurseZombie.nurseZombieAnim.SetBool("IsChasing", true);
         GameManager.Instance.player.isChased = true;
-
-        if (!nurseZombie.hasPlayedChaseSound)
-        {
-            AudioManager.Instance.Audio2DPlay(nurseZombie.nurseZombieChaseClip, 1f);
-
-            nurseZombie.hasPlayedChaseSound = true;
-        }
+        nurseZombie.nurseZombieAnim.SetBool("IsChasing", true);
     }
 
     public override void Update()
@@ -33,22 +27,12 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
 
         if (IsNearPlayer() && !nurseZombie.IsPlayerLookingAtMe()) // 천사가 일정 거리 안에 있다면 Attack 상태로 전환
         {
-            nurseZombie.attackReadyTimer += Time.deltaTime;
-            if (nurseZombie.attackReadyTimer > nurseZombie.requiredHoldTime)
-            {
-                fsm.ChangeState(nurseZombie.nurseZombieAttackState);
-                return;
-            }
-        }
-        else
-        {
-            nurseZombie.attackReadyTimer = 0f;
+            fsm.ChangeState(nurseZombie.nurseZombieAttackState);
         }
 
         nurseZombie.LookAtPlayer();
         MoveTowardsPlayer();
         CheckPlayerBeyondDoor();
-
     }
 
     public void MoveTowardsPlayer()
@@ -83,5 +67,4 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
         float distance = Vector3.Distance(nurseZombie.transform.position, nurseZombie.PlayerTransform.position);  // 몬스터와 플레이어의 거리
         return distance <= nurseZombie.attackRange;  // 공격 범위 안에 들어왔는지 확인
     }
-
 }
