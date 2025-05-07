@@ -2895,15 +2895,12 @@ MonoBehaviour:
   nurseZombieAgent: {fileID: 0}
   rb: {fileID: 0}
   nurseZombieAnim: {fileID: 0}
-  nurseZombieChaseClip: {fileID: 8300000, guid: 6f3c8a80c34da8949a7c39bbfd3cbc04,
-    type: 3}
   lightStateSO: {fileID: 11400000, guid: 405e8d03f4a7c9042ab2184b737341d1, type: 2}
   moveSpeed: 4
   dashSpeed: 6
-  attackRange: 1.2
+  attackRange: 0.8
   dashTriggerRange: 0.5
   detectionRange: 10
-  hasDetectedPlayer: 0
   hasBeenSeenByPlayer: 0
   firstMonologueNum: 4
   hasDashed: 0
@@ -2916,6 +2913,9 @@ MonoBehaviour:
   PlayerDisappearTime: 3
   waitTimer: 0
   spawnPoint: {fileID: 0}
+  nurseZombieChaseClip: {fileID: 8300000, guid: 6f3c8a80c34da8949a7c39bbfd3cbc04,
+    type: 3}
+  hasPlayedChaseSound: 0
 --- !u!54 &1389980022007079389
 Rigidbody:
   m_ObjectHideFlags: 0
