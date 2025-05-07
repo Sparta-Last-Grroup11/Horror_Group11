@@ -6,8 +6,9 @@ using static UnityEditor.Progress;
 public class InventoryItem : MonoBehaviour, I_Interactable
 {
     [SerializeField] ItemData itemData;
-    [SerializeField] private int commentID = -1;
     public ItemData ItemData => itemData;
+    [SerializeField] private int commentID = -1;
+    [SerializeField] private int questID = -1;
     
     public virtual void OnInteraction()
     {
@@ -22,7 +23,7 @@ public class InventoryItem : MonoBehaviour, I_Interactable
         {
             MonologueManager.Instance.DialogPlay(commentID);
         }
-
+        QuestManager.Instance.QuestTrigger(questID);
         Destroy(gameObject);
     }
 }

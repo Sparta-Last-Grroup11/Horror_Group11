@@ -83,3 +83,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventTrigger: {fileID: 2007255258777197226}
   commentID: 020000000f000000
+  questID: 10
