@@ -20,7 +20,7 @@ public class QuestManager : Singleton<QuestManager>
         //questAsset = ResourceManager.Instance.Load<TextAsset>(ResourceType.JsonData, questLog);
         questAsset = ResourceManager.Instance.Load<TextAsset>(ResourceType.JsonData, "Monologue");
 
-        var path = "Quest";
+        var path = "Monologue";
         var Dialog = JsonConvert.DeserializeObject<Dictionary<string, List<MonologueInfo>>>(questAsset.text);
 
         questNum = 0;
@@ -37,7 +37,7 @@ public class QuestManager : Singleton<QuestManager>
         QuestTrigger(questNum);
     }
 
-    public void PlayQueue()
+    public void PlayQuest()
     {
         if (questUI == null)
         {
@@ -53,8 +53,14 @@ public class QuestManager : Singleton<QuestManager>
     {
         if (questNum == num && questNum < dialogList.Count)
         {
-            PlayQueue();
+            PlayQuest();
             questNum++;
         }
+    }
+
+    public void GetQuestUI(QuestUI ui)
+    {
+        if(questUI == null)
+            questUI = ui;
     }
 }

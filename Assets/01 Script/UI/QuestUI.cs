@@ -20,12 +20,12 @@ public class QuestUI : BaseUI
             canvasGroup = gameObject.AddComponent<CanvasGroup>();
 
         StartCoroutine(FadeIn());
-
+        QuestManager.Instance.GetQuestUI(this);
         text = GetComponentInChildren<TextMeshProUGUI>(true);
     }
     public void ChangeQuest(string input = null)
     {
-        PlayFadeSequence(input);
+        StartCoroutine(PlayFadeSequence(input));
     }
 
     private IEnumerator PlayFadeSequence(string input)
