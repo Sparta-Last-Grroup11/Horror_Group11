@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class CopZombie_PatrolState : EnemyBaseState
+public class CopZombiePatrolState : EnemyBaseState
 {
     private CopZombie copZombie;
 
     private float afterSetPoint;
 
-    public CopZombie_PatrolState(Enemy enemy, EnemyStateMachine fsm) : base(enemy, fsm)
+    public CopZombiePatrolState(Enemy enemy, EnemyStateMachine fsm) : base(enemy, fsm)
     {
         copZombie = enemy as CopZombie;
     }
@@ -28,7 +28,7 @@ public class CopZombie_PatrolState : EnemyBaseState
 
         if (enemy.CanSeePlayer())
         {
-            fsm.ChangeState(new CopZombie_ChaseState(copZombie, fsm));
+            fsm.ChangeState(copZombie.copZombiePatrolState);
         }
     }
 

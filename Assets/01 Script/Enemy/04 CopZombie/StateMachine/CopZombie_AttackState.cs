@@ -1,11 +1,11 @@
 using System.Collections;
 using UnityEngine;
 
-public class CopZombie_AttackState : EnemyBaseState
+public class CopZombieAttackState : EnemyBaseState
 {
     private CopZombie copZombie;
 
-    public CopZombie_AttackState(Enemy enemy, EnemyStateMachine fsm) : base(enemy, fsm)
+    public CopZombieAttackState(Enemy enemy, EnemyStateMachine fsm) : base(enemy, fsm)
     {
         copZombie = enemy as CopZombie;
     }
