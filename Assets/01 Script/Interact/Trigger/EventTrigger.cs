@@ -20,6 +20,7 @@ public class EventTrigger : MonoBehaviour
         {
             receiver.ReceiveTrigger();
         }
+        QuestManager.Instance.QuestTrigger(1);
         gameObject.SetActive(false);
     }
 }
