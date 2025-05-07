@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class CopZombie_ChaseState : EnemyBaseState
+public class CopZombieChaseState : EnemyBaseState
 {
     private CopZombie copZombie;
 
-    public CopZombie_ChaseState(Enemy enemy, EnemyStateMachine fsm) : base(enemy, fsm)
+    public CopZombieChaseState(Enemy enemy, EnemyStateMachine fsm) : base(enemy, fsm)
     {
         copZombie = enemy as CopZombie;
     }
@@ -29,11 +29,11 @@ public class CopZombie_ChaseState : EnemyBaseState
         }
         if (Vector3.Distance(GameManager.Instance.player.transform.position, copZombie.transform.position) < 1.8f)
         {
-            fsm.ChangeState(new CopZombie_AttackState(copZombie, fsm));
+            fsm.ChangeState(copZombie.copZombieAttackState);
         }
         if (copZombie.HasLostPlayer())
         {
-            fsm.ChangeState(new CopZombie_PatrolState(copZombie, fsm));
+            fsm.ChangeState(copZombie.copZombiePatrolState);
         }
     }
 

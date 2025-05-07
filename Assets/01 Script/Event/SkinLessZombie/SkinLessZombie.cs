@@ -4,7 +4,7 @@ public class SkinLessZombie : Enemy   // 점프스케어 기믹 (플레이어 �
 {
     [Header("Components")]
     public Animator skinLessZombieAnim;
-    public Rigidbody rigidbody;
+    public Rigidbody _rigidbody;
     public Transform cameraTransform;
     public AudioClip spottedRoarClip;
     public AudioClip rushFootstepsLoop;
@@ -19,10 +19,10 @@ public class SkinLessZombie : Enemy   // 점프스케어 기믹 (플레이어 �
     public bool hasBeenSeenByPlayer = false;
     public int firstMonologueNum = 0;
 
-    private void Awake()
+    protected override void Awake()
     {
         skinLessZombieAnim = GetComponentInChildren<Animator>();
-        rigidbody = GetComponent<Rigidbody>();
+        _rigidbody = GetComponent<Rigidbody>();
 
         if (cameraTransform == null && Camera.main != null)
         {
@@ -45,5 +45,4 @@ public class SkinLessZombie : Enemy   // 점프스케어 기믹 (플레이어 �
     {
         fsm.ChangeState(new SkinLessZombieAmbushState(this, fsm));
     }
-
 }
