@@ -44,11 +44,6 @@ public class CopZombie : Enemy
     protected override void Start()
     {
         base.Start();
-        InitCopZombieFSM();
-    }
-
-    private void InitCopZombieFSM()
-    {
         fsm = new EnemyStateMachine();
         fsm.ChangeState(new CopZombie_PatrolState(this, fsm));
     }
