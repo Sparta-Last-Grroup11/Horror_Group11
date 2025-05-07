@@ -3,11 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class QuestInfo
+{
+    public int id;
+    public string content;
+}
+
 public class QuestManager : Singleton<QuestManager>
 {
     [SerializeField] private TextAsset questAsset;
-    [SerializeField] List<MonologueInfo> dialogList;
-    [SerializeField] string questLog = "QuestLog";
+    [SerializeField] List<QuestInfo> dialogList;
+    [SerializeField] string questLog = "Quest";
     [SerializeField] private QuestUI questUI;
     //GameObject dialogPrefab;
 
@@ -18,11 +25,10 @@ public class QuestManager : Singleton<QuestManager>
     protected override void Awake()
     {
         base.Awake();
-        //questAsset = ResourceManager.Instance.Load<TextAsset>(ResourceType.JsonData, questLog);
-        questAsset = ResourceManager.Instance.Load<TextAsset>(ResourceType.JsonData, "Monologue");
+        questAsset = ResourceManager.Instance.Load<TextAsset>(ResourceType.JsonData, questLog);
 
-        var path = "Monologue";
-        var Dialog = JsonConvert.DeserializeObject<Dictionary<string, List<MonologueInfo>>>(questAsset.text);
+        var path = "Quest";
+        var Dialog = JsonConvert.DeserializeObject<Dictionary<string, List<QuestInfo>>>(questAsset.text);
 
         questNum = 0;
 
@@ -32,7 +38,7 @@ public class QuestManager : Singleton<QuestManager>
         }
         else
         {
-            dialogList = new List<MonologueInfo>(); // 안전한 초기화
+            dialogList = new List<QuestInfo>(); // 안전한 초기화
             Debug.LogWarning("퀘스트 대사가 로드되지 않았습니다.");
         }
     }
@@ -51,7 +57,7 @@ public class QuestManager : Singleton<QuestManager>
 
     public void QuestTrigger(int num)
     {
-        if (questNum == num && questNum < dialogList.Count)
+        if (questNum > -1&& questNum < dialogList.Count && dialogList[questNum].id == num )
         {
             PlayQuest();
             questNum++;
