@@ -547,6 +547,11 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 1510779798595278535, guid: 5df55da3edd7a4c46a7f4f056450ad01,
         type: 3}
+      propertyPath: questID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510779798595278535, guid: 5df55da3edd7a4c46a7f4f056450ad01,
+        type: 3}
       propertyPath: lockedSound
       value: 
       objectReference: {fileID: 8300000, guid: ba0dd6d8b717e403ca0fa3bdebe97dad, type: 3}
@@ -1067,6 +1072,11 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 1510779798595278535, guid: 5df55da3edd7a4c46a7f4f056450ad01,
         type: 3}
+      propertyPath: questID
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510779798595278535, guid: 5df55da3edd7a4c46a7f4f056450ad01,
+        type: 3}
       propertyPath: lockedSound
       value: 
       objectReference: {fileID: 8300000, guid: ba0dd6d8b717e403ca0fa3bdebe97dad, type: 3}
@@ -1486,6 +1496,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: b9d5b5bd65729b54ea1bdd5d8bbb2d24, type: 2}
+    - target: {fileID: 2904448273496990263, guid: 81c02f43ddbd74f40815dfe3fc208c0d,
+        type: 3}
+      propertyPath: questID
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2904448273496990263, guid: 81c02f43ddbd74f40815dfe3fc208c0d,
         type: 3}
       propertyPath: eventTrigger
