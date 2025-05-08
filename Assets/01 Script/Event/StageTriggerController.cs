@@ -4,6 +4,7 @@ using UnityEngine;
 public class StageTriggerController : Singleton<StageTriggerController>
 {
     [SerializeField] private List<GameObject> triggers;  // Trigger가 되는 각 콜라이더 오브젝트
+    public int TriggerCount => triggers.Count;
 
     private List<int> currentIndices = new List<int>();
 

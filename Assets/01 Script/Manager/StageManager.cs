@@ -24,7 +24,7 @@ public class StageInfo
 public class TriggerInfo
 {
     public int stageid;
-    public int[] triggers;
+    public int triggerindex;
 }
 
 public class StageManager : Singleton<StageManager>
@@ -129,8 +129,10 @@ public class StageManager : Singleton<StageManager>
                 Debug.Log(trigger);
                 if (trigger.stageid == StageNum.StageNumber)
                 {
-                    StageTriggerController.Instance.GetTriggers(trigger.triggers.ToList()); 
-                    Debug.Log(trigger.triggers);
+                    int totalTriggers = StageTriggerController.Instance.TriggerCount;
+                    List<int> selects = RandomUniqueIndices(0, totalTriggers - 1, trigger.triggerindex);
+
+                    StageTriggerController.Instance.GetTriggers(selects); 
                 }
             }
         }

@@ -8,7 +8,6 @@ public class DoorTriggerActivator : MonoBehaviour
     {
         if (other.GetComponent<CharacterController>() != null && isPlayerOn == false)
         {
-            Debug.LogWarning("문 트리거 발동");
             isPlayerOn = true;
             StageTriggerController.Instance.ActivateTriggers();
         }
