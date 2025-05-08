@@ -67,6 +67,14 @@
     {
       "ID": 16,
       "Content": "I can't open this door"
+    },
+    {
+      "ID": 17,
+      "Content": "What?I'm trapped now"
+    },
+    {
+      "ID": 18,
+      "Content": "I'm alive."
     }
   ]
 }
