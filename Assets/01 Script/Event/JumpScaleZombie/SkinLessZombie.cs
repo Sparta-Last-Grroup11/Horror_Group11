@@ -33,7 +33,6 @@ public class SkinLessZombie : Enemy   // 점프스케어 기믹 (플레이어 �
     protected override void Start()
     {
         base.Start();
-        fsm = new EnemyStateMachine();
     }
 
     public override void TriggerEventEnemy()
@@ -41,8 +40,35 @@ public class SkinLessZombie : Enemy   // 점프스케어 기믹 (플레이어 �
         TriggerAmbush();
     }
 
-    public void TriggerAmbush()
+    private void TriggerAmbush()
     {
-        fsm.ChangeState(new SkinLessZombieAmbushState(this, fsm));
+        GameManager.Instance.player.isChased = true;
+        UIManager.Instance.GlitchStart(10f);
+        skinLessZombieAnim.SetTrigger("Chase");
+        FirstVisible(ref hasBeenSeenByPlayer, firstMonologueNum);
+        AudioManager.Instance.Audio2DPlay(spottedRoarClip, 1f);
+        AudioManager.Instance.Audio2DPlay(rushFootstepsLoop, 1f);
+
+        LookAtPlayer();
+        MoveTowardPlayer(3.0f);
+        ZombieDisappear();
+    }
+
+    private void MoveTowardPlayer(float verticalOffset)
+    {
+        Vector3 target = PlayerTransform.position + Vector3.up * verticalOffset;
+        Vector3 direction = (target - transform.position).normalized;
+        _rigidbody.MovePosition(transform.position + direction * rushSpeed * Time.deltaTime);
+    }
+
+    private void ZombieDisappear()
+    {
+        float distance = Vector3.Distance(transform.position, PlayerTransform.position);
+        if (distance < 1.0f)
+        {
+            GameObject.Destroy(gameObject);
+            UIManager.Instance.GlitchEnd();
+            GameManager.Instance.player.isChased = false;
+        }
     }
 }

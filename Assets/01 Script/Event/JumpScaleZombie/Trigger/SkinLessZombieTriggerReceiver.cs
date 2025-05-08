@@ -18,7 +18,7 @@ public class SkinLessZombieTriggerReceiver : MonoBehaviour
     {
         if (other.CompareTag("SkinLess"))
         {
-            var enemyReceiver = other.GetComponent<EnemyReceiver>();
+            var enemyReceiver = other.GetComponent<JumpScaleReceiver>();
             if (enemyReceiver != null)
             {
                 eventTrigger.AddReceiver(enemyReceiver);
