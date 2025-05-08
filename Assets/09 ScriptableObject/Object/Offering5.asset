@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 6
   type: 0
-  itemName: "\uB9C8\uC9C0\uB9C9 \uC81C\uBB3C"
-  description: "\uB9C8\uC9C0\uB9C9 \uBD88\uAF43\uC744 \uBC1D\uD78C\uB2E4"
-  icon: {fileID: 0}
+  itemName: 5th Offering
+  description: It's a glass of something
+  icon: {fileID: 21300000, guid: d771f10bf0741cd4d96c4cc21ee11f96, type: 3}

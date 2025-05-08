@@ -24,7 +24,6 @@ public class StageTriggerController : Singleton<StageTriggerController>
 
     public void ActivateTriggers()
     {
-
         for (int i = 0; i < observers.Count; i++)
         {
             bool isActive = currentIndices.Contains(i);
@@ -39,12 +38,10 @@ public class StageTriggerController : Singleton<StageTriggerController>
         }
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<CharacterController>() != null && isPlayerOn == false)
         {
-            
             isPlayerOn = true;
             ActivateTriggers();
         }

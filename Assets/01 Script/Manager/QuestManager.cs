@@ -1,0 +1,72 @@
+using Newtonsoft.Json;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[System.Serializable]
+public class QuestInfo
+{
+    public int id;
+    public string content;
+}
+
+public class QuestManager : Singleton<QuestManager>
+{
+    [SerializeField] private TextAsset questAsset;
+    [SerializeField] List<QuestInfo> dialogList;
+    [SerializeField] string questLog = "Quest";
+    [SerializeField] private QuestUI questUI;
+    //GameObject dialogPrefab;
+
+    protected override bool dontDestroy => false;
+
+    int questNum;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        questAsset = ResourceManager.Instance.Load<TextAsset>(ResourceType.JsonData, questLog);
+
+        var path = "Quest";
+        var Dialog = JsonConvert.DeserializeObject<Dictionary<string, List<QuestInfo>>>(questAsset.text);
+
+        questNum = 0;
+
+        if (Dialog.TryGetValue(path, out var monologues))
+        {
+            dialogList = monologues;
+        }
+        else
+        {
+            dialogList = new List<QuestInfo>(); // 안전한 초기화
+            Debug.LogWarning("퀘스트 대사가 로드되지 않았습니다.");
+        }
+    }
+
+    public void PlayQuest()
+    {
+        if (questUI == null)
+        {
+            UIManager.Instance.show<QuestUI>().ChangeQuest(dialogList[questNum].content);
+        }
+        else
+        {
+            questUI.ChangeQuest(dialogList[questNum].content);
+        }
+    }
+
+    public void QuestTrigger(int num)
+    {
+        if (questNum > -1&& questNum < dialogList.Count && dialogList[questNum].id == num )
+        {
+            PlayQuest();
+            questNum++;
+        }
+    }
+
+    public void GetQuestUI(QuestUI ui)
+    {
+        if(questUI == null)
+            questUI = ui;
+    }
+}

@@ -13,16 +13,28 @@ public abstract class BaseUI : MonoBehaviour
 
     protected virtual void Start()
     {
+        StartCoroutine(InitCursorState());
+    }
+
+    private IEnumerator InitCursorState()
+    {
+        yield return null; // 한 프레임 대기해서 다른 시스템 초기화 완료 후 실행
+
         mode = Cursor.lockState;
-        if(isCursorFree)
+        Debug.Log("Saved mode: " + mode);
+
+        if (isCursorFree)
+        {
             Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 
     protected virtual void OnDestroy()
     {
         if (isCursorFree)
             Cursor.lockState = mode;
-        if (UIManager.Instance != null)
+        if (UIManager.IsAlive)
             UIManager.Instance.RemoveUIInList(GetType().Name);
     }
 

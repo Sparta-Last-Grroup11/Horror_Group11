@@ -15,5 +15,5 @@ MonoBehaviour:
   id: 105
   type: 1
   itemName: EmptyRoom Key
-  description: 
-  icon: {fileID: 0}
+  description: Key of EmptyRoom
+  icon: {fileID: 21300000, guid: 638b030945966cb489cfe57a48dcc5d3, type: 3}

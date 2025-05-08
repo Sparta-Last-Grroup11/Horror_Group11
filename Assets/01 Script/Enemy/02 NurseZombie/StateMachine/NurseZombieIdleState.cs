@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class NurseZombieIdleState : EnemyBaseState  // 기본 상태일 때
 {
     private NurseZombie nurseZombie;
@@ -9,18 +11,20 @@ public class NurseZombieIdleState : EnemyBaseState  // 기본 상태일 때
 
     public override void Enter()
     {
-        nurseZombie.nurseZombieAnim.SetBool("IsChasing", false);
         GameManager.Instance.player.isChased = false;
+        nurseZombie.nurseZombieAgent.isStopped = true;
+        nurseZombie.nurseZombieAnim.SetBool("IsChasing", false);
+
     }
 
     public override void Update()
     {
-        bool canSee = enemy.CanSeePlayer();
+        nurseZombie.CanSeePlayer();
 
-        if (canSee && !nurseZombie.lightStateSO.IsLightOn)
+        if (nurseZombie.haveSeenPlayer && !nurseZombie.IsPlayerLookingAtMe() && !nurseZombie.lightStateSO.IsLightOn)
         {
-            fsm.ChangeState(new NurseZombieChaseState(nurseZombie, fsm));
+            fsm.ChangeState(nurseZombie.nurseZombieChaseState);
+            enemy.FirstVisible(ref nurseZombie.hasBeenSeenByPlayer, nurseZombie.firstMonologueNum);
         }
     }
-
 }

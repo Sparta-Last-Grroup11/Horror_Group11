@@ -13,7 +13,7 @@ public abstract class PopupUI : BaseUI
     [SerializeField] private bool DestroyByTime;
     [SerializeField] private float DestroyTime;
 
-    public virtual void Init(string input = null)
+    protected override void Start()
     {
         canvasGroup = GetComponent<CanvasGroup>();
 
@@ -22,10 +22,14 @@ public abstract class PopupUI : BaseUI
 
         StartCoroutine(FadeIn());
 
-        if (!DestroyByTime) 
+        if (!DestroyByTime)
             return;
 
         Invoke(nameof(FadeOutAndDestroyFunc), DestroyTime + duration);
+    }
+
+    public virtual void Init(string input = null)
+    {
     }
 
     private IEnumerator FadeIn()

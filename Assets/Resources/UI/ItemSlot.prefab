@@ -67,8 +67,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: BATTERY
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2ca3dc22304bae541b92de498465d3a1, type: 2}
+  m_sharedMaterial: {fileID: 8547021560773644820, guid: 2ca3dc22304bae541b92de498465d3a1,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -273,6 +274,7 @@ MonoBehaviour:
   itemImage: {fileID: 7250139230776599842}
   itemName: {fileID: 7496880671464976319}
   itemCount: {fileID: 8415603404968024889}
+  Description: 
   Object3D: {fileID: 5849360188797692983, guid: f50db3e3b6b70114086b8deac82908fd,
     type: 3}
 --- !u!1 &7372463215460307920

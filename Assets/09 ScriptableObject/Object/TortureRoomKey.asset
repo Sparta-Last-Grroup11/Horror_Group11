@@ -15,5 +15,5 @@ MonoBehaviour:
   id: 104
   type: 1
   itemName: TortureRoom Key
-  description: 
-  icon: {fileID: 0}
+  description: Key of TortureRoom
+  icon: {fileID: 21300000, guid: 638b030945966cb489cfe57a48dcc5d3, type: 3}

@@ -52,4 +52,9 @@ public class PlayerInteraction : PlayerInputController
             curInteractable.OnInteraction();
         }
     }
+
+    private void OnDestroy()
+    {
+        interactAction.started -= OnInteractStarted;
+    }
 }

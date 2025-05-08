@@ -4,7 +4,6 @@ public abstract class Enemy : MonoBehaviour
 {
     protected EnemyStateMachine fsm;
     protected Transform playerTransform;
-    protected SkinLessZombie skinLessZombie;
 
     public Transform PlayerTransform => playerTransform;  // 외부 접근용 getter
     [SerializeField] private LayerMask notEnemyLayer;
@@ -15,6 +14,7 @@ public abstract class Enemy : MonoBehaviour
 
     private float afterPlayerDisappear;
     private float detectPlayerRate = 5f;
+    public bool haveSeenPlayer = false; //플레이어를 한 번이라도 본 적이 있는지
 
     public float viewDistance = 10f;
     public float viewAngle = 90f;
@@ -63,6 +63,7 @@ public abstract class Enemy : MonoBehaviour
             {
                 if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Player"))
                 {
+                    haveSeenPlayer = true;
                     return true;
                 }
             }
@@ -94,19 +95,6 @@ public abstract class Enemy : MonoBehaviour
         Vector3 dir = PlayerTransform.position - transform.position;
         dir.y = 0;  // y축 회전 제거
         transform.rotation = Quaternion.LookRotation(dir);
-    }
-
-    public void MoveTowardsPlayer(float speed)
-    {
-        Vector3 direction = (PlayerTransform.position - transform.position).normalized;
-        direction.y = 0;
-        float distance = Vector3.Distance(transform.position, PlayerTransform.position);
-        float minDistance = 1.0f;  //  플레이어와 최소 거리 유지
-
-        if (distance > minDistance)
-        {
-            transform.position += direction * speed * Time.deltaTime;
-        }
     }
 
     public virtual void TriggerEventEnemy() { }

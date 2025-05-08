@@ -1,0 +1,48 @@
+﻿{
+  "Quest": [
+    {
+      "ID": 1,
+      "Content": "Find Generator"
+    },
+    {
+      "ID": 2,
+      "Content": "Find PowerRoom Key"
+    },
+    {
+      "ID": 3,
+      "Content": "Start Up Generator"
+    },
+    {
+      "ID": 4,
+      "Content": "Find Power Switch"
+    },
+    {
+      "ID": 5,
+      "Content": "Go to Bedroom and find key"
+    },
+    {
+      "ID": 6,
+      "Content": "Go to Torture Room"
+    },
+    {
+      "ID": 7,
+      "Content": "Get Surgery Key"
+    },
+    {
+      "ID": 8,
+      "Content": "Go to Surgery and find key"
+    },
+    {
+      "ID": 9,
+      "Content": "Go to Ritual Room"
+    },
+    {
+      "ID": 10,
+      "Content": "Gather offerings and light candles"
+    },
+    {
+      "ID": 11,
+      "Content": "Escape"
+    }
+  ]
+}

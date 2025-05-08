@@ -67,8 +67,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: The Silent Inheritance
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35588074172f6964bb862443c67718d6, type: 2}
+  m_sharedMaterial: {fileID: -6427524803175306079, guid: 35588074172f6964bb862443c67718d6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -361,8 +362,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Start
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2ca3dc22304bae541b92de498465d3a1, type: 2}
+  m_sharedMaterial: {fileID: 8547021560773644820, guid: 2ca3dc22304bae541b92de498465d3a1,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -438,6 +440,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4055095374488449013}
   - component: {fileID: 5368598467138819665}
+  - component: {fileID: 5264941521887539260}
   m_Layer: 5
   m_Name: StartSceneUI
   m_TagString: Untagged
@@ -478,10 +481,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f29e60d3f2793ed4c980c10c1bba7535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isCursorFree: 0
+  isCursorFree: 1
+  duration: 0.5
+  DestroyByTime: 0
+  DestroyTime: 0
   startBut: {fileID: 3525251616110756187}
   SettingBut: {fileID: 2945833915287772084}
   ExitBut: {fileID: 1886194624756608976}
+  door: {fileID: 0}
+--- !u!225 &5264941521887539260
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4855689807748198405}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5214469570075196430
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,8 +568,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Exit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2ca3dc22304bae541b92de498465d3a1, type: 2}
+  m_sharedMaterial: {fileID: 8547021560773644820, guid: 2ca3dc22304bae541b92de498465d3a1,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -676,7 +696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -715,7 +735,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.3529412}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.47058824}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.23529412}
@@ -805,8 +825,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Setting
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2ca3dc22304bae541b92de498465d3a1, type: 2}
+  m_sharedMaterial: {fileID: 8547021560773644820, guid: 2ca3dc22304bae541b92de498465d3a1,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

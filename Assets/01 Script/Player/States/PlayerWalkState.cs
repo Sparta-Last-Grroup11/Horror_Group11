@@ -16,7 +16,7 @@ public class PlayerWalkState : PlayerState
         HandleLook();
 
         footTimer += Time.deltaTime;
-        if (footTimer > _player.footSpeedRate)
+        if (footTimer > _player.footSpeedRate && !_player.isCrouching)
         {
             AudioManager.Instance.Audio3DPlay(_player.footStepClip, _player.transform.position);
             footTimer = 0f;

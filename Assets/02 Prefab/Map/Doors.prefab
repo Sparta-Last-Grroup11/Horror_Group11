@@ -29,23 +29,87 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3562218015946492281}
-  - {fileID: 5237328213283477961}
+  - {fileID: 2096574621749540870}
+  - {fileID: 650079193804604453}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6073760557997097478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2096574621749540870}
+  m_Layer: 0
+  m_Name: Floor1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2096574621749540870
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6073760557997097478}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
   - {fileID: 3969257589708896594}
   - {fileID: 3790046645390310892}
   - {fileID: 4756198729725945415}
-  - {fileID: 3080748397821142153}
-  - {fileID: 4179072985771271724}
-  - {fileID: 8995051458762905707}
-  - {fileID: 2452825557310104645}
   - {fileID: 7698771641733453193}
   - {fileID: 1800128317781155323}
-  - {fileID: 4731399174169357472}
   - {fileID: 6195718441486873749}
   - {fileID: 2846384698884136756}
   - {fileID: 7527177029201176376}
   - {fileID: 5716968387503613125}
-  m_Father: {fileID: 0}
+  - {fileID: 3080748397821142153}
+  m_Father: {fileID: 8657800887709335839}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8155249162723636591
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 650079193804604453}
+  m_Layer: 0
+  m_Name: Floor2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &650079193804604453
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8155249162723636591}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3562218015946492281}
+  - {fileID: 5237328213283477961}
+  - {fileID: 4179072985771271724}
+  - {fileID: 8995051458762905707}
+  - {fileID: 2452825557310104645}
+  - {fileID: 4731399174169357472}
+  m_Father: {fileID: 8657800887709335839}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1897575197636596673
 PrefabInstance:
@@ -53,7 +117,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 8657800887709335839}
+    m_TransformParent: {fileID: 2096574621749540870}
     m_Modifications:
     - target: {fileID: 4455723983452379715, guid: 652334ccd7ac00040b64a92c8a2c8986,
         type: 3}
@@ -179,7 +243,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 8657800887709335839}
+    m_TransformParent: {fileID: 2096574621749540870}
     m_Modifications:
     - target: {fileID: 1548293861790015740, guid: 71e57a255521ebe43bd9f1223b75ed24,
         type: 3}
@@ -239,7 +303,7 @@ PrefabInstance:
     - target: {fileID: 2177338399421708870, guid: 71e57a255521ebe43bd9f1223b75ed24,
         type: 3}
       propertyPath: m_Name
-      value: Interior_Wall_Door_02
+      value: Infirmary
       objectReference: {fileID: 0}
     - target: {fileID: 5271208497301235992, guid: 71e57a255521ebe43bd9f1223b75ed24,
         type: 3}
@@ -268,7 +332,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 8657800887709335839}
+    m_TransformParent: {fileID: 2096574621749540870}
     m_Modifications:
     - target: {fileID: 4783786661562639699, guid: c474476a537c06e438130024378c2795,
         type: 3}
@@ -358,7 +422,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 8657800887709335839}
+    m_TransformParent: {fileID: 650079193804604453}
     m_Modifications:
     - target: {fileID: 1510779798595278535, guid: 5df55da3edd7a4c46a7f4f056450ad01,
         type: 3}
@@ -381,10 +445,15 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[2]
       value: 
       objectReference: {fileID: 2100000, guid: 991b8d33b26726d46a215ba9d8a0e52a, type: 2}
+    - target: {fileID: 5951875646402302491, guid: 5df55da3edd7a4c46a7f4f056450ad01,
+        type: 3}
+      propertyPath: m_Name
+      value: SurgeryRoom
+      objectReference: {fileID: 0}
     - target: {fileID: 8174524819860399446, guid: 5df55da3edd7a4c46a7f4f056450ad01,
         type: 3}
       propertyPath: m_Name
-      value: Interior_Wall_Door_01 (3)
+      value: SurgeryRoom
       objectReference: {fileID: 0}
     - target: {fileID: 8807474822005456876, guid: 5df55da3edd7a4c46a7f4f056450ad01,
         type: 3}
@@ -468,7 +537,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 8657800887709335839}
+    m_TransformParent: {fileID: 2096574621749540870}
     m_Modifications:
     - target: {fileID: 1510779798595278535, guid: 5df55da3edd7a4c46a7f4f056450ad01,
         type: 3}
@@ -476,6 +545,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 66ca6a2cd639cbb43840c0db721dd165,
         type: 2}
+    - target: {fileID: 1510779798595278535, guid: 5df55da3edd7a4c46a7f4f056450ad01,
+        type: 3}
+      propertyPath: questID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1510779798595278535, guid: 5df55da3edd7a4c46a7f4f056450ad01,
         type: 3}
       propertyPath: lockedSound
@@ -489,7 +563,7 @@ PrefabInstance:
     - target: {fileID: 8174524819860399446, guid: 5df55da3edd7a4c46a7f4f056450ad01,
         type: 3}
       propertyPath: m_Name
-      value: Interior_Wall_Door_01 (5)
+      value: ElecRoom
       objectReference: {fileID: 0}
     - target: {fileID: 8807474822005456876, guid: 5df55da3edd7a4c46a7f4f056450ad01,
         type: 3}
@@ -568,7 +642,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 8657800887709335839}
+    m_TransformParent: {fileID: 2096574621749540870}
     m_Modifications:
     - target: {fileID: 267552505122585309, guid: feb33812d6e24f448acb22912cc1c9af,
         type: 3}
@@ -662,7 +736,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 8657800887709335839}
+    m_TransformParent: {fileID: 2096574621749540870}
     m_Modifications:
     - target: {fileID: 326342905849969867, guid: 7ea09735b379b884481402ca2a19eb4b,
         type: 3}
@@ -751,7 +825,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 8657800887709335839}
+    m_TransformParent: {fileID: 650079193804604453}
     m_Modifications:
     - target: {fileID: 1510779798595278535, guid: 5df55da3edd7a4c46a7f4f056450ad01,
         type: 3}
@@ -766,7 +840,7 @@ PrefabInstance:
     - target: {fileID: 8174524819860399446, guid: 5df55da3edd7a4c46a7f4f056450ad01,
         type: 3}
       propertyPath: m_Name
-      value: Interior_Wall_Door_01 (2)
+      value: BathRoom
       objectReference: {fileID: 0}
     - target: {fileID: 8807474822005456876, guid: 5df55da3edd7a4c46a7f4f056450ad01,
         type: 3}
@@ -845,7 +919,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 8657800887709335839}
+    m_TransformParent: {fileID: 650079193804604453}
     m_Modifications:
     - target: {fileID: 1104840463348347746, guid: 5df55da3edd7a4c46a7f4f056450ad01,
         type: 3}
@@ -988,7 +1062,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 8657800887709335839}
+    m_TransformParent: {fileID: 2096574621749540870}
     m_Modifications:
     - target: {fileID: 1510779798595278535, guid: 5df55da3edd7a4c46a7f4f056450ad01,
         type: 3}
@@ -996,6 +1070,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 7b7f12d62dde3994f97e1069f2e543f3,
         type: 2}
+    - target: {fileID: 1510779798595278535, guid: 5df55da3edd7a4c46a7f4f056450ad01,
+        type: 3}
+      propertyPath: questID
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1510779798595278535, guid: 5df55da3edd7a4c46a7f4f056450ad01,
         type: 3}
       propertyPath: lockedSound
@@ -1098,7 +1177,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 8657800887709335839}
+    m_TransformParent: {fileID: 2096574621749540870}
     m_Modifications:
     - target: {fileID: 1510779798595278535, guid: 5df55da3edd7a4c46a7f4f056450ad01,
         type: 3}
@@ -1113,7 +1192,7 @@ PrefabInstance:
     - target: {fileID: 8174524819860399446, guid: 5df55da3edd7a4c46a7f4f056450ad01,
         type: 3}
       propertyPath: m_Name
-      value: Interior_Wall_Door_01 (1)
+      value: Toilet
       objectReference: {fileID: 0}
     - target: {fileID: 8807474822005456876, guid: 5df55da3edd7a4c46a7f4f056450ad01,
         type: 3}
@@ -1192,7 +1271,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 8657800887709335839}
+    m_TransformParent: {fileID: 650079193804604453}
     m_Modifications:
     - target: {fileID: 1510779798595278535, guid: 5df55da3edd7a4c46a7f4f056450ad01,
         type: 3}
@@ -1296,7 +1375,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 8657800887709335839}
+    m_TransformParent: {fileID: 2096574621749540870}
     m_Modifications:
     - target: {fileID: 4455723983452379714, guid: 652334ccd7ac00040b64a92c8a2c8986,
         type: 3}
@@ -1410,13 +1489,18 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 8657800887709335839}
+    m_TransformParent: {fileID: 2096574621749540870}
     m_Modifications:
     - target: {fileID: 266614763798465642, guid: 81c02f43ddbd74f40815dfe3fc208c0d,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: b9d5b5bd65729b54ea1bdd5d8bbb2d24, type: 2}
+    - target: {fileID: 2904448273496990263, guid: 81c02f43ddbd74f40815dfe3fc208c0d,
+        type: 3}
+      propertyPath: questID
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2904448273496990263, guid: 81c02f43ddbd74f40815dfe3fc208c0d,
         type: 3}
       propertyPath: eventTrigger
@@ -1531,7 +1615,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 8657800887709335839}
+    m_TransformParent: {fileID: 650079193804604453}
     m_Modifications:
     - target: {fileID: 455176907302728801, guid: 71e57a255521ebe43bd9f1223b75ed24,
         type: 3}
@@ -1617,7 +1701,7 @@ PrefabInstance:
     - target: {fileID: 2177338399421708870, guid: 71e57a255521ebe43bd9f1223b75ed24,
         type: 3}
       propertyPath: m_Name
-      value: Interior_Wall_Door_02 (1)
+      value: EmptyRoom
       objectReference: {fileID: 0}
     - target: {fileID: 2855358985285973819, guid: 71e57a255521ebe43bd9f1223b75ed24,
         type: 3}
@@ -1674,7 +1758,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 8657800887709335839}
+    m_TransformParent: {fileID: 650079193804604453}
     m_Modifications:
     - target: {fileID: 4455723983452379715, guid: 652334ccd7ac00040b64a92c8a2c8986,
         type: 3}

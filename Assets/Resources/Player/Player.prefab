@@ -78,7 +78,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 20
+  m_Intensity: 8
   m_Range: 20
   m_SpotAngle: 60
   m_InnerSpotAngle: 20
@@ -164,10 +164,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashBattery: 100
-  minInnerSpotAngle: 10
-  maxInnerSpotAngle: 20
-  minSpotAngle: 45
-  maxSpotAngle: 55
+  minInnerSpotAngle: 15
+  maxInnerSpotAngle: 25
+  minSpotAngle: 55
+  maxSpotAngle: 65
   angleLerpSpeed: 0.5
   deadFlicker: 0
 --- !u!114 &2575666161747899168
@@ -401,13 +401,14 @@ MonoBehaviour:
   footSpeedRate: 0.8
   chasedCilp: {fileID: 8300000, guid: 468e8fa67df0a144fb63eeab18ec6e38, type: 3}
   isChased: 0
-  isCaught: 0
+  cantMove: 0
   moveInput: {x: 0, y: 0}
   lookInput: {x: 0, y: 0}
   jumpPressed: 0
   runPressing: 0
   moveSpeed: 2
   runSpeed: 4
+  isCrouching: 0
   cameraContainer: {fileID: 7951512017635878670}
   lookSensitivity: 0.1
   minXLook: -85

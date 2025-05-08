@@ -31,7 +31,7 @@ public class Player : PlayerInputController
     [Header("Move")]
     public float moveSpeed = 2f;
     public float runSpeed = 4f;
-    private bool isCrouching;
+    public bool isCrouching;
 
     [Header("Look")]
     public Transform cameraContainer;
@@ -94,10 +94,6 @@ public class Player : PlayerInputController
         if (isChased)
         {
             ChasingByEnemy();
-        }
-        else
-        {
-            isChasedBGM = false;
         }
 
         if (!UIManager.Instance.IsUiActing && !cantMove)
@@ -188,7 +184,14 @@ public class Player : PlayerInputController
         {
             AudioManager.Instance.Audio2DPlay(chasedCilp, 1f);
             isChasedBGM = true;
+
+            Invoke("ChasedBGMOff", 3f);
         }
+    }
+
+    private void ChasedBGMOff()
+    {
+        isChasedBGM = false;
     }
 
     //인벤토리 열기
@@ -196,5 +199,19 @@ public class Player : PlayerInputController
     {
         if(Input.GetKeyDown(KeyCode.Tab))
             playerInventory.ShowInventory();
+    }
+
+    private void OnDestroy()
+    {
+        moveAction.performed -= OnMovePerformed;
+        moveAction.canceled -= OnMoveCanceled;
+        lookAction.performed -= OnLookPerformed;
+        lookAction.canceled -= OnLookCanceled;
+        jumpAction.started -= OnJumpStarted;
+        jumpAction.canceled -= OnJumpCanceled;
+        runAction.performed -= OnRunPerformed;
+        runAction.canceled -= OnRunCanceled;
+        crouchAction.performed -= OnCrouchPerformed;
+        crouchAction.canceled -= OnCrouchCanceled;
     }
 }
