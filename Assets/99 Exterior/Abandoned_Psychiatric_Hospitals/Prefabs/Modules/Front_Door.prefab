@@ -835,7 +835,7 @@ GameObject:
   - component: {fileID: 8835105320950313420}
   - component: {fileID: 8119921994479539073}
   - component: {fileID: 2904448273496990263}
-  - component: {fileID: 4208559106090795662}
+  - component: {fileID: 3908617836563478103}
   m_Layer: 6
   m_Name: Doors
   m_TagString: Untagged
@@ -915,7 +915,7 @@ MonoBehaviour:
   eventTrigger: {fileID: 0}
   changeKey: {fileID: 11400000, guid: 78c388ed4f172254cab4fd385d7b8455, type: 2}
   questID: 1
---- !u!114 &4208559106090795662
+--- !u!114 &3908617836563478103
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

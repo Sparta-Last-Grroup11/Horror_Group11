@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SkinLessZombie : Enemy   // 점프스케어 기믹 (플레이어 보면 빠르게 달려와서 깜놀시키고 사라짐, 무해함)
+public class JumpScaleZombie : Enemy   // 점프스케어 기믹 (플레이어 보면 빠르게 달려와서 깜놀시키고 사라짐, 무해함)
 {
     [Header("Components")]
     public Animator skinLessZombieAnim;
