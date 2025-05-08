@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 78c388ed4f172254cab4fd385d7b8455, type: 2}
   commentID: 5
+  questID: 11
 --- !u!65 &7639189639233460940
 BoxCollider:
   m_ObjectHideFlags: 0
