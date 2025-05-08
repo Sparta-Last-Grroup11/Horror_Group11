@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class JumpScaleZombie : Enemy   // 점프스케어 기믹 (플레이어 보면 빠르게 달려와서 깜놀시키고 사라짐, 무해함)
@@ -10,10 +11,9 @@ public class JumpScaleZombie : Enemy   // 점프스케어 기믹 (플레이어 �
     public AudioClip rushFootstepsLoop;
 
     [Header("Movement")]
-    public float rushSpeed = 30f;         // 달려드는 속도
-    public float disappearTime = 1f;    // 사라지기까지 시간
-    public float rushDelay = 0f; // 달려들기 전에 대기하는 시간
-    public float timer = 0f;  // 달려든 후 일정 시간 지나면 사라지게 만들 타이머
+    public float rushSpeed = 10f;
+    public float disappearTime = 1f;
+    public float rushDelay = 0f;
 
     [Header("Monologue")]
     public bool hasBeenSeenByPlayer = false;
@@ -49,26 +49,34 @@ public class JumpScaleZombie : Enemy   // 점프스케어 기믹 (플레이어 �
         AudioManager.Instance.Audio2DPlay(spottedRoarClip, 1f);
         AudioManager.Instance.Audio2DPlay(rushFootstepsLoop, 1f);
 
-        LookAtPlayer();
-        MoveTowardPlayer(3.0f);
-        ZombieDisappear();
+        StartCoroutine(RushToPlayer());
     }
 
-    private void MoveTowardPlayer(float verticalOffset)
+    private IEnumerator RushToPlayer()
     {
-        Vector3 target = PlayerTransform.position + Vector3.up * verticalOffset;
-        Vector3 direction = (target - transform.position).normalized;
-        _rigidbody.MovePosition(transform.position + direction * rushSpeed * Time.deltaTime);
-    }
-
-    private void ZombieDisappear()
-    {
-        float distance = Vector3.Distance(transform.position, PlayerTransform.position);
-        if (distance < 1.0f)
+        if (rushDelay > 0f)
         {
-            GameObject.Destroy(gameObject);
-            UIManager.Instance.GlitchEnd();
-            GameManager.Instance.player.isChased = false;
+            yield return new WaitForSeconds(rushDelay);
         }
+
+        float elapsed = 0f;
+        while (elapsed < disappearTime)  // 최대 추적 시간 동안만 반복
+        {
+            LookAtPlayer();
+            Vector3 target = PlayerTransform.position;
+            Vector3 direction = (target - transform.position).normalized; 
+            _rigidbody.MovePosition(transform.position + direction * rushSpeed * Time.deltaTime);
+
+            float distance = Vector3.Distance(transform.position, target);
+            if (distance < 1.0f) break;  // 플레이어와 1.0f 이하 거리로 가까워지면 즉시 break
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        UIManager.Instance.GlitchEnd();
+        GameManager.Instance.player.isChased = false;
+        Destroy(gameObject);
     }
+
 }

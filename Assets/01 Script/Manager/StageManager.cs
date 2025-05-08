@@ -27,6 +27,12 @@ public class TriggerInfo
     public int triggerindex;
 }
 
+[System.Serializable]
+public class TriggerRoot
+{
+    public List<TriggerInfo> StageTriggerInfo;
+}
+
 public class StageManager : Singleton<StageManager>
 {
     [Header("Spawn About")]
@@ -119,28 +125,33 @@ public class StageManager : Singleton<StageManager>
             return;
         }
 
-        var stageTrigger = JsonConvert.DeserializeObject<Dictionary<string, List<TriggerInfo>>>(triggerAsset.text);
+        var triggerRoot = JsonConvert.DeserializeObject<TriggerRoot>(triggerAsset.text);
+        var triggers = triggerRoot.StageTriggerInfo;
 
-        if(stageTrigger.TryGetValue(name, out var stageTriggerList))
+        foreach (var trigger in triggers)
         {
-            triggers = stageTriggerList;
-            foreach(var trigger in triggers)
+            if (trigger.stageid == StageNum.StageNumber)
             {
-                if (trigger.stageid == StageNum.StageNumber)
+                List<int> selects = RandomUniqueIndices(0, spawnRoot.spawnPoints["JumpScale_ZombieSpawnPoint"].Count - 1, trigger.triggerindex);
+
+                for (int i = 1; i < trigger.triggerindex + 1; i++)
                 {
-                    List<int> selects = RandomUniqueIndices(0, spawnRoot.spawnPoints["JumpScale_ZombieSpawnPoint"].Count - 1, trigger.triggerindex);
-
-                    for (int i = 0; i < selects.Count; i++)
-                    {
-                        string prefabName = "JumpScaleZombie";
-                        GameObject zombie = ResourceManager.Instance.Load<GameObject>(ResourceType.Enemy, prefabName);
-                        Instantiate(zombie, spawnRoot.spawnPoints["JumpScale_ZombieSpawnPoint"][selects[i]].position, Quaternion.identity, typeNames["Enemy"].transform);
-                    }
-
-                    StageTriggerController.Instance.GetTriggers(selects); 
+                    string prefabName = "JumpScaleZombie";
+                    GameObject zombie = ResourceManager.Instance.Load<GameObject>(ResourceType.Enemy, prefabName);
+                    Instantiate(zombie, spawnRoot.spawnPoints["JumpScale_ZombieSpawnPoint"][selects[i - 1]].position, Quaternion.identity, typeNames["Enemy"].transform);
                 }
+
+                StageTriggerController.Instance.GetTriggers(selects);
             }
         }
+
+        // var stageTrigger = JsonConvert.DeserializeObject<Dictionary<string, List<TriggerInfo>>>(triggerAsset.text);
+
+        //if(stageTrigger.TryGetValue(name, out var stageTriggerList))
+        //{
+        //    triggers = stageTriggerList;
+
+        //}
     }
 
     private void PuzzleItemMake()

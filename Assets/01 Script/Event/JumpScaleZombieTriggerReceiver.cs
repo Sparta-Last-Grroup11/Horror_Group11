@@ -15,18 +15,17 @@ public class JumpScaleZombieTriggerReceiver : MonoBehaviour
     {
         if (other.CompareTag("SkinLess"))
         {
-            var enemyReceiver = other.GetComponent<JumpScaleReceiver>();
-            if (enemyReceiver != null)
+            var jumpScaleReceiver = other.GetComponent<JumpScaleReceiver>();
+            if (jumpScaleReceiver != null)
             {
-                eventTrigger.AddReceiver(enemyReceiver);
-                enemyReceiver.SetEventTrigger(eventTrigger);
+                eventTrigger.AddReceiver(jumpScaleReceiver);
+                jumpScaleReceiver.SetEventTrigger(eventTrigger);
             }
             if (isZombieOn == false)
             {
                 isZombieOn = true;
-                enemyReceiver.gameObject.SetActive(false);
+                jumpScaleReceiver.gameObject.SetActive(false);
                 eventTrigger.transform.parent.gameObject.SetActive(false);
-
             }
 
         }

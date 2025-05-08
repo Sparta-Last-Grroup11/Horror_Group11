@@ -4,8 +4,6 @@ using UnityEngine;
 public class StageTriggerController : Singleton<StageTriggerController>
 {
     [SerializeField] private List<GameObject> triggers;  // Trigger가 되는 각 콜라이더 오브젝트
-    public int TriggerCount => triggers.Count;
-
     private List<int> currentIndices = new List<int>();
 
     public void GetTriggers(List<int> activeIndices)
@@ -29,7 +27,10 @@ public class StageTriggerController : Singleton<StageTriggerController>
             if (i < triggers.Count && triggers[i] != null)
             {
                 triggers[i].SetActive(isActive);
-                triggers[i].transform.GetComponentInChildren<EventTrigger>().receivers[0].gameObject.SetActive(isActive);
+                if (isActive == true)
+                {
+                    triggers[i].transform.GetComponentInChildren<EventTrigger>().receivers[0].gameObject.SetActive(isActive);
+                }
             }
 
         }
