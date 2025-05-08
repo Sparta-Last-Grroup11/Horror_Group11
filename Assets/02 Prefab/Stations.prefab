@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2110842537348730143}
   - component: {fileID: 1001423780167300007}
   - component: {fileID: 778939691308687798}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Stations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 379120637830789461}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.3, y: 1, z: 13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -68,9 +68,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 554e0eedc0a4cf3458b85c0e6b50e839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flash: 0.2
   isAct: 0
-  lights: {fileID: 0}
+  elecBox: {fileID: 0}
+  clip: {fileID: 8300000, guid: ce11ecb29bc278d4cbfcc4540ce706b7, type: 3}
+  questID: 4
 --- !u!1001 &1605641615356615053
 PrefabInstance:
   m_ObjectHideFlags: 0

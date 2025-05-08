@@ -538,26 +538,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stations
       objectReference: {fileID: 0}
-    - target: {fileID: 379120637830789461, guid: 0fa2d932ab44f5748a9c25e32d4fec76,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 778939691308687798, guid: 0fa2d932ab44f5748a9c25e32d4fec76,
-        type: 3}
-      propertyPath: clip
-      value: 
-      objectReference: {fileID: 8300000, guid: ce11ecb29bc278d4cbfcc4540ce706b7, type: 3}
     - target: {fileID: 778939691308687798, guid: 0fa2d932ab44f5748a9c25e32d4fec76,
         type: 3}
       propertyPath: elecBox
       value: 
       objectReference: {fileID: 4138961325157905418}
-    - target: {fileID: 778939691308687798, guid: 0fa2d932ab44f5748a9c25e32d4fec76,
-        type: 3}
-      propertyPath: questID
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 2110842537348730143, guid: 0fa2d932ab44f5748a9c25e32d4fec76,
         type: 3}
       propertyPath: m_LocalPosition.x
