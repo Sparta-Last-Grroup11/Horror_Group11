@@ -53,6 +53,28 @@ public static class Extension
         }
     }
 
+    public static List<int> RandomUniqueIndices(int min,int max,int count)
+    {
+        int rangeSize = max - min;
+        if (count > rangeSize)
+        {
+            Debug.LogError("Count cannot be greater than range size");
+            return null;
+        }
+        
+        List<int> indices = new List<int>();
+        for (int i = min; i <= max; i++) 
+            indices.Add(i);
+
+        for (int i = rangeSize - 1; i > 0; i--)
+        {
+            int j = UnityEngine.Random.Range(0, i + 1);
+            (indices[i], indices[j]) = (indices[j], indices[i]);
+        }
+
+        return indices.GetRange(0, count);
+    }
+
     public static void onClickExit()
     {
 #if UNITY_EDITOR
