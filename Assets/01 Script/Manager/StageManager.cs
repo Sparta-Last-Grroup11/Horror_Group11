@@ -33,6 +33,7 @@ public class StageManager : Singleton<StageManager>
     [SerializeField] private TextAsset textAsset;
     public List<StageInfo> currentStage;
     Dictionary<string, GameObject> typeNames;
+    public SpawnRoot spawnRoot;
 
     [Header("TriggerAbout")]
     [SerializeField] private TextAsset triggerAsset;
@@ -100,6 +101,7 @@ public class StageManager : Singleton<StageManager>
         {
             Debug.LogWarning("Stage1 key not found in JSON");
         }
+        PuzzleItemMake();
         TriggerMake();
         
     }
@@ -131,6 +133,17 @@ public class StageManager : Singleton<StageManager>
                     Debug.Log(trigger.triggers);
                 }
             }
+        }
+    }
+
+    private void PuzzleItemMake()
+    {
+        List<int> selects = RandomUniqueIndices(0, spawnRoot.spawnPoints["PuzzleSpawnPoint"].Count - 1, 5);
+        for (int i = 1; i < 6; i++)
+        {
+            string path = "Offering_" + i.ToString();
+            var obj = ResourceManager.Instance.Load<GameObject>(ResourceType.Item, path);
+            Instantiate(obj, spawnRoot.spawnPoints["PuzzleSpawnPoint"][selects[i - 1]].position, Quaternion.identity, typeNames["Item"].transform);
         }
     }
 }

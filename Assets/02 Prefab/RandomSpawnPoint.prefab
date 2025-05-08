@@ -102,6 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7681041105251263966}
+  - component: {fileID: 6813991210447817352}
   m_Layer: 0
   m_Name: RandomSpawnPoint
   m_TagString: Untagged
@@ -125,6 +126,32 @@ Transform:
   - {fileID: 2964574928339651551}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6813991210447817352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2677205678843571025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc068ede4a686334291026b9fb400671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugView:
+  - name: PuzzleSpawnPoint
+    points:
+    - {fileID: 8908917264506753428}
+    - {fileID: 8850173953969702189}
+    - {fileID: 6895370734143770576}
+    - {fileID: 2034177607940503705}
+    - {fileID: 4628757376414253793}
+    - {fileID: 5157405188566641064}
+    - {fileID: 1083458118186764043}
+    - {fileID: 7936574016345248660}
+    - {fileID: 8857870006698771245}
+    - {fileID: 6361969783737607808}
+    - {fileID: 8979201691373676456}
 --- !u!1 &3171274531132616636
 GameObject:
   m_ObjectHideFlags: 0
