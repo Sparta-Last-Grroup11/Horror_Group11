@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2235461960619003547}
   - component: {fileID: 5994075670654848883}
   - component: {fileID: 3612643875533458559}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Bank_Safe_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 3607126405769338361}
   - component: {fileID: 8616508493157438397}
   - component: {fileID: 5205730678280981331}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Bank_Safe_Main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 1182169786256165635}
   - component: {fileID: 7834273086678484264}
   - component: {fileID: 8889622095038276553}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Rubber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ GameObject:
   - component: {fileID: 4120215823285278753}
   - component: {fileID: 8874721271800130630}
   - component: {fileID: 2366376301470472030}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -369,7 +369,7 @@ GameObject:
   - component: {fileID: 6314758879311943006}
   - component: {fileID: 5029512524686704685}
   - component: {fileID: 2308275742266269428}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Arms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -452,7 +452,7 @@ GameObject:
   - component: {fileID: 5063548301785419755}
   - component: {fileID: 5748530287572234833}
   - component: {fileID: 561365451395716450}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Knob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -538,7 +538,7 @@ GameObject:
   - component: {fileID: 1287425304884230022}
   - component: {fileID: 1985573771468678453}
   - component: {fileID: 7802620143304953052}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Safe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -673,7 +673,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6935311583183942927}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -706,7 +706,7 @@ GameObject:
   - component: {fileID: 2417635026102970458}
   - component: {fileID: 1755296815056247485}
   - component: {fileID: 601613495712829216}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Bank_Safe_Sh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -789,7 +789,7 @@ GameObject:
   - component: {fileID: 5696520613211846011}
   - component: {fileID: 124878053520946414}
   - component: {fileID: 3148273073748579534}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Bars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -872,7 +872,7 @@ GameObject:
   - component: {fileID: 1913872960658628928}
   - component: {fileID: 1899403929435289308}
   - component: {fileID: 1377050540182107497}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Bank_Safe_Jt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -955,7 +955,7 @@ GameObject:
   - component: {fileID: 1263840035904579914}
   - component: {fileID: 1134303589798406068}
   - component: {fileID: 2906802865698078135}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1044,6 +1044,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PowerKey
+      objectReference: {fileID: 0}
+    - target: {fileID: 7235472857623452323, guid: be6ceda5c601e1e4b9b72d9bc36aea88,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7330959024922229882, guid: be6ceda5c601e1e4b9b72d9bc36aea88,
         type: 3}

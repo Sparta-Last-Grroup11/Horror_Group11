@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChangeInteract : MonoBehaviour
 {
     [SerializeField] private int questID;
-    void Awake()
+    void Start()
     {
         QuestManager.Instance.AddChanger(this, questID);
         gameObject.layer = LayerMask.NameToLayer("Default");
