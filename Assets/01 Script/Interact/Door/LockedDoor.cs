@@ -24,9 +24,9 @@ public class LockedDoor : ControlDoor,I_Interactable
 
     void OpenLockedDoor()
     {
+        QuestManager.Instance.QuestTrigger(questID);
         if (key != null && !GameManager.Instance.player.playerInventory.HasItem(key))
         {
-            QuestManager.Instance.QuestTrigger(questID);
             MonologueManager.Instance.DialogPlay("This door is locked.");
             if (lockedSound != null)
             {

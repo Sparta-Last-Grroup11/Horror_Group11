@@ -61677,7 +61677,10 @@ PrefabInstance:
       propertyPath: DoorOpenAngle
       value: 87
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7539381475009772932, guid: 798bff0d7a9461f4d91b23eba160b50e, type: 3}
+    - {fileID: 7465119543490999869, guid: 798bff0d7a9461f4d91b23eba160b50e, type: 3}
+    - {fileID: 449526236402316808, guid: 798bff0d7a9461f4d91b23eba160b50e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
