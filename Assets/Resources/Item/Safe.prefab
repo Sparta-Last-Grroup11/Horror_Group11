@@ -1040,6 +1040,16 @@ PrefabInstance:
       propertyPath: questID
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1844708154856369761, guid: be6ceda5c601e1e4b9b72d9bc36aea88,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5213091055126880515, guid: be6ceda5c601e1e4b9b72d9bc36aea88,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7235472857623452323, guid: be6ceda5c601e1e4b9b72d9bc36aea88,
         type: 3}
       propertyPath: m_Name
@@ -1048,7 +1058,7 @@ PrefabInstance:
     - target: {fileID: 7235472857623452323, guid: be6ceda5c601e1e4b9b72d9bc36aea88,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7330959024922229882, guid: be6ceda5c601e1e4b9b72d9bc36aea88,
         type: 3}
