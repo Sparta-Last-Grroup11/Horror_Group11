@@ -68,6 +68,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: cc8852295418dc34d9edfcd442e42d8b, type: 2}
+  commentID: -1
+  questID: 9
 --- !u!1001 &110038530881721467
 PrefabInstance:
   m_ObjectHideFlags: 0

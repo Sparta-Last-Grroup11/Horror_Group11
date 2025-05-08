@@ -13,6 +13,8 @@ public class LockedDoor : ControlDoor,I_Interactable
     public bool IsOpened => isOpened;
     [SerializeField] private AudioClip lockedSound;
     private bool wasOpend = false;
+
+    [SerializeField] private int questID = -1;
     public void OnInteraction()
     {
         if (!canInteract) return;
@@ -24,6 +26,7 @@ public class LockedDoor : ControlDoor,I_Interactable
     {
         if (key != null && !GameManager.Instance.player.playerInventory.HasItem(key))
         {
+            QuestManager.Instance.QuestTrigger(questID);
             MonologueManager.Instance.DialogPlay("This door is locked.");
             if (lockedSound != null)
             {

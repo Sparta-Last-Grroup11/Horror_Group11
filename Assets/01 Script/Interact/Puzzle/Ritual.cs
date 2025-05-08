@@ -5,6 +5,7 @@ using UnityEngine;
 public class Ritual : MonoBehaviour, I_Interactable
 {
     [SerializeField] private GameObject key;
+    [SerializeField] private int questID= 11;
     private int countActive = 0;
     private void Awake()
     {
@@ -17,6 +18,7 @@ public class Ritual : MonoBehaviour, I_Interactable
             key.SetActive(true);
             countActive = 0;
             MonologueManager.Instance.DialogPlay(12);
+            QuestManager.Instance.QuestTrigger(questID);
         }
     }
 
