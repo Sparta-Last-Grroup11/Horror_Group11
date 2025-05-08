@@ -143,7 +143,7 @@ public class StageManager : Singleton<StageManager>
         {
             string path = "Offering_" + i.ToString();
             var obj = ResourceManager.Instance.Load<GameObject>(ResourceType.Item, path);
-            Instantiate(obj, spawnRoot.spawnPoints["PuzzleSpawnPoint"][selects[i - 1]].position, Quaternion.identity);
+            Instantiate(obj, spawnRoot.spawnPoints["PuzzleSpawnPoint"][selects[i - 1]].position, Quaternion.identity, typeNames["Item"].transform);
         }
     }
 }
