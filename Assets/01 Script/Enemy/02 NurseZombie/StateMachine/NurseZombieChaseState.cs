@@ -70,4 +70,8 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
         return distance <= nurseZombie.attackRange;  // 공격 범위 안에 들어왔는지 확인
     }
 
+    public override void Exit()
+    {
+        GameManager.Instance.player.UnChasingByEnemy();
+    }
 }

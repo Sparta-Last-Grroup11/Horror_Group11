@@ -17,7 +17,6 @@ public class CopZombiePatrolState : EnemyBaseState
     public override void Enter()
     {
         copZombie.target = copZombie.transform;
-        Debug.Log("순찰 시작");
     }
 
     public override void Update()
@@ -28,7 +27,7 @@ public class CopZombiePatrolState : EnemyBaseState
 
         if (enemy.CanSeePlayer())
         {
-            fsm.ChangeState(copZombie.copZombiePatrolState);
+            fsm.ChangeState(copZombie.copZombieChaseState);
         }
     }
 

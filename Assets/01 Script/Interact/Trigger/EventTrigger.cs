@@ -7,7 +7,7 @@ public class EventTrigger : MonoBehaviour
 
     public void AddReceiver(Receiver receiver)
     {
-        if (receiver !=  null && !receivers.Contains(receiver))
+        if (receiver != null && !receivers.Contains(receiver))
         {
             receivers.Add(receiver);
         }
