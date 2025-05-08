@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class MainObserverTrigger : MonoBehaviour
+public class DoorTriggerActivator : MonoBehaviour
 {
-    private bool isPlayerOn;
+    private bool isPlayerOn = false;
 
     private void OnTriggerEnter(Collider other)
     {
