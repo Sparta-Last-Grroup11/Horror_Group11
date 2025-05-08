@@ -61,10 +61,11 @@ MonoBehaviour:
     m_Bits: 767
   isDoorOpened: 0
   doorDetectRange: 2
+  haveSeenPlayer: 0
   viewDistance: 10
   viewAngle: 90
   skinLessZombieAnim: {fileID: 0}
-  rigidbody: {fileID: 0}
+  _rigidbody: {fileID: 0}
   cameraTransform: {fileID: 0}
   spottedRoarClip: {fileID: 8300000, guid: 410eeb4da8e5d5e479b65b68e7b997c2, type: 3}
   rushFootstepsLoop: {fileID: 8300000, guid: 5a5fe2a543e35ef44980fcf5ac79551a, type: 3}

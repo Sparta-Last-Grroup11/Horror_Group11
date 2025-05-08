@@ -215,7 +215,7 @@ MonoBehaviour:
     - {fileID: 8857870006698771245}
     - {fileID: 6361969783737607808}
     - {fileID: 8979201691373676456}
-  - name: JumpScare_ZombieSpawnPoint
+  - name: JumpScale_ZombieSpawnPoint
     points:
     - {fileID: 8086006256969951357}
     - {fileID: 4168144133564687224}
@@ -262,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4734530115549383940}
   m_Layer: 0
-  m_Name: JumpScare_ZombieSpawnPoint
+  m_Name: JumpScale_ZombieSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

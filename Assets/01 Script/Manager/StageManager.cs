@@ -126,11 +126,16 @@ public class StageManager : Singleton<StageManager>
             triggers = stageTriggerList;
             foreach(var trigger in triggers)
             {
-                Debug.Log(trigger);
                 if (trigger.stageid == StageNum.StageNumber)
                 {
-                    int totalTriggers = StageTriggerController.Instance.TriggerCount;
-                    List<int> selects = RandomUniqueIndices(0, totalTriggers - 1, trigger.triggerindex);
+                    List<int> selects = RandomUniqueIndices(0, spawnRoot.spawnPoints["JumpScale_ZombieSpawnPoint"].Count - 1, trigger.triggerindex);
+
+                    for (int i = 0; i < selects.Count; i++)
+                    {
+                        string prefabName = "JumpScaleZombie";
+                        GameObject zombie = ResourceManager.Instance.Load<GameObject>(ResourceType.Enemy, prefabName);
+                        Instantiate(zombie, spawnRoot.spawnPoints["JumpScale_ZombieSpawnPoint"][selects[i]].position, Quaternion.identity, typeNames["Enemy"].transform);
+                    }
 
                     StageTriggerController.Instance.GetTriggers(selects); 
                 }
