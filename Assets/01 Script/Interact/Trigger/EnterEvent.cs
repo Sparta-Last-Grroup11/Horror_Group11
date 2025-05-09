@@ -17,6 +17,7 @@ public class EnterEvent : Receiver
 
     public override void ReceiveTrigger()
     {
+        MonologueManager.Instance.DialogPlay(17);
         MonologueManager.Instance.DialogPlay(7);
         QuestManager.Instance.QuestTrigger(questID);
         GetComponent<DoubleDoor>().CloseBecauseEnter(changeKey);
