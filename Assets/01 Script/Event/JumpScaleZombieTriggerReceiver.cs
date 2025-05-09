@@ -3,7 +3,6 @@ using UnityEngine;
 public class JumpScaleZombieTriggerReceiver : MonoBehaviour
 {
     public TriggerForEvent eventTrigger;
-    private bool isZombieOn;
 
     private void Awake()
     {
@@ -21,13 +20,6 @@ public class JumpScaleZombieTriggerReceiver : MonoBehaviour
                 eventTrigger.AddReceiver(jumpScaleReceiver);
                 jumpScaleReceiver.SetEventTrigger(eventTrigger);
             }
-            //if (isZombieOn == false)
-            //{
-            //    isZombieOn = true;
-            //    jumpScaleReceiver.gameObject.SetActive(false);
-            //    eventTrigger.transform.parent.gameObject.SetActive(false);
-            //}
-
         }
     }
 
