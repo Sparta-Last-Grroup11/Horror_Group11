@@ -5,15 +5,15 @@ using UnityEngine;
 public class Switch : MonoBehaviour, I_Interactable
 {
     [SerializeField] private bool isOn = false;
-    [SerializeField] private Switch[] neighborSwitch;
     [SerializeField] private SwitchPuzzle puzzle;
+    [SerializeField] private int id;
+    private void Awake()
+    {
+        puzzle.SetDictionary(id, this);
+    }
     public void OnInteraction()
     {
-        ChangeIsOn();
-        foreach(var neighbor in neighborSwitch)
-        {
-            neighbor.ChangeIsOn();
-        }
+        puzzle.TriggerSwitch(id);
         puzzle.CheckCount();
     }
 
@@ -22,11 +22,11 @@ public class Switch : MonoBehaviour, I_Interactable
         isOn = !isOn;
         if (isOn)
         {
-            puzzle.GetCount(1);
+            puzzle.ChangeCount(1);
         }
         else
         {
-            puzzle.GetCount(-1);
+            puzzle.ChangeCount(-1);
         }
     }
 
