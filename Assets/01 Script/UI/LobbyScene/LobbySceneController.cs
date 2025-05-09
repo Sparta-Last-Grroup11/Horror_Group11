@@ -8,4 +8,10 @@ public class LobbySceneController : MonoBehaviour
     {
         UIManager.Instance.show<Interacting>();
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && UIManager.Instance.Get<ExitUI>() == null)
+            UIManager.Instance.show<ExitUI>();
+    }
 }
