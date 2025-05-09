@@ -2914,6 +2914,7 @@ MonoBehaviour:
     m_Bits: 64
   PlayerDisappearTime: 3
   spawnPoint: {fileID: 0}
+  _renderer: {fileID: 0}
 --- !u!54 &1389980022007079389
 Rigidbody:
   m_ObjectHideFlags: 0

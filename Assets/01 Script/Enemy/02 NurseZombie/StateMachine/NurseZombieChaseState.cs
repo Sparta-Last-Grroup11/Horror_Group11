@@ -14,7 +14,6 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
         nurseZombie.nurseZombieAgent.isStopped = false;
         nurseZombie.nurseZombieAnim.SetBool("IsChasing", true);
         GameManager.Instance.player.isChased = true;
-        AudioManager.Instance.Audio2DPlay(nurseZombie.nurseZombieChaseClip, 1f);
     }
 
     public override void Update()
