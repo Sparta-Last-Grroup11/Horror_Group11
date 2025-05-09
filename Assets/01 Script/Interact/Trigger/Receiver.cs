@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class Receiver : MonoBehaviour
 {
-    [SerializeField] protected EventTrigger eventTrigger;
+    [SerializeField] protected TriggerForEvent eventTrigger;
 
     protected virtual void Awake()
     {

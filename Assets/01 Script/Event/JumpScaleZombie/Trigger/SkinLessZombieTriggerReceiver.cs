@@ -5,13 +5,13 @@ using UnityEngine.EventSystems;
 
 public class SkinLessZombieTriggerReceiver : MonoBehaviour
 {
-    public EventTrigger eventTrigger;
+    public TriggerForEvent eventTrigger;
     private bool isZombieOn;
 
     private void Awake()
     {
         if (eventTrigger == null)
-            eventTrigger = GetComponentInParent<EventTrigger>();
+            eventTrigger = GetComponentInParent<TriggerForEvent>();
     }
 
     private void OnTriggerEnter(Collider other)

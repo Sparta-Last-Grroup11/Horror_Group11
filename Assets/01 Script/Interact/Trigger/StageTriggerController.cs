@@ -32,7 +32,7 @@ public class StageTriggerController : Singleton<StageTriggerController>
             {
                 Debug.Log("dd");
                 observers[i].SetActive(isActive);
-                observers[i].transform.GetComponentInChildren<EventTrigger>().receivers[0].gameObject.SetActive(isActive);
+                observers[i].transform.GetComponentInChildren<TriggerForEvent>().receivers[0].gameObject.SetActive(isActive);
             }
 
         }
