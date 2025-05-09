@@ -23,7 +23,7 @@ public class DoubleDoor : MonoBehaviour,I_Interactable
     {
         if (key != null && !GameManager.Instance.player.playerInventory.HasItem(key))
         {
-            MonologueManager.Instance.DialogPlay("This door is locked.");
+            MonologueManager.Instance.DialogPlay(16);
             if (lockedSound != null)
             {
                 AudioManager.Instance.Audio3DPlay(lockedSound, transform.position);

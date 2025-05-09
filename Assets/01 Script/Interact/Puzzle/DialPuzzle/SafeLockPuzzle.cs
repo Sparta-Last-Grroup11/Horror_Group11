@@ -1,16 +1,16 @@
+using System.Collections;
 using UnityEngine;
 
 public class SafeLockPuzzle : ItemOnUI
 {
     [Header("Puzzle Setting")]
     [SerializeField] private int[] rightArray = {0,0,0,0};
-    [SerializeField] private int randomRange;
     [SerializeField]private int maxNumber = 9;
     [SerializeField] private OpenPuzzle safe;
+    [SerializeField] private Renderer[] checker;
     [Header("References")]
     [SerializeField] private Transform dialTransform;
     [SerializeField] private AudioClip clip;
-    [SerializeField] private Surprise surprise;
 
 
     private int rotateCount;
@@ -20,8 +20,8 @@ public class SafeLockPuzzle : ItemOnUI
     private float currentAngle;
     private float targetAngle;
     [SerializeField] private float rotationSpeed = 36f; // degrees per second
-    private bool isRotating;
-
+    private bool isRotating = false;
+    private bool isResetting = false;
     public override void Init(string description = "")
     {
         for (int i = 0; i < rightArray.Length; i++) //암호 초기화
@@ -43,12 +43,14 @@ public class SafeLockPuzzle : ItemOnUI
     }
     protected  void Update()
     {
+        RotateDialMotion();
         RotateDial();
         RotateDialMotion();
     }
+
     public void RotateDial() //다이얼 돌리기
     {
-        if (isRotating) return;
+        if (isRotating || isResetting) return;
         if (Input.GetKeyDown(KeyCode.A)) //왼쪽으로 회전
         {
             ProcessDialInput(true);
@@ -80,11 +82,6 @@ public class SafeLockPuzzle : ItemOnUI
 
         isLeft = goingLeft;
 
-        if (Random.Range(0, randomRange) == 0)
-        {
-            surprise.SurpriseSound();
-        }
-
         if (rotateCount == arrayLength - 1 && answer == rightArray[arrayLength - 1]) // 마지막 암호까지 맞췄다면 문 열기
         {
             SuccessOpen();
@@ -113,18 +110,49 @@ public class SafeLockPuzzle : ItemOnUI
     {
         if (answer == rightArray[rotateCount])
         {
+            checker[rotateCount].material.color = Color.green;
             rotateCount++;
         }
         else //일치하지 않는다면 전부 초기화
         {
-            rotateCount = 0;
-            targetAngle = 0f;
-            isRotating = true;
+            for(int i = 0; i < rightArray.Length; i++)
+            {
+                checker[i].material.color = Color.red;
+            }
+
+            StartCoroutine(ResetDial());
         }
         answer = 0;
 
     }
+    IEnumerator ResetDial()
+    {
+        isResetting = true;
 
+        yield return new WaitForSeconds(1f);
+
+        for (int i = 0; i < rightArray.Length; i++)
+        {
+            checker[i].material.color = Color.gray;
+        }
+
+        rotateCount = 0;
+        answer = 0;
+        targetAngle = 0f;
+        isLeft = false;
+        if (!Mathf.Approximately(currentAngle, targetAngle))
+        {
+            isRotating = true;
+
+            while (!Mathf.Approximately(currentAngle, targetAngle))
+            {
+                yield return null;
+            }
+            isRotating = false;
+        }
+        
+        isResetting = false;
+    }
     void SuccessOpen() // 비밀번호를 맞췄을 경우
     {
         Debug.Log("clear");
