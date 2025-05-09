@@ -68,21 +68,23 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
 
     public bool IsPlayerLookingAtMe()
     {
-        // 계속 이 메서드에서 오류가 떠서, 이 부분은 일단 리팩토링하기 전(원래 제가 썼던 코드)으로 되돌려놓았습니다.
-        Vector3 toNurse = (transform.position - PlayerTransform.position);
-        Vector3 playerForward = PlayerTransform.forward;
-
-        // y축 제거 (수평 방향만 비교)
-        toNurse.y = 0;
-        playerForward.y = 0;
-
-        toNurse.Normalize();
-        playerForward.Normalize();
-
-        float dot = Vector3.Dot(toNurse, playerForward);
-        float lookThreshold = 0.8f;  // 거의 같은 방향일 때
-
-        return dot > lookThreshold;
+        Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position + Vector3.up * 1.6f);
+        bool isInView = viewPos.z > 0 && viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1;
+        if (isInView)
+        {
+            Vector3 cameraPos = Camera.main.transform.position + Camera.main.transform.forward * 0.1f;
+            Vector3 direction = (transform.position + Vector3.up * 1.7f) - cameraPos;
+            float distance = direction.magnitude;
+            Debug.DrawRay(cameraPos, direction, Color.red, distance);
+            if (Physics.Raycast(cameraPos, direction, out RaycastHit hit, distance))
+            {
+                if (hit.transform == this.transform)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public void MoveToSpawnPosition(Vector3 targetPosition)
