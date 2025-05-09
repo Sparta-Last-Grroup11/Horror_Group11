@@ -1,10 +1,10 @@
 using System.Collections;
 using UnityEngine;
 
-public class JumpScaleZombie : Enemy   // 점프스케어 기믹 (플레이어 보면 빠르게 달려와서 깜놀시키고 사라짐, 무해함)
+public class JumpScareZombie : MonoBehaviour, IJumpScareEvent
 {
     [Header("Components")]
-    public Animator skinLessZombieAnim;
+    public Animator jumpScareZombieAnim;
     public Rigidbody _rigidbody;
     public Transform cameraTransform;
     public AudioClip spottedRoarClip;
@@ -19,33 +19,33 @@ public class JumpScaleZombie : Enemy   // 점프스케어 기믹 (플레이어 �
     public bool hasBeenSeenByPlayer = false;
     public int firstMonologueNum = 0;
 
-    protected override void Awake()
+    private Transform playerTransform;
+    private Enemy enemy;
+
+    private void Awake()
     {
-        skinLessZombieAnim = GetComponentInChildren<Animator>();
+        jumpScareZombieAnim = GetComponentInChildren<Animator>();
         _rigidbody = GetComponent<Rigidbody>();
 
         if (cameraTransform == null && Camera.main != null)
         {
             cameraTransform = Camera.main.transform;
         }
+
+        if (GameManager.Instance != null)
+        {
+            playerTransform = GameManager.Instance.player.transform;
+        }
+
+        enemy = GetComponent<Enemy>();
     }
 
-    protected override void Start()
-    {
-        base.Start();
-    }
-
-    public override void TriggerEventEnemy()
-    {
-        TriggerAmbush();
-    }
-
-    private void TriggerAmbush()
+    public void TriggerEvent()
     {
         GameManager.Instance.player.isChased = true;
         UIManager.Instance.GlitchStart(10f);
-        skinLessZombieAnim.SetTrigger("Chase");
-        FirstVisible(ref hasBeenSeenByPlayer, firstMonologueNum);
+        jumpScareZombieAnim.SetTrigger("Chase");
+        enemy.FirstVisible(ref hasBeenSeenByPlayer, firstMonologueNum);
         AudioManager.Instance.Audio2DPlay(spottedRoarClip, 1f);
         AudioManager.Instance.Audio2DPlay(rushFootstepsLoop, 1f);
 
@@ -62,8 +62,8 @@ public class JumpScaleZombie : Enemy   // 점프스케어 기믹 (플레이어 �
         float elapsed = 0f;
         while (elapsed < disappearTime)  // 최대 추적 시간 동안만 반복
         {
-            LookAtPlayer();
-            Vector3 target = PlayerTransform.position;
+            enemy.LookAtPlayer();
+            Vector3 target = playerTransform.position;
             Vector3 direction = (target - transform.position).normalized; 
             _rigidbody.MovePosition(transform.position + direction * rushSpeed * Time.deltaTime);
 
@@ -74,6 +74,11 @@ public class JumpScaleZombie : Enemy   // 점프스케어 기믹 (플레이어 �
             yield return null;
         }
 
+        ZombieDisappear();
+    }
+
+    private void ZombieDisappear()
+    {
         UIManager.Instance.GlitchEnd();
         GameManager.Instance.player.isChased = false;
         Destroy(gameObject);
