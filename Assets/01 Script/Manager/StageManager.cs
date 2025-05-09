@@ -9,6 +9,7 @@ using static Extension;
 using Newtonsoft.Json;
 using Unity.AI.Navigation;
 using System.Linq;
+using JetBrains.Annotations;
 
 [System.Serializable]
 public class StageInfo
@@ -25,6 +26,12 @@ public class TriggerInfo
 {
     public int stageid;
     public int triggerindex;
+}
+
+[System.Serializable]
+public class TriggerRoot
+{
+    public List<TriggerInfo> StageTriggerInfo;
 }
 
 [System.Serializable]
@@ -63,6 +70,7 @@ public class StageManager : Singleton<StageManager>
         base.Awake();
         typeNames = new Dictionary<string, GameObject>();
         surface = Instantiate(ResourceManager.Instance.Load<GameObject>(ResourceType.Enemy, "NavMeshSurface")).GetComponent<NavMeshSurface>();
+
     }
 
     public void SurfaceUpdate()
@@ -137,31 +145,30 @@ public class StageManager : Singleton<StageManager>
         var triggerRoot = JsonConvert.DeserializeObject<TriggerRoot>(triggerAsset.text);
         var triggers = triggerRoot.StageTriggerInfo;
 
+        var activePairs = new List<ZombieTriggerPair>();
+
         foreach (var trigger in triggers)
         {
             if (trigger.stageid == StageNum.StageNumber)
             {
                 List<int> selects = RandomUniqueIndices(0, spawnRoot.spawnPoints["JumpScale_ZombieSpawnPoint"].Count - 1, trigger.triggerindex);
 
-                for (int i = 0; i < trigger.triggerindex; i++)
+                for (int i = 1; i < trigger.triggerindex + 1; i++)
                 {
-                    int spawnIndex = selects[i];
-
-                    // 좀비 Instantiate 
-                    var zombie = ResourceManager.Instance.Load<GameObject>(ResourceType.Enemy, "JumpScaleZombie");
-                    var zombieInstance = Instantiate(zombie, spawnRoot.spawnPoints["JumpScale_ZombieSpawnPoint"][spawnIndex].position, Quaternion.identity);
+                    var zombiePrefab = ResourceManager.Instance.Load<GameObject>(ResourceType.Enemy, "JumpScaleZombie");
+                    var spawnPos = spawnRoot.spawnPoints["JumpScale_ZombieSpawnPoint"][selects[i - 1]].position; 
+                    var zombieInstance = Instantiate(zombiePrefab, spawnPos, Quaternion.identity, typeNames["Enemy"].transform);
                     zombieInstance.SetActive(false);
 
-                    // 트리거와 짝지어 매핑
-                    var triggerObj = StageTriggerController.Instance.triggers[spawnIndex];
+                    // 트리거존과 페어
+                    var triggerObj = StageTriggerController.Instance.triggers[selects[i - 1]];
                     triggerObj.SetActive(false);
-                    zombieTriggerPairs.Add((zombieInstance, triggerObj));
-
+                    var pair = new ZombieTriggerPair(zombieInstance, triggerObj);
+                    activePairs.Add(pair);
                 }
-
-                StageTriggerController.Instance.GetTriggers(selects);
             }
         }
+        StageTriggerController.Instance.ReceivePairs(activePairs);
     }
 
     private void PuzzleItemMake()
