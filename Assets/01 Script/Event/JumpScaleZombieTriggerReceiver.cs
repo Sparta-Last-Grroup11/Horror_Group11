@@ -21,12 +21,12 @@ public class JumpScaleZombieTriggerReceiver : MonoBehaviour
                 eventTrigger.AddReceiver(jumpScaleReceiver);
                 jumpScaleReceiver.SetEventTrigger(eventTrigger);
             }
-            if (isZombieOn == false)
-            {
-                isZombieOn = true;
-                jumpScaleReceiver.gameObject.SetActive(false);
-                eventTrigger.transform.parent.gameObject.SetActive(false);
-            }
+            //if (isZombieOn == false)
+            //{
+            //    isZombieOn = true;
+            //    jumpScaleReceiver.gameObject.SetActive(false);
+            //    eventTrigger.transform.parent.gameObject.SetActive(false);
+            //}
 
         }
     }
