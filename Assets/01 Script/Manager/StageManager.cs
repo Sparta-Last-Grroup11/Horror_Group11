@@ -28,9 +28,16 @@ public class TriggerInfo
 }
 
 [System.Serializable]
-public class TriggerRoot
+public class ZombieTriggerPair
 {
-    public List<TriggerInfo> StageTriggerInfo;
+    public GameObject zombie;
+    public GameObject trigger;
+
+    public ZombieTriggerPair(GameObject zombie, GameObject trigger)
+    {
+        this.zombie = zombie;
+        this.trigger = trigger;
+    }
 }
 
 public class StageManager : Singleton<StageManager>
@@ -48,6 +55,8 @@ public class StageManager : Singleton<StageManager>
     protected override bool dontDestroy => false;
 
     private NavMeshSurface surface;
+
+    public List<(GameObject zombie, GameObject trigger)> zombieTriggerPairs = new();
 
     protected override void Awake()
     {
@@ -134,24 +143,25 @@ public class StageManager : Singleton<StageManager>
             {
                 List<int> selects = RandomUniqueIndices(0, spawnRoot.spawnPoints["JumpScale_ZombieSpawnPoint"].Count - 1, trigger.triggerindex);
 
-                for (int i = 1; i < trigger.triggerindex + 1; i++)
+                for (int i = 0; i < trigger.triggerindex; i++)
                 {
-                    string prefabName = "JumpScaleZombie";
-                    GameObject zombie = ResourceManager.Instance.Load<GameObject>(ResourceType.Enemy, prefabName);
-                    Instantiate(zombie, spawnRoot.spawnPoints["JumpScale_ZombieSpawnPoint"][selects[i - 1]].position, Quaternion.identity, typeNames["Enemy"].transform);
+                    int spawnIndex = selects[i];
+
+                    // 좀비 Instantiate 
+                    var zombie = ResourceManager.Instance.Load<GameObject>(ResourceType.Enemy, "JumpScaleZombie");
+                    var zombieInstance = Instantiate(zombie, spawnRoot.spawnPoints["JumpScale_ZombieSpawnPoint"][spawnIndex].position, Quaternion.identity);
+                    zombieInstance.SetActive(false);
+
+                    // 트리거와 짝지어 매핑
+                    var triggerObj = StageTriggerController.Instance.triggers[spawnIndex];
+                    triggerObj.SetActive(false);
+                    zombieTriggerPairs.Add((zombieInstance, triggerObj));
+
                 }
 
                 StageTriggerController.Instance.GetTriggers(selects);
             }
         }
-
-        // var stageTrigger = JsonConvert.DeserializeObject<Dictionary<string, List<TriggerInfo>>>(triggerAsset.text);
-
-        //if(stageTrigger.TryGetValue(name, out var stageTriggerList))
-        //{
-        //    triggers = stageTriggerList;
-
-        //}
     }
 
     private void PuzzleItemMake()

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class StageTriggerController : Singleton<StageTriggerController>
 {
-    [SerializeField] private List<GameObject> triggers;  // Trigger가 되는 각 콜라이더 오브젝트
+    public List<GameObject> triggers;  // Trigger가 되는 각 콜라이더 오브젝트
     private List<int> currentIndices = new List<int>();
 
     public void GetTriggers(List<int> activeIndices)
