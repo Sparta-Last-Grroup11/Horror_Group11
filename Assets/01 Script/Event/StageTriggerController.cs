@@ -29,7 +29,7 @@ public class StageTriggerController : Singleton<StageTriggerController>
                 triggers[i].SetActive(isActive);
                 if (isActive == true)
                 {
-                    triggers[i].transform.GetComponentInChildren<EventTrigger>().receivers[0].gameObject.SetActive(isActive);
+                    triggers[i].transform.GetComponentInChildren<TriggerForEvent>().receivers[0].gameObject.SetActive(isActive);
                 }
             }
 
