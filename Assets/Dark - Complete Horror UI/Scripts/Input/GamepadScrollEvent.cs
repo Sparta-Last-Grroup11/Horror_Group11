@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -52,17 +52,17 @@ namespace Michsky.UI.Dark
 
             if (optimizeUpdates == true)
             {
-                triggerEvent = gameObject.AddComponent<EventTrigger>();
+                //triggerEvent = gameObject.AddComponent<EventTrigger>();
 
-                EventTrigger.Entry selectEntry = new EventTrigger.Entry();
-                selectEntry.eventID = EventTriggerType.Select;
-                selectEntry.callback.AddListener((eventData) => { this.enabled = true; });
-                triggerEvent.triggers.Add(selectEntry);
+                //EventTrigger.Entry selectEntry = new EventTrigger.Entry();
+                //selectEntry.eventID = EventTriggerType.Select;
+                //selectEntry.callback.AddListener((eventData) => { this.enabled = true; });
+                //triggerEvent.triggers.Add(selectEntry);
 
-                EventTrigger.Entry deselectEntry = new EventTrigger.Entry();
-                deselectEntry.eventID = EventTriggerType.Deselect;
-                deselectEntry.callback.AddListener((eventData) => { this.enabled = false; });
-                triggerEvent.triggers.Add(deselectEntry);
+                //EventTrigger.Entry deselectEntry = new EventTrigger.Entry();
+                //deselectEntry.eventID = EventTriggerType.Deselect;
+                //deselectEntry.callback.AddListener((eventData) => { this.enabled = false; });
+                //triggerEvent.triggers.Add(deselectEntry);
 
                 this.enabled = false;
             }

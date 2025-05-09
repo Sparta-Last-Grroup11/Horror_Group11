@@ -7,11 +7,11 @@ using UnityEngine.UI;
 public class LoadingUI : PopupUI
 {
     [SerializeField] Image loadingBar;
-    [SerializeField] TextMeshProUGUI loadingText;
+    //[SerializeField] TextMeshProUGUI loadingText;
 
     public void SetLoadingProgress(float num)
     {
         loadingBar.fillAmount = num;
-        loadingText.text = (num * 100).ToString();
+        //loadingText.text = (num * 100).ToString();
     }
 }
