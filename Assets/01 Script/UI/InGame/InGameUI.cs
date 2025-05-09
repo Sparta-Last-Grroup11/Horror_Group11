@@ -11,4 +11,10 @@ public class InGameUI : MonoBehaviour
         UIManager.Instance.show<Interacting>();
         StageManager.Instance.StageMake();
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && UIManager.Instance.Get<ExitUI>() == null)
+            UIManager.Instance.show<ExitUI>();
+    }
 }

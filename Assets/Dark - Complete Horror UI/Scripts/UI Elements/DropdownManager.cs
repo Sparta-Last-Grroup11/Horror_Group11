@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -87,12 +87,12 @@ namespace Michsky.UI.Dark
 
                 if (enableTrigger == true && triggerObject != null)
                 {
-                    triggerButton = gameObject.GetComponent<Button>();
-                    triggerEvent = triggerObject.AddComponent<EventTrigger>();
-                    EventTrigger.Entry entry = new EventTrigger.Entry();
-                    entry.eventID = EventTriggerType.PointerClick;
-                    entry.callback.AddListener((eventData) => { Animate(); });
-                    triggerEvent.GetComponent<EventTrigger>().triggers.Add(entry);
+                    //triggerButton = gameObject.GetComponent<Button>();
+                    //triggerEvent = triggerObject.AddComponent<EventTrigger>();
+                    //EventTrigger.Entry entry = new EventTrigger.Entry();
+                    //entry.eventID = EventTriggerType.PointerClick;
+                    //entry.callback.AddListener((eventData) => { Animate(); });
+                    //triggerEvent.GetComponent<EventTrigger>().triggers.Add(entry);
                 }
             }
 
