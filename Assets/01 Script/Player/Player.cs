@@ -184,9 +184,12 @@ public class Player : PlayerInputController
         {
             AudioManager.Instance.Audio2DPlay(chasedCilp, 1f);
             isChasedBGM = true;
-
-            Invoke("ChasedBGMOff", 3f);
         }
+    }
+
+    public void UnChasingByEnemy()
+    {
+        Invoke("ChasedBGMOff", 3f);
     }
 
     private void ChasedBGMOff()
