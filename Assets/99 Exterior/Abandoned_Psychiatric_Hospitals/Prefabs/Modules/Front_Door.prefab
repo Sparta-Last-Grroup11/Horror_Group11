@@ -835,6 +835,7 @@ GameObject:
   - component: {fileID: 8835105320950313420}
   - component: {fileID: 8119921994479539073}
   - component: {fileID: 2904448273496990263}
+  - component: {fileID: 3908617836563478103}
   m_Layer: 6
   m_Name: Doors
   m_TagString: Untagged
@@ -897,6 +898,8 @@ MonoBehaviour:
   - {fileID: 1663745273098463055}
   - {fileID: 536730882902636762}
   interactCooldown: 1
+  isOpened: 0
+  lockedSound: {fileID: 0}
 --- !u!114 &2904448273496990263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -909,7 +912,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ae6b474a52c4d4c9dc0bebbb22e71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventTrigger: {fileID: 0}
   changeKey: {fileID: 11400000, guid: 78c388ed4f172254cab4fd385d7b8455, type: 2}
+  questID: 1
+--- !u!114 &3908617836563478103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6151608620230498628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9477593c211484784b9f583bdd35aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6965773779313719259
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,7 +993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09517ea9fdb611148ad4f9a56ee4817e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  receiver: {fileID: 2904448273496990263}
+  receivers: []
 --- !u!1 &8842732823864722106
 GameObject:
   m_ObjectHideFlags: 0
