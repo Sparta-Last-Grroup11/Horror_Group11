@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,10 @@ public class SwitchPuzzle : MonoBehaviour
 {
     [SerializeField] private int[] startSwitchOn;
     [SerializeField] private int onCount;
+    [SerializeField] private Light light;
     private Dictionary<int, Switch> switchesDict = new Dictionary<int, Switch>();
+    public Action PuzzleClear; 
+
     private void Start()
     {
         onCount = 0;
@@ -14,6 +18,7 @@ public class SwitchPuzzle : MonoBehaviour
         {
             switchesDict[id].ChangeIsOn();
         }
+        light.color = Color.red;
     }
 
     public void ChangeCount(int count)
@@ -35,15 +40,19 @@ public class SwitchPuzzle : MonoBehaviour
         if (id + 3 < switchesDict.Count) switchesDict[id + 3].ChangeIsOn();
     }
 
-    public void CheckCount()
+    public bool CheckCount()
     {
         if (onCount == 9)
         {
+            light.color = Color.green;
             ClearPuzzle();
+            return true;
         }
         else
         {
+            light.color = Color.red;
             ResetAll();
+            return false;
         }
     }
 
@@ -53,6 +62,7 @@ public class SwitchPuzzle : MonoBehaviour
         {
             switchObj.DownPuzzle();
         }
+        PuzzleClear?.Invoke();
     }
 
     private void ResetAll()
