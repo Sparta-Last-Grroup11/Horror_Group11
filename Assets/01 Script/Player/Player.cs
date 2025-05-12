@@ -22,6 +22,16 @@ public class Player : PlayerInputController
     private bool isChasedBGM = false;
     public bool cantMove = false;
 
+    // 효과음 관련
+    [SerializeField] private AudioClip BGM;
+    [SerializeField] private AudioClip[] noiseList;
+    private int randomNoise;
+    [SerializeField]private float afterLastNoise = 0;
+    [SerializeField]private float noiseRate;
+    private float noiseMinRate = 10f;
+    private float noiseMaxRate = 20f;
+
+
     // 입력 값
     public Vector2 moveInput;
     public Vector2 lookInput;
@@ -86,6 +96,10 @@ public class Player : PlayerInputController
         {
             camNoise = virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         }
+
+        AudioManager.Instance.AudioBGMPlay(BGM);
+        noiseRate = Random.Range(noiseMinRate, noiseMaxRate);
+        randomNoise = Random.Range(0, noiseList.Length);
     }
 
     private void Update()
@@ -99,6 +113,16 @@ public class Player : PlayerInputController
         if (!UIManager.Instance.IsUiActing && !cantMove)
         {
             stateMachine.Update();
+        }
+
+        afterLastNoise += Time.deltaTime;
+        if (afterLastNoise > noiseRate)
+        {
+            afterLastNoise = 0;
+            noiseRate = Random.Range(noiseMinRate, noiseMaxRate);
+            randomNoise = Random.Range(0, noiseList.Length);
+            AudioManager.Instance.Audio2DPlay(noiseList[randomNoise]);
+            Debug.Log($"다음 소리까지 대기 시간: {noiseRate}초");
         }
     }
 
