@@ -184,7 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerLook: {fileID: 5547695954393197618}
   cameraLook: {fileID: 7951512017635878670}
-  followSpeed: 10
+  followSpeed: 5
 --- !u!1 &7850141191112057461
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,6 +403,8 @@ MonoBehaviour:
   isChased: 0
   cantMove: 0
   BGM: {fileID: 8300000, guid: ab8842b42fcaba04193bd8bc50c78cbf, type: 3}
+  breathing: {fileID: 8300000, guid: 4c24f9d63449ffa44a2ed3852e5822e9, type: 3}
+  shockedClip: {fileID: 8300000, guid: 00ab46e091f0eae4b9737ab8184994c9, type: 3}
   noiseList:
   - {fileID: 8300000, guid: 49465f4df035981429649e9b063c4b56, type: 3}
   - {fileID: 8300000, guid: 7fb0a6eec3b0324448acf387fedee8af, type: 3}
@@ -461,6 +463,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 148cad6c8f85db54dbb3cf977c333902, type: 3}
   - {fileID: 8300000, guid: 18b057711da7f6d40a924daebe3ffe3c, type: 3}
   - {fileID: 8300000, guid: be430017a92f39640b9bbd7ff072220a, type: 3}
+  afterLastNoise: 0
+  noiseRate: 0
   moveInput: {x: 0, y: 0}
   lookInput: {x: 0, y: 0}
   jumpPressed: 0

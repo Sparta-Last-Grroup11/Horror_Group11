@@ -24,6 +24,8 @@ public class Player : PlayerInputController
 
     // 효과음 관련
     [SerializeField] private AudioClip BGM;
+    [SerializeField] private AudioClip breathing;
+    [SerializeField] private AudioClip shockedClip;
     [SerializeField] private AudioClip[] noiseList;
     private int randomNoise;
     [SerializeField]private float afterLastNoise = 0;
@@ -98,6 +100,7 @@ public class Player : PlayerInputController
         }
 
         AudioManager.Instance.AudioBGMPlay(BGM);
+        AudioManager.Instance.AudioBGMPlay(breathing);
         noiseRate = Random.Range(noiseMinRate, noiseMaxRate);
         randomNoise = Random.Range(0, noiseList.Length);
     }
@@ -207,6 +210,7 @@ public class Player : PlayerInputController
         if (!isChasedBGM)
         {
             AudioManager.Instance.Audio2DPlay(chasedCilp, 1f);
+            AudioManager.Instance.Audio2DPlay(shockedClip);
             isChasedBGM = true;
         }
     }

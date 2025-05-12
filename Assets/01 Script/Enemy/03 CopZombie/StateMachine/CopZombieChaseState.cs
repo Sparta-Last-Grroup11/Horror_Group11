@@ -12,7 +12,7 @@ public class CopZombieChaseState : EnemyBaseState
     public override void Enter()
     {
         copZombie.copzombieAgent.speed = 3f;
-        AudioManager.Instance.Audio3DPlay(copZombie.copZombieChaseClip, copZombie.transform.position, 10f);
+        AudioManager.Instance.Audio2DPlay(copZombie.copZombieChaseClip);
         GameManager.Instance.player.isChased = true;
     }
 
