@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ClearUI : PopupUI
 {
+ 
     protected override async void Start()
     {
         base.Start();
