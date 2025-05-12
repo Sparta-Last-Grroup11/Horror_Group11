@@ -11,6 +11,7 @@ public class ReceiverExit : Receiver
     public override void ReceiveTrigger()
     {
         if (exitItem != null && GameManager.Instance.player.playerInventory.HasItem(exitItem)){
+            MonologueManager.Instance.DialogPlay(8);
             UIManager.Instance.show<ClearUI>();
         }
         else

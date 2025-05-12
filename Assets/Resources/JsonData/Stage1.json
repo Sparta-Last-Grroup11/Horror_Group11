@@ -120,9 +120,9 @@
       "type": "Item",
       "prefabname": "SurgeryRoomKey",
       "position": [
-        -10.875,
-        1.907,
-        -18.409
+        -10.979,
+        1.577,
+        -18.51
       ],
       "rotation": [],
       "description": ""
@@ -131,9 +131,9 @@
       "type": "Item",
       "prefabname": "EmptyRoomKey",
       "position": [
-        -10.656,
-        5.851,
-        11.398
+        -10.478,
+        5.828,
+        11.8135
       ],
       "rotation": [],
       "description": ""
