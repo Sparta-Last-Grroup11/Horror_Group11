@@ -14,6 +14,10 @@ public class Checker : Lever, I_Interactable
         {
             StartCoroutine(ReadyMove());
         }
+        else
+        {
+            gameObject.layer = LayerMask.NameToLayer("Default");
+        }
     }
     IEnumerator ReadyMove()
     {
