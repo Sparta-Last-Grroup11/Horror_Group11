@@ -78,7 +78,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 8
+  m_Intensity: 100
   m_Range: 20
   m_SpotAngle: 60
   m_InnerSpotAngle: 20
@@ -402,6 +402,65 @@ MonoBehaviour:
   chasedCilp: {fileID: 8300000, guid: 66a89a748ad190f44a6db949496b19f9, type: 3}
   isChased: 0
   cantMove: 0
+  BGM: {fileID: 8300000, guid: ab8842b42fcaba04193bd8bc50c78cbf, type: 3}
+  noiseList:
+  - {fileID: 8300000, guid: 49465f4df035981429649e9b063c4b56, type: 3}
+  - {fileID: 8300000, guid: 7fb0a6eec3b0324448acf387fedee8af, type: 3}
+  - {fileID: 8300000, guid: 5254e618a1fa1a548959f70cf3b594ba, type: 3}
+  - {fileID: 8300000, guid: 06793e7d5584ef6449812448b17adbd7, type: 3}
+  - {fileID: 8300000, guid: 120b23436c37c5747b05ac5d931881ac, type: 3}
+  - {fileID: 8300000, guid: 3a97d050be35fc14bad25dc4122e7a96, type: 3}
+  - {fileID: 8300000, guid: e96136b16d0eb3549a430fefa0402df8, type: 3}
+  - {fileID: 8300000, guid: 1389fadb2517eb144811769bbd65bb36, type: 3}
+  - {fileID: 8300000, guid: 0b2b426008558b64fb2385d613d73b45, type: 3}
+  - {fileID: 8300000, guid: 6b52d007c4760194196cd33c9063ae63, type: 3}
+  - {fileID: 8300000, guid: 7d47a2e35a7522e41ad1a3827d795eb7, type: 3}
+  - {fileID: 8300000, guid: 37a939be09272a2438db18e1f2ed0558, type: 3}
+  - {fileID: 8300000, guid: bdd48eb72d7242e4a8b8e3512f03cce8, type: 3}
+  - {fileID: 8300000, guid: 06fc7ae64abc37945b559e1c9b57d1e6, type: 3}
+  - {fileID: 8300000, guid: 6d66953343707e0489c636dd3c869d9e, type: 3}
+  - {fileID: 8300000, guid: 2b65079d11f6d10409d2a243b3ccd36e, type: 3}
+  - {fileID: 8300000, guid: 48bfdabfec8d9a94c879be2615c35064, type: 3}
+  - {fileID: 8300000, guid: 71d3d24e221400941b06d45b461f0ba0, type: 3}
+  - {fileID: 8300000, guid: e2940911d4297f546ad69254f58880a1, type: 3}
+  - {fileID: 8300000, guid: e93a7d5989ef24c4fb013246a9bd4e2f, type: 3}
+  - {fileID: 8300000, guid: 0c2f707cf28240d4d8252a0fa994647a, type: 3}
+  - {fileID: 8300000, guid: 9320321578a0f164181d96b60d4a36a2, type: 3}
+  - {fileID: 8300000, guid: 4ccd9928dc5b5af41b20ae540ce95f96, type: 3}
+  - {fileID: 8300000, guid: a9490ae8ff3354d429919848725f9dc2, type: 3}
+  - {fileID: 8300000, guid: 8f6dbcb39b8cb7e428c1f2853fe85eab, type: 3}
+  - {fileID: 8300000, guid: 7477542f9a7721b4db0451804f34bfc0, type: 3}
+  - {fileID: 8300000, guid: def34d8805c1b1746878f657c5750761, type: 3}
+  - {fileID: 8300000, guid: 34915f8a1bfaed04cb514f6185e662d5, type: 3}
+  - {fileID: 8300000, guid: 4b332dcf249bd1f47a8bfa6171d28fd8, type: 3}
+  - {fileID: 8300000, guid: fef407f5596b7454f82396a41e91cba3, type: 3}
+  - {fileID: 8300000, guid: fb7cf493b28d1d9479c8a45ae4008893, type: 3}
+  - {fileID: 8300000, guid: f1e353708a637ef4dbe6a0aca376859c, type: 3}
+  - {fileID: 8300000, guid: 9f85596b7a66f1645bebbc5000dca5e4, type: 3}
+  - {fileID: 8300000, guid: 9995d87970ae439478e6fb2dfc04480b, type: 3}
+  - {fileID: 8300000, guid: c97210ebc0494e3439c6eef7e6d6dd00, type: 3}
+  - {fileID: 8300000, guid: b4d2fb8f8446ea44184518b47ce3c94f, type: 3}
+  - {fileID: 8300000, guid: 10daa9fb1253bb140b9daaa8ba9e8ba1, type: 3}
+  - {fileID: 8300000, guid: 01436539750473e4baad056957a0889c, type: 3}
+  - {fileID: 8300000, guid: 6bba96cba3bb82948a8c49c5d61666da, type: 3}
+  - {fileID: 8300000, guid: e81300bd527c9b34985a9f4475c786dc, type: 3}
+  - {fileID: 8300000, guid: 77d4bdb84e8b3534a9f0fe336da37a23, type: 3}
+  - {fileID: 8300000, guid: 7270295253ba4b64d97b1983413bcce4, type: 3}
+  - {fileID: 8300000, guid: a616f1364ccec5740a9654b1a891b4ef, type: 3}
+  - {fileID: 8300000, guid: 445788b313cf75e4abdc2d58ffcebf58, type: 3}
+  - {fileID: 8300000, guid: d698ef321810a9f4a8909ceb36805831, type: 3}
+  - {fileID: 8300000, guid: 3ae9b34ca3f3f854ca0246024e43dfbb, type: 3}
+  - {fileID: 8300000, guid: d97622a46c5313c49b45a6b40f888531, type: 3}
+  - {fileID: 8300000, guid: 3f0702d3d64180b4caf1a2ea82261750, type: 3}
+  - {fileID: 8300000, guid: cefbf0f23b66afd4f8eac042d863bd0d, type: 3}
+  - {fileID: 8300000, guid: 493ab13eb6151ec4ea52087b53c9163d, type: 3}
+  - {fileID: 8300000, guid: c3f3c48b4fe425942996d1ce42fe6181, type: 3}
+  - {fileID: 8300000, guid: c19c95302ed765649ac31e134e6b8ced, type: 3}
+  - {fileID: 8300000, guid: 637b511f37f145c45bb36eb2cc585a80, type: 3}
+  - {fileID: 8300000, guid: 0fec135be090af3409bfb90eee400f5a, type: 3}
+  - {fileID: 8300000, guid: 148cad6c8f85db54dbb3cf977c333902, type: 3}
+  - {fileID: 8300000, guid: 18b057711da7f6d40a924daebe3ffe3c, type: 3}
+  - {fileID: 8300000, guid: be430017a92f39640b9bbd7ff072220a, type: 3}
   moveInput: {x: 0, y: 0}
   lookInput: {x: 0, y: 0}
   jumpPressed: 0
