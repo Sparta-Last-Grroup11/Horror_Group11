@@ -14,7 +14,7 @@ public class InGameUI : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && UIManager.Instance.Get<ExitUI>() == null)
-            UIManager.Instance.show<ExitUI>();
+        if (Input.GetKeyDown(KeyCode.Escape) && !UIManager.Instance.IsUiActing && UIManager.Instance.Get<InGameSettingUI>() == null )
+            UIManager.Instance.show<InGameSettingUI>();
     }
 }

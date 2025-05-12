@@ -97,8 +97,6 @@ public abstract class Enemy : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(dir);
     }
 
-    public virtual void TriggerEventEnemy() { }
-
     public void FirstVisible(ref bool hasBeenVisible, int monologueNum)
     {
         if (hasBeenVisible == false)

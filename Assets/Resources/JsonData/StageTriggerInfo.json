@@ -2,11 +2,11 @@
   "StageTriggerInfo": [
     {
       "stageid": 1,
-      "triggerIndex": 2
+      "triggerindex": 2
     },
     {
       "stageid": 2,
-      "triggerIndex": 3
+      "triggerindex": 3
     }
   ]
 }

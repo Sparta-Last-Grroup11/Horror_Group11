@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[DefaultExecutionOrder(-100)]
 public class SpawnRoot : MonoBehaviour
 {
     public Dictionary<string, List<Transform>> spawnPoints = new Dictionary<string, List<Transform>>();

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3820537100329920163}
   m_Layer: 8
   m_Name: JumpScaleZombie
-  m_TagString: SkinLess
+  m_TagString: JumpScale
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,7 +63,7 @@ MonoBehaviour:
   haveSeenPlayer: 0
   viewDistance: 10
   viewAngle: 90
-  skinLessZombieAnim: {fileID: 0}
+  jumpScaleZombieAnim: {fileID: 0}
   _rigidbody: {fileID: 0}
   cameraTransform: {fileID: 0}
   spottedRoarClip: {fileID: 8300000, guid: 410eeb4da8e5d5e479b65b68e7b997c2, type: 3}
