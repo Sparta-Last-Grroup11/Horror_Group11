@@ -27,4 +27,10 @@ public class SettingUI : BaseUI
             Destroy(gameObject);
         });
     }
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        UIManager.Instance.IsUiActing = false;
+    }
 }

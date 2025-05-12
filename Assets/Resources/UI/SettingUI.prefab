@@ -2581,7 +2581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 309e63d659bce2f4ca914897eecf1df8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isCursorFree: 0
+  isCursorFree: 1
   exitBut: {fileID: 9005460782860689680}
   audioMixer: {fileID: 24100000, guid: 13f9a70cacf85234e9f6b2682aeda37c, type: 2}
   sliders: []
