@@ -16,7 +16,7 @@ public class InGameSettingUI : BaseUI
         mode = Cursor.lockState;
         Cursor.lockState = CursorLockMode.None;
         UIManager.Instance.IsUiActing = true;
-        helpButton.onClick.AddListener(() => Debug.Log("HelpButton"));
+        helpButton.onClick.AddListener(() => ShowUIInGameSetting<HelpUI>());
         SettingButton.onClick.AddListener(()=> ShowUIInGameSetting<SettingUI>());
         ExitButton.onClick.AddListener(()=> ShowUIInGameSetting<ExitUI>());
     }
