@@ -2898,6 +2898,8 @@ MonoBehaviour:
   lightStateSO: {fileID: 11400000, guid: 405e8d03f4a7c9042ab2184b737341d1, type: 2}
   nurseZombieChaseClip: {fileID: 8300000, guid: 6f3c8a80c34da8949a7c39bbfd3cbc04,
     type: 3}
+  nurseZombieVirtualCamera: {fileID: 3418154663921649997, guid: b661840ef16d0fe44a42d74091c761e0,
+    type: 3}
   moveSpeed: 4
   dashSpeed: 6
   attackRange: 1.5
@@ -2916,7 +2918,6 @@ MonoBehaviour:
   spawnPoint: {fileID: 0}
   footStepRate: 0.15
   chaseFootStepClip: {fileID: 8300000, guid: 8c2c6c300bd8fc441878f426377bec64, type: 3}
-  stopChaseClip: {fileID: 8300000, guid: 08b4ba6cd22a9ab4986a13fff034f354, type: 3}
 --- !u!54 &1389980022007079389
 Rigidbody:
   m_ObjectHideFlags: 0
