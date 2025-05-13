@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Cinemachine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class Player : PlayerInputController
 {
@@ -35,7 +36,7 @@ public class Player : PlayerInputController
     [SerializeField]private float noiseRate;
     private float noiseMinRate = 10f;
     private float noiseMaxRate = 20f;
-
+    private int GameSceneIndex = 2;
 
     // 입력 값
     [Header("Input")]
@@ -102,11 +103,14 @@ public class Player : PlayerInputController
         {
             camNoise = virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         }
+        if (SceneManager.GetActiveScene().buildIndex == GameSceneIndex)
+        {
+            noiseRate = Random.Range(noiseMinRate, noiseMaxRate);
+            randomNoise = Random.Range(0, noiseList.Length);
 
-        AudioManager.Instance.AudioBGMPlay(BGM);
-        AudioManager.Instance.AudioBGMPlay(breathing);
-        noiseRate = Random.Range(noiseMinRate, noiseMaxRate);
-        randomNoise = Random.Range(0, noiseList.Length);
+            AudioManager.Instance.Audio2DPlay(BGM, 1f, true);
+            AudioManager.Instance.Audio2DPlay(breathing, 1f, true);
+        }
     }
 
     private void Update()
@@ -123,13 +127,12 @@ public class Player : PlayerInputController
         }
 
         afterLastNoise += Time.deltaTime;
-        if (afterLastNoise > noiseRate)
+        if (afterLastNoise > noiseRate && SceneManager.GetActiveScene().buildIndex == GameSceneIndex)
         {
             afterLastNoise = 0;
             noiseRate = Random.Range(noiseMinRate, noiseMaxRate);
             randomNoise = Random.Range(0, noiseList.Length);
             AudioManager.Instance.Audio2DPlay(noiseList[randomNoise]);
-            Debug.Log($"다음 소리까지 대기 시간: {noiseRate}초");
         }
     }
 
