@@ -1,5 +1,7 @@
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.AI;
+using Cinemachine;
 
 public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플레이어가 뒤돌면 쫓아옴)
 {
@@ -9,6 +11,7 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
     public Animator nurseZombieAnim;
     public LightStateSO lightStateSO;
     public AudioClip nurseZombieChaseClip;
+    public CinemachineVirtualCamera nurseZombieVirtualCamera;
 
     [Header("Movement")]
     public float moveSpeed = 2f;
@@ -37,6 +40,10 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
     public NurseZombieIdleState nurseZombieIdleState;
     public NurseZombieChaseState nurseZombieChaseState;
     public NurseZombieAttackState nurseZombieAttackState;
+
+    [Header("Audio")]
+    public float footStepRate;
+    public AudioClip chaseFootStepClip;
 
     protected override void Awake()
     {

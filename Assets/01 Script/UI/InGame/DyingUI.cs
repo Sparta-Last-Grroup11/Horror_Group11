@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using Michsky.UI.Dark;
 
 public class DyingUI : PopupUI
 {
@@ -14,7 +15,9 @@ public class DyingUI : PopupUI
 
     async Task GoTosStartScene()
     {
-        await Task.Delay(1000);
+        await Task.Delay(3000);
         await SceneLoadManager.Instance.ChangeScene("StartScene");
     }
 }
+
+

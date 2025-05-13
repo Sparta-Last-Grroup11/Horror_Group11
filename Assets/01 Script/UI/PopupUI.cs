@@ -20,7 +20,7 @@ public abstract class PopupUI : BaseUI
         if (canvasGroup == null)
             canvasGroup = gameObject.AddComponent<CanvasGroup>();
 
-        StartCoroutine(FadeIn());
+            StartCoroutine(FadeIn());
 
         if (!DestroyByTime)
             return;

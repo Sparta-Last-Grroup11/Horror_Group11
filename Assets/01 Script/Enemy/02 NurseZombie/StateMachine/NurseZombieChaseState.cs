@@ -4,6 +4,8 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
 {
     private NurseZombie nurseZombie;
 
+    private float afterLastFootStep;
+
     public NurseZombieChaseState(Enemy enemy, EnemyStateMachine fsm) : base(enemy, fsm)
     {
         nurseZombie = enemy as NurseZombie;
@@ -42,6 +44,13 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
 
         nurseZombie.nurseZombieAgent.speed = nurseZombie.moveSpeed;
         nurseZombie.nurseZombieAgent.SetDestination(nurseZombie.PlayerTransform.position);
+
+        afterLastFootStep += Time.deltaTime;
+        if (afterLastFootStep >= nurseZombie.footStepRate)
+        {
+            afterLastFootStep = 0;
+            AudioManager.Instance.Audio3DPlay(nurseZombie.chaseFootStepClip, nurseZombie.transform.position);
+        }
     }
 
     public void CheckPlayerBeyondDoor()

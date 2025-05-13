@@ -1,3 +1,6 @@
+using UnityEngine;
+using System.Collections;
+
 public class NurseZombieAttackState : EnemyBaseState  // 플레이어를 공격하는 상태
 {
     private NurseZombie nurseZombie;
@@ -9,9 +12,16 @@ public class NurseZombieAttackState : EnemyBaseState  // 플레이어를 공격�
 
     public override void Enter()
     {
-        nurseZombie.nurseZombieAnim.SetTrigger("Attack");
         GameManager.Instance.player.isChased = false;
         GameManager.Instance.player.cantMove = true;
+        nurseZombie.nurseZombieAnim.SetTrigger("Attack");
+        nurseZombie.nurseZombieVirtualCamera.Priority = 12;
+        nurseZombie.StartCoroutine(PlayerDead());
+    }
+
+    private IEnumerator PlayerDead()
+    {
+        yield return new WaitForSeconds(5f);
         UIManager.Instance.show<DyingUI>();
     }
 }
