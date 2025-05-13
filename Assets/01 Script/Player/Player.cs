@@ -10,6 +10,7 @@ public class Player : PlayerInputController
     public PlayerInventory playerInventory;
 
     // 발소리 관련
+    [Header("FootStep")]
     public AudioClip footStepClip;
     public AudioClip runStepClip;
     public AudioClip jumpStartClip;
@@ -17,12 +18,14 @@ public class Player : PlayerInputController
     public float footSpeedRate = 0.2f;
 
     // 쫓기는 상태 관련
+    [Header("Chased")]
     [SerializeField] private AudioClip chasedCilp;
     public bool isChased = false;
     private bool isChasedBGM = false;
     public bool cantMove = false;
 
     // 효과음 관련
+    [Header("SFX")]
     [SerializeField] private AudioClip BGM;
     [SerializeField] private AudioClip breathing;
     [SerializeField] private AudioClip shockedClip;
@@ -35,6 +38,7 @@ public class Player : PlayerInputController
 
 
     // 입력 값
+    [Header("Input")]
     public Vector2 moveInput;
     public Vector2 lookInput;
     public bool jumpPressed;
