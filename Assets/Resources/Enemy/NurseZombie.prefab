@@ -2914,7 +2914,9 @@ MonoBehaviour:
     m_Bits: 64
   PlayerDisappearTime: 3
   spawnPoint: {fileID: 0}
-  _renderer: {fileID: 0}
+  footStepRate: 0.15
+  chaseFootStepClip: {fileID: 8300000, guid: 8c2c6c300bd8fc441878f426377bec64, type: 3}
+  stopChaseClip: {fileID: 8300000, guid: 08b4ba6cd22a9ab4986a13fff034f354, type: 3}
 --- !u!54 &1389980022007079389
 Rigidbody:
   m_ObjectHideFlags: 0
