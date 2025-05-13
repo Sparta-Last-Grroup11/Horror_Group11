@@ -9,8 +9,11 @@ public class ChapterClipBoard : MonoBehaviour, I_Interactable
     private Quaternion targetRot;
     private Vector3 targetScale = new Vector3(0.5f, 0.5f, 0.5f);
 
+    [SerializeField] private AudioClip clip;
+
     public void OnInteraction()
     {
+        AudioManager.Instance.Audio2DPlay(clip);
         UIManager.Instance.IsUiActing = true;
         targetPos = Camera.main.transform.position + (Camera.main.transform.forward * 0.3f) - (Camera.main.transform.right * 0.1f);
         targetRot = Quaternion.LookRotation(Camera.main.transform.right, -Camera.main.transform.forward);
