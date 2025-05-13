@@ -22,7 +22,7 @@ public class SafeLockPuzzle : ItemOnUI
     [SerializeField] private float rotationSpeed = 36f; // degrees per second
     private bool isRotating = false;
     private bool isResetting = false;
-    public override void Init(string description = "")
+    public override void Init(string description = "") //실행 시
     {
         for (int i = 0; i < rightArray.Length; i++) //암호 초기화
         {
@@ -37,13 +37,13 @@ public class SafeLockPuzzle : ItemOnUI
         isRotating = false;
     }
 
-    public void SetSafe(OpenPuzzle puzzle)
+    public void SetSafe(OpenPuzzle puzzle) //금고 정보 저장
     {
         safe = puzzle;
     }
+
     protected  void Update()
     {
-        RotateDialMotion();
         RotateDial();
         RotateDialMotion();
     }
@@ -61,10 +61,9 @@ public class SafeLockPuzzle : ItemOnUI
         }
     }
 
-    private void ProcessDialInput(bool goingLeft)
+    private void ProcessDialInput(bool goingLeft) //입력 방향 확인
     {
-        bool sameDirection = goingLeft == isLeft;
-        if (sameDirection)
+        if (goingLeft == isLeft) //방향 일치 시
         {
             answer = (answer + 1) % (maxNumber + 1);
             if(answer == rightArray[rotateCount])
@@ -72,15 +71,14 @@ public class SafeLockPuzzle : ItemOnUI
                 AudioManager.Instance.Audio2DPlay(clip);
             }
         }
-        else
+        else //방향 불일치 시
         {
-            CheckAnswer();
-            answer = (answer + 1) % (maxNumber + 1);
+            CheckAnswer(); //답과 일치하는지 확인
         }
 
-        SetRotationDial(goingLeft);
+        SetRotationDial(goingLeft); //다이얼 회전 설정
 
-        isLeft = goingLeft;
+        isLeft = goingLeft; //회전방향 저장
 
         if (rotateCount == arrayLength - 1 && answer == rightArray[arrayLength - 1]) // 마지막 암호까지 맞췄다면 문 열기
         {
@@ -88,14 +86,14 @@ public class SafeLockPuzzle : ItemOnUI
         }
     }
 
-    private void SetRotationDial(bool goingLeft)
+    private void SetRotationDial(bool goingLeft) //다이얼 회전 각도 설정
     {
         float angleStep = 360 / (maxNumber + 1);
         targetAngle += goingLeft ? -angleStep : angleStep;
         isRotating = true;
     }
 
-    private void RotateDialMotion()
+    private void RotateDialMotion() //다이얼 회전 실행
     {
         if (!isRotating) return;
 
@@ -112,6 +110,7 @@ public class SafeLockPuzzle : ItemOnUI
         {
             checker[rotateCount].material.color = Color.green;
             rotateCount++;
+            answer = (answer + 1) % (maxNumber + 1);
         }
         else //일치하지 않는다면 전부 초기화
         {
@@ -125,7 +124,7 @@ public class SafeLockPuzzle : ItemOnUI
         answer = 0;
 
     }
-    IEnumerator ResetDial()
+    IEnumerator ResetDial() //다이얼 초기화
     {
         isResetting = true;
 

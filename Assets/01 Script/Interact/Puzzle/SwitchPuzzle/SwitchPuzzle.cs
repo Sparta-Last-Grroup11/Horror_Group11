@@ -16,22 +16,22 @@ public class SwitchPuzzle : MonoBehaviour
         onCount = 0;
         foreach(int id in startSwitchOn)
         {
-            switchesDict[id].ChangeIsOn();
+            switchesDict[id].SetStartOnOff(true);
         }
         light.color = Color.red;
     }
 
-    public void ChangeCount(int count)
+    public void ChangeCount(int count) //레버 작동 시 카운트 변경
     {
         onCount += count;
     }
 
-    public void SetDictionary(int id,  Switch switchObj)
+    public void SetDictionary(int id,  Switch switchObj) //리스트에 스위치, id 저장
     {
         switchesDict[id] = switchObj;
     }
 
-    public void TriggerSwitch(int id)
+    public void TriggerSwitch(int id) //스위치 작동 시 주변 스위치 On/Off
     {
         switchesDict[id].ChangeIsOn();
         if (id - 1 >= 0 && id % 3 != 0) switchesDict[id - 1].ChangeIsOn();
@@ -40,7 +40,7 @@ public class SwitchPuzzle : MonoBehaviour
         if (id + 3 < switchesDict.Count) switchesDict[id + 3].ChangeIsOn();
     }
 
-    public bool CheckCount()
+    public bool CheckCount() //레버가 전부 켜졌는지 확인
     {
         if (onCount == 9)
         {
@@ -56,7 +56,7 @@ public class SwitchPuzzle : MonoBehaviour
         }
     }
 
-    private void ClearPuzzle()
+    private void ClearPuzzle() //퍼즐 완료 시 레버 비활성화 및 클리어 시 다음 행동 실행
     {
         foreach (Switch switchObj in switchesDict.Values)
         {
@@ -65,15 +65,11 @@ public class SwitchPuzzle : MonoBehaviour
         PuzzleClear?.Invoke();
     }
 
-    private void ResetAll()
+    private void ResetAll() //모든 레버 초기화
     {
         foreach (Switch switchObj in switchesDict.Values)
         {
             switchObj.ResetSwitch();
-        }
-        foreach (int id in startSwitchOn)
-        {
-            switchesDict[id].ChangeIsOn();
         }
     }
 }
