@@ -1,20 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class Switch : MonoBehaviour, I_Interactable
+public class Switch : Lever, I_Interactable
 {
-    [SerializeField] private bool isOn = false;
     [SerializeField] private SwitchPuzzle puzzle;
     [SerializeField] private int id;
-    private void Awake()
+
+    protected override void Awake()
     {
         puzzle.SetDictionary(id, this);
+        base.Awake();
     }
     public void OnInteraction()
     {
+        isAct = true;
         puzzle.TriggerSwitch(id);
-        puzzle.CheckCount();
     }
 
     public void ChangeIsOn()
@@ -23,15 +25,21 @@ public class Switch : MonoBehaviour, I_Interactable
         if (isOn)
         {
             puzzle.ChangeCount(1);
+            StartCoroutine(Movelever(offRotation, onRotation));
         }
         else
         {
             puzzle.ChangeCount(-1);
+            StartCoroutine(Movelever(onRotation, offRotation));
         }
     }
-
     public void DownPuzzle()
     {
         gameObject.layer = LayerMask.NameToLayer("Default");
+    }
+
+    public void ResetSwitch()
+    {
+        if (isOn) ChangeIsOn();
     }
 }
