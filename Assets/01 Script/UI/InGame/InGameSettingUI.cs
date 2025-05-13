@@ -8,7 +8,6 @@ public class InGameSettingUI : BaseUI
     [SerializeField] Button helpButton;
     [SerializeField] Button SettingButton;
     [SerializeField] Button ExitButton;
-    CursorLockMode mode;
 
     // Start is called before the first frame update
     protected override void Start()

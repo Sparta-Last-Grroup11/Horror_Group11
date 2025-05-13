@@ -9,7 +9,7 @@ public abstract class BaseUI : MonoBehaviour
 {
     [SerializeField] private bool isCursorFree;
     public Action destroyAction;
-    CursorLockMode mode;
+    protected CursorLockMode mode;
 
     protected virtual void Start()
     {

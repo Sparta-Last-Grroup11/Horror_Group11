@@ -1,6 +1,7 @@
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.AI;
+using Cinemachine;
 
 public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플레이어가 뒤돌면 쫓아옴)
 {
