@@ -217,7 +217,7 @@ public class Player : PlayerInputController
 
     public void UnChasingByEnemy()
     {
-        Invoke("ChasedBGMOff", 3f);
+        Invoke("ChasedBGMOff", 10f);
     }
 
     private void ChasedBGMOff()

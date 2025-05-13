@@ -41,6 +41,10 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
     public NurseZombieChaseState nurseZombieChaseState;
     public NurseZombieAttackState nurseZombieAttackState;
 
+    [Header("Audio")]
+    public float footStepRate;
+    public AudioClip chaseFootStepClip;
+
     protected override void Awake()
     {
         base.Awake();
