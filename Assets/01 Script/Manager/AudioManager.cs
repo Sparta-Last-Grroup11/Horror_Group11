@@ -93,6 +93,7 @@ public class AudioManager : Singleton<AudioManager>
         obj.transform.SetParent(tempRoot);
 
         AudioSource source = obj.GetComponent<AudioSource>();
+        source.loop = isLoop;
         source.clip = clip;
         source.volume = Mathf.Clamp01(volume);
         source.spatialBlend = 0f;
