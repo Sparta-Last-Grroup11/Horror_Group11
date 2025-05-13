@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,7 +11,7 @@ namespace Michsky.UI.Dark
     public class SplashScreenManager : MonoBehaviour
     {
         // Content
-        public List<SplashScreenTitle> splashScreenTitles = new List<SplashScreenTitle>();
+        public List<SplashScreenTitles> splashScreenTitles = new List<SplashScreenTitles>();
 
         // Resources
         public GameObject splashScreen;

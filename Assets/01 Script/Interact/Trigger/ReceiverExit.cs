@@ -6,8 +6,19 @@ using UnityEngine.UIElements;
 
 public class ReceiverExit : Receiver
 {
+    [SerializeField] private bool testShowClearUI = false; // 디버그용
+
     [SerializeField] private ItemData exitItem;
     private Vector3 origin;
+
+    private void Start()
+    {
+        if (testShowClearUI)
+        {
+            ReceiveTrigger();
+        }
+    }
+
     public override void ReceiveTrigger()
     {
         if (exitItem != null && GameManager.Instance.player.playerInventory.HasItem(exitItem)){

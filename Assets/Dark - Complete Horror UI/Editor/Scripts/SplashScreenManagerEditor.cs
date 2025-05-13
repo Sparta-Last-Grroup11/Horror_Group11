@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEditor;
 
 namespace Michsky.UI.Dark
@@ -70,7 +70,7 @@ namespace Michsky.UI.Dark
                             GameObject go = Instantiate(ssmTarget.splashScreenTitles[1].gameObject, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
                             go.transform.SetParent(ssmTarget.splashScreenTitles[1].transform.parent, false);
                             go.gameObject.name = "New Title";
-                            ssmTarget.splashScreenTitles.Add(go.GetComponent<SplashScreenTitle>());
+                            ssmTarget.splashScreenTitles.Add(go.GetComponent<SplashScreenTitles>());
                         }
                     }
 
