@@ -63,7 +63,7 @@ MonoBehaviour:
   haveSeenPlayer: 0
   viewDistance: 10
   viewAngle: 90
-  jumpScaleZombieAnim: {fileID: 0}
+  jumpScareZombieAnim: {fileID: 0}
   _rigidbody: {fileID: 0}
   cameraTransform: {fileID: 0}
   spottedRoarClip: {fileID: 8300000, guid: 410eeb4da8e5d5e479b65b68e7b997c2, type: 3}

@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class JumpScareZombie : MonoBehaviour, IJumpScareEvent
+public class JumpScareZombie : Enemy, IJumpScareEvent
 {
     [Header("Components")]
     public Animator jumpScareZombieAnim;
@@ -19,7 +19,6 @@ public class JumpScareZombie : MonoBehaviour, IJumpScareEvent
     public bool hasBeenSeenByPlayer = false;
     public int firstMonologueNum = 0;
 
-    private Transform playerTransform;
     private Enemy enemy;
 
     private void Awake()
@@ -31,13 +30,6 @@ public class JumpScareZombie : MonoBehaviour, IJumpScareEvent
         {
             cameraTransform = Camera.main.transform;
         }
-
-        if (GameManager.Instance != null)
-        {
-            playerTransform = GameManager.Instance.player.transform;
-        }
-
-        enemy = GetComponent<Enemy>();
     }
 
     public void TriggerEvent()
@@ -45,7 +37,7 @@ public class JumpScareZombie : MonoBehaviour, IJumpScareEvent
         GameManager.Instance.player.isChased = true;
         UIManager.Instance.GlitchStart(10f);
         jumpScareZombieAnim.SetTrigger("Chase");
-        enemy.FirstVisible(ref hasBeenSeenByPlayer, firstMonologueNum);
+        FirstVisible(ref hasBeenSeenByPlayer, firstMonologueNum);
         AudioManager.Instance.Audio2DPlay(spottedRoarClip, 1f);
         AudioManager.Instance.Audio2DPlay(rushFootstepsLoop, 1f);
 
@@ -62,8 +54,8 @@ public class JumpScareZombie : MonoBehaviour, IJumpScareEvent
         float elapsed = 0f;
         while (elapsed < disappearTime)  // 최대 추적 시간 동안만 반복
         {
-            enemy.LookAtPlayer();
-            Vector3 target = playerTransform.position;
+            LookAtPlayer();
+            Vector3 target = PlayerTransform.position;
             Vector3 direction = (target - transform.position).normalized; 
             _rigidbody.MovePosition(transform.position + direction * rushSpeed * Time.deltaTime);
 
