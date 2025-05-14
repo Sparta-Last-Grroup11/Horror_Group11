@@ -21,11 +21,8 @@ public class EndGameUI : BaseUI
     [SerializeField] EndingCategory endGameType;
     [SerializeField] float delayBeforeSceneChange = 3.0f;
 
-    private EndingCategory currentEnding;
-
     public async void ShowEnding(EndingCategory type, int delayTime)
     {
-        currentEnding = type;
         SetupVisuals(type);
 
         await Task.Delay(delayTime);
@@ -33,7 +30,6 @@ public class EndGameUI : BaseUI
         await Task.Delay((int)(delayBeforeSceneChange * 3000));
         modal.ModalWindowOut();
         await SceneLoadManager.Instance.ChangeScene("StartScene");
-
     }
 
     private void SetupVisuals(EndingCategory type)
@@ -45,7 +41,7 @@ public class EndGameUI : BaseUI
         switch (type)
         {
             case EndingCategory.Rescued:
-                modal.title = "Rescued";
+                modal.title = "RESCUED";
                 modal.description = "The siren faded away. You have been rescued.";
                 break;
 
