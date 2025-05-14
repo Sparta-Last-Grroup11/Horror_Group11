@@ -3117,7 +3117,7 @@ MonoBehaviour:
   lightStateSO: {fileID: 11400000, guid: 405e8d03f4a7c9042ab2184b737341d1, type: 2}
   nurseZombieChaseClip: {fileID: 8300000, guid: 6f3c8a80c34da8949a7c39bbfd3cbc04,
     type: 3}
-  nurseZombieCatchPlayerClip: {fileID: 8300000, guid: e031a2074fc57e147b5c4e516f54a129,
+  nurseZombieCatchPlayerClip: {fileID: 8300000, guid: dc53ceff44bb16b41a714a4abae50873,
     type: 3}
   nurseZombieVirtualCamera: {fileID: 5283727672782486703}
   moveSpeed: 4

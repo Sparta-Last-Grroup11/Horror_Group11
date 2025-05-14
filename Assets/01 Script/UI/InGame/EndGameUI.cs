@@ -28,9 +28,9 @@ public class EndGameUI : BaseUI
         currentEnding = type;
         SetupVisuals(type);
 
-        await Task.Delay(1000);
+        await Task.Delay(2000);
         modal.ModalWindowIn();
-        await Task.Delay((int)(delayBeforeSceneChange * 4000));
+        await Task.Delay((int)(delayBeforeSceneChange * 2000));
         modal.ModalWindowOut();
         await SceneLoadManager.Instance.ChangeScene("StartScene");
 
@@ -40,36 +40,35 @@ public class EndGameUI : BaseUI
     {
         Color normalColor = new Color(0.61f, 0.61f, 0.61f, 0.75f);
         Color deathColor = new Color(0.54f, 0.09f, 0.09f, 0.75f);
+        Color bgColor = normalColor;
 
         switch (type)
         {
             case EndingCategory.Rescued:
                 modal.title = "Rescued";
                 modal.description = "The siren faded away. You have been rescued.";
-                contentBackground.color = normalColor;
                 break;
 
             case EndingCategory.AnotherWorld:
                 modal.title = "ANOTHER WORLD";
                 modal.description = "Endless space opened up. Maybe… you won't be coming back.";
-                contentBackground.color = normalColor;
                 break;
                 
             case EndingCategory.Escape:
                 modal.title = "ESCAPED";
                 modal.description = "The door is open. But is it all over?";
-                contentBackground.color = normalColor;
                 break;
 
             case EndingCategory.Death:
                 modal.title = "YOU DEAD";
                 modal.description = "It's all over. Your story too.";
-                contentBackground.color = deathColor;
+                bgColor = deathColor;
                 break;
         }
 
         modal.titleObject = title;
         modal.descriptionObject = description;
+        contentBackground.color = bgColor;
 
         modal.UpdateUI();
     }
