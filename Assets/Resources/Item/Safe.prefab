@@ -575,6 +575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzle: {fileID: 4693144216193190947, guid: 5a1aa709d7d7f97469853131a73356e0, type: 3}
   door: {fileID: 3612643875533458559}
+  key: {fileID: 6884665441935586769}
 --- !u!65 &1287425304884230022
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1091,11 +1092,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7235472857623452323, guid: be6ceda5c601e1e4b9b72d9bc36aea88,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3033407968779030908}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be6ceda5c601e1e4b9b72d9bc36aea88, type: 3}
 --- !u!4 &6799981205416891144 stripped
 Transform:
@@ -1109,16 +1106,3 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4315203278076522354}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3033407968779030908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6884665441935586769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e342803ca8147fa4cb768964c577c52b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  questID: 2

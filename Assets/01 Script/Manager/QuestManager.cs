@@ -81,7 +81,8 @@ public class QuestManager : Singleton<QuestManager>
 
     public void AddChanger(ChangeInteract obj, int questID)
     {
-        changer.Add(questID,obj);
+        if (!changer.ContainsKey(questID))
+            changer.Add(questID,obj);
     }
 
     void ChangeLayer(int questID)

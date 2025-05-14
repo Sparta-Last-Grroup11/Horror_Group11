@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class SwitchPuzzle : MonoBehaviour
@@ -9,8 +10,8 @@ public class SwitchPuzzle : MonoBehaviour
     [SerializeField] private int onCount;
     [SerializeField] private Light light;
     private Dictionary<int, Switch> switchesDict = new Dictionary<int, Switch>();
-    public Action PuzzleClear; 
-
+    public event Action PuzzleClear;
+    [SerializeField] private LightStateSO lightState;
     private void Start()
     {
         onCount = 0;
@@ -42,6 +43,7 @@ public class SwitchPuzzle : MonoBehaviour
 
     public bool CheckCount() //레버가 전부 켜졌는지 확인
     {
+        if (!lightState.IsPowerOn) return false;
         if (onCount == 9)
         {
             light.color = Color.green;
@@ -56,13 +58,13 @@ public class SwitchPuzzle : MonoBehaviour
         }
     }
 
-    private void ClearPuzzle() //퍼즐 완료 시 레버 비활성화 및 클리어 시 다음 행동 실행
+    private void ClearPuzzle() //퍼즐 완료 시 레버 비활성화 및 클리어 시 전등 스위치 조작 가능
     {
         foreach (Switch switchObj in switchesDict.Values)
         {
             switchObj.DownPuzzle();
         }
-        PuzzleClear?.Invoke();
+        lightState.PermissionControl();
     }
 
     private void ResetAll() //모든 레버 초기화

@@ -571,6 +571,7 @@ MonoBehaviour:
   startSwitchOn: 0000000002000000040000000600000008000000
   onCount: 0
   light: {fileID: 8271670887773331808}
+  lightState: {fileID: 11400000, guid: 405e8d03f4a7c9042ab2184b737341d1, type: 2}
 --- !u!1 &1108641925619545654
 GameObject:
   m_ObjectHideFlags: 0
