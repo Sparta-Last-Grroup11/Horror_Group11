@@ -16,7 +16,7 @@ public class QuestManager : Singleton<QuestManager>
     [SerializeField] List<QuestInfo> dialogList;
     [SerializeField] string questLog = "Quest";
     [SerializeField] private QuestUI questUI;
-    //GameObject dialogPrefab;
+    
     private Dictionary<int, ChangeInteract> changer = new Dictionary<int, ChangeInteract>();
     protected override bool dontDestroy => false;
 
@@ -81,7 +81,8 @@ public class QuestManager : Singleton<QuestManager>
 
     public void AddChanger(ChangeInteract obj, int questID)
     {
-        changer.Add(questID,obj);
+        if (!changer.ContainsKey(questID))
+            changer.Add(questID,obj);
     }
 
     void ChangeLayer(int questID)

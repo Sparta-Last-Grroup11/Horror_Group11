@@ -18,7 +18,7 @@ public class Lever : MonoBehaviour
 
     }
    
-    protected IEnumerator Movelever(Quaternion start, Quaternion end)
+    protected IEnumerator Movelever(Quaternion start, Quaternion end) //레버 작동
     {
         float elapsed = 0f;
         try

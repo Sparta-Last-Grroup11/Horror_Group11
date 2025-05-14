@@ -6,19 +6,20 @@ public abstract class OpenableObject : MonoBehaviour, I_Openable
 {
     [SerializeField] private AudioClip openClip;
     [SerializeField] private AudioClip closeClip;
-     public virtual void Open()
+    protected Quaternion openRotation;
+    protected Quaternion closeRotation;
+    public virtual void Open()
     {
         if (openClip != null)
             AudioManager.Instance.Audio3DPlay(openClip, transform.position);
-        StartCoroutine(OpenRoutine());
+        StartCoroutine(MoveRoutine(closeRotation, openRotation));
     }
     public virtual void Close()
     {
         if (closeClip != null)
             AudioManager.Instance.Audio3DPlay(closeClip, transform.position);
-        StartCoroutine(CloseRoutine());
+        StartCoroutine(MoveRoutine(openRotation, closeRotation));
     }
 
-    protected abstract IEnumerator OpenRoutine();
-    protected abstract IEnumerator CloseRoutine();
+    protected abstract IEnumerator MoveRoutine(Quaternion start, Quaternion end);
 }

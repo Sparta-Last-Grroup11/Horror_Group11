@@ -8,12 +8,11 @@ public class SwitchController : MonoBehaviour, I_Interactable
 {
     [SerializeField] private float intensity;
     [SerializeField] private float range;
-    [SerializeField] private HashSet<Lamp> lightsList = new HashSet<Lamp>();
+    private HashSet<Lamp> lightsList = new HashSet<Lamp>();
     private bool isTurnOn = false;
-    [SerializeField] private bool isPowerOn = false;
+
     [SerializeField] private int rand = 10;
     [SerializeField] private float shutdownTime = 90f;
-
     [SerializeField] private LightStateSO lightState;
     [SerializeField] private int questID = 5;
 
@@ -53,16 +52,11 @@ public class SwitchController : MonoBehaviour, I_Interactable
 
     public void OnInteraction() //상호작용
     {
-        if (!isPowerOn || isTurnOn) return;
+        if (!lightState.CanControl || isTurnOn) return;
         SetLightsState();
         telephone.OnPower();
         QuestManager.Instance.QuestTrigger(questID);
         StartCoroutine(Shutdown());
-    }
-
-    public void OnPower() //전원 전환
-    {
-        isPowerOn = true;
     }
 
     IEnumerator Shutdown()

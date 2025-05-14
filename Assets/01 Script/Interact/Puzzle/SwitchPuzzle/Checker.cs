@@ -6,20 +6,20 @@ public class Checker : Lever, I_Interactable
 {
     [SerializeField] private SwitchPuzzle puzzle;
 
-    public void OnInteraction()
+    public void OnInteraction() //레버 상호작용
     {
         isAct = true;
         StartCoroutine(Movelever(offRotation, onRotation));
-        if (!puzzle.CheckCount())
+        if (!puzzle.CheckCount()) //답이 아닐 경우
         {
             StartCoroutine(ReadyMove());
         }
-        else
+        else //답일 경우
         {
             gameObject.layer = LayerMask.NameToLayer("Default");
         }
     }
-    IEnumerator ReadyMove()
+    IEnumerator ReadyMove() //레버 회전 대기 후 레버 회전
     {
         while (isAct)
         {

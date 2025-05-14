@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAct: 0
-  elecBox: {fileID: 0}
+  lightState: {fileID: 11400000, guid: 405e8d03f4a7c9042ab2184b737341d1, type: 2}
   clip: {fileID: 8300000, guid: ce11ecb29bc278d4cbfcc4540ce706b7, type: 3}
   questID: 4
 --- !u!1001 &1605641615356615053
