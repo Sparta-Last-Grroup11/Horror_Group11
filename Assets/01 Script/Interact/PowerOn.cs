@@ -7,6 +7,7 @@ public class PowerOn : MonoBehaviour, I_Interactable
 {
     [SerializeField] private bool isAct;
     [SerializeField] private SwitchController elecBox;
+    [SerializeField] private Telephone telephone;
     [SerializeField] private AudioClip clip;
     [SerializeField] private int questID = 4;
     private PlayableDirector playableDirector;
@@ -23,6 +24,7 @@ public class PowerOn : MonoBehaviour, I_Interactable
         if(clip != null)
             AudioManager.Instance.Audio2DPlay(clip);
         elecBox.OnPower();
+        telephone.OnPower();
         MonologueManager.Instance.DialogPlay(10);
         MonologueManager.Instance.DialogPlay(9);
         QuestManager.Instance.QuestTrigger(questID);

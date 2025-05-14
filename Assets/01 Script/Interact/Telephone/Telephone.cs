@@ -11,8 +11,11 @@ public class Telephone : MonoBehaviour, I_Interactable
     [SerializeField] private AudioClip telephoneTalkClip;
     [SerializeField] private AudioClip sirenClip;
 
+    private bool isPowerOn = false;
+
     public void OnInteraction()
     {
+        if (isPowerOn == false) return;
         telephoneVirtualCamera.Priority = 12;
         StartCoroutine(TelephoneSound());
     }
@@ -26,5 +29,10 @@ public class Telephone : MonoBehaviour, I_Interactable
         AudioManager.Instance.Audio2DPlay(sirenClip);
         yield return new WaitForSeconds(2f);
         UIManager.Instance.show<TelephoneUI>();
+    }
+
+    public void OnPower()
+    {
+        isPowerOn = true;
     }
 }
