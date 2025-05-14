@@ -23,7 +23,7 @@ public class ReceiverExit : Receiver
     {
         if (exitItem != null && GameManager.Instance.player.playerInventory.HasItem(exitItem)){
             MonologueManager.Instance.DialogPlay(8);
-            UIManager.Instance.show<ClearUI>();
+            UIManager.Instance.show<EndGameUI>().ShowEnding(EndingCategory.Escape, 1000);
         }
         else
         {

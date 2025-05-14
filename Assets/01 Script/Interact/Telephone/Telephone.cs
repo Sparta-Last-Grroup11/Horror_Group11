@@ -18,7 +18,7 @@ public class Telephone : MonoBehaviour, I_Interactable
 
     public void OnInteraction()
     {
-        //if (isPowerOn == false) return;
+        if (isPowerOn == false) return;
         telephoneVirtualCamera.Priority = 12;
         StartCoroutine(TelephoneSound());
     }
