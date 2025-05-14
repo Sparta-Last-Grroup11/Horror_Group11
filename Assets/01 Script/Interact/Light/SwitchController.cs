@@ -16,6 +16,9 @@ public class SwitchController : MonoBehaviour, I_Interactable
 
     [SerializeField] private LightStateSO lightState;
     [SerializeField] private int questID = 5;
+
+    [SerializeField] private Telephone telephone;
+
     public void AddLight(Lamp lamp) //목록에 lamp 추가
     {
         lightsList.Add(lamp);
@@ -52,6 +55,7 @@ public class SwitchController : MonoBehaviour, I_Interactable
     {
         if (!isPowerOn || isTurnOn) return;
         SetLightsState();
+        telephone.OnPower();
         QuestManager.Instance.QuestTrigger(questID);
         StartCoroutine(Shutdown());
     }
