@@ -18,7 +18,7 @@ public class Telephone : MonoBehaviour, I_Interactable
 
     public void OnInteraction()
     {
-        if (isPowerOn == false) return;
+        //if (isPowerOn == false) return;
         telephoneVirtualCamera.Priority = 12;
         StartCoroutine(TelephoneSound());
     }
@@ -33,7 +33,7 @@ public class Telephone : MonoBehaviour, I_Interactable
         yield return new WaitForSeconds(1f);
         fadeOutUI.DOFade(1, 3);
         yield return new WaitForSeconds(3f);
-        UIManager.Instance.show<TelephoneUI>();
+        UIManager.Instance.show<EndGameUI>().ShowEnding(EndingCategory.Rescued, 1000);
     }
 
     public void OnPower()

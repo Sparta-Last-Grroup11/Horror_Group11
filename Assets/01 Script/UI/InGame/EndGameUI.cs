@@ -23,14 +23,14 @@ public class EndGameUI : BaseUI
 
     private EndingCategory currentEnding;
 
-    public async void ShowEnding(EndingCategory type)
+    public async void ShowEnding(EndingCategory type, int delayTime)
     {
         currentEnding = type;
         SetupVisuals(type);
 
-        await Task.Delay(2000);
+        await Task.Delay(delayTime);
         modal.ModalWindowIn();
-        await Task.Delay((int)(delayBeforeSceneChange * 2000));
+        await Task.Delay((int)(delayBeforeSceneChange * 3000));
         modal.ModalWindowOut();
         await SceneLoadManager.Instance.ChangeScene("StartScene");
 
