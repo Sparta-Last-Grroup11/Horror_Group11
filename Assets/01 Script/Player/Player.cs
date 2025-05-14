@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using Cinemachine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class Player : PlayerInputController
 {
@@ -22,7 +23,7 @@ public class Player : PlayerInputController
     [Header("Chased")]
     [SerializeField] private AudioClip chasedCilp;
     public bool isChased = false;
-    private bool isChasedBGM = false;
+    private bool isChasedSFX = false;
     public bool cantMove = false;
 
     // 효과음 관련
@@ -214,22 +215,23 @@ public class Player : PlayerInputController
 
     private void ChasingByEnemy()
     {
-        if (!isChasedBGM)
+        if (!isChasedSFX)
         {
             AudioManager.Instance.Audio2DPlay(chasedCilp, 1f);
             AudioManager.Instance.Audio2DPlay(shockedClip);
-            isChasedBGM = true;
+            isChasedSFX = true;
         }
     }
 
     public void UnChasingByEnemy()
     {
-        Invoke("ChasedBGMOff", 10f);
+        StartCoroutine(ChasedSFXOff());
     }
 
-    private void ChasedBGMOff()
+    IEnumerator ChasedSFXOff()
     {
-        isChasedBGM = false;
+        yield return new WaitForSeconds(10f);
+        isChasedSFX = false;
     }
 
     //인벤토리 열기

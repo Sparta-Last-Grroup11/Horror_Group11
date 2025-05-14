@@ -12,11 +12,13 @@ public class StartSceneUI : PopupUI
     [SerializeField] Button SettingBut;
     [SerializeField] Button ExitBut;
     [SerializeField] DoubleDoor door;
+    [SerializeField] AudioClip buttonClickSound;
 
     protected override void Start()
     {
         base.Start();
         door = GameObject.FindAnyObjectByType<DoubleDoor>();
+
         startBut.onClick.AddListener(async () =>
         {
             startBut.interactable = false;

@@ -101,7 +101,10 @@ public class AudioManager : Singleton<AudioManager>
         source.Play();
 
         // clip의 길이만큼 지난 후 오브젝트 파괴
-        obj.GetComponent<SoundSource>().Play(clip.length);
+        if (isLoop == false)
+        {
+            obj.GetComponent<SoundSource>().Play(clip.length);
+        }
     }
 
     public AudioSource Audio3DPlay(AudioClip clip, Vector3 pos, float volume = 1f, bool isLoop = false, EAudioType type = EAudioType.Master)
