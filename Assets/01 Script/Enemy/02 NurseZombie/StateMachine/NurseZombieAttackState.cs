@@ -12,6 +12,7 @@ public class NurseZombieAttackState : EnemyBaseState  // 플레이어를 공격�
 
     public override void Enter()
     {
+        AudioManager.Instance.Audio2DPlay(nurseZombie.nurseZombieCatchPlayerClip, 1f);
         GameManager.Instance.player.isChased = false;
         GameManager.Instance.player.cantMove = true;
         nurseZombie.nurseZombieAnim.SetTrigger("Attack");
@@ -21,8 +22,7 @@ public class NurseZombieAttackState : EnemyBaseState  // 플레이어를 공격�
 
     private IEnumerator PlayerDead()
     {
-        
         yield return new WaitForSeconds(1f);
-        UIManager.Instance.show<DyingUI>();
+        UIManager.Instance.show<EndGameUI>().ShowEnding(EndingCategory.Death);
     }
 }
