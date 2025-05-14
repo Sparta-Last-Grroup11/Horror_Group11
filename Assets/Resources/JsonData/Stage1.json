@@ -19,13 +19,13 @@
       "type": "Enemy",
       "prefabname": "NurseZombie",
       "position": [
-        -8.933,
-        0.988,
-        15.283
+        -12.0,
+        1.1,
+        16.5
       ],
       "rotation": [
         0.0,
-        0.0,
+        90.0,
         0.0
       ],
       "description": "전기실 가는 길목에 배치"

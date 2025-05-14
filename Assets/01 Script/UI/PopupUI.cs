@@ -61,7 +61,6 @@ public abstract class PopupUI : BaseUI
         {
             elapsed -= Time.deltaTime;
             canvasGroup.alpha = Mathf.Clamp01(elapsed / duration);
-            Debug.Log("어두워 지는 중");
             yield return null;
         }
 
