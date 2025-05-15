@@ -1,7 +1,6 @@
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.AI;
-using Cinemachine;
 
 public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플레이어가 뒤돌면 쫓아옴)
 {
@@ -25,6 +24,8 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
     public bool hasBeenSeenByPlayer = false;
     public int firstMonologueNum = 4;
     [HideInInspector] public bool hasDashed = false;
+    [SerializeField] private LayerMask enemyLayerMask;
+    public LayerMask EnemyLayerMask => enemyLayerMask;
 
     [Header("Door Detection")]
     public float detectDoorRange = 2f;
@@ -54,6 +55,7 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
         rb = GetComponent<Rigidbody>();
         rb.isKinematic = true;
         doorLayerMask = LayerMask.GetMask("Interactable");
+        enemyLayerMask = LayerMask.GetMask("Enemy");
 
         nurseZombieAgent.updatePosition = true;
         nurseZombieAgent.updateRotation = true;
@@ -84,7 +86,7 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
             Vector3 direction = (transform.position + Vector3.up * 1.7f) - cameraPos;
             float distance = direction.magnitude;
             Debug.DrawRay(cameraPos, direction, Color.red, distance);
-            if (Physics.Raycast(cameraPos, direction, out RaycastHit hit, distance))
+            if (Physics.Raycast(cameraPos, direction, out RaycastHit hit, distance, enemyLayerMask))
             {
                 if (hit.transform == this.transform)
                 {

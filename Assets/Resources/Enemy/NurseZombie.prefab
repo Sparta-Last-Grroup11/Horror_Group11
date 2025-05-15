@@ -3128,6 +3128,9 @@ MonoBehaviour:
   hasBeenSeenByPlayer: 0
   firstMonologueNum: 4
   hasDashed: 0
+  enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
   detectDoorRange: 2
   detectDoorRate: 0.5
   afterDetectDoor: 0
