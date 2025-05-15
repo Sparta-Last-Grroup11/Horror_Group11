@@ -23,7 +23,7 @@ public class PlayerFlash : PlayerInputController
         //1. 인풋시스템 문제
         AudioManager.Instance.Audio3DPlay(flashSwitchClip, transform.position);
         isFlash = !isFlash;
-        if (isFlash)
+        if (isFlash && flash.flashBattery > 0)
         {
             flashLight.enabled = true;
         }

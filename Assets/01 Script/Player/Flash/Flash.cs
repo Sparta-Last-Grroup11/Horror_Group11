@@ -88,7 +88,7 @@ public class Flash : MonoBehaviour
         deadFlicker++;
         StartCoroutine(Flicker(() =>
         {
-            gameObject.SetActive(false);
+            spotLight.enabled = false;
         }, 0.5f));
         playerFlash.isFlash = false;
     }
