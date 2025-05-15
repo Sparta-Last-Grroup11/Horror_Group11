@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public enum EndingCategory
 {
     Rescued,
-    AnotherWorld,
     Escape,
     Death
 }
@@ -43,11 +42,6 @@ public class EndGameUI : BaseUI
             case EndingCategory.Rescued:
                 modal.title = "RESCUED";
                 modal.description = "The siren faded away. You have been rescued.";
-                break;
-
-            case EndingCategory.AnotherWorld:
-                modal.title = "ANOTHER WORLD";
-                modal.description = "Endless space opened up. Maybe… you won't be coming back.";
                 break;
                 
             case EndingCategory.Escape:
