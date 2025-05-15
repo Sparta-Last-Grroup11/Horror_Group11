@@ -1,15 +1,8 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Net.NetworkInformation;
-using Unity.VisualScripting;
 using UnityEngine;
-using Newtonsoft;
 using static Extension;
 using Newtonsoft.Json;
 using Unity.AI.Navigation;
-using System.Linq;
-using JetBrains.Annotations;
 
 [System.Serializable]
 public class StageInfo
@@ -58,6 +51,7 @@ public class StageManager : Singleton<StageManager>
     [Header("TriggerAbout")]
     [SerializeField] private TextAsset triggerAsset;
     public List<TriggerInfo> triggers;
+    private List<GameObject> objectJumpScares = new List<GameObject>();
 
     protected override bool dontDestroy => false;
 
@@ -126,7 +120,7 @@ public class StageManager : Singleton<StageManager>
         }
         PuzzleItemMake();
         TriggerMake();
-        
+        ObjectJumpScare();
     }
 
     public void TriggerMake()
@@ -179,6 +173,37 @@ public class StageManager : Singleton<StageManager>
             string path = "Offering_" + i.ToString();
             var obj = ResourceManager.Instance.Load<GameObject>(ResourceType.Item, path);
             Instantiate(obj, spawnRoot.spawnPoints["PuzzleSpawnPoint"][selects[i - 1]].position, Quaternion.identity, typeNames["Item"].transform).name = $"Offering_{i}";
+        }
+    }
+
+    private void ObjectJumpScare()
+    {
+        string path = "JumpScareObjectTriggerGroup";
+        var obj = ResourceManager.Instance.Load<GameObject>(ResourceType.Event, path);
+        Instantiate(obj);
+
+        objectJumpScares.Clear(); // 점프 스퀘어 리스트 초기화
+
+        // 점프 스퀘어들 리스트업
+        for (int i = 0; i < obj.transform.childCount; i++)
+        {
+            GameObject child = obj.transform.GetChild(i).gameObject;
+            objectJumpScares.Add(child);
+        }
+
+        // 2개 만 골라서 활성화
+        int activateCount = Mathf.Min(2, objectJumpScares.Count); // 2개 또는 리스트 개수 중 작은 값
+        List<int> randomIndexes = new List<int>();
+
+        while (randomIndexes.Count < activateCount)
+        {
+            int randomIndex = Random.Range(0, objectJumpScares.Count);
+
+            if (!randomIndexes.Contains(randomIndex))
+            {
+                randomIndexes.Add(randomIndex);
+                objectJumpScares[randomIndex].SetActive(true);
+            }
         }
     }
 }
