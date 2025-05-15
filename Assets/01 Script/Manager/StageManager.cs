@@ -174,6 +174,7 @@ public class StageManager : Singleton<StageManager>
             var obj = ResourceManager.Instance.Load<GameObject>(ResourceType.Item, path);
             Instantiate(obj, spawnRoot.spawnPoints["PuzzleSpawnPoint"][selects[i - 1]].position, Quaternion.identity, typeNames["Item"].transform).name = $"Offering_{i}";
         }
+        Debug.Log("PuzzleItemMake");
     }
 
     private void ObjectJumpScare()
@@ -181,6 +182,7 @@ public class StageManager : Singleton<StageManager>
         string path = "JumpScareObjectTriggerGroup";
         var obj = ResourceManager.Instance.Load<GameObject>(ResourceType.Event, path);
         Instantiate(obj);
+        Debug.Log("생성됨");
 
         objectJumpScares.Clear(); // 점프 스퀘어 리스트 초기화
 
@@ -188,6 +190,7 @@ public class StageManager : Singleton<StageManager>
         for (int i = 0; i < obj.transform.childCount; i++)
         {
             GameObject child = obj.transform.GetChild(i).gameObject;
+            child.SetActive(false);
             objectJumpScares.Add(child);
         }
 
