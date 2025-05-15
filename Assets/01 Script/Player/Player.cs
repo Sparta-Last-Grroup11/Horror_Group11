@@ -30,7 +30,7 @@ public class Player : PlayerInputController
     [Header("SFX")]
     [SerializeField] private AudioClip BGM;
     [SerializeField] private AudioClip breathing;
-    [SerializeField] private AudioClip shockedClip;
+    public AudioClip shockedClip;
     [SerializeField] private AudioClip[] noiseList;
     private int randomNoise;
     [SerializeField]private float afterLastNoise = 0;
@@ -218,7 +218,6 @@ public class Player : PlayerInputController
         if (!isChasedSFX)
         {
             AudioManager.Instance.Audio2DPlay(chasedCilp, 1f);
-            AudioManager.Instance.Audio2DPlay(shockedClip);
             isChasedSFX = true;
         }
     }

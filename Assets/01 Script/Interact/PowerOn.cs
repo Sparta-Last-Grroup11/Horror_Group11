@@ -6,7 +6,7 @@ using UnityEngine.Playables;
 public class PowerOn : MonoBehaviour, I_Interactable
 {
     [SerializeField] private bool isAct;
-    [SerializeField] private SwitchController elecBox;
+    [SerializeField] private LightStateSO lightState;
     [SerializeField] private AudioClip clip;
     [SerializeField] private int questID = 4;
     private PlayableDirector playableDirector;
@@ -22,7 +22,7 @@ public class PowerOn : MonoBehaviour, I_Interactable
         isAct = true;
         if(clip != null)
             AudioManager.Instance.Audio2DPlay(clip);
-        elecBox.OnPower();
+        lightState.OnPower();
         MonologueManager.Instance.DialogPlay(10);
         MonologueManager.Instance.DialogPlay(9);
         QuestManager.Instance.QuestTrigger(questID);

@@ -11,6 +11,7 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
     public Animator nurseZombieAnim;
     public LightStateSO lightStateSO;
     public AudioClip nurseZombieChaseClip;
+    public AudioClip nurseZombieCatchPlayerClip;
     public CinemachineVirtualCamera nurseZombieVirtualCamera;
 
     [Header("Movement")]
