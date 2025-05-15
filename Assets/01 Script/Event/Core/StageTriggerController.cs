@@ -8,10 +8,13 @@ public class StageTriggerController : Singleton<StageTriggerController>
 
     private void Awake()
     {
-        foreach (var trigger in triggers)
+        triggers = new List<GameObject>();
+
+        foreach (var triggerEvent in GetComponentsInChildren<TriggerForEvent>(true))
         {
-            if (trigger != null)
-                trigger.SetActive(false);
+            var triggerObj = triggerEvent.gameObject;
+            triggers.Add(triggerObj);
+            triggerObj.SetActive(false);
         }
     }
 
@@ -27,8 +30,8 @@ public class StageTriggerController : Singleton<StageTriggerController>
             if (pair.trigger != null)
             {
                 pair.trigger.SetActive(true);
-                var triggerEvent = pair.trigger.GetComponentInChildren<TriggerForEvent>();
-                if (triggerEvent != null && triggerEvent.receivers.Count > 0)
+                var triggerEvent = pair.trigger.GetComponent<TriggerForEvent>();
+                if (triggerEvent != null && triggerEvent.receivers != null && triggerEvent.receivers.Count > 0)
                 {
                     triggerEvent.receivers[0].gameObject.SetActive(true);
                 }
