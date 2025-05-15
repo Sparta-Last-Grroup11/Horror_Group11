@@ -13,6 +13,7 @@ public class MonologueInfo
 public class MonologueManager : Singleton<MonologueManager>
 {
     Queue<string> dialogQueue;
+    Queue<AudioClip> audioClipQueue;
     [SerializeField] private TextAsset monologueAsset;
     [SerializeField] List<MonologueInfo> dialogList;
 
@@ -25,6 +26,7 @@ public class MonologueManager : Singleton<MonologueManager>
         base.Awake();
         monologueAsset = ResourceManager.Instance.Load<TextAsset>(ResourceType.JsonData, "Monologue");
         dialogQueue = new Queue<string>();
+        audioClipQueue = new Queue<AudioClip>();
         var path = "Monologue";
         var Dialog = JsonConvert.DeserializeObject<Dictionary<string, List<MonologueInfo>>>(monologueAsset.text);
 
@@ -42,7 +44,14 @@ public class MonologueManager : Singleton<MonologueManager>
     public void DialogPlay(int number)
     {
         if (dialogList.Count >= number)
+        {
             dialogQueue.Enqueue(dialogList[number].content);
+            AudioClip clip = ResourceManager.Instance.Load<AudioClip>(ResourceType.Sound, $"2D/TTS/{number}");
+            if (clip == null)
+                return;
+            audioClipQueue.Enqueue(clip);
+            Debug.Log($"{clip.name} audio add");
+        }
     }
 
     private void Update()
@@ -53,6 +62,8 @@ public class MonologueManager : Singleton<MonologueManager>
 
     private void PlayQueue()
     {
+        if (audioClipQueue.Count > 0)
+            AudioManager.Instance.Audio2DPlay(audioClipQueue.Dequeue());
         UIManager.Instance.show<DialogUI>().Init(dialogQueue.Dequeue());
     }
 }
