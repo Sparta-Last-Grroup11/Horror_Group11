@@ -14,6 +14,7 @@ public class PowerOn : MonoBehaviour, I_Interactable
     private void Awake()
     {
         playableDirector = GetComponent<PlayableDirector>();
+        lightState.ResetLight();
     }
 
     public void OnInteraction()
