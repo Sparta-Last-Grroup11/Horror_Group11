@@ -13,11 +13,9 @@ public class JumpScareReceiver : Receiver
         scareEvent?.TriggerEvent();
     }
 
-
     public void SetEventTrigger(TriggerForEvent trigger)
     {
         eventTrigger = trigger;
         eventTrigger.AddReceiver(this);
     }
-
 }
