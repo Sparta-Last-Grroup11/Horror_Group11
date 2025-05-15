@@ -9,6 +9,7 @@ public class InGameUI : MonoBehaviour
         UIManager.Instance.show<HeartBeat>();
         UIManager.Instance.show<Interacting>();
         StageManager.Instance.StageMake();
+        Debug.Log("stageMake 실행됨");
     }
 
     private void Update()
