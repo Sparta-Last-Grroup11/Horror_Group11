@@ -42,6 +42,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9003128383624578641}
     m_Modifications:
+    - target: {fileID: 4695535361599496766, guid: 1512e9f47f89fe24f9cc7c16092a56e5,
+        type: 3}
+      propertyPath: far clip plane
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6116205026666041704, guid: 1512e9f47f89fe24f9cc7c16092a56e5,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -152,40 +157,60 @@ PrefabInstance:
       propertyPath: m_DefaultBlend.m_Time
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 8472856131185639946, guid: 599377784fe3089478c1dc8f30f33ff2,
+    - target: {fileID: 5385398423975748609, guid: 599377784fe3089478c1dc8f30f33ff2,
         type: 3}
-      propertyPath: m_LocalPosition.x
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5385398423975748609, guid: 599377784fe3089478c1dc8f30f33ff2,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5385398423975748609, guid: 599377784fe3089478c1dc8f30f33ff2,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5385398423975748609, guid: 599377784fe3089478c1dc8f30f33ff2,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8472856131185639946, guid: 599377784fe3089478c1dc8f30f33ff2,
         type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472856131185639946, guid: 599377784fe3089478c1dc8f30f33ff2,
+        type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 2.8013494
       objectReference: {fileID: 0}
     - target: {fileID: 8472856131185639946, guid: 599377784fe3089478c1dc8f30f33ff2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11
+      value: -2.308
       objectReference: {fileID: 0}
     - target: {fileID: 8472856131185639946, guid: 599377784fe3089478c1dc8f30f33ff2,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7055544
       objectReference: {fileID: 0}
     - target: {fileID: 8472856131185639946, guid: 599377784fe3089478c1dc8f30f33ff2,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.04682971
       objectReference: {fileID: 0}
     - target: {fileID: 8472856131185639946, guid: 599377784fe3089478c1dc8f30f33ff2,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.7055544
       objectReference: {fileID: 0}
     - target: {fileID: 8472856131185639946, guid: 599377784fe3089478c1dc8f30f33ff2,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.046829708
       objectReference: {fileID: 0}
     - target: {fileID: 8472856131185639946, guid: 599377784fe3089478c1dc8f30f33ff2,
         type: 3}
@@ -295,6 +320,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sub Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7052898539901133702, guid: 6100a789004d5a64fb7733427e184487,
+        type: 3}
+      propertyPath: far clip plane
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

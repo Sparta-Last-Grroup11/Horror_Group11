@@ -10,9 +10,21 @@ public class MonologueInfo
     public string content;
 }
 
+public struct MonologueWithAudio
+{
+    public string content;
+    public AudioClip clip;
+
+    public MonologueWithAudio(string str, AudioClip audio = null)
+    {
+        content = str;
+        clip = audio;
+    }
+}
+
 public class MonologueManager : Singleton<MonologueManager>
 {
-    Queue<string> dialogQueue;
+    Queue<MonologueWithAudio> monologueQueue;
     [SerializeField] private TextAsset monologueAsset;
     [SerializeField] List<MonologueInfo> dialogList;
 
@@ -24,7 +36,7 @@ public class MonologueManager : Singleton<MonologueManager>
     {
         base.Awake();
         monologueAsset = ResourceManager.Instance.Load<TextAsset>(ResourceType.JsonData, "Monologue");
-        dialogQueue = new Queue<string>();
+        monologueQueue = new Queue<MonologueWithAudio>();
         var path = "Monologue";
         var Dialog = JsonConvert.DeserializeObject<Dictionary<string, List<MonologueInfo>>>(monologueAsset.text);
 
@@ -36,23 +48,29 @@ public class MonologueManager : Singleton<MonologueManager>
 
     public void DialogPlay(string input)
     {
-        dialogQueue.Enqueue(input);
+        monologueQueue.Enqueue(new MonologueWithAudio(input));
     }
 
     public void DialogPlay(int number)
     {
         if (dialogList.Count >= number)
-            dialogQueue.Enqueue(dialogList[number].content);
+        {
+            AudioClip clip = ResourceManager.Instance.Load<AudioClip>(ResourceType.Sound, $"2D/TTS/{number}");
+            monologueQueue.Enqueue(new MonologueWithAudio(dialogList[number].content, clip));
+        }
     }
 
     private void Update()
     {
-        if (dialogQueue.Count > 0 && isPlaying == false)
+        if (monologueQueue.Count > 0 && isPlaying == false)
             PlayQueue();
     }
 
     private void PlayQueue()
     {
-        UIManager.Instance.show<DialogUI>().Init(dialogQueue.Dequeue());
+        var obj = monologueQueue.Dequeue();
+        UIManager.Instance.show<DialogUI>().Init(obj.content);
+        if (obj.clip != null)
+            AudioManager.Instance.Audio2DPlay(obj.clip);
     }
 }
