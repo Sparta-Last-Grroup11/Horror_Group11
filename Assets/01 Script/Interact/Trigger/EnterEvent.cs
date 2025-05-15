@@ -18,18 +18,39 @@ public class EnterEvent : Receiver
 
     public override void ReceiveTrigger()
     {
-        MonologueManager.Instance.DialogPlay(17);
-        MonologueManager.Instance.DialogPlay(7);
+        foreach(var output in playableDirector.playableAsset.outputs)
+        {
+            if(output.streamName.Equals("Player Track"))
+            {
+                playableDirector.SetGenericBinding(output.sourceObject, GameManager.Instance.player.GetComponent<Animator>());
+            }
+        }
+        //MonologueManager.Instance.DialogPlay(17);
+        //MonologueManager.Instance.DialogPlay(7);
+        GameManager.Instance.player.stateMachine.ChangeState(new PlayerIdleState(GameManager.Instance.player));
         QuestManager.Instance.QuestTrigger(questID);
         AudioManager.Instance.Audio2DPlay(seriesSfx);
-        GetComponent<DoubleDoor>().CloseBecauseEnter(changeKey);
         GameManager.Instance.player.cantMove = true;
         playableDirector.Play();
-        Invoke("MovePlayer", 2f);
     }
 
-    private void MovePlayer()
+    public void MovePlayer()
     {
         GameManager.Instance.player.cantMove = false;
+    }
+
+    public void DialogPlay(int num)
+    {
+        MonologueManager.Instance.DialogPlay(num);
+    }
+
+    public void CloseDoubleDoorAndLocked()
+    {
+        GetComponent<DoubleDoor>().CloseBecauseEnter(changeKey);
+    }
+
+    public void WalkingAudioPlay()
+    {
+        AudioManager.Instance.Audio2DPlay(ResourceManager.Instance.Load<AudioClip>(ResourceType.Sound, "2D/Player/Walk"));
     }
 }
