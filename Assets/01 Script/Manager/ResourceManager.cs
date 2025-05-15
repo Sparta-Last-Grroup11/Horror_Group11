@@ -12,7 +12,8 @@ public enum ResourceType
     Sound,
     UI,
     Material,
-    Enemy
+    Enemy,
+    Event
 }
 
 public class ResourceManager : Singleton<ResourceManager>
