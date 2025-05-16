@@ -109,8 +109,8 @@ public class Player : PlayerInputController
             noiseRate = Random.Range(noiseMinRate, noiseMaxRate);
             randomNoise = Random.Range(0, noiseList.Length);
 
-            AudioManager.Instance.Audio2DPlay(BGM, 1f, true);
-            AudioManager.Instance.Audio2DPlay(breathing, 1f, true);
+            AudioManager.Instance.Audio2DPlay(BGM, 1f, true, EAudioType.SFX);
+            AudioManager.Instance.Audio2DPlay(breathing, 0.2f, true, EAudioType.SFX);
         }
     }
 
@@ -133,7 +133,7 @@ public class Player : PlayerInputController
             afterLastNoise = 0;
             noiseRate = Random.Range(noiseMinRate, noiseMaxRate);
             randomNoise = Random.Range(0, noiseList.Length);
-            AudioManager.Instance.Audio2DPlay(noiseList[randomNoise]);
+            AudioManager.Instance.Audio2DPlay(noiseList[randomNoise], 1, false, EAudioType.SFX);
         }
     }
 
@@ -217,7 +217,7 @@ public class Player : PlayerInputController
     {
         if (!isChasedSFX)
         {
-            AudioManager.Instance.Audio2DPlay(chasedCilp, 1f);
+            AudioManager.Instance.Audio2DPlay(chasedCilp, 1f, false, EAudioType.SFX);
             isChasedSFX = true;
         }
     }

@@ -25,11 +25,11 @@ public class Telephone : MonoBehaviour, I_Interactable
 
     IEnumerator TelephoneSound()
     {
-        AudioManager.Instance.Audio2DPlay(telephoneDialingClip);
+        AudioManager.Instance.Audio2DPlay(telephoneDialingClip, 1, false, EAudioType.SFX);
         yield return new WaitForSeconds(telephoneDialingClip.length);
-        AudioManager.Instance.Audio2DPlay(telephoneTalkClip);
+        AudioManager.Instance.Audio2DPlay(telephoneTalkClip, 1, false, EAudioType.SFX);
         yield return new WaitForSeconds(3f);
-        AudioManager.Instance.Audio2DPlay(sirenClip);
+        AudioManager.Instance.Audio2DPlay(sirenClip, 1, false, EAudioType.SFX);
         yield return new WaitForSeconds(1f);
         fadeOutUI.DOFade(1, 3);
         yield return new WaitForSeconds(3f);

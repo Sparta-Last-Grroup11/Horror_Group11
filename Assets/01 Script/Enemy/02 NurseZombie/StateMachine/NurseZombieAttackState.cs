@@ -12,7 +12,7 @@ public class NurseZombieAttackState : EnemyBaseState  // 플레이어를 공격�
 
     public override void Enter()
     {
-        AudioManager.Instance.Audio2DPlay(nurseZombie.nurseZombieCatchPlayerClip, 1f);
+        AudioManager.Instance.Audio2DPlay(nurseZombie.nurseZombieCatchPlayerClip, 1f, false, EAudioType.SFX);
         GameManager.Instance.player.isChased = false;
         GameManager.Instance.player.cantMove = true;
         nurseZombie.nurseZombieAnim.SetTrigger("Attack");

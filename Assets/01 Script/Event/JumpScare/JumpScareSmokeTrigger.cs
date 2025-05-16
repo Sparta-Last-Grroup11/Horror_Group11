@@ -18,7 +18,7 @@ public class JumpScareSmoke : MonoBehaviour
 
     IEnumerator OffSmokeJumpScare()
     {
-        AudioManager.Instance.Audio2DPlay(smokeClip);
+        AudioManager.Instance.Audio3DPlay(smokeClip, smokeParticleSystem.gameObject.transform.position, 1, false, EAudioType.SFX);
         yield return new WaitForSeconds(1f);
         smokeParticleSystem.gameObject.SetActive(false);
     }

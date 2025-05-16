@@ -13,7 +13,7 @@ public class ChapterClipBoard : MonoBehaviour, I_Interactable
 
     public void OnInteraction()
     {
-        AudioManager.Instance.Audio2DPlay(clip);
+        AudioManager.Instance.Audio2DPlay(clip, 1, false, EAudioType.SFX);
         UIManager.Instance.IsUiActing = true;
         targetPos = Camera.main.transform.position + (Camera.main.transform.forward * 0.3f) - (Camera.main.transform.right * 0.1f);
         targetRot = Quaternion.LookRotation(Camera.main.transform.right, -Camera.main.transform.forward);

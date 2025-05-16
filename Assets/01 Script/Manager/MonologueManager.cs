@@ -71,6 +71,6 @@ public class MonologueManager : Singleton<MonologueManager>
         var obj = monologueQueue.Dequeue();
         UIManager.Instance.show<DialogUI>().Init(obj.content);
         if (obj.clip != null)
-            AudioManager.Instance.Audio2DPlay(obj.clip);
+            AudioManager.Instance.Audio2DPlay(obj.clip, 1, false, EAudioType.SFX);
     }
 }

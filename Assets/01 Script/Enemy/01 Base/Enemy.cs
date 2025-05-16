@@ -116,7 +116,7 @@ public abstract class Enemy : MonoBehaviour
                     if (hit.transform == this.transform)
                     {
                         MonologueManager.Instance.DialogPlay(monologueNum);
-                        AudioManager.Instance.Audio2DPlay(GameManager.Instance.player.shockedClip);
+                        AudioManager.Instance.Audio2DPlay(GameManager.Instance.player.shockedClip, 1, false, EAudioType.SFX);
                         hasBeenVisible = !hasBeenVisible;
                     }
                 }
