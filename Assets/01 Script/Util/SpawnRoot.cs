@@ -27,7 +27,6 @@ public class SpawnRoot : MonoBehaviour
         StageManager.Instance.spawnRoot = this;
     }
 
-#if UNITY_EDITOR
     [ContextMenu("Build Spawn Points Dictionary")]
     private void BuildSpawnPoints()
     {
@@ -55,5 +54,4 @@ public class SpawnRoot : MonoBehaviour
 
         Debug.Log("✅ Spawn points dictionary built.");
     }
-#endif
 }

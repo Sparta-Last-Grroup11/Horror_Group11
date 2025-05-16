@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.WSA;
 
 #if UNITY_EDITOR
 public class AudioOptimize : EditorWindow

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Runtime.CompilerServices;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class ControlDoor : OpenableObject
 {
