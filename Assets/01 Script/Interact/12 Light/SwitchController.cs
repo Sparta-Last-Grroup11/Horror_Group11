@@ -18,6 +18,9 @@ public class SwitchController : MonoBehaviour, I_Interactable
 
     [SerializeField] private Telephone telephone;
 
+    [Header("Spakle")]
+    [SerializeField] private GameObject spark;
+
     public void AddLight(Lamp lamp) //목록에 lamp 추가
     {
         lightsList.Add(lamp);
@@ -34,6 +37,7 @@ public class SwitchController : MonoBehaviour, I_Interactable
                 lamp.TurnOn();
             }
             MonologueManager.Instance.DialogPlay(13);
+            spark.SetActive(true);
         }
         else
         {
@@ -43,6 +47,7 @@ public class SwitchController : MonoBehaviour, I_Interactable
                 lamp.TurnOff();
             }
             MonologueManager.Instance.DialogPlay(1);
+            spark.SetActive(false);
         }
         if (lightState != null)
         {

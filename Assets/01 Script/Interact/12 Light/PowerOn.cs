@@ -9,12 +9,14 @@ public class PowerOn : MonoBehaviour, I_Interactable
     [SerializeField] private LightStateSO lightState;
     [SerializeField] private AudioClip clip;
     [SerializeField] private int questID = 4;
+    [SerializeField] private GameObject particle;
     private PlayableDirector playableDirector;
 
     private void Awake()
     {
         playableDirector = GetComponent<PlayableDirector>();
         lightState.ResetLight();
+        particle.SetActive(false);
     }
 
     public void OnInteraction()
@@ -35,5 +37,14 @@ public class PowerOn : MonoBehaviour, I_Interactable
     private void PlayerCanMove()
     {
         GameManager.Instance.player.cantMove = false;
+        
+        StartCoroutine(Spark());
+    }
+
+    IEnumerator Spark()
+    {
+        particle.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        particle.SetActive(false);
     }
 }
