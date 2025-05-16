@@ -135,7 +135,7 @@ public class StageManager : Singleton<StageManager>
         Debug.Log("PuzzleItemMake");
     }
 
-    public void ZombieJumpScareMake()
+    private void ZombieJumpScareMake()
     {
         Debug.Log("[StageManager] TriggerMake() 호출됨");
 
