@@ -8,7 +8,7 @@ public class SwitchPuzzle : MonoBehaviour
 {
     [SerializeField] private int[] startSwitchOn;
     [SerializeField] private int onCount;
-    [SerializeField] private Light light;
+    [SerializeField] private Light switchLight;
     private Dictionary<int, Switch> switchesDict = new Dictionary<int, Switch>();
     public event Action PuzzleClear;
     [SerializeField] private LightStateSO lightState;
@@ -19,7 +19,7 @@ public class SwitchPuzzle : MonoBehaviour
         {
             switchesDict[id].SetStartOnOff(true);
         }
-        light.color = Color.red;
+        switchLight.color = Color.red;
     }
 
     public void ChangeCount(int count) //레버 작동 시 카운트 변경
@@ -46,13 +46,13 @@ public class SwitchPuzzle : MonoBehaviour
         if (!lightState.IsPowerOn) return false;
         if (onCount == 9)
         {
-            light.color = Color.green;
+            switchLight.color = Color.green;
             ClearPuzzle();
             return true;
         }
         else
         {
-            light.color = Color.red;
+            switchLight.color = Color.red;
             ResetAll();
             return false;
         }

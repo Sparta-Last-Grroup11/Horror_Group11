@@ -119,16 +119,28 @@ public class StageManager : Singleton<StageManager>
             Debug.LogWarning("Stage1 key not found in JSON");
         }
         PuzzleItemMake();
-        TriggerMake();
-        ObjectJumpScare();
+        ZombieJumpScareMake();
+        ObjectJumpScareMake();
     }
 
-    public void TriggerMake()
+    private void PuzzleItemMake()
+    {
+        List<int> selects = RandomUniqueIndices(0, spawnRoot.spawnPoints["PuzzleSpawnPoint"].Count - 1, 5);
+        for (int i = 1; i < 6; i++)
+        {
+            string path = "Offering_" + i.ToString();
+            var obj = ResourceManager.Instance.Load<GameObject>(ResourceType.Item, path);
+            Instantiate(obj, spawnRoot.spawnPoints["PuzzleSpawnPoint"][selects[i - 1]].position, Quaternion.identity, typeNames["Item"].transform).name = $"Offering_{i}";
+        }
+        Debug.Log("PuzzleItemMake");
+    }
+
+    private void ZombieJumpScareMake()
     {
         Debug.Log("[StageManager] TriggerMake() 호출됨");
 
-        string name = "StageTriggerInfo";
-        triggerAsset = ResourceManager.Instance.Load<TextAsset>(ResourceType.JsonData, name);
+        string path = "StageTriggerInfo";
+        triggerAsset = ResourceManager.Instance.Load<TextAsset>(ResourceType.JsonData, path);
 
         if (triggerAsset == null)
         {
@@ -145,13 +157,13 @@ public class StageManager : Singleton<StageManager>
         {
             if (trigger.stageid == StageNum.StageNumber)
             {
-                List<int> selects = RandomUniqueIndices(0, spawnRoot.spawnPoints["JumpScale_ZombieSpawnPoint"].Count - 1, trigger.triggerindex);
+                List<int> selects = RandomUniqueIndices(0, spawnRoot.spawnPoints["JumpScare_ZombieSpawnPoint"].Count - 1, trigger.triggerindex);
 
                 for (int i = 1; i < trigger.triggerindex + 1; i++)
                 {
-                    var zombiePrefab = ResourceManager.Instance.Load<GameObject>(ResourceType.Enemy, "JumpScaleZombie");
-                    var spawnPos = spawnRoot.spawnPoints["JumpScale_ZombieSpawnPoint"][selects[i - 1]].position; 
-                    var zombieInstance = Instantiate(zombiePrefab, spawnPos, Quaternion.identity, typeNames["Enemy"].transform);
+                    var zombiePrefab = ResourceManager.Instance.Load<GameObject>(ResourceType.Event, "JumpScareZombie");
+                    var spawnPos = spawnRoot.spawnPoints["JumpScare_ZombieSpawnPoint"][selects[i - 1]].position; 
+                    var zombieInstance = Instantiate(zombiePrefab, spawnPos, Quaternion.identity);
                     zombieInstance.SetActive(false);
 
                     // 트리거존과 페어
@@ -165,19 +177,7 @@ public class StageManager : Singleton<StageManager>
         StageTriggerController.Instance.ReceivePairs(activePairs);
     }
 
-    private void PuzzleItemMake()
-    {
-        List<int> selects = RandomUniqueIndices(0, spawnRoot.spawnPoints["PuzzleSpawnPoint"].Count - 1, 5);
-        for (int i = 1; i < 6; i++)
-        {
-            string path = "Offering_" + i.ToString();
-            var obj = ResourceManager.Instance.Load<GameObject>(ResourceType.Item, path);
-            Instantiate(obj, spawnRoot.spawnPoints["PuzzleSpawnPoint"][selects[i - 1]].position, Quaternion.identity, typeNames["Item"].transform).name = $"Offering_{i}";
-        }
-        Debug.Log("PuzzleItemMake");
-    }
-
-    private void ObjectJumpScare()
+    private void ObjectJumpScareMake()
     {
         string path = "JumpScareObjectTriggerGroup";
         var obj = ResourceManager.Instance.Load<GameObject>(ResourceType.Event, path);
@@ -209,4 +209,5 @@ public class StageManager : Singleton<StageManager>
             }
         }
     }
+
 }
