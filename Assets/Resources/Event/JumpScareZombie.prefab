@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5917390684525367178}
   - component: {fileID: 3820537100329920163}
   m_Layer: 8
-  m_Name: JumpScaleZombie
+  m_Name: JumpScareZombie
   m_TagString: JumpScale
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
