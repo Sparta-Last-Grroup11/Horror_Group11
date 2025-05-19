@@ -46,6 +46,7 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
         nurseZombie.nurseZombieAgent.SetDestination(nurseZombie.PlayerTransform.position);
 
         afterLastFootStep += Time.deltaTime;
+
         if (afterLastFootStep >= nurseZombie.footStepRate)
         {
             afterLastFootStep = 0;
@@ -61,9 +62,16 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
         if (Physics.Raycast(ray, out hit, nurseZombie.detectDoorRange, nurseZombie.DoorLayerMask))
         {
             LockedDoor door = hit.collider.GetComponent<LockedDoor>();
+
             if (door != null && !door.IsOpened)
             {
-                Debug.Log("LockedDoor 발견, Idle 전환");
+                nurseZombie.blockedByDoorCount++;
+
+                if (nurseZombie.blockedByDoorCount >= nurseZombie.maxBlockedCount)
+                {
+                    nurseZombie.gameObject.SetActive(false);
+                }
+
                 nurseZombie.MoveToSpawnPosition(new Vector3(-7f, 5.5f, 12.7f));
                 fsm.ChangeState(nurseZombie.nurseZombieIdleState);
                 nurseZombie.haveSeenPlayer = false;
