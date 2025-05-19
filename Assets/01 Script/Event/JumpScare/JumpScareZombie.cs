@@ -52,7 +52,7 @@ public class JumpScareZombie : Enemy, IJumpScareEvent
         }
 
         float elapsed = 0f;
-        while (elapsed < disappearTime)  // 최대 추적 시간 동안만 반복
+        while (elapsed < disappearTime)
         {
             LookAtPlayer();
             Vector3 target = PlayerTransform.position;
@@ -60,7 +60,7 @@ public class JumpScareZombie : Enemy, IJumpScareEvent
             _rigidbody.MovePosition(transform.position + direction * rushSpeed * Time.deltaTime);
 
             float distance = Vector3.Distance(transform.position, target);
-            if (distance < 1.0f) break;  // 플레이어와 1.0f 이하 거리로 가까워지면 즉시 break
+            if (distance < 1.0f) break;
 
             elapsed += Time.deltaTime;
             yield return null;

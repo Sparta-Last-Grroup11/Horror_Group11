@@ -85,9 +85,4 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
         float distance = Vector3.Distance(nurseZombie.transform.position, nurseZombie.PlayerTransform.position);  // 몬스터와 플레이어의 거리
         return distance <= nurseZombie.attackRange;  // 공격 범위 안에 들어왔는지 확인
     }
-
-    public override void Exit()
-    {
-        GameManager.Instance.player.UnChasingByEnemy();
-    }
 }

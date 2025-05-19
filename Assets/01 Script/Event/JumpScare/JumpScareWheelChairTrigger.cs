@@ -15,9 +15,16 @@ public class JumpScareWheelChairTrigger : MonoBehaviour
 
         triggered = true;
 
-        wheelchairRb.isKinematic = false; // 떨어지도록
-        wheelchairRb.AddForce(transform.forward * force + Vector3.up * 50f);
+        wheelchairRb.isKinematic = false;
 
-        AudioManager.Instance.Audio3DPlay(scareSound, transform.position);
+        float forwardPower = 3f;
+        float upwardPower = 1.5f;
+        Vector3 pushDir = transform.forward * forwardPower + Vector3.up * upwardPower;
+        wheelchairRb.AddForce(pushDir, ForceMode.Impulse);
+
+        Vector3 torque = transform.right * 3f; // y축이 아닌, 옆으로 뒤집히는 토크
+        wheelchairRb.AddTorque(torque, ForceMode.Impulse);
+
+        AudioManager.Instance.Audio3DPlay(scareSound, transform.position, 1.5f);
     }
 }
