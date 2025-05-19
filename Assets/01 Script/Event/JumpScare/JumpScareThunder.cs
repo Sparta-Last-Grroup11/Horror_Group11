@@ -56,6 +56,6 @@ public class JumpScareThunder : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         colorAdjustments.postExposure.value = 3f;
         yield return new WaitForSeconds(0.1f);
-        DOTween.To(() => colorAdjustments.postExposure.value, x => colorAdjustments.postExposure.value = x, 0.5f, 1);
+        DOTween.To(() => colorAdjustments.postExposure.value, x => colorAdjustments.postExposure.value = x, 0f, 1);
     }
 }
