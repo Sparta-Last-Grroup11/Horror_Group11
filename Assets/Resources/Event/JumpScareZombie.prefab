@@ -68,7 +68,7 @@ MonoBehaviour:
   cameraTransform: {fileID: 0}
   spottedRoarClip: {fileID: 8300000, guid: 410eeb4da8e5d5e479b65b68e7b997c2, type: 3}
   rushFootstepsLoop: {fileID: 8300000, guid: 5a5fe2a543e35ef44980fcf5ac79551a, type: 3}
-  rushSpeed: 5
+  rushSpeed: 15
   disappearTime: 1
   rushDelay: 0.15
   hasBeenSeenByPlayer: 0
