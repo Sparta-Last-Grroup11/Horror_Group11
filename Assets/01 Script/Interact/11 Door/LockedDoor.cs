@@ -40,7 +40,7 @@ public class LockedDoor : ControlDoor,I_Interactable
         }
     }
 
-    void OpenCloseDoor()
+    public void OpenCloseDoor()
     {
         if (!isOpened)
         {
@@ -69,5 +69,11 @@ public class LockedDoor : ControlDoor,I_Interactable
             Open();
             isOpened = true;
         }
+    }
+
+    public void ForceClose()
+    {
+        isOpened = false;
+        Close();
     }
 }
