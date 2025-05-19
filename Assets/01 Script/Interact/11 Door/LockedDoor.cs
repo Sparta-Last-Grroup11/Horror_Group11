@@ -70,10 +70,4 @@ public class LockedDoor : ControlDoor,I_Interactable
             isOpened = true;
         }
     }
-
-    public void ForceClose()
-    {
-        isOpened = false;
-        Close();
-    }
 }
