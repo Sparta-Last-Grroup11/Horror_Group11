@@ -3,7 +3,6 @@ using UnityEngine.InputSystem;
 using Cinemachine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
-using System.Collections;
 
 public class Player : PlayerInputController
 {
@@ -21,9 +20,7 @@ public class Player : PlayerInputController
 
     // 쫓기는 상태 관련
     [Header("Chased")]
-    [SerializeField] private AudioClip chasedCilp;
     public bool isChased = false;
-    private bool isChasedSFX = false;
     public bool cantMove = false;
 
     // 효과음 관련
@@ -117,10 +114,6 @@ public class Player : PlayerInputController
     private void Update()
     {
         InventoryOpen();
-        if (isChased)
-        {
-            ChasingByEnemy();
-        }
 
         if (!UIManager.Instance.IsUiActing && !cantMove)
         {
@@ -211,26 +204,6 @@ public class Player : PlayerInputController
         // 흔들림을 멈추는 로직, 예: 진폭이나 진동수 0으로 설정
         camNoise.m_AmplitudeGain = 0f;
         camNoise.m_FrequencyGain = 0f;
-    }
-
-    private void ChasingByEnemy()
-    {
-        if (!isChasedSFX)
-        {
-            AudioManager.Instance.Audio2DPlay(chasedCilp, 1f, false, EAudioType.SFX);
-            isChasedSFX = true;
-        }
-    }
-
-    public void UnChasingByEnemy()
-    {
-        StartCoroutine(ChasedSFXOff());
-    }
-
-    IEnumerator ChasedSFXOff()
-    {
-        yield return new WaitForSeconds(10f);
-        isChasedSFX = false;
     }
 
     //인벤토리 열기
