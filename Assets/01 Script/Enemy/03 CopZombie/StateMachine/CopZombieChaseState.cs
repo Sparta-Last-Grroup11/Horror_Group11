@@ -40,6 +40,5 @@ public class CopZombieChaseState : EnemyBaseState
     {
         copZombie.copzombieAgent.speed = 1.5f;
         GameManager.Instance.player.isChased = false;
-        GameManager.Instance.player.UnChasingByEnemy();
     }
 }
