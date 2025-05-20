@@ -72,7 +72,7 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
                     nurseZombie.gameObject.SetActive(false);
                 }
 
-                nurseZombie.MoveToSpawnPosition(new Vector3(-7f, 5.5f, 12.7f));
+                nurseZombie.MoveToSpawnPosition(new Vector3(-5.96f, 5.5f, -19.71f), Quaternion.identity);
                 fsm.ChangeState(nurseZombie.nurseZombieIdleState);
                 nurseZombie.haveSeenPlayer = false;
                 return;
