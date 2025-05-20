@@ -212,8 +212,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: The hospital may be empty, but you are never alone...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 35588074172f6964bb862443c67718d6, type: 2}
-  m_sharedMaterial: {fileID: -6427524803175306079, guid: 35588074172f6964bb862443c67718d6,
+  m_fontAsset: {fileID: 11400000, guid: 209090b61ca56bf4dbe2ca5cf2c1b918, type: 2}
+  m_sharedMaterial: {fileID: -1629435404898098560, guid: 209090b61ca56bf4dbe2ca5cf2c1b918,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
