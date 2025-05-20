@@ -182,7 +182,6 @@ public class StageManager : Singleton<StageManager>
         string path = "JumpScareObjectTriggerGroup";
         var obj = ResourceManager.Instance.Load<GameObject>(ResourceType.Event, path);
         Instantiate(obj);
-        Debug.Log("생성됨");
 
         objectJumpScares.Clear(); // 점프 스퀘어 리스트 초기화
 
