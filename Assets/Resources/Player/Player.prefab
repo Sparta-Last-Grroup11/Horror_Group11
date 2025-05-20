@@ -78,7 +78,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 100
+  m_Intensity: 10
   m_Range: 20
   m_SpotAngle: 60
   m_InnerSpotAngle: 20
@@ -400,7 +400,6 @@ MonoBehaviour:
   jumpStartClip: {fileID: 8300000, guid: 866abdf3a931850498786581089be202, type: 3}
   jumpLandClip: {fileID: 8300000, guid: c2e0d3f88cb48f240af40a1f1bac7e8c, type: 3}
   footSpeedRate: 0.8
-  chasedCilp: {fileID: 8300000, guid: 66a89a748ad190f44a6db949496b19f9, type: 3}
   isChased: 0
   cantMove: 0
   BGM: {fileID: 8300000, guid: ab8842b42fcaba04193bd8bc50c78cbf, type: 3}
