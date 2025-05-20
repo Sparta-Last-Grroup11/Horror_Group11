@@ -9,6 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Birch_Leaves
   m_Shader: {fileID: 4800000, guid: b9e2206000f063e4482138f005c8e6e1, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -17,6 +19,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -78,7 +81,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Ambient_Occlusion: 0.77
+    - _AlphaCutoff: 0.5
+    - _Alpha_Clipping: 0.6487585
+    - _Ambient_Occlusion: 0
     - _BumpScale: 1
     - _Cutoff: 0.65
     - _DetailNormalMapScale: 1
@@ -99,10 +104,10 @@ Material:
     - _Tilling_Color: 1.49
     - _Tilling_Contrast: 1.49
     - _UVSec: 0
-    - _WindPower: 0.091
-    - _WindScale: 0.155
-    - _WindSpeed: 0.248
-    - _Wind_Size: 0.5
+    - _WindPower: 0
+    - _WindScale: 0
+    - _WindSpeed: 0
+    - _Wind_Size: 0
     - _ZWrite: 1
     - __dirty: 0
     m_Colors:
@@ -110,6 +115,7 @@ Material:
     - _Color0: {r: 1, g: 0, b: 0, a: 0}
     - _Color_Tilling: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Emissive: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
     - _Tilling: {r: 3.59, g: 3.12, b: 0, a: 0}
   m_BuildTextureStacks: []

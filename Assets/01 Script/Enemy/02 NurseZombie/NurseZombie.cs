@@ -93,12 +93,13 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
         return false;
     }
 
-    public void MoveToSpawnPosition(Vector3 targetPosition)
+    public void MoveToSpawnPosition(Vector3 targetPosition, Quaternion targetRotation)
     {
         NavMeshHit hit;
         if (NavMesh.SamplePosition(targetPosition, out hit, 2f, NavMesh.AllAreas))
         {
             nurseZombieAgent.Warp(hit.position);
+            transform.rotation = targetRotation;
         }
         else
         {
