@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격하는 상태일 때
+public class NurseZombieChaseState : EnemyBaseState
 {
     private NurseZombie nurseZombie;
 
@@ -26,7 +26,7 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
             return;
         }
 
-        if (IsNearPlayer() && !nurseZombie.IsPlayerLookingAtMe()) // 천사가 일정 거리 안에 있다면 Attack 상태로 전환
+        if (IsNearPlayer() && !nurseZombie.IsPlayerLookingAtMe())
         {
             fsm.ChangeState(nurseZombie.nurseZombieAttackState);
             return;
@@ -82,7 +82,7 @@ public class NurseZombieChaseState : EnemyBaseState    // 플레이어를 추격
 
     public bool IsNearPlayer()
     {
-        float distance = Vector3.Distance(nurseZombie.transform.position, nurseZombie.PlayerTransform.position);  // 몬스터와 플레이어의 거리
-        return distance <= nurseZombie.attackRange;  // 공격 범위 안에 들어왔는지 확인
+        float distance = Vector3.Distance(nurseZombie.transform.position, nurseZombie.PlayerTransform.position);
+        return distance <= nurseZombie.attackRange;
     }
 }
