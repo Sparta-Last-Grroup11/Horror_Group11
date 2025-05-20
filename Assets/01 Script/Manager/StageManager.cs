@@ -67,11 +67,6 @@ public class StageManager : Singleton<StageManager>
 
     }
 
-    public void SurfaceUpdate()
-    {
-        surface.BuildNavMesh();
-    }
-
     public void StageMake()
     {
         //디버깅 코드
