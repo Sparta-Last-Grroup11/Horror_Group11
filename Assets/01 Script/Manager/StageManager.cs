@@ -176,15 +176,15 @@ public class StageManager : Singleton<StageManager>
     {
         string path = "JumpScareObjectTriggerGroup";
         var obj = ResourceManager.Instance.Load<GameObject>(ResourceType.Event, path);
-        Instantiate(obj);
+        var groupInstance = Instantiate(obj);
         Debug.Log("생성됨");
 
         objectJumpScares.Clear(); // 점프 스퀘어 리스트 초기화
 
         // 점프 스퀘어들 리스트업
-        for (int i = 0; i < obj.transform.childCount; i++)
+        for (int i = 0; i < groupInstance.transform.childCount; i++)
         {
-            GameObject child = obj.transform.GetChild(i).gameObject;
+            GameObject child = groupInstance.transform.GetChild(i).gameObject;
             child.SetActive(false);
             objectJumpScares.Add(child);
         }
