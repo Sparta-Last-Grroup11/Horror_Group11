@@ -1721,6 +1721,7 @@ MonoBehaviour:
     m_Bits: 0
   isDoorOpened: 0
   doorDetectRange: 2
+  haveSeenPlayer: 0
   viewDistance: 10
   viewAngle: 90
   copzombieAgent: {fileID: 0}
@@ -1729,6 +1730,8 @@ MonoBehaviour:
   copZombieFootStep: {fileID: 8300000, guid: fdc05ea2699023143ba7e93533cc5a0b, type: 3}
   copZombieChaseClip: {fileID: 8300000, guid: 97b94f2134c874241bf3f69edab77088, type: 3}
   copZomicCatchPlayerClip: {fileID: 8300000, guid: 97b94f2134c874241bf3f69edab77088,
+    type: 3}
+  copZombieCatchBGMClip: {fileID: 8300000, guid: dc53ceff44bb16b41a714a4abae50873,
     type: 3}
   cameraContainer: {fileID: 4194841993480859005}
   copZombieVirtualCamera: {fileID: 380728128716373910}

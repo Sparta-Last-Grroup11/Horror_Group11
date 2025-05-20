@@ -13,6 +13,7 @@ public class CopZombie : Enemy
     public AudioClip copZombieFootStep;
     public AudioClip copZombieChaseClip;
     public AudioClip copZomicCatchPlayerClip;
+    public AudioClip copZombieCatchBGMClip;
     public Transform cameraContainer;
     public CinemachineVirtualCamera copZombieVirtualCamera;
     public PlayableDirector playableDirector;
