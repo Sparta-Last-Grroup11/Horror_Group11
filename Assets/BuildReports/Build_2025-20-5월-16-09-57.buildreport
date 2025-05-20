@@ -1,0 +1,871 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!382020655 &-7772782735715702963
+PluginBuildInfo:
+  m_RuntimePlugins:
+  - Newtonsoft.Json
+  - DOTween
+  - abci
+  - nunit.framework
+  - Unity.Burst.Unsafe
+  - Unity.VisualScripting.Antlr3.Runtime
+  m_EditorPlugins:
+  - Google.Apis.PlatformServices
+  - Google.Apis.Auth
+  - Unity.VisualScripting.IonicZip
+  - JetBrains.Rider.PathLocator
+  - Unity.Burst.Cecil.Pdb
+  - log4netPlastic
+  - Google.Apis.Core
+  - UnityFbxSdkNative
+  - unityplastic
+  - libGIFWrapper
+  - Unity.Plastic.Newtonsoft.Json
+  - Google.Apis.Sheets.v4
+  - Google.Apis
+  - Unity.Plastic.Antlr3.Runtime
+  - Unity.VisualScripting.YamlDotNet
+  - DOTweenEditor
+  - Unity.Burst.Cecil.Mdb
+  - ProResWrapper
+  - Unity.VisualScripting.TextureAssets
+  - zlib64Plastic
+  - liblz4Plastic
+  - AVFoundationWrapper
+  - Unity.Burst.Cecil
+  - Unity.Burst.Cecil.Rocks
+  - lz4x64Plastic
+  - Unity.VisualScripting.sqlite3
+  - AppleEventIntegration
+  - GIFWrapper
+  - ProResToolbox
+--- !u!1521398425 &-4743334150985829255
+VideoBuildInfo:
+  m_VideoClipCount: 0
+  m_IsVideoModuleDisabled: 0
+--- !u!1125 &1
+BuildReport:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: "Build_2025-20-5\uC6D4-16-09-57"
+  m_Summary:
+    buildStartTime:
+      serializedVersion: 2
+      ticks: 638833217921843346
+    buildGUID: 94d803a42e2f4ab1b9b13d30c322cd01
+    platformName: Win64
+    platformGroupName: Standalone
+    subtarget: 0
+    options: 8
+    assetBundleOptions: 0
+    outputPath: E:/Horror/Horror_Group11_Sparta.exe
+    crc: 0
+    totalSize: 938206984
+    totalTimeTicks: 47923394
+    totalErrors: 0
+    totalWarnings: 0
+    buildType: 1
+    buildResult: 1
+  m_Files:
+  - path: E:/Horror/Horror_Group11_Sparta_Data/globalgamemanagers
+    role: globalgamemanagers
+    id: 0
+    totalSize: 293372
+  - path: E:/Horror/Horror_Group11_Sparta_Data/globalgamemanagers.assets
+    role: assets
+    id: 1
+    totalSize: 720112
+  - path: E:/Horror/Horror_Group11_Sparta_Data/globalgamemanagers.assets.resS
+    role: resS
+    id: 2
+    totalSize: 7195360
+  - path: E:/Horror/Horror_Group11_Sparta_Data/level0
+    role: level0
+    id: 3
+    totalSize: 73660
+  - path: E:/Horror/Horror_Group11_Sparta_Data/level1
+    role: level1
+    id: 4
+    totalSize: 189880
+  - path: E:/Horror/Horror_Group11_Sparta_Data/level1.resS
+    role: resS
+    id: 5
+    totalSize: 131232
+  - path: E:/Horror/Horror_Group11_Sparta_Data/level2
+    role: level2
+    id: 6
+    totalSize: 302912812
+  - path: E:/Horror/Horror_Group11_Sparta_Data/resources.assets
+    role: assets
+    id: 7
+    totalSize: 11910152
+  - path: E:/Horror/Horror_Group11_Sparta_Data/resources.assets.resS
+    role: resS
+    id: 8
+    totalSize: 175239344
+  - path: E:/Horror/Horror_Group11_Sparta_Data/resources.resource
+    role: resource
+    id: 9
+    totalSize: 14561856
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Resources/unity_builtin_extra
+    role: unity_builtin_extra
+    id: 10
+    totalSize: 393580
+  - path: E:/Horror/Horror_Group11_Sparta_Data/RuntimeInitializeOnLoads.json
+    role: json
+    id: 11
+    totalSize: 1724
+  - path: E:/Horror/Horror_Group11_Sparta_Data/ScriptingAssemblies.json
+    role: json
+    id: 12
+    totalSize: 3706
+  - path: E:/Horror/Horror_Group11_Sparta_Data/sharedassets0.assets
+    role: assets
+    id: 13
+    totalSize: 8187788
+  - path: E:/Horror/Horror_Group11_Sparta_Data/sharedassets0.assets.resS
+    role: resS
+    id: 14
+    totalSize: 10486784
+  - path: E:/Horror/Horror_Group11_Sparta_Data/sharedassets0.resource
+    role: resource
+    id: 15
+    totalSize: 138048
+  - path: E:/Horror/Horror_Group11_Sparta_Data/sharedassets1.assets
+    role: assets
+    id: 16
+    totalSize: 4904192
+  - path: E:/Horror/Horror_Group11_Sparta_Data/sharedassets1.assets.resS
+    role: resS
+    id: 17
+    totalSize: 13632736
+  - path: E:/Horror/Horror_Group11_Sparta_Data/sharedassets1.resource
+    role: resource
+    id: 18
+    totalSize: 5440
+  - path: E:/Horror/Horror_Group11_Sparta_Data/sharedassets2.assets
+    role: assets
+    id: 19
+    totalSize: 22543800
+  - path: E:/Horror/Horror_Group11_Sparta_Data/sharedassets2.assets.resS
+    role: resS
+    id: 20
+    totalSize: 288219168
+  - path: E:/Horror/Horror_Group11_Sparta_Data/sharedassets2.resource
+    role: resource
+    id: 21
+    totalSize: 1122624
+  - path: E:/Horror/Horror_Group11_Sparta_Data/boot.config
+    role: config
+    id: 22
+    totalSize: 164
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Plugins/x86_64/abci.dll
+    role: dll
+    id: 23
+    totalSize: 1513984
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.AIModule.dll
+    role: dll
+    id: 24
+    totalSize: 58392
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.ARModule.dll
+    role: dll
+    id: 25
+    totalSize: 21016
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.AccessibilityModule.dll
+    role: dll
+    id: 26
+    totalSize: 23576
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.AndroidJNIModule.dll
+    role: dll
+    id: 27
+    totalSize: 93720
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.AnimationModule.dll
+    role: dll
+    id: 28
+    totalSize: 163864
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.AssetBundleModule.dll
+    role: dll
+    id: 29
+    totalSize: 32792
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.AudioModule.dll
+    role: dll
+    id: 30
+    totalSize: 70680
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.ClothModule.dll
+    role: dll
+    id: 31
+    totalSize: 26136
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.ClusterInputModule.dll
+    role: dll
+    id: 32
+    totalSize: 21528
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.ClusterRendererModule.dll
+    role: dll
+    id: 33
+    totalSize: 22040
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.ContentLoadModule.dll
+    role: dll
+    id: 34
+    totalSize: 26648
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.CoreModule.dll
+    role: dll
+    id: 35
+    totalSize: 1380888
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.CrashReportingModule.dll
+    role: dll
+    id: 36
+    totalSize: 21016
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.DSPGraphModule.dll
+    role: dll
+    id: 37
+    totalSize: 29208
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.DirectorModule.dll
+    role: dll
+    id: 38
+    totalSize: 24600
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.GIModule.dll
+    role: dll
+    id: 39
+    totalSize: 19992
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.GameCenterModule.dll
+    role: dll
+    id: 40
+    totalSize: 39960
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.GridModule.dll
+    role: dll
+    id: 41
+    totalSize: 25112
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.HotReloadModule.dll
+    role: dll
+    id: 42
+    totalSize: 19992
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.IMGUIModule.dll
+    role: dll
+    id: 43
+    totalSize: 189464
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.ImageConversionModule.dll
+    role: dll
+    id: 44
+    totalSize: 24088
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.InputLegacyModule.dll
+    role: dll
+    id: 45
+    totalSize: 38936
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.InputModule.dll
+    role: dll
+    id: 46
+    totalSize: 23576
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.JSONSerializeModule.dll
+    role: dll
+    id: 47
+    totalSize: 22040
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.LocalizationModule.dll
+    role: dll
+    id: 48
+    totalSize: 21016
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.NVIDIAModule.dll
+    role: dll
+    id: 49
+    totalSize: 33816
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.ParticleSystemModule.dll
+    role: dll
+    id: 50
+    totalSize: 160792
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.PerformanceReportingModule.dll
+    role: dll
+    id: 51
+    totalSize: 20504
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.Physics2DModule.dll
+    role: dll
+    id: 52
+    totalSize: 141336
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.PhysicsModule.dll
+    role: dll
+    id: 53
+    totalSize: 138264
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.ProfilerModule.dll
+    role: dll
+    id: 54
+    totalSize: 19992
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.PropertiesModule.dll
+    role: dll
+    id: 55
+    totalSize: 151576
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll
+    role: dll
+    id: 56
+    totalSize: 19992
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.ScreenCaptureModule.dll
+    role: dll
+    id: 57
+    totalSize: 21016
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.SharedInternalsModule.dll
+    role: dll
+    id: 58
+    totalSize: 32792
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.SpriteMaskModule.dll
+    role: dll
+    id: 59
+    totalSize: 21528
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.SpriteShapeModule.dll
+    role: dll
+    id: 60
+    totalSize: 26136
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.StreamingModule.dll
+    role: dll
+    id: 61
+    totalSize: 20504
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.SubstanceModule.dll
+    role: dll
+    id: 62
+    totalSize: 24600
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.SubsystemsModule.dll
+    role: dll
+    id: 63
+    totalSize: 34840
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.TLSModule.dll
+    role: dll
+    id: 64
+    totalSize: 26648
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.TerrainModule.dll
+    role: dll
+    id: 65
+    totalSize: 100888
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.TerrainPhysicsModule.dll
+    role: dll
+    id: 66
+    totalSize: 21016
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.TextCoreFontEngineModule.dll
+    role: dll
+    id: 67
+    totalSize: 72216
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.TextCoreTextEngineModule.dll
+    role: dll
+    id: 68
+    totalSize: 249368
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.TextRenderingModule.dll
+    role: dll
+    id: 69
+    totalSize: 38936
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.TilemapModule.dll
+    role: dll
+    id: 70
+    totalSize: 46616
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.UIElementsModule.dll
+    role: dll
+    id: 71
+    totalSize: 1519640
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.UIModule.dll
+    role: dll
+    id: 72
+    totalSize: 36376
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.UmbraModule.dll
+    role: dll
+    id: 73
+    totalSize: 19992
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.UnityAnalyticsCommonModule.dll
+    role: dll
+    id: 74
+    totalSize: 21016
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.UnityAnalyticsModule.dll
+    role: dll
+    id: 75
+    totalSize: 44568
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.UnityConnectModule.dll
+    role: dll
+    id: 76
+    totalSize: 21528
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.UnityCurlModule.dll
+    role: dll
+    id: 77
+    totalSize: 21528
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.UnityTestProtocolModule.dll
+    role: dll
+    id: 78
+    totalSize: 19992
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll
+    role: dll
+    id: 79
+    totalSize: 23064
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll
+    role: dll
+    id: 80
+    totalSize: 22552
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.UnityWebRequestModule.dll
+    role: dll
+    id: 81
+    totalSize: 57880
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll
+    role: dll
+    id: 82
+    totalSize: 21528
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll
+    role: dll
+    id: 83
+    totalSize: 31256
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.VFXModule.dll
+    role: dll
+    id: 84
+    totalSize: 58392
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.VRModule.dll
+    role: dll
+    id: 85
+    totalSize: 26136
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.VehiclesModule.dll
+    role: dll
+    id: 86
+    totalSize: 24088
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.VideoModule.dll
+    role: dll
+    id: 87
+    totalSize: 40984
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.VirtualTexturingModule.dll
+    role: dll
+    id: 88
+    totalSize: 35352
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.WindModule.dll
+    role: dll
+    id: 89
+    totalSize: 21016
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.XRModule.dll
+    role: dll
+    id: 90
+    totalSize: 70680
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.dll
+    role: dll
+    id: 91
+    totalSize: 125976
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Assembly-CSharp-firstpass.dll
+    role: dll
+    id: 92
+    totalSize: 45568
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Assembly-CSharp.dll
+    role: dll
+    id: 93
+    totalSize: 194048
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Unity.RenderPipelines.Core.Runtime.dll
+    role: dll
+    id: 94
+    totalSize: 531456
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Unity.AI.Navigation.dll
+    role: dll
+    id: 95
+    totalSize: 19968
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Unity.RenderPipelines.Universal.Config.Runtime.dll
+    role: dll
+    id: 96
+    totalSize: 5632
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Unity.Formats.Fbx.Runtime.dll
+    role: dll
+    id: 97
+    totalSize: 6656
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Unity.VisualScripting.Flow.dll
+    role: dll
+    id: 98
+    totalSize: 404992
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Unity.RenderPipelines.Core.ShaderLibrary.dll
+    role: dll
+    id: 99
+    totalSize: 4608
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Unity.TextMeshPro.dll
+    role: dll
+    id: 100
+    totalSize: 380416
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Unity.Recorder.dll
+    role: dll
+    id: 101
+    totalSize: 6656
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Unified.Universal.Blur.dll
+    role: dll
+    id: 102
+    totalSize: 14336
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/FbxBuildTestAssets.dll
+    role: dll
+    id: 103
+    totalSize: 4608
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
+    role: dll
+    id: 104
+    totalSize: 4608
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Unity.Sequences.dll
+    role: dll
+    id: 105
+    totalSize: 49664
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Unity.RenderPipelines.Universal.Runtime.dll
+    role: dll
+    id: 106
+    totalSize: 752128
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Unity.Burst.dll
+    role: dll
+    id: 107
+    totalSize: 316928
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Unity.Recorder.Base.dll
+    role: dll
+    id: 108
+    totalSize: 5632
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Unity.VisualScripting.Core.dll
+    role: dll
+    id: 109
+    totalSize: 626176
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/UnityEngine.UI.dll
+    role: dll
+    id: 110
+    totalSize: 264704
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Unity.RenderPipeline.Universal.ShaderLibrary.dll
+    role: dll
+    id: 111
+    totalSize: 8192
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Unity.Timeline.dll
+    role: dll
+    id: 112
+    totalSize: 127488
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Unity.InputSystem.dll
+    role: dll
+    id: 113
+    totalSize: 1102336
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Unity.InputSystem.ForUI.dll
+    role: dll
+    id: 114
+    totalSize: 4096
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Autodesk.Fbx.dll
+    role: dll
+    id: 115
+    totalSize: 4096
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Unity.Formats.Alembic.Runtime.dll
+    role: dll
+    id: 116
+    totalSize: 116736
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Unity.Mathematics.dll
+    role: dll
+    id: 117
+    totalSize: 741376
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Unity.Splines.dll
+    role: dll
+    id: 118
+    totalSize: 137216
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Unity.RenderPipelines.Universal.Shaders.dll
+    role: dll
+    id: 119
+    totalSize: 4608
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Unity.VisualScripting.State.dll
+    role: dll
+    id: 120
+    totalSize: 32256
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Cinemachine.dll
+    role: dll
+    id: 121
+    totalSize: 309760
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/DOTween.dll
+    role: dll
+    id: 122
+    totalSize: 175616
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Unity.VisualScripting.Antlr3.Runtime.dll
+    role: dll
+    id: 123
+    totalSize: 86016
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Unity.Burst.Unsafe.dll
+    role: dll
+    id: 124
+    totalSize: 5632
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Newtonsoft.Json.dll
+    role: dll
+    id: 125
+    totalSize: 691712
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/System.Runtime.dll
+    role: dll
+    id: 126
+    totalSize: 12288
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/netstandard.dll
+    role: dll
+    id: 127
+    totalSize: 90112
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/Mono.Security.dll
+    role: dll
+    id: 128
+    totalSize: 241152
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/System.ComponentModel.Composition.dll
+    role: dll
+    id: 129
+    totalSize: 257024
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/System.Configuration.dll
+    role: dll
+    id: 130
+    totalSize: 124928
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/System.Core.dll
+    role: dll
+    id: 131
+    totalSize: 1113088
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/System.Data.DataSetExtensions.dll
+    role: dll
+    id: 132
+    totalSize: 29696
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/System.Data.dll
+    role: dll
+    id: 133
+    totalSize: 2118656
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/System.Drawing.dll
+    role: dll
+    id: 134
+    totalSize: 489984
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/System.EnterpriseServices.dll
+    role: dll
+    id: 135
+    totalSize: 44544
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/System.IO.Compression.FileSystem.dll
+    role: dll
+    id: 136
+    totalSize: 18432
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/System.IO.Compression.dll
+    role: dll
+    id: 137
+    totalSize: 114688
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/System.Net.Http.dll
+    role: dll
+    id: 138
+    totalSize: 121344
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/System.Numerics.dll
+    role: dll
+    id: 139
+    totalSize: 119296
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/System.Runtime.Serialization.dll
+    role: dll
+    id: 140
+    totalSize: 934400
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/System.Security.dll
+    role: dll
+    id: 141
+    totalSize: 320000
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/System.ServiceModel.Internals.dll
+    role: dll
+    id: 142
+    totalSize: 215040
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/System.Transactions.dll
+    role: dll
+    id: 143
+    totalSize: 35328
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/System.Xml.Linq.dll
+    role: dll
+    id: 144
+    totalSize: 136704
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/System.Xml.dll
+    role: dll
+    id: 145
+    totalSize: 3160064
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/System.dll
+    role: dll
+    id: 146
+    totalSize: 2637824
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Managed/mscorlib.dll
+    role: dll
+    id: 147
+    totalSize: 4631552
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Plugins/x86_64/lib_burst_generated.dll
+    role: dll
+    id: 148
+    totalSize: 104960
+  - path: E:/Horror/Horror_Group11_Sparta_Data/app.info
+    role: info
+    id: 149
+    totalSize: 36
+  - path: E:/Horror/Horror_Group11_Sparta_Data/Resources/unity default resources
+    role: unity default resources
+    id: 150
+    totalSize: 1551312
+  - path: E:/Horror/Horror_Group11_Sparta.exe
+    role: exe
+    id: 151
+    totalSize: 666624
+  - path: E:/Horror/MonoBleedingEdge/EmbedRuntime/mono-2.0-bdwgc.dll
+    role: dll
+    id: 152
+    totalSize: 7895064
+  - path: E:/Horror/MonoBleedingEdge/EmbedRuntime/MonoPosixHelper.dll
+    role: dll
+    id: 153
+    totalSize: 610840
+  - path: E:/Horror/MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser
+    role: browser
+    id: 154
+    totalSize: 1605
+  - path: E:/Horror/MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx
+    role: aspx
+    id: 155
+    totalSize: 60575
+  - path: E:/Horror/MonoBleedingEdge/etc/mono/2.0/machine.config
+    role: config
+    id: 156
+    totalSize: 29066
+  - path: E:/Horror/MonoBleedingEdge/etc/mono/2.0/settings.map
+    role: map
+    id: 157
+    totalSize: 2622
+  - path: E:/Horror/MonoBleedingEdge/etc/mono/2.0/web.config
+    role: config
+    id: 158
+    totalSize: 11635
+  - path: E:/Horror/MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser
+    role: browser
+    id: 159
+    totalSize: 1605
+  - path: E:/Horror/MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx
+    role: aspx
+    id: 160
+    totalSize: 60575
+  - path: E:/Horror/MonoBleedingEdge/etc/mono/4.0/machine.config
+    role: config
+    id: 161
+    totalSize: 33598
+  - path: E:/Horror/MonoBleedingEdge/etc/mono/4.0/settings.map
+    role: map
+    id: 162
+    totalSize: 2622
+  - path: E:/Horror/MonoBleedingEdge/etc/mono/4.0/web.config
+    role: config
+    id: 163
+    totalSize: 18802
+  - path: E:/Horror/MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser
+    role: browser
+    id: 164
+    totalSize: 1605
+  - path: E:/Horror/MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx
+    role: aspx
+    id: 165
+    totalSize: 60575
+  - path: E:/Horror/MonoBleedingEdge/etc/mono/4.5/machine.config
+    role: config
+    id: 166
+    totalSize: 34056
+  - path: E:/Horror/MonoBleedingEdge/etc/mono/4.5/settings.map
+    role: map
+    id: 167
+    totalSize: 2622
+  - path: E:/Horror/MonoBleedingEdge/etc/mono/4.5/web.config
+    role: config
+    id: 168
+    totalSize: 18811
+  - path: E:/Horror/MonoBleedingEdge/etc/mono/browscap.ini
+    role: ini
+    id: 169
+    totalSize: 311984
+  - path: E:/Horror/MonoBleedingEdge/etc/mono/config
+    role: config
+    id: 170
+    totalSize: 3815
+  - path: E:/Horror/MonoBleedingEdge/etc/mono/mconfig/config.xml
+    role: xml
+    id: 171
+    totalSize: 25817
+  - path: E:/Horror/UnityCrashHandler64.exe
+    role: exe
+    id: 172
+    totalSize: 1114136
+  - path: E:/Horror/UnityPlayer.dll
+    role: dll
+    id: 173
+    totalSize: 30921240
+  m_BuildSteps:
+  - stepName: Build player
+    durationTicks: 47923394
+    depth: 0
+    messages: []
+  - stepName: Preprocess Player
+    durationTicks: 8014434
+    depth: 1
+    messages: []
+  - stepName: Prepare For Build
+    durationTicks: 4558
+    depth: 1
+    messages: []
+  - stepName: ProducePlayerScriptAssemblies
+    durationTicks: 18796919
+    depth: 1
+    messages: []
+  - stepName: Prebuild Cleanup and Recompile
+    durationTicks: 16851096
+    depth: 2
+    messages: []
+  - stepName: Compile scripts
+    durationTicks: 16407791
+    depth: 3
+    messages: []
+  - stepName: Generate and validate platform script types
+    durationTicks: 251822
+    depth: 3
+    messages: []
+  - stepName: Verify Build setup
+    durationTicks: 4875456
+    depth: 1
+    messages: []
+  - stepName: Check old data build
+    durationTicks: 1986091
+    depth: 2
+    messages: []
+  - stepName: Set up scripts only build
+    durationTicks: 2712414
+    depth: 2
+    messages: []
+  - stepName: Prepare assets for target platform
+    durationTicks: 1248333
+    depth: 1
+    messages: []
+  - stepName: Prepare splash screen
+    durationTicks: 8959
+    depth: 1
+    messages:
+    - type: 3
+      content: Including Unity Splash Screen logo because 'Show Unity Logo' is enabled.
+    - type: 3
+      content: Including Unity Splash Screen logo because it is included in the logo
+        list.
+  - stepName: Run script only build
+    durationTicks: 6886522
+    depth: 1
+    messages: []
+  - stepName: Build scripts DLLs
+    durationTicks: 6771955
+    depth: 2
+    messages: []
+  - stepName: GetReferencedAssemblies
+    durationTicks: 6643891
+    depth: 3
+    messages: []
+  - stepName: Postprocess built player
+    durationTicks: 3462453
+    depth: 1
+    messages: []
+  - stepName: Setup incremental player build
+    durationTicks: 971609
+    depth: 2
+    messages: []
+  - stepName: Incremental player build
+    durationTicks: 489515
+    depth: 2
+    messages: []
+  - stepName: Report output files
+    durationTicks: 256101
+    depth: 2
+    messages: []
+  m_Appendices:
+  - {fileID: 156491585641367253}
+  - {fileID: -7772782735715702963}
+  - {fileID: 4880181169202351201}
+  - {fileID: -4743334150985829255}
+--- !u!114 &156491585641367253
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 13805, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!641289076 &4880181169202351201
+AudioBuildInfo:
+  m_IsAudioDisabled: 0
+  m_AudioClipCount: 0
+  m_AudioMixerCount: 0
