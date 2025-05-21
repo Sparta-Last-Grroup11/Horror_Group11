@@ -22,7 +22,7 @@ public class UI3D : BaseUI
     private bool isDragging = false;
     private Vector3 lastMousePosition;
 
-    public void Init(GameObject prefab, bool CanControl = true, string description = "")
+    public void Init(GameObject prefab, string description = "", bool CanControl = true)
     {
         UIManager.Instance.IsUiActing = true;
         CanControlObject = CanControl;
