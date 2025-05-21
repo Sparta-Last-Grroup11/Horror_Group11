@@ -5,7 +5,6 @@ using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Windows.WebCam;
 using static Extension;
 
 public class UIManager : Singleton<UIManager>
