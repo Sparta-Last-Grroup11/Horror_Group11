@@ -18,12 +18,14 @@ public class UI3D : BaseUI
     [Header("Rotate")]
     public float rotationSpeed = 20f;
 
+    private bool CanControlObject;
     private bool isDragging = false;
     private Vector3 lastMousePosition;
 
-    public void Init(GameObject prefab, string description = "")
+    public void Init(GameObject prefab, bool CanControl = true, string description = "")
     {
         UIManager.Instance.IsUiActing = true;
+        CanControlObject = CanControl;
         var canvas = UIManager.Instance.mainCanvas;
         var subCam = UIManager.Instance.subCam;
 
@@ -55,9 +57,12 @@ public class UI3D : BaseUI
     {
         if (curObj == null)
             return;
-        Moving();
-        Scrolling();
-        Rotate();
+        if (CanControlObject)
+        {
+            Moving();
+            Scrolling();
+            Rotate();
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             DestroySelf();
