@@ -10,6 +10,7 @@ public class PowerOn : MonoBehaviour, I_Interactable
     [SerializeField] private AudioClip clip;
     [SerializeField] private int questID = 4;
     [SerializeField] private GameObject particle;
+    [SerializeField] private Light lamp;
     private PlayableDirector playableDirector;
 
     private void Awake()
@@ -17,6 +18,7 @@ public class PowerOn : MonoBehaviour, I_Interactable
         playableDirector = GetComponent<PlayableDirector>();
         lightState.ResetLight();
         particle.SetActive(false);
+        lamp.enabled = false;
     }
 
     public void OnInteraction()
@@ -31,6 +33,8 @@ public class PowerOn : MonoBehaviour, I_Interactable
         QuestManager.Instance.QuestTrigger(questID);
         playableDirector.Play();
         GameManager.Instance.player.cantMove = true;
+        if(lamp!=null)
+            lamp.enabled = true;
         Invoke("PlayerCanMove", 3f);
     }
 

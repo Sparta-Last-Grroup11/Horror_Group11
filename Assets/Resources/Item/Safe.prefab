@@ -573,7 +573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 866798aed30456a48bd53239a0c3232f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzle: {fileID: 4693144216193190947, guid: 5a1aa709d7d7f97469853131a73356e0, type: 3}
+  puzzle: {fileID: 2135483368505893338, guid: 5a1aa709d7d7f97469853131a73356e0, type: 3}
   door: {fileID: 3612643875533458559}
   key: {fileID: 6884665441935586769}
 --- !u!65 &1287425304884230022
