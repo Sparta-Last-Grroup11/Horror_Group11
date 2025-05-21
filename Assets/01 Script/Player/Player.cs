@@ -22,6 +22,7 @@ public class Player : PlayerInputController
     [Header("Chased")]
     public bool isChased = false;
     public bool cantMove = false;
+    public bool isDead = false;
 
     // 효과음 관련
     [Header("SFX")]
@@ -96,6 +97,7 @@ public class Player : PlayerInputController
         // 초기 상태를 Idle로 설정
         stateMachine.ChangeState(new PlayerIdleState(this));
         cantMove = false;
+        isDead = false;
 
         if (virtualCamera != null)
         {
@@ -209,7 +211,7 @@ public class Player : PlayerInputController
     //인벤토리 열기
     private void InventoryOpen()
     {
-        if(Input.GetKeyDown(KeyCode.Tab) && !UIManager.Instance.Get<PopupInventoryUI>())
+        if(Input.GetKeyDown(KeyCode.Tab) && !UIManager.Instance.Get<PopupInventoryUI>() && isDead == false)
             playerInventory.ShowInventory();
     }
 
