@@ -9,6 +9,7 @@ public class QuestUI : BaseUI
     private CanvasGroup canvasGroup;
 
     [SerializeField] TextMeshProUGUI text;
+    [SerializeField] AudioClip questNotifySound;
     [SerializeField] private float duration = 0.5f;
     private float elapsed = 0f;
 
@@ -34,6 +35,7 @@ public class QuestUI : BaseUI
             yield return StartCoroutine(FadeOut());
 
         text.text = input;
+        AudioManager.Instance.Audio2DPlay(questNotifySound, 1f, false, EAudioType.SFX);
 
         yield return StartCoroutine(FadeIn());
     }
