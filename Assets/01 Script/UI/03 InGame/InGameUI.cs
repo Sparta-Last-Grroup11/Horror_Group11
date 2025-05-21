@@ -7,6 +7,7 @@ public class InGameUI : MonoBehaviour
     void Start()
     {
         UIManager.Instance.show<HeartBeat>();
+        UIManager.Instance.show<RamainFlashBatteryUI>();
         UIManager.Instance.show<Interacting>();
         StageManager.Instance.StageMake();
     }

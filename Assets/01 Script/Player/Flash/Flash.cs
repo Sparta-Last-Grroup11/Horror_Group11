@@ -4,7 +4,7 @@ using UnityEngine;
 public class Flash : MonoBehaviour
 {
     private PlayerFlash playerFlash;
-    [Range(0f, 100f)] public float flashBattery = 100.0f;
+    [Range(0f, 120f)] public float flashBattery = 120.0f;
 
     private Light spotLight;
     [Header("Angle")]
@@ -57,7 +57,7 @@ public class Flash : MonoBehaviour
             }
 
             flashBattery -= Time.deltaTime * 1f;
-            flashBattery = Mathf.Clamp(flashBattery, 0f, 100f);
+            flashBattery = Mathf.Clamp(flashBattery, 0f, 120f);
         }
     }
 
@@ -109,6 +109,6 @@ public class Flash : MonoBehaviour
     public void RechargeBattery()
     {
         deadFlicker = 0;
-        flashBattery = 100;
+        flashBattery = 120;
     }
 }

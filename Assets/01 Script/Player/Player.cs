@@ -9,6 +9,7 @@ public class Player : PlayerInputController
     public PlayerStateMachine stateMachine;
     public CharacterController characterController;
     public PlayerInventory playerInventory;
+    public Flash flash;
 
     // 발소리 관련
     [Header("FootStep")]
