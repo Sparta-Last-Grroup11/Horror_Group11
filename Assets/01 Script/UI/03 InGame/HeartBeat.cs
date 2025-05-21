@@ -79,7 +79,7 @@ public class HeartBeat : BaseUI
 
     void audioPlay()
     {
-        AudioManager.Instance.Audio2DPlay(beatSound, GameManager.Instance.player.isChased ? beatTimeMultiplier - 1 + 1f : beatTimeMultiplier - 1 + 0.4f);
+        AudioManager.Instance.Audio2DPlay(beatSound, GameManager.Instance.player.isChased ? beatTimeMultiplier - 1 + 1f : beatTimeMultiplier - 1 + 0.4f, false, EAudioType.SFX);
     }
 
     public void ChanbeatSpeed(float ratio)

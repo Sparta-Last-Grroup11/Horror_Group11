@@ -212,7 +212,7 @@ public class Player : PlayerInputController
     //인벤토리 열기
     private void InventoryOpen()
     {
-        if(Input.GetKeyDown(KeyCode.Tab) && !UIManager.Instance.Get<PopupInventoryUI>() && isDead == false)
+        if (Input.GetKeyDown(KeyCode.Tab) && !UIManager.Instance.IsUiActing  && isDead == false)
             playerInventory.ShowInventory();
     }
 
