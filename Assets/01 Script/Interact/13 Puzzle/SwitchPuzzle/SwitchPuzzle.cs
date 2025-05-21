@@ -25,6 +25,10 @@ public class SwitchPuzzle : MonoBehaviour
     public void ChangeCount(int count) //레버 작동 시 카운트 변경
     {
         onCount += count;
+        if(onCount == 9)
+        {
+            switchLight.color = Color.yellow;
+        }
     }
 
     public void SetDictionary(int id,  Switch switchObj) //리스트에 스위치, id 저장

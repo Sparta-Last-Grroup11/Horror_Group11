@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03f7b2081f7bcf5428ba1d3d30c607f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashBattery: 100
+  flashBattery: 120
   minInnerSpotAngle: 15
   maxInnerSpotAngle: 25
   minSpotAngle: 55
@@ -395,6 +395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateMachine: {fileID: 0}
   characterController: {fileID: 0}
+  flash: {fileID: 4038644480697039233}
   footStepClip: {fileID: 8300000, guid: 1a7741daba5446e46a40f8074aae75dc, type: 3}
   runStepClip: {fileID: 8300000, guid: 82354d1fee336984994fbdcc8154c89c, type: 3}
   jumpStartClip: {fileID: 8300000, guid: 866abdf3a931850498786581089be202, type: 3}
@@ -402,6 +403,7 @@ MonoBehaviour:
   footSpeedRate: 0.8
   isChased: 0
   cantMove: 0
+  isDead: 0
   BGM: {fileID: 8300000, guid: ab8842b42fcaba04193bd8bc50c78cbf, type: 3}
   breathing: {fileID: 8300000, guid: 4c24f9d63449ffa44a2ed3852e5822e9, type: 3}
   shockedClip: {fileID: 8300000, guid: 00ab46e091f0eae4b9737ab8184994c9, type: 3}

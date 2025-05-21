@@ -16,6 +16,7 @@ public class CopZombieAttackState : EnemyBaseState
         copZombie.copZombieVirtualCamera.Priority = 12;
         copZombie.copZombieAnim.SetTrigger("DoAttack");
         AudioManager.Instance.Audio2DPlay(copZombie.copZombieCatchBGMClip, 1f, false, EAudioType.SFX);
+        GameManager.Instance.player.isDead = true;
         copZombie.StartCoroutine(PlayerDead());
     }
 

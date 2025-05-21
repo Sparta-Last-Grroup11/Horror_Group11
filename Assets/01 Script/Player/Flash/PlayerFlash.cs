@@ -21,25 +21,31 @@ public class PlayerFlash : PlayerInputController
     public void OnFlashStarted(InputAction.CallbackContext context)
     {
         //1. 인풋시스템 문제
-        AudioManager.Instance.Audio3DPlay(flashSwitchClip, transform.position);
-        isFlash = !isFlash;
-        if (isFlash && flash.flashBattery > 0)
+        if (GameManager.Instance.player.isDead == false && UIManager.Instance.IsUiActing == false)
         {
-            flashLight.enabled = true;
-        }
-        else
-        {
-            flashLight.enabled = false;
+            AudioManager.Instance.Audio3DPlay(flashSwitchClip, transform.position);
+            isFlash = !isFlash;
+            if (isFlash && flash.flashBattery > 0)
+            {
+                flashLight.enabled = true;
+            }
+            else
+            {
+                flashLight.enabled = false;
+            }
         }
     }
 
     public void OnReloadStarted(InputAction.CallbackContext context)
     {
-        if (GameManager.Instance.player.playerInventory.HasItem(battery))
+        if (GameManager.Instance.player.isDead == false && UIManager.Instance.IsUiActing == false)
         {
-            flash.flashBattery = 100;
-            AudioManager.Instance.Audio3DPlay(batterSwitchClip, transform.position);
-            GameManager.Instance.player.playerInventory.UseItem(battery);
+            if (GameManager.Instance.player.playerInventory.HasItem(battery))
+            {
+                flash.flashBattery = 120;
+                AudioManager.Instance.Audio3DPlay(batterSwitchClip, transform.position);
+                GameManager.Instance.player.playerInventory.UseItem(battery);
+            }
         }
     }
 

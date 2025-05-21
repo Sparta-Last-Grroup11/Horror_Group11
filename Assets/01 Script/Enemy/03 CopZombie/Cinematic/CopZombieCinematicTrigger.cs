@@ -6,6 +6,7 @@ public class CopZombieCinematicTrigger : MonoBehaviour
 {
     public GameObject copzombieCinematic;
     public GameObject copZombiePrefab;
+    [SerializeField] private AudioClip meetCopZombieClip;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -13,15 +14,17 @@ public class CopZombieCinematicTrigger : MonoBehaviour
         {
             copzombieCinematic.SetActive(true);
             GameManager.Instance.player.cantMove = true;
-            Invoke("CinematicEnd", 5f);
+            AudioManager.Instance.Audio2DPlay(meetCopZombieClip, 1, false, EAudioType.SFX);
+            StartCoroutine(CinematicEnd());
         }
     }
 
-    public void CinematicEnd()
+    IEnumerator CinematicEnd()
     {
+        yield return new WaitForSeconds(5f);
         copzombieCinematic.SetActive(false);
         GameManager.Instance.player.cantMove = false;
-        Instantiate(copZombiePrefab, transform.position, Quaternion.Euler(0, 180, 0));
+        Instantiate(copZombiePrefab, copzombieCinematic.transform.position + new Vector3(-1, 0, 3), Quaternion.Euler(0, 150, 0));
         Destroy(gameObject);
     }
 }

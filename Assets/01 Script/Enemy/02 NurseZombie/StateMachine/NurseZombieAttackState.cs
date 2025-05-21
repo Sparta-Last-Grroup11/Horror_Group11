@@ -17,6 +17,7 @@ public class NurseZombieAttackState : EnemyBaseState  // 플레이어를 공격�
         GameManager.Instance.player.cantMove = true;
         nurseZombie.nurseZombieAnim.SetTrigger("Attack");
         nurseZombie.nurseZombieVirtualCamera.Priority = 12;
+        GameManager.Instance.player.isDead = true;
         nurseZombie.StartCoroutine(PlayerDead());
     }
 

@@ -2356,6 +2356,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: fbd2f0fc66d119f4884a7a6839089e92, type: 2}
     - target: {fileID: 5139430171346566065, guid: 652334ccd7ac00040b64a92c8a2c8986,
         type: 3}
+      propertyPath: key
+      value: 
+      objectReference: {fileID: 11400000, guid: f43aea1507e23b04795289da300a3d74,
+        type: 2}
+    - target: {fileID: 5139430171346566065, guid: 652334ccd7ac00040b64a92c8a2c8986,
+        type: 3}
       propertyPath: lockedSound
       value: 
       objectReference: {fileID: 8300000, guid: ba0dd6d8b717e403ca0fa3bdebe97dad, type: 3}
