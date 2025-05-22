@@ -11,7 +11,7 @@ public class OpenPuzzle : MonoBehaviour, I_Interactable
     }
     public void OnInteraction()
     {
-        UIManager.Instance.show<UI3D>().Init(puzzle);
+        UIManager.Instance.show<UI3D>().Init(puzzle, "", false);
         FindObjectOfType<SafeLockPuzzle>().SetSafe(this);
     }
 

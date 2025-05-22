@@ -224,7 +224,6 @@ GameObject:
   - component: {fileID: 2815525409314839003}
   - component: {fileID: 7489981758441973497}
   - component: {fileID: 8628525265357300718}
-  - component: {fileID: 4077736226592329659}
   m_Layer: 0
   m_Name: Lamp_04_LOD0
   m_TagString: Untagged
@@ -297,27 +296,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4077736226592329659
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2190982958766423616}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.6213991, y: 1.1645093, z: 0.6213989}
-  m_Center: {x: 0, y: -0.5757204, z: 0}
 --- !u!1 &2739590535429249495
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,7 +424,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2760977329093825142}
   - component: {fileID: 5351408193577042337}
-  - component: {fileID: 794129280213892011}
   m_Layer: 0
   m_Name: Lamp_04 (3)
   m_TagString: Untagged
@@ -500,23 +477,6 @@ LODGroup:
     renderers:
     - renderer: {fileID: 4799940605059171316}
   m_Enabled: 1
---- !u!114 &794129280213892011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4051818280524660528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c342973a73f5d7344bbdf67db4483f3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  switchController: {fileID: 0}
-  rand: 0
-  lampLights:
-  - {fileID: 3789768515459061702}
-  - {fileID: 0}
 --- !u!1 &5443583346293141818
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,6 +647,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: station3 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074760887707874149, guid: d17a1383d4452aa46b348ecaa3a709d4,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6910859072797293679, guid: d17a1383d4452aa46b348ecaa3a709d4,
         type: 3}
