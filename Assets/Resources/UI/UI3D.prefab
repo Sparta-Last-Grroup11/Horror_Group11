@@ -243,5 +243,5 @@ MonoBehaviour:
   zMaxDistance: 0.5
   scrollSpeed: 50
   yMaxDistance: 0.5
-  MoveSpeed: 0.5
+  MoveSpeed: 1
   rotationSpeed: 20
