@@ -107,6 +107,111 @@
     },
     {
       "type": "Item",
+      "prefabname": "BatteryAA",
+      "position": [
+        -3.43,
+        2.31,
+        -4.17
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "description": ""
+    },
+    {
+      "type": "Item",
+      "prefabname": "BatteryAA",
+      "position": [
+        -10.4,
+        2.17,
+        13.67
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "description": ""
+    },
+    {
+      "type": "Item",
+      "prefabname": "BatteryAA",
+      "position": [
+        -7.63,
+        1.88,
+        12.99
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "description": ""
+    },
+    {
+      "type": "Item",
+      "prefabname": "BatteryAA",
+      "position": [
+        -3.11,
+        1.89,
+        -10.79
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "description": ""
+    },
+    {
+      "type": "Item",
+      "prefabname": "BatteryAA",
+      "position": [
+        -9.64,
+        1.96,
+        -15.24
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "description": ""
+    },
+    {
+      "type": "Item",
+      "prefabname": "BatteryAA",
+      "position": [
+        -1.13,
+        5.53,
+        1.44
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "description": ""
+    },
+    {
+      "type": "Item",
+      "prefabname": "BatteryAA",
+      "position": [
+        -12.52,
+        5.76,
+        -0.27
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "description": ""
+    },
+    {
+      "type": "Item",
       "prefabname": "TortureRoomKey",
       "position": [
         -0.185,
