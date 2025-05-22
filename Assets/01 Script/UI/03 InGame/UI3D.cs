@@ -18,17 +18,19 @@ public class UI3D : BaseUI
     [Header("Rotate")]
     public float rotationSpeed = 20f;
 
+    private BaseUI helpUI = null;
     private bool CanControlObject;
     private bool isDragging = false;
     private Vector3 lastMousePosition;
 
-    public void Init(GameObject prefab, string description = "", bool CanControl = true)
+    public void Init(GameObject prefab, string description = null, BaseUI helpUI = null, bool CanControl = true)
     {
         UIManager.Instance.IsUiActing = true;
         CanControlObject = CanControl;
         var canvas = UIManager.Instance.mainCanvas;
         var subCam = UIManager.Instance.subCam;
-
+        if (helpUI != null) 
+            this.helpUI = helpUI;
         curObj = UIManager.Instance.MakePrefabInSubCam(prefab);
         objOriginalPos = curObj.transform.localPosition;
         curObj.GetComponent<ItemOnUI>().Init(description);
@@ -46,6 +48,8 @@ public class UI3D : BaseUI
     protected override void OnDestroy()
     {
         base.OnDestroy();
+        if (helpUI != null)
+            Destroy(helpUI.gameObject);
         if (curObj != null)
         {
             UIManager.Instance.RemovePrefabInSumCam();

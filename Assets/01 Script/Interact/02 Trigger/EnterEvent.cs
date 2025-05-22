@@ -10,6 +10,7 @@ public class EnterEvent : Receiver
     [SerializeField] private int questID = 1;
     [SerializeField] private AudioClip seriesSfx;
     PlayableDirector playableDirector;
+    CinemachineFreeLook freeLook;
 
     protected override void Awake()
     {
@@ -31,11 +32,14 @@ public class EnterEvent : Receiver
         QuestManager.Instance.QuestTrigger(questID);
         AudioManager.Instance.Audio2DPlay(seriesSfx);
         GameManager.Instance.player.cantMove = true;
+        GameManager.Instance.player.cameraContainer.transform.rotation = Quaternion.Euler(0, -90f, 0);
         playableDirector.Play();
+        UIManager.Instance.show<SkipUI>().Init(1, SkipEvent);
     }
 
     public void MovePlayer()
     {
+        Destroy(UIManager.Instance.Get<SkipUI>().gameObject);
         GameManager.Instance.player.cantMove = false;
     }
 
@@ -52,5 +56,15 @@ public class EnterEvent : Receiver
     public void WalkingAudioPlay()
     {
         AudioManager.Instance.Audio2DPlay(ResourceManager.Instance.Load<AudioClip>(ResourceType.Sound, "2D/Player/Walk"));
+    }
+
+    private void SkipEvent()
+    {
+        playableDirector.Stop();
+        GameManager.Instance.player.transform.position = new Vector3(-6f, 1.75f, 0);
+        GameManager.Instance.player.transform.rotation = Quaternion.Euler(0, -90f, 0);
+        CloseDoubleDoorAndLocked();
+        MonologueManager.Instance.DialogPlay(7);
+        GameManager.Instance.player.cantMove = false;
     }
 }

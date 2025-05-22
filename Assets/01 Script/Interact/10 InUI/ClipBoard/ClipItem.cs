@@ -12,6 +12,6 @@ public class ClipItem : MonoBehaviour , I_Interactable
     [SerializeField] GameObject ObjPrefabInUI;
     public void OnInteraction()
     {
-        UIManager.Instance.show<UI3D>().Init(ObjPrefabInUI, description);
+        UIManager.Instance.show<UI3D>().Init(ObjPrefabInUI, description, UIManager.Instance.show<UI3DHelp>());
     }
 }
