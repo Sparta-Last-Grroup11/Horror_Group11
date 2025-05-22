@@ -23,7 +23,7 @@ public class UI3D : BaseUI
     private bool isDragging = false;
     private Vector3 lastMousePosition;
 
-    public void Init(GameObject prefab, string description = null, BaseUI helpUI = null, bool CanControl = true)
+    public void Init(GameObject prefab, string description = null, BaseUI helpUI = null, bool CanControl = true, float scale = 1.0f)
     {
         UIManager.Instance.IsUiActing = true;
         CanControlObject = CanControl;
@@ -32,6 +32,7 @@ public class UI3D : BaseUI
         if (helpUI != null) 
             this.helpUI = helpUI;
         curObj = UIManager.Instance.MakePrefabInSubCam(prefab);
+        curObj.transform.localScale *= scale;
         objOriginalPos = curObj.transform.localPosition;
         curObj.GetComponent<ItemOnUI>().Init(description);
     }
