@@ -31,7 +31,7 @@ public class Flash : MonoBehaviour
 
     private void Update()
     {
-        if (playerFlash.isFlash)
+        if (playerFlash.isFlash && !UIManager.Instance.IsUiActing)
         {
             if (flashBattery > 0)
             {
