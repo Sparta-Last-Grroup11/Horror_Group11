@@ -10,6 +10,7 @@ public class HelpUI : BaseUI
     [SerializeField] ModalWindowManager modal;
     [SerializeField] List<Button> buttons;
     [SerializeField] List<GameObject> panels;
+    [SerializeField] Button exitButton;
 
     protected override void Start()
     {
@@ -22,6 +23,7 @@ public class HelpUI : BaseUI
             buttons[i].onClick.AddListener(() => ActivePanel(index));
             Debug.Log($"{index}Button Active");
         }
+        exitButton.onClick.AddListener(async () => await DestroyAction());
     }
 
 
@@ -46,7 +48,7 @@ public class HelpUI : BaseUI
         Destroy(gameObject);
     }
 
-    private void ActivePanel(int num)
+    public void ActivePanel(int num)
     {
         for (int i = 0; i < panels.Count; i++)
         {

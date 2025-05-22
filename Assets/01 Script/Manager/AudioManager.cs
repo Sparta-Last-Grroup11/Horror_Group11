@@ -190,6 +190,10 @@ public class AudioManager : Singleton<AudioManager>
                 float CurrentValue = PlayerPrefs.GetFloat(type.ToString());
                 SetLevel(CurrentValue, type);
             }
+            else
+            {
+                SetLevel(0.5f, type);
+            }
         }
     }
 
