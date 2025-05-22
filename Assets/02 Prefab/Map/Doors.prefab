@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 7652069284688589657}
-  delayBeforeClose: 2.5
+  delayBeforeClose: 5
   scareDoorSound: {fileID: 8300000, guid: 0e51a025b26f447899806456285868bc, type: 3}
 --- !u!1 &3136062876511094061
 GameObject:
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 2861275308620933489}
-  delayBeforeClose: 4
+  delayBeforeClose: 5
   scareDoorSound: {fileID: 8300000, guid: 0e51a025b26f447899806456285868bc, type: 3}
 --- !u!1 &3574550267138617071
 GameObject:
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 2766208346371125474}
-  delayBeforeClose: 2.5
+  delayBeforeClose: 5
   scareDoorSound: {fileID: 8300000, guid: 0e51a025b26f447899806456285868bc, type: 3}
 --- !u!1 &4915773448580129017
 GameObject:
@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 7055511544738908723}
-  delayBeforeClose: 2.5
+  delayBeforeClose: 5
   scareDoorSound: {fileID: 8300000, guid: 0e51a025b26f447899806456285868bc, type: 3}
 --- !u!1 &8155249162723636591
 GameObject:

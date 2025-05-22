@@ -18,18 +18,21 @@ public class UI3D : BaseUI
     [Header("Rotate")]
     public float rotationSpeed = 20f;
 
+    private BaseUI helpUI = null;
     private bool CanControlObject;
     private bool isDragging = false;
     private Vector3 lastMousePosition;
 
-    public void Init(GameObject prefab, string description = "", bool CanControl = true)
+    public void Init(GameObject prefab, string description = null, BaseUI helpUI = null, bool CanControl = true, float scale = 1.0f)
     {
         UIManager.Instance.IsUiActing = true;
         CanControlObject = CanControl;
         var canvas = UIManager.Instance.mainCanvas;
         var subCam = UIManager.Instance.subCam;
-
+        if (helpUI != null) 
+            this.helpUI = helpUI;
         curObj = UIManager.Instance.MakePrefabInSubCam(prefab);
+        curObj.transform.localScale *= scale;
         objOriginalPos = curObj.transform.localPosition;
         curObj.GetComponent<ItemOnUI>().Init(description);
     }
@@ -46,6 +49,8 @@ public class UI3D : BaseUI
     protected override void OnDestroy()
     {
         base.OnDestroy();
+        if (helpUI != null)
+            Destroy(helpUI.gameObject);
         if (curObj != null)
         {
             UIManager.Instance.RemovePrefabInSumCam();
@@ -73,11 +78,14 @@ public class UI3D : BaseUI
     {
         //상하 입력에 따라 이동
         float verticalInput = Input.GetAxis("Vertical"); // W/S 또는 ↑/↓ 키
+        float horizontalInput = Input.GetAxis("Horizontal"); // A/D 또는 ←/→
 
-        if (Mathf.Abs(verticalInput) > 0.01f)
+        Vector3 moveDir = new Vector3(-horizontalInput, -verticalInput, 0f).normalized;
+
+        if (moveDir.sqrMagnitude > 0.001f)
         {
             Vector3 objPos = curObj.transform.localPosition;
-            Vector3 newPos = objPos + Vector3.up * -verticalInput * MoveSpeed * Time.deltaTime;
+            Vector3 newPos = objPos + moveDir * MoveSpeed * Time.deltaTime;
 
             float yDistance = Mathf.Abs(newPos.y - objOriginalPos.y);
 
