@@ -43,6 +43,7 @@ public class HelpUI : BaseUI
     async Task DestroyAction()
     {
         modal.ModalWindowOut();
+        Cursor.lockState = CursorLockMode.Locked;
         await Task.Delay(500);
         UIManager.Instance.IsUiActing = false;
         Destroy(gameObject);
