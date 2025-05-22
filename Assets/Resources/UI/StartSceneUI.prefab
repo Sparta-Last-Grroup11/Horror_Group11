@@ -1768,6 +1768,7 @@ MonoBehaviour:
   SettingBut: {fileID: 7248722983782409989}
   ExitBut: {fileID: 3964651982049258875}
   door: {fileID: 0}
+  buttonClickSound: {fileID: 0}
 --- !u!225 &5264941521887539260
 CanvasGroup:
   m_ObjectHideFlags: 0
