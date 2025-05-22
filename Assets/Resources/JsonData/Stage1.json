@@ -154,21 +154,6 @@
       "type": "Item",
       "prefabname": "BatteryAA",
       "position": [
-        -3.11,
-        1.89,
-        -10.79
-      ],
-      "rotation": [
-        0.0,
-        0.0,
-        0.0
-      ],
-      "description": ""
-    },
-    {
-      "type": "Item",
-      "prefabname": "BatteryAA",
-      "position": [
         -9.64,
         1.96,
         -15.24

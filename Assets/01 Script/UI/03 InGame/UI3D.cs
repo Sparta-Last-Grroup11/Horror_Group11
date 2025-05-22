@@ -78,11 +78,14 @@ public class UI3D : BaseUI
     {
         //상하 입력에 따라 이동
         float verticalInput = Input.GetAxis("Vertical"); // W/S 또는 ↑/↓ 키
+        float horizontalInput = Input.GetAxis("Horizontal"); // A/D 또는 ←/→
 
-        if (Mathf.Abs(verticalInput) > 0.01f)
+        Vector3 moveDir = new Vector3(-horizontalInput, -verticalInput, 0f).normalized;
+
+        if (moveDir.sqrMagnitude > 0.001f)
         {
             Vector3 objPos = curObj.transform.localPosition;
-            Vector3 newPos = objPos + Vector3.up * -verticalInput * MoveSpeed * Time.deltaTime;
+            Vector3 newPos = objPos + moveDir * MoveSpeed * Time.deltaTime;
 
             float yDistance = Mathf.Abs(newPos.y - objOriginalPos.y);
 
