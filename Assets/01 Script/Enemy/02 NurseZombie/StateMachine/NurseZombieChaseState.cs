@@ -65,20 +65,30 @@ public class NurseZombieChaseState : EnemyBaseState
 
             if (door != null && !door.IsOpened)
             {
-                nurseZombie.blockedByDoorCount++;
-
-                if (nurseZombie.blockedByDoorCount >= nurseZombie.maxBlockedCount)
+                if (IsPlayerBehindDoor(door))
                 {
-                    nurseZombie.gameObject.SetActive(false);
-                }
+                    nurseZombie.blockedByDoorCount++;
 
-                nurseZombie.MoveToSpawnPosition(new Vector3(-5.96f, 5.5f, -19.71f), Quaternion.identity);
-                fsm.ChangeState(nurseZombie.nurseZombieIdleState);
-                nurseZombie.haveSeenPlayer = false;
-                return;
+                    if (nurseZombie.blockedByDoorCount >= nurseZombie.maxBlockedCount)
+                    {
+                        nurseZombie.gameObject.SetActive(false);
+                    }
+
+                    nurseZombie.MoveToSpawnPosition(new Vector3(-5.96f, 5.5f, -19.71f), Quaternion.identity);
+                    fsm.ChangeState(nurseZombie.nurseZombieIdleState);
+                    nurseZombie.haveSeenPlayer = false;
+                    return;
+                }
             }
         }
     }
+
+    private bool IsPlayerBehindDoor(LockedDoor door)
+    {
+        Vector3 doorToPlayer = nurseZombie.PlayerTransform.position - door.transform.position;
+        return doorToPlayer.magnitude < 5f && Vector3.Dot(door.transform.forward, doorToPlayer.normalized) > 0.5f;
+    }
+    
 
     public bool IsNearPlayer()
     {

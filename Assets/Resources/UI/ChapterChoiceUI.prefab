@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Choice Chapter
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 871464683240b1743baefa4a7d8fe16e, type: 2}
-  m_sharedMaterial: {fileID: 4255237228335895106, guid: 871464683240b1743baefa4a7d8fe16e,
+  m_fontAsset: {fileID: 11400000, guid: 9bf3e13e89697c24da4502819d31f016, type: 2}
+  m_sharedMaterial: {fileID: 2502711571543478320, guid: 9bf3e13e89697c24da4502819d31f016,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
