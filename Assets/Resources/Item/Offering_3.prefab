@@ -78,6 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: a943aa3d93eb2b1419c8af18745833f9, type: 2}
   commentID: 14
+  questID: -1
 --- !u!65 &-2194751542789524815
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -161,6 +162,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 3a465d2e54c951e4492f9a9e94481646, type: 2}
+  - {fileID: 2100000, guid: 0924ae1b10132b7408bde0f355e5f017, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -244,6 +246,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 3a465d2e54c951e4492f9a9e94481646, type: 2}
+  - {fileID: 2100000, guid: 0924ae1b10132b7408bde0f355e5f017, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -49,6 +49,9 @@ MonoBehaviour:
   itemData: {fileID: 11400000, guid: 78c388ed4f172254cab4fd385d7b8455, type: 2}
   commentID: 5
   questID: 11
+  rend: {fileID: 8051134815320426389}
+  outline: {fileID: 2100000, guid: 0924ae1b10132b7408bde0f355e5f017, type: 2}
+  distance: 4
 --- !u!65 &7639189639233460940
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -83,6 +86,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Key1Gold WithTag
       objectReference: {fileID: 0}
+    - target: {fileID: 2062519445634364656, guid: 31cdc2b75eaa07441933ae4f8e424834,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2062519445634364656, guid: 31cdc2b75eaa07441933ae4f8e424834,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0924ae1b10132b7408bde0f355e5f017, type: 2}
     - target: {fileID: 3672691364276728383, guid: 31cdc2b75eaa07441933ae4f8e424834,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -101,7 +114,7 @@ PrefabInstance:
     - target: {fileID: 3672691364276728383, guid: 31cdc2b75eaa07441933ae4f8e424834,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3672691364276728383, guid: 31cdc2b75eaa07441933ae4f8e424834,
         type: 3}
@@ -176,6 +189,12 @@ PrefabInstance:
 --- !u!4 &4745931583921357146 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3672691364276728383, guid: 31cdc2b75eaa07441933ae4f8e424834,
+    type: 3}
+  m_PrefabInstance: {fileID: 8297014760682779493}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8051134815320426389 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2062519445634364656, guid: 31cdc2b75eaa07441933ae4f8e424834,
     type: 3}
   m_PrefabInstance: {fileID: 8297014760682779493}
   m_PrefabAsset: {fileID: 0}
