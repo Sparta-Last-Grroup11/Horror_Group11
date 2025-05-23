@@ -3139,7 +3139,7 @@ MonoBehaviour:
   blockedByDoorCount: 0
   maxBlockedCount: 2
   footStepRate: 0.15
-  chaseFootStepClip: {fileID: 8300000, guid: 8c2c6c300bd8fc441878f426377bec64, type: 3}
+  chaseFootStepClip: {fileID: 8300000, guid: bb5eddfffaedc364ea8c0a549b2df151, type: 3}
 --- !u!54 &1389980022007079389
 Rigidbody:
   m_ObjectHideFlags: 0
