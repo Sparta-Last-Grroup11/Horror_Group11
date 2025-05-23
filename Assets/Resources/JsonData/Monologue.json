@@ -83,6 +83,34 @@
     {
       "ID": 20,
       "Content": "I'm familiar with this place"
+    },
+    {
+      "ID": 21,
+      "Content": "I think it would be a good idea to \nsearch the first floor first."
+    },
+    {
+      "ID": 22,
+      "Content": "Hmm,Torure room?What is this place?"
+    },
+    {
+      "ID": 23,
+      "Content": "I saw a key in a torture room."
+    },
+    {
+      "ID": 24,
+      "Content": "Surgery room,I remember that room in second floor."
+    },
+    {
+      "ID": 25,
+      "Content": "Ritual?What happen in this place?\nI think this room in second floor."
+    },
+    {
+      "ID": 26,
+      "Content": "It is strange,But I know this ritual.\nI need to find Offering to light candles."
+    },
+    {
+      "ID": 27,
+      "Content": "Offering looks like Golden Goblet."
     }
   ]
 }
