@@ -1,4 +1,5 @@
 using System.Collections;
+using Cinemachine;
 using UnityEngine;
 
 public class JumpScareZombie : Enemy, IJumpScareEvent
@@ -7,12 +8,13 @@ public class JumpScareZombie : Enemy, IJumpScareEvent
     public Animator jumpScareZombieAnim;
     public Rigidbody _rigidbody;
     public Transform cameraTransform;
-    public AudioClip spottedRoarClip;
-    public AudioClip rushFootstepsLoop;
+    public AudioClip firstFoundSoundClip;
+    public AudioClip chaseSoundClip;
+    [SerializeField] private CinemachineVirtualCamera jumpScareCam;
 
     [Header("Movement")]
     public float rushSpeed = 10f;
-    public float disappearTime = 1f;
+    public float disappearTime = 5f;
     public float rushDelay = 0f;
 
     [Header("Monologue")]
@@ -20,7 +22,6 @@ public class JumpScareZombie : Enemy, IJumpScareEvent
     public int firstMonologueNum = 0;
 
     private Enemy enemy;
-    [SerializeField] private GameObject modelRoot;
 
     private void Awake()
     {
@@ -35,31 +36,9 @@ public class JumpScareZombie : Enemy, IJumpScareEvent
 
     public void TriggerEvent()
     {
-        StartCoroutine(JumpScareRoutine());
-    }
-
-    private IEnumerator JumpScareRoutine()
-    {
         LookAtPlayer();
         jumpScareZombieAnim.SetTrigger("Idle");
         GameManager.Instance.player.isChased = true;
-        AudioManager.Instance.Audio2DPlay(spottedRoarClip, 1f);
-
-        yield return new WaitForSeconds(1.2f);
-
-        UIManager.Instance.GlitchStart(10f);
-        yield return new WaitForSeconds(0.5f);
-
-        modelRoot.SetActive(false);
-        yield return new WaitForSeconds(0.3f);
-
-        transform.position = PlayerTransform.position + PlayerTransform.forward * 1f + Vector3.up * -0.5f;
-        LookAtPlayer();
-
-        modelRoot.SetActive(true);
-        jumpScareZombieAnim.SetTrigger("Chase");
-        AudioManager.Instance.Audio2DPlay(rushFootstepsLoop, 1f);
-
         FirstVisible(ref hasBeenSeenByPlayer, firstMonologueNum);
 
         StartCoroutine(RushToPlayer());
@@ -72,16 +51,27 @@ public class JumpScareZombie : Enemy, IJumpScareEvent
             yield return new WaitForSeconds(rushDelay);
         }
 
+        AudioManager.Instance.Audio2DPlay(chaseSoundClip, 1f);
+
         float elapsed = 0f;
         while (elapsed < disappearTime)
         {
             LookAtPlayer();
+
+            jumpScareCam.Priority = 12;
+            GameManager.Instance.player.cantMove = true;
+            yield return new WaitForSeconds(1f);
+            UIManager.Instance.GlitchStart(10f);
+            jumpScareZombieAnim.SetTrigger("Chase");
+
             Vector3 target = PlayerTransform.position;
+            target.y = transform.position.y;
+
             Vector3 direction = (target - transform.position).normalized; 
             _rigidbody.MovePosition(transform.position + direction * rushSpeed * Time.deltaTime);
 
             float distance = Vector3.Distance(transform.position, target);
-            if (distance < 1.0f) break;
+            if (distance < 0.4f) break;
 
             elapsed += Time.deltaTime;
             yield return null;
@@ -94,6 +84,8 @@ public class JumpScareZombie : Enemy, IJumpScareEvent
     {
         UIManager.Instance.GlitchEnd();
         GameManager.Instance.player.isChased = false;
+        GameManager.Instance.player.cantMove = false;
+        jumpScareCam.Priority = 8;
         Destroy(gameObject);
     }
 

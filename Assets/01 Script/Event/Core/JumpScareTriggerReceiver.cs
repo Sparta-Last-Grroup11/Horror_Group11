@@ -12,7 +12,7 @@ public class JumpScareTriggerReceiver : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("JumpScale"))
+        if (other.CompareTag("JumpScare"))
         {
             var jumpScareReceiver = other.GetComponent<JumpScareReceiver>();
             if (jumpScareReceiver != null)
