@@ -11,6 +11,7 @@ public class CopZombieChaseState : EnemyBaseState
 
     public override void Enter()
     {
+        if (GameManager.Instance.player.is911Calling) return;
         copZombie.copzombieAgent.speed = 3f;
         AudioManager.Instance.Audio2DPlay(copZombie.copZombieChaseClip,1, false, EAudioType.SFX);
         GameManager.Instance.player.isChased = true;
@@ -18,6 +19,7 @@ public class CopZombieChaseState : EnemyBaseState
 
     public override void Update()
     {
+        if (GameManager.Instance.player.is911Calling) return;
         copZombie.copZombieAnim.SetFloat("MoveSpeed", copZombie.copzombieAgent.velocity.magnitude);
         copZombie.copzombieAgent.SetDestination(copZombie.PlayerTransform.position);
         copZombie.afterLastFootStep += Time.deltaTime;
