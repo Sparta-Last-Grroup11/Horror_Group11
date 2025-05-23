@@ -83,6 +83,34 @@
     {
       "ID": 20,
       "Content": "I'm familiar with this place"
+    },
+    {
+      "ID": 21,
+      "Content": "I think it would be a good idea to \nsearch the first floor first."
+    },
+    {
+      "ID": 22,
+      "Content": "Hmm,What is this place?"
+    },
+    {
+      "ID": 23,
+      "Content": "I saw a key in punishment cell."
+    },
+    {
+      "ID": 24,
+      "Content": "Surgery room,I remember that room in second floor."
+    },
+    {
+      "ID": 25,
+      "Content": "There was a suspicious room on the second floor"
+    },
+    {
+      "ID": 26,
+      "Content": "I need to find something to light that candle"
+    },
+    {
+      "ID": 27,
+      "Content": "It's probably a golden goblet."
     }
   ]
 }

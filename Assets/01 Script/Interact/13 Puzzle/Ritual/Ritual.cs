@@ -17,7 +17,6 @@ public class Ritual : MonoBehaviour, I_Interactable
         {
             key.SetActive(true);
             countActive = 0;
-            MonologueManager.Instance.DialogPlay(12);
             QuestManager.Instance.QuestTrigger(questID);
         }
     }
