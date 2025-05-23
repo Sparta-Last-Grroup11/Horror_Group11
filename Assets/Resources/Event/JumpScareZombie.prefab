@@ -66,11 +66,11 @@ MonoBehaviour:
   jumpScareZombieAnim: {fileID: 0}
   _rigidbody: {fileID: 0}
   cameraTransform: {fileID: 0}
-  spottedRoarClip: {fileID: 8300000, guid: 410eeb4da8e5d5e479b65b68e7b997c2, type: 3}
+  spottedRoarClip: {fileID: 8300000, guid: 862e32085adc29949a12fee9d1ff11a0, type: 3}
   rushFootstepsLoop: {fileID: 8300000, guid: 5a5fe2a543e35ef44980fcf5ac79551a, type: 3}
-  rushSpeed: 8
+  rushSpeed: 12
   disappearTime: 1
-  rushDelay: 0.15
+  rushDelay: 1
   hasBeenSeenByPlayer: 0
   firstMonologueNum: 0
 --- !u!136 &5542327330819255504
