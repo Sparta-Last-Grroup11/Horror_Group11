@@ -53,8 +53,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.15, y: 0.1, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.2, y: 0.15, z: 0.25}
+  m_Center: {x: 0, y: 0.03, z: 0}
 --- !u!114 &7056958334811892744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,9 +70,6 @@ MonoBehaviour:
   itemData: {fileID: 11400000, guid: cc8852295418dc34d9edfcd442e42d8b, type: 2}
   commentID: -1
   questID: 9
-  rend: {fileID: 7318439639538247594}
-  outline: {fileID: 2100000, guid: 0924ae1b10132b7408bde0f355e5f017, type: 2}
-  distance: 4
 --- !u!1001 &110038530881721467
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -189,12 +186,6 @@ PrefabInstance:
 --- !u!4 &5474087721189532005 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5364124373174973726, guid: 7ef67d13101e0f14ca4f4efa1806ebc0,
-    type: 3}
-  m_PrefabInstance: {fileID: 110038530881721467}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &7318439639538247594 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 7212160099737875409, guid: 7ef67d13101e0f14ca4f4efa1806ebc0,
     type: 3}
   m_PrefabInstance: {fileID: 110038530881721467}
   m_PrefabAsset: {fileID: 0}
