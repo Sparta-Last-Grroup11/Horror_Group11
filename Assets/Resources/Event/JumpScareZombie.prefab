@@ -73,6 +73,7 @@ MonoBehaviour:
   rushDelay: 1
   hasBeenSeenByPlayer: 0
   firstMonologueNum: 0
+  modelRoot: {fileID: 6555918316764016688}
 --- !u!136 &5542327330819255504
 CapsuleCollider:
   m_ObjectHideFlags: 0

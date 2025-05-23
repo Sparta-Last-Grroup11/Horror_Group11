@@ -20,6 +20,7 @@ public class JumpScareZombie : Enemy, IJumpScareEvent
     public int firstMonologueNum = 0;
 
     private Enemy enemy;
+    [SerializeField] private GameObject modelRoot;
 
     private void Awake()
     {
@@ -34,12 +35,32 @@ public class JumpScareZombie : Enemy, IJumpScareEvent
 
     public void TriggerEvent()
     {
+        StartCoroutine(JumpScareRoutine());
+    }
+
+    private IEnumerator JumpScareRoutine()
+    {
+        LookAtPlayer();
+        jumpScareZombieAnim.SetTrigger("Idle");
         GameManager.Instance.player.isChased = true;
-        UIManager.Instance.GlitchStart(10f);
-        jumpScareZombieAnim.SetTrigger("Chase");
-        FirstVisible(ref hasBeenSeenByPlayer, firstMonologueNum);
         AudioManager.Instance.Audio2DPlay(spottedRoarClip, 1f);
+
+        yield return new WaitForSeconds(1.2f);
+
+        UIManager.Instance.GlitchStart(10f);
+        yield return new WaitForSeconds(0.5f);
+
+        modelRoot.SetActive(false);
+        yield return new WaitForSeconds(0.3f);
+
+        transform.position = PlayerTransform.position + PlayerTransform.forward * 1f + Vector3.up * -0.5f;
+        LookAtPlayer();
+
+        modelRoot.SetActive(true);
+        jumpScareZombieAnim.SetTrigger("Chase");
         AudioManager.Instance.Audio2DPlay(rushFootstepsLoop, 1f);
+
+        FirstVisible(ref hasBeenSeenByPlayer, firstMonologueNum);
 
         StartCoroutine(RushToPlayer());
     }
