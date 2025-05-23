@@ -7,6 +7,7 @@ public class PowerOn : MonoBehaviour, I_Interactable
 {
     [SerializeField] private bool isAct;
     [SerializeField] private LightStateSO lightState;
+    [SerializeField] private Light powerSwitchLight;
     [SerializeField] private AudioClip clip;
     [SerializeField] private int questID = 4;
     [SerializeField] private GameObject particle;
@@ -31,15 +32,17 @@ public class PowerOn : MonoBehaviour, I_Interactable
         QuestManager.Instance.QuestTrigger(questID);
         playableDirector.Play();
         GameManager.Instance.player.cantMove = true;
-        if(lamp!=null)
+        powerSwitchLight.enabled = true;
+        if (lamp!=null)
             lamp.enabled = true;
-        Invoke("PlayerCanMove", 3f);
+        StartCoroutine(PlayerCanMove());
     }
 
-    private void PlayerCanMove()
+    IEnumerator PlayerCanMove()
     {
+        yield return new WaitForSeconds(3f);
         GameManager.Instance.player.cantMove = false;
-        
+        powerSwitchLight.enabled = false;
         StartCoroutine(Spark());
     }
 
