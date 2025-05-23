@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 105
   type: 1
-  itemName: EmptyRoom Key
-  description: Key of EmptyRoom
+  itemName: SecretRoom Key
+  description: Key of SecretRoom
   icon: {fileID: 21300000, guid: 638b030945966cb489cfe57a48dcc5d3, type: 3}

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c40f9e3b608064f4ca9bece8f3c14026, type: 3}
-  m_Name: PowerRoomKey
+  m_Name: ElectricRoomKey
   m_EditorClassIdentifier: 
   id: 100
   type: 1
-  itemName: PowerRoom Key
-  description: Key of PowerRoom
+  itemName: ElectricRoom Key
+  description: Key of ElectricRoom
   icon: {fileID: 21300000, guid: 638b030945966cb489cfe57a48dcc5d3, type: 3}
