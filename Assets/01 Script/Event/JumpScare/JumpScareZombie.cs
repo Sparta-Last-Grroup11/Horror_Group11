@@ -51,18 +51,26 @@ public class JumpScareZombie : Enemy, IJumpScareEvent
             yield return new WaitForSeconds(rushDelay);
         }
 
-        AudioManager.Instance.Audio2DPlay(chaseSoundClip, 1f);
-
+        bool introPlayed = false;
         float elapsed = 0f;
+
         while (elapsed < disappearTime)
         {
-            LookAtPlayer();
+            if (!introPlayed)
+            {
+                jumpScareCam.Priority = 12;
+                GameManager.Instance.player.cantMove = true;
 
-            jumpScareCam.Priority = 12;
-            GameManager.Instance.player.cantMove = true;
-            yield return new WaitForSeconds(1f);
-            UIManager.Instance.GlitchStart(10f);
-            jumpScareZombieAnim.SetTrigger("Chase");
+                UIManager.Instance.GlitchStart(10f);
+                AudioManager.Instance.Audio2DPlay(chaseSoundClip, 1f);
+                jumpScareZombieAnim.SetTrigger("Chase");
+
+                yield return new WaitForSeconds(0.8f);
+
+                introPlayed = true;
+            }
+
+            LookAtPlayer();
 
             Vector3 target = PlayerTransform.position;
             target.y = transform.position.y;
@@ -71,7 +79,7 @@ public class JumpScareZombie : Enemy, IJumpScareEvent
             _rigidbody.MovePosition(transform.position + direction * rushSpeed * Time.deltaTime);
 
             float distance = Vector3.Distance(transform.position, target);
-            if (distance < 0.4f) break;
+            if (distance < 0.3f) break;
 
             elapsed += Time.deltaTime;
             yield return null;
