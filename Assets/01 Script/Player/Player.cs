@@ -24,6 +24,7 @@ public class Player : PlayerInputController
     public bool isChased = false;
     public bool cantMove = false;
     public bool isDead = false;
+    public bool is911Calling = false;
 
     // 효과음 관련
     [Header("SFX")]
@@ -99,6 +100,7 @@ public class Player : PlayerInputController
         stateMachine.ChangeState(new PlayerIdleState(this));
         cantMove = false;
         isDead = false;
+        is911Calling = false;
 
         if (virtualCamera != null)
         {

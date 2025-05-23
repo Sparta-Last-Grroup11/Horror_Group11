@@ -19,7 +19,13 @@ public class Telephone : MonoBehaviour, I_Interactable
     public void OnInteraction()
     {
         if (isPowerOn == false) return;
+        if (GameManager.Instance.player.isChased)
+        {
+            MonologueManager.Instance.DialogPlay(28);
+            return;
+        }
         telephoneVirtualCamera.Priority = 12;
+        GameManager.Instance.player.is911Calling = true;
         StartCoroutine(TelephoneSound());
     }
 
