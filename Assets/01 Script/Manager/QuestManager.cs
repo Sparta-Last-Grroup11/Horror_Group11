@@ -60,6 +60,7 @@ public class QuestManager : Singleton<QuestManager>
         if (questNum > -1&& questNum < dialogList.Count && dialogList[questNum].id == num )
         {
             PlayQuest();
+            QuestMonologue(num);
             if (changer.ContainsKey(num))
             {
                 ChangeLayer(num);
@@ -88,5 +89,44 @@ public class QuestManager : Singleton<QuestManager>
     void ChangeLayer(int questID)
     {
         changer[questID].ChangeLayer();
+    }
+
+
+    void QuestMonologue(int questID)
+    {
+        switch (questID)
+        {
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                MonologueManager.Instance.DialogPlay(10);
+                MonologueManager.Instance.DialogPlay(9);
+                break;
+            case 5:
+                MonologueManager.Instance.DialogPlay(21);
+                break;
+            case 6:
+                break;
+            case 7:
+                MonologueManager.Instance.DialogPlay(22);
+                break;
+            case 8:
+                MonologueManager.Instance.DialogPlay(24);
+                break;
+            case 9:
+                MonologueManager.Instance.DialogPlay(25);
+                break;
+            case 10:
+                MonologueManager.Instance.DialogPlay(2);
+                MonologueManager.Instance.DialogPlay(26);
+                MonologueManager.Instance.DialogPlay(27);
+                break;
+            case 11:
+                MonologueManager.Instance.DialogPlay(12);
+                break;
+
+        }
     }
 }

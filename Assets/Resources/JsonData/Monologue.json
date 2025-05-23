@@ -90,11 +90,11 @@
     },
     {
       "ID": 22,
-      "Content": "Hmm,Torure room?What is this place?"
+      "Content": "Hmm,What is this place?"
     },
     {
       "ID": 23,
-      "Content": "I saw a key in a torture room."
+      "Content": "I saw a key in punishment cell."
     },
     {
       "ID": 24,
@@ -102,15 +102,15 @@
     },
     {
       "ID": 25,
-      "Content": "Ritual?What happen in this place?\nI think this room in second floor."
+      "Content": "There was a suspicious room on the second floor"
     },
     {
       "ID": 26,
-      "Content": "It is strange,But I know this ritual.\nI need to find Offering to light candles."
+      "Content": "I need to find something to light that candle"
     },
     {
       "ID": 27,
-      "Content": "Offering looks like Golden Goblet."
+      "Content": "It's probably a golden goblet."
     }
   ]
 }

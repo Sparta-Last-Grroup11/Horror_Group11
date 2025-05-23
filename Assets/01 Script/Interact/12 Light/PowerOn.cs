@@ -28,8 +28,6 @@ public class PowerOn : MonoBehaviour, I_Interactable
         if(clip != null)
             AudioManager.Instance.Audio2DPlay(clip);
         lightState.OnPower();
-        MonologueManager.Instance.DialogPlay(10);
-        MonologueManager.Instance.DialogPlay(9);
         QuestManager.Instance.QuestTrigger(questID);
         playableDirector.Play();
         GameManager.Instance.player.cantMove = true;
