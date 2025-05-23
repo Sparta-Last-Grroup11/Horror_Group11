@@ -120,6 +120,7 @@ public class QuestManager : Singleton<QuestManager>
                 break;
             case 10:
                 MonologueManager.Instance.DialogPlay(2);
+                MonologueManager.Instance.DialogPlay(15);
                 MonologueManager.Instance.DialogPlay(26);
                 MonologueManager.Instance.DialogPlay(27);
                 break;
