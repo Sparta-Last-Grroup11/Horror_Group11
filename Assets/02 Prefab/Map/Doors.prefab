@@ -1429,8 +1429,7 @@ PrefabInstance:
         type: 3}
       propertyPath: key
       value: 
-      objectReference: {fileID: 11400000, guid: f43aea1507e23b04795289da300a3d74,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 1510779798595278535, guid: 5df55da3edd7a4c46a7f4f056450ad01,
         type: 3}
       propertyPath: lockedSound
