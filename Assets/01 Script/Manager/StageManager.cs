@@ -157,8 +157,9 @@ public class StageManager : Singleton<StageManager>
                 for (int i = 1; i < trigger.triggerindex + 1; i++)
                 {
                     var zombiePrefab = ResourceManager.Instance.Load<GameObject>(ResourceType.Event, "JumpScareZombie");
-                    var spawnPos = spawnRoot.spawnPoints["JumpScare_ZombieSpawnPoint"][selects[i - 1]].position; 
-                    var zombieInstance = Instantiate(zombiePrefab, spawnPos, Quaternion.identity);
+                    var spawnPos = spawnRoot.spawnPoints["JumpScare_ZombieSpawnPoint"][selects[i - 1]].position;
+                    var spawnRot = spawnRoot.spawnPoints["JumpScare_ZombieSpawnPoint"][selects[i - 1]].rotation;
+                    var zombieInstance = Instantiate(zombiePrefab, spawnPos, spawnRot);
                     zombieInstance.SetActive(false);
 
                     // 트리거존과 페어

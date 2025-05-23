@@ -53,8 +53,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.15, y: 0.1, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.25, y: 0.2, z: 0.3}
+  m_Center: {x: 0, y: 0.05, z: 0}
 --- !u!114 &-8510210082179454930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,9 +70,6 @@ MonoBehaviour:
   itemData: {fileID: 11400000, guid: 66ca6a2cd639cbb43840c0db721dd165, type: 2}
   commentID: -1
   questID: -1
-  rend: {fileID: 5792834999422588383}
-  outline: {fileID: 2100000, guid: 0924ae1b10132b7408bde0f355e5f017, type: 2}
-  distance: 4
 --- !u!1001 &5547240943693308207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -218,12 +215,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31cdc2b75eaa07441933ae4f8e424834, type: 3}
---- !u!23 &5792834999422588383 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 2062519445634364656, guid: 31cdc2b75eaa07441933ae4f8e424834,
-    type: 3}
-  m_PrefabInstance: {fileID: 5547240943693308207}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9080320528116110096 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3672691364276728383, guid: 31cdc2b75eaa07441933ae4f8e424834,
