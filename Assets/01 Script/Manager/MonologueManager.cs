@@ -56,7 +56,12 @@ public class MonologueManager : Singleton<MonologueManager>
         if (dialogList.Count >= number)
         {
             AudioClip clip = ResourceManager.Instance.Load<AudioClip>(ResourceType.Sound, $"2D/TTS/{number}");
-            monologueQueue.Enqueue(new MonologueWithAudio(dialogList[number].content, clip));
+            MonologueWithAudio mono = new MonologueWithAudio(dialogList[number].content, clip);
+            if (monologueQueue.Contains(mono))
+            {
+                return;
+            }
+            monologueQueue.Enqueue(mono);
         }
     }
 
