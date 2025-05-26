@@ -11,7 +11,7 @@ public class JumpScareZombie : Enemy, IJumpScareEvent
     public AudioClip chaseSoundClip;
 
     [Header("Movement")]
-    public float rushSpeed;
+    public float rushSpeed = 5f;
     public float disappearTime = 5f;
     public float rushDelay = 0f;
 
