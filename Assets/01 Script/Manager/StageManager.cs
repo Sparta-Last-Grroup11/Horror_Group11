@@ -146,30 +146,49 @@ public class StageManager : Singleton<StageManager>
         var triggerRoot = JsonConvert.DeserializeObject<TriggerRoot>(triggerAsset.text);
         var triggers = triggerRoot.StageTriggerInfo;
 
-        var activePairs = new List<ZombieTriggerPair>();
-
+        int? triggerCount = null;
         foreach (var trigger in triggers)
         {
             if (trigger.stageid == StageNum.StageNumber)
             {
-                List<int> selects = RandomUniqueIndices(0, spawnRoot.spawnPoints["JumpScare_ZombieSpawnPoint"].Count - 1, trigger.triggerindex);
-
-                for (int i = 1; i < trigger.triggerindex + 1; i++)
-                {
-                    var zombiePrefab = ResourceManager.Instance.Load<GameObject>(ResourceType.Event, "JumpScareZombie");
-                    var spawnPos = spawnRoot.spawnPoints["JumpScare_ZombieSpawnPoint"][selects[i - 1]].position;
-                    var spawnRot = spawnRoot.spawnPoints["JumpScare_ZombieSpawnPoint"][selects[i - 1]].rotation;
-                    var zombieInstance = Instantiate(zombiePrefab, spawnPos, spawnRot);
-                    zombieInstance.SetActive(false);
-
-                    // 트리거존과 페어
-                    var triggerObj = StageTriggerController.Instance.triggers[selects[i - 1]];
-                    triggerObj.SetActive(false);
-                    var pair = new ZombieTriggerPair(zombieInstance, triggerObj);
-                    activePairs.Add(pair);
-                }
+                triggerCount = trigger.triggerindex;
+                break;
             }
         }
+
+        if (triggerCount == null) return;
+
+        var allPairs = new List<ZombieTriggerPair>();
+        var spawnPoints = spawnRoot.spawnPoints["JumpScare_ZombieSpawnPoint"];
+        var triggerObjs = StageTriggerController.Instance.triggers;
+
+        int count = Mathf.Min(spawnPoints.Count, triggerObjs.Count);
+
+        for (int i = 0; i < count; i++)
+        {
+            var zombiePrefab = ResourceManager.Instance.Load<GameObject>(ResourceType.Event, "JumpScareZombie");
+            var spawnPos = spawnPoints[i].position;
+            var spawnRot = spawnPoints[i].rotation;
+
+            var zombieInstance = Instantiate(zombiePrefab, spawnPos, spawnRot);
+            zombieInstance.SetActive(true);
+
+            var triggerObj = triggerObjs[i];
+            triggerObj.SetActive(false);
+
+            allPairs.Add(new ZombieTriggerPair(zombieInstance, triggerObj));
+        }
+
+        int activeCount = Mathf.Min(triggerCount.Value, allPairs.Count);
+        List<int> selectedIndices = RandomUniqueIndices(0, allPairs.Count - 1, activeCount);
+
+        var activePairs = new List<ZombieTriggerPair>();
+        foreach(int index in selectedIndices)
+        {
+            var pair = allPairs[index];
+            activePairs.Add(pair);
+        }
+
         StageTriggerController.Instance.ReceivePairs(activePairs);
     }
 
