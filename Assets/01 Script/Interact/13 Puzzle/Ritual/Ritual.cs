@@ -13,7 +13,7 @@ public class Ritual : MonoBehaviour, I_Interactable
     }
     public void OnInteraction()
     {
-        if (countActive == 5)
+        if (countActive == 5) //카운트가 5가 되었을 때 상호작용 시
         {
             key.SetActive(true);
             countActive = 0;
@@ -21,7 +21,7 @@ public class Ritual : MonoBehaviour, I_Interactable
         }
     }
 
-    public void DoOffer()
+    public void DoOffer() //촛불을 밝혔을 경우 카운트 증가
     {
         countActive++;
     }

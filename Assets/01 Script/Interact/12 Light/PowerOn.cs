@@ -22,7 +22,7 @@ public class PowerOn : MonoBehaviour, I_Interactable
         lamp.enabled = false;
     }
 
-    public void OnInteraction()
+    public void OnInteraction() //작동 중이지 않다면 발전기 작동
     {
         if (isAct) return;
         isAct = true;

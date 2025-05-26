@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class EnterEvent : Receiver
+public class EnterEvent : Receiver //정문 입장 시 이벤트용 리시버
 {
     [SerializeField] private ItemData changeKey;
     [SerializeField] private int questID = 1;

@@ -3,7 +3,7 @@ using Unity.AI.Navigation;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
-public class LockedDoor : ControlDoor,I_Interactable
+public class LockedDoor : ControlDoor,I_Interactable //잠긴 문
 {
     [SerializeField] private ItemData key;
 
@@ -22,10 +22,10 @@ public class LockedDoor : ControlDoor,I_Interactable
         StartCoroutine(InteractionCooldown());
     }
 
-    void OpenLockedDoor()
+    void OpenLockedDoor() //잠긴 문 조작
     {
         QuestManager.Instance.QuestTrigger(questID);
-        if (key != null && !GameManager.Instance.player.playerInventory.HasItem(key))
+        if (key != null && !GameManager.Instance.player.playerInventory.HasItem(key)) //열쇠가 없을 경우
         {
             MonologueManager.Instance.DialogPlay(16);
             if (lockedSound != null)
@@ -40,12 +40,12 @@ public class LockedDoor : ControlDoor,I_Interactable
         }
     }
 
-    public void OpenCloseDoor()
+    public void OpenCloseDoor() //문 여닫기
     {
         if (!isOpened)
         {
             isOpened = true;
-            wasOpend = true;
+            wasOpend = true; //문을 연 적 있는지
             Open();
         }
         else
@@ -62,7 +62,7 @@ public class LockedDoor : ControlDoor,I_Interactable
         canInteract = true;
     }
     
-    public void MonstersOpen()
+    public void MonstersOpen() //문을 연 기록이 있다면 작동
     {
         if (!isOpened && (key == null || wasOpend))
         {
