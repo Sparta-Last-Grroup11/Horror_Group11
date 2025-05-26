@@ -1,19 +1,85 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using TMPro;
 using Unity.IO.LowLevel.Unsafe;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
+using UnityEngine.Localization.Tables;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 public abstract class BaseUI : MonoBehaviour
 {
     [SerializeField] private bool isCursorFree;
+    [SerializeField] private LocalizedAsset<TMP_FontAsset> localizedFont;
     public Action destroyAction;
     protected CursorLockMode mode;
+    [SerializeField] private TextMeshProUGUI[] texts;
 
     protected virtual void Start()
     {
         StartCoroutine(InitCursorState());
+        if (texts.Length <= 0) 
+            texts = GetComponentsInChildren<TextMeshProUGUI>(true);
+    }
+
+    private void OnEnable()
+    {
+        LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
+
+        Debug.Log($"[Setup] Table: {localizedFont.TableReference}, Entry: {localizedFont.TableEntryReference}");
+
+        localizedFont.LoadAssetAsync().Completed += handle =>
+        {
+            if (handle.Result != null)
+            {
+                Debug.Log($"[Font Load] Initial font: {handle.Result.name}");
+                ChangeFontInLocalization(handle.Result);
+            }
+            else
+            {
+                Debug.LogWarning("[Font Load] Initial font is null");
+            }
+        };
+    }
+
+    private void OnDisable()
+    {
+        LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
+    }
+
+    private void OnLocaleChanged(Locale locale)
+    {
+        // 로케일 바뀔 때 수동으로 다시 로드
+        localizedFont.LoadAssetAsync().Completed += handle =>
+        {
+            if (handle.Result != null)
+            {
+                ChangeFontInLocalization(handle.Result);
+            }
+            else
+            {
+                Debug.LogWarning($"[Font Load] Font for locale {locale.Identifier.Code} is null");
+            }
+        };
+    }
+
+    private void ChangeFontInLocalization(TMP_FontAsset newFont)
+    {
+        if (newFont == null)
+        {
+            Debug.LogWarning("NewFont is null. Check localized asset settings, locale bindings, and Addressables.");
+            return;
+        }
+
+        foreach (var text in texts)
+        {
+            text.font = newFont;
+            Debug.Log($"[Font Change] New Font: {newFont.name}, Text: {text.name}");
+        }
     }
 
     private IEnumerator InitCursorState()

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using TMPro;
 
 namespace Michsky.UI.Dark
@@ -12,6 +12,7 @@ namespace Michsky.UI.Dark
         public TextMeshProUGUI textObject;
 
         [Header("Settings")]
+        public bool FreeFont = true;
         public bool keepAlphaValue = false;
         public bool useCustomColor = false;
         public ColorType colorType;
@@ -108,6 +109,8 @@ namespace Michsky.UI.Dark
                 }
             }
 
+            if (FreeFont)
+                return;
             if (fontType == FontType.LIGHT)
                 textObject.font = UIManagerAsset.lightFont;
             else if (fontType == FontType.MEDIUM)

@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCursorFree: 0
+  isLocalizedByScript: 1
   duration: 0.5
   DestroyByTime: 1
   DestroyTime: 2

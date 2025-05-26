@@ -609,6 +609,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCursorFree: 1
+  isLocalizedByScript: 0
+  texts: []
   chapter1BTN: {fileID: 4928788849058157054}
 --- !u!1 &6007660462726095820
 GameObject:

@@ -2,47 +2,58 @@
   "Quest": [
     {
       "ID": 1,
-      "Content": "Find Generator"
+      "en": "Find Generator",
+      "kr": "발전기 찾기"
     },
     {
       "ID": 2,
-      "Content": "Find ElectricRoom Key"
+      "en": "Find the safe in the reception, open it and get electricRoom key",
+      "kr": "접수처의 금고를 열어 그 안의 발전기실 열쇠 얻기"
     },
     {
       "ID": 3,
-      "Content": "Start Up Generator"
+      "en": "Start Up Generator",
+      "kr": "발전기 작동시키기"
     },
     {
       "ID": 4,
-      "Content": "Find Power Switch"
+      "en": "Find Power Switch",
+      "kr": "전등 스위치 찾기"
     },
     {
       "ID": 5,
-      "Content": "Go to Ward and find key"
+      "en": "Go to Ward and find key",
+      "kr": "병실에 가서 열쇠 찾기"
     },
     {
       "ID": 6,
-      "Content": "Go to Punishment Cell"
+      "en": "Go to Punishment Cell",
+      "kr": "처형실 가기"
     },
     {
       "ID": 7,
-      "Content": "Get Surgery Key"
+      "en": "Get Surgery Key",
+      "kr": "수술실 열쇠 얻기"
     },
     {
       "ID": 8,
-      "Content": "Go to Surgery and find key"
+      "en": "Go to Surgery and find key",
+      "kr": "수술실에서 열쇠 찾기"
     },
     {
       "ID": 9,
-      "Content": "Go to Secret Room"
+      "en": "Go to Secret Room",
+      "kr": "수상한 방 가기"
     },
     {
       "ID": 10,
-      "Content": "Gather offerings and light candles"
+      "en": "Gather offerings and light candles",
+      "kr": "제물을 찾아 촛불을 밝히기"
     },
     {
       "ID": 11,
-      "Content": "Escape"
+      "en": "Escape",
+      "kr": "탈출하기"
     }
   ]
 }

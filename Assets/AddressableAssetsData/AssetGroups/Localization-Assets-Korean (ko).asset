@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-Assets-Korean (ko)
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-Assets-Korean (ko)
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 78487b75ed6292048a9314645bc61191
+  m_SerializeEntries:
+  - m_GUID: 67c3420e5921b0a47923c25d66dde7d5
+    m_Address: NanumGothicbold test2
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-kr
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 84aa61ebefb498f409823c427d0df6ae, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 510adf087df3a2a4cba6ccd14d2fe0eb, type: 2}
+    - {fileID: 11400000, guid: 215e56e2555829e4c8d575743d32e7aa, type: 2}

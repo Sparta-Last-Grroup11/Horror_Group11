@@ -2,119 +2,173 @@
   "Monologue": [
     {
       "ID": 0,
-      "Content": "What the Fxxk is that?"
+      "en": "What the Fxxk is that?",
+      "kr": "이건 또 뭐야?"
     },
     {
       "ID": 1,
-      "Content": "Have to Switch ON"
+      "en": "Have to Switch ON",
+      "kr": "스위치를 켜야겠어"
     },
     {
       "ID": 2,
-      "Content": "That's weird. Some kind of Ritual?"
+      "en": "That's weird. Some kind of Ritual?",
+      "kr": "이상하네.어떤 종류의 마법인가?"
     },
     {
       "ID": 3,
-      "Content": "Shit."
+      "en": "Shit.",
+      "kr": "젠장."
     },
     {
       "ID": 4,
-      "Content": "Jesus."
+      "en": "Jesus.",
+      "kr": "세상에."
     },
     {
       "ID": 5,
-      "Content": "Run."
+      "en": "Run.",
+      "kr": "도망가자."
     },
     {
       "ID": 6,
-      "Content": "There's Phone.Can I call 911?"
+      "en": "There's Phone.Can I call 911?",
+      "kr": "전화기가 있군.경찰이라도 부를 수 있으려나?"
     },
     {
       "ID": 7,
-      "Content": "Too dark inside. Have to find Generator."
+      "en": "Too dark inside. Have to find Generator.",
+      "kr": "너무 어둡군.발전기라도 찾아야겠어."
     },
     {
       "ID": 8,
-      "Content": "Safe now."
+      "en": "Safe now.",
+      "kr": "지금은 안전하군."
     },
     {
       "ID": 9,
-      "Content": "Now,I have to find Power switch"
+      "en": "Now,I have to find Power switch",
+      "kr": "좋아,이젠 전원 스위치만 찾으면 되겠어."
     },
     {
       "ID": 10,
-      "Content": "Good,Now Work. But still Dark."
+      "en": "Good,Now Work. But still Dark.",
+      "kr": "발전기는 작동했지만 아직 어두워."
     },
     {
       "ID": 11,
-      "Content": "I can use this battery. Just fit my Flash."
+      "en": "I can use this battery. Just fit my Flash.",
+      "kr": "이 배터리는 쓸 수 있겠어."
     },
     {
       "ID": 12,
-      "Content": "Finally I got Exit key."
+      "en": "Finally I got Exit key.",
+      "kr": "탈출구 열쇠를 얻었군."
     },
     {
       "ID": 13,
-      "Content": "Lights On."
+      "en": "Lights On.",
+      "kr": "이제 좀 밝군."
     },
     {
       "ID": 14,
-      "Content": "This one is something cultistic"
+      "en": "This one is something cultistic",
+      "kr": "이건 좀 오컬트적인데."
     },
     {
       "ID": 15,
-      "Content": "Place Something Cultistic."
+      "en": "Place Something Cultistic.",
+      "kr": "이건 뭔가 오컬트적인 의미인가?"
     },
     {
       "ID": 16,
-      "Content": "I can't open this door"
+      "en": "I can't open this door",
+      "kr": "이 문은 잠겨있네."
     },
     {
       "ID": 17,
-      "Content": "What? I'm trapped now"
+      "en": "What? I'm trapped now",
+      "kr": "뭐지?문이 잠겼는데?"
     },
     {
       "ID": 18,
-      "Content": "I'm alive."
+      "en": "I'm alive.",
+      "kr": "살았다...."
     },
     {
       "ID": 19,
-      "Content": "I never thought I'd end up in such a creepy place \nbecause of the inheritance tax."
+      "en": "I never thought I'd end up in such a creepy place \nbecause of the inheritance tax.",
+      "kr": "내가 상속세 때문에 이런 으스스한 장소에\n오게 될 줄이야."
     },
     {
       "ID": 20,
-      "Content": "I'm familiar with this place"
+      "en": "I'm familiar with this place",
+      "kr": "이 장소 뭔가 익숙한데."
     },
     {
       "ID": 21,
-      "Content": "I think it would be a good idea to \nsearch the first floor first."
+      "en": "I think it would be a good idea to \nsearch the first floor first.",
+      "kr": "1층을 먼저 수색하는게 낫겠어."
     },
     {
       "ID": 22,
-      "Content": "Hmm,What is this place?"
+      "en": "Hmm,What is this place?",
+      "kr": "흠,이 장소는 대체 뭐지?"
     },
     {
       "ID": 23,
-      "Content": "I saw a key in punishment cell."
+      "en": "I saw a key in punishment cell.",
+      "kr": "처벌방에서 열쇠를 봤던 것 같은데"
     },
     {
       "ID": 24,
-      "Content": "Surgery room,I remember that room in second floor."
+      "en": "Surgery room,I remember that room in second floor.",
+      "kr": "수술실,2층에 있던 것 같아."
     },
     {
       "ID": 25,
-      "Content": "There was a suspicious room on the second floor"
+      "en": "There was a suspicious room on the second floor",
+      "kr": "2층에 수상한 방이 있었어."
     },
     {
       "ID": 26,
-      "Content": "I need to find something to light that candle"
+      "en": "I need to find something to light that candle",
+      "kr": "촛불에 불을 붙일 무언가가 필요하겠네."
     },
     {
       "ID": 27,
-      "Content": "It's probably a golden goblet."
+      "en": "It's probably a golden goblet.",
+      "kr": "아마 황금 잔처럼 생겼을거야."
     },
     {
       "ID": 28,
-      "Content": "I have to run away from the enemy"
+      "en": "I have to run away from the enemy",
+      "kr": "지금은 전화 할 수 없어."
+    },
+    {
+      "ID": 29,
+      "en": "",
+      "kr": ""
+    },
+    {
+      "ID": 0,
+      "en": "",
+      "kr": ""
+    },
+    {
+      "ID": 0,
+      "en": "",
+      "kr": ""
+    },
+    {
+      "ID": 0,
+      "en": "",
+      "kr": ""
+    },
+    {
+      "ID": 0,
+      "en": "",
+      "kr": ""
     }
   ]
 }

@@ -6,6 +6,32 @@ using UnityEngine;
 
 public static class Extension
 {
+    public static string LanguageTypeToLocalization(LanguageType type)
+    {
+        switch (type)
+        {
+            case LanguageType.English:
+                return "en";
+            case LanguageType.Korean:
+                return "kr";
+            default:
+                return "en";
+        }
+    }
+
+    public static LanguageType LocalizationToLanguage(string input)
+    {
+        switch(input)
+        {
+            case "en":
+                return LanguageType.English;
+            case "kr":
+                return LanguageType.Korean;
+            default:
+                return LanguageType.English;
+        }
+    }
+
     public static T StringToEnum<T>(string typename) where T : struct, Enum
     {
         if (Enum.TryParse(typename, true, out T result))

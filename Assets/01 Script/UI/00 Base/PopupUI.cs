@@ -15,6 +15,7 @@ public abstract class PopupUI : BaseUI
 
     protected override void Start()
     {
+        base.Start();
         canvasGroup = GetComponent<CanvasGroup>();
 
         if (canvasGroup == null)
