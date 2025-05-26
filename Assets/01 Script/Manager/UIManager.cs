@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
 using static Extension;
 
@@ -30,6 +31,7 @@ public class UIManager : Singleton<UIManager>
         SceneManager.sceneLoaded += OnSceneLoaded;
         uiList = new Dictionary<string, BaseUI>();
         glitchMat = ResourceManager.Instance.Load<Material>(ResourceType.Material, "ScreenGlitchShader");
+        LanguageSetting();
         ManagerSetting();
     }
 
@@ -109,6 +111,31 @@ public class UIManager : Singleton<UIManager>
     {
         base.OnDestroy();
         GlitchEnd();
+    }
+
+    private void LanguageSetting()
+    {
+        // 저장된 언어 코드 가져오기
+        string savedLangCode = PlayerPrefs.GetString("SelectedLanguage", null);
+
+        if (string.IsNullOrEmpty(savedLangCode))
+        {
+            Debug.Log("저장된 언어가 없습니다.");
+            return;
+        }
+
+        // 사용 가능한 로케일 중에서 일치하는 코드 찾기
+        foreach (var locale in LocalizationSettings.AvailableLocales.Locales)
+        {
+            if (locale.Identifier.Code == savedLangCode)
+            {
+                LocalizationSettings.SelectedLocale = locale;
+                Debug.Log($"언어 설정됨: {locale.LocaleName}");
+                return;
+            }
+        }
+
+        Debug.LogWarning($"'{savedLangCode}' 코드에 해당하는 언어를 찾을 수 없습니다.");
     }
 
     #region 3D관련

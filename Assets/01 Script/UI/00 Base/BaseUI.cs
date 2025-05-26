@@ -24,6 +24,16 @@ public abstract class BaseUI : MonoBehaviour
         StartCoroutine(InitCursorState());
         if (texts.Length <= 0) 
             texts = GetComponentsInChildren<TextMeshProUGUI>(true);
+        SetLocalizedFont();
+    }
+
+    private void SetLocalizedFont()
+    {
+        localizedFont = new LocalizedAsset<TMP_FontAsset>
+        {
+            TableReference = "Fonts AssetTable",
+            TableEntryReference = "UIFont"
+        };
     }
 
     private void OnEnable()

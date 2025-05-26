@@ -12,6 +12,7 @@ public class InGameSettingUI : BaseUI
     // Start is called before the first frame update
     protected override void Start()
     {
+        base.Start();
         mode = Cursor.lockState;
         Cursor.lockState = CursorLockMode.None;
         UIManager.Instance.IsUiActing = true;
