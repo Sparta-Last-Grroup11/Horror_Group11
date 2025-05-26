@@ -24,7 +24,7 @@ public class StartSceneUI : PopupUI
             startBut.interactable = false;
             door.OnInteraction();
             await Task.Delay(1000);
-            await SceneLoadManager.Instance.ChangeScene("LobbyScene");
+            UIManager.Instance.show<PrologueUI>();
         });
 
         SettingBut.onClick.AddListener(() =>
