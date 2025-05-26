@@ -31,16 +31,7 @@ public class StageTriggerController : Singleton<StageTriggerController>
             {
                 pair.trigger.SetActive(true);
                 var triggerEvent = pair.trigger.GetComponent<TriggerForEvent>();
-                if (triggerEvent != null && triggerEvent.receivers != null && triggerEvent.receivers.Count > 0)
-                {
-                    triggerEvent.receivers[0].gameObject.SetActive(true);
-                }
 
-            }
-
-            if (pair.zombie != null)
-            {
-                pair.zombie.SetActive(true);
             }
 
         }
