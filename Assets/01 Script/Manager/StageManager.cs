@@ -3,6 +3,7 @@ using UnityEngine;
 using static Extension;
 using Newtonsoft.Json;
 using Unity.AI.Navigation;
+using System.Linq;
 
 [System.Serializable]
 public class StageInfo
@@ -211,18 +212,11 @@ public class StageManager : Singleton<StageManager>
 
         // 2개 만 골라서 활성화
         int activateCount = Mathf.Min(2, objectJumpScares.Count); // 2개 또는 리스트 개수 중 작은 값
-        List<int> randomIndexes = new List<int>();
+        List<int> randomIndexes = RandomUniqueIndices(0, objectJumpScares.Count - 1, 2);
 
-        while (randomIndexes.Count < activateCount)
+        foreach (int index in randomIndexes)
         {
-            int randomIndex = Random.Range(0, objectJumpScares.Count);
-
-            if (!randomIndexes.Contains(randomIndex))
-            {
-                randomIndexes.Add(randomIndex);
-                objectJumpScares[randomIndex].SetActive(true);
-            }
+            objectJumpScares[index].SetActive(true);
         }
     }
-
 }
