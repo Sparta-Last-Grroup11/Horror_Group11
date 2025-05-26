@@ -196,7 +196,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 10
+  m_Intensity: 15
   m_Range: 20
   m_SpotAngle: 60
   m_InnerSpotAngle: 20
@@ -523,6 +523,7 @@ MonoBehaviour:
   isChased: 0
   cantMove: 0
   isDead: 0
+  is911Calling: 0
   BGM: {fileID: 8300000, guid: ab8842b42fcaba04193bd8bc50c78cbf, type: 3}
   breathing: {fileID: 8300000, guid: 4c24f9d63449ffa44a2ed3852e5822e9, type: 3}
   shockedClip: {fileID: 8300000, guid: 00ab46e091f0eae4b9737ab8184994c9, type: 3}
