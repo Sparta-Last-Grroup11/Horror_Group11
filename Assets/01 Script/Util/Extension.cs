@@ -81,7 +81,7 @@ public static class Extension
 
     public static List<int> RandomUniqueIndices(int min,int max,int count)
     {
-        int rangeSize = max - min;
+        int rangeSize = max - min + 1;
         if (count > rangeSize)
         {
             Debug.LogError("Count cannot be greater than range size");
