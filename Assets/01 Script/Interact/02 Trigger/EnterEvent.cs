@@ -32,7 +32,7 @@ public class EnterEvent : Receiver
         QuestManager.Instance.QuestTrigger(questID);
         AudioManager.Instance.Audio2DPlay(seriesSfx);
         GameManager.Instance.player.cantMove = true;
-        GameManager.Instance.player.cameraContainer.transform.rotation = Quaternion.Euler(0, -90f, 0);
+        GameManager.Instance.player.cameraContainer.transform.localRotation = Quaternion.Euler(0, 0, 0);
         playableDirector.Play();
         UIManager.Instance.show<SkipUI>().Init(1, SkipEvent);
     }
