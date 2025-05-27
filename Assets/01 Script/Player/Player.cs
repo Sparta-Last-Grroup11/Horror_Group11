@@ -182,6 +182,7 @@ public class Player : PlayerInputController
     private void OnCrouchPerformed(InputAction.CallbackContext context)
     {
         transform.DOScaleY(0.6f, 0.2f);
+        transform.DOMoveY(gameObject.transform.position.y - 0.32f, 0.2f);
         moveSpeed--;
         isCrouching = true;
     }
@@ -189,6 +190,7 @@ public class Player : PlayerInputController
     private void OnCrouchCanceled(InputAction.CallbackContext context)
     {
         transform.DOScaleY(1f, 0.2f);
+        transform.DOMoveY(gameObject.transform.position.y + 0.32f, 0.2f);
         moveSpeed++;
         isCrouching = false;
     }

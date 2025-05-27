@@ -24,5 +24,6 @@ public class Ritual : MonoBehaviour, I_Interactable
     public void DoOffer()
     {
         countActive++;
+        Debug.Log(countActive);
     }
 }
