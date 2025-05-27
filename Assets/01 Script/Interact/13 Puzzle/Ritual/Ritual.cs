@@ -24,5 +24,6 @@ public class Ritual : MonoBehaviour, I_Interactable
     public void DoOffer() //촛불을 밝혔을 경우 카운트 증가
     {
         countActive++;
+        Debug.Log(countActive);
     }
 }
