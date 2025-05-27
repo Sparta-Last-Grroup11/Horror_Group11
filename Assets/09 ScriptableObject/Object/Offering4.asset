@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c40f9e3b608064f4ca9bece8f3c14026, type: 3}
   m_Name: Offering4
   m_EditorClassIdentifier: 
-  id: 5
+  id: 2
   type: 0
   itemName: 4th Offering
   description: It's a glass of something
