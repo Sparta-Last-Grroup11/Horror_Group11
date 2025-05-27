@@ -19,17 +19,15 @@ public abstract class Enemy : MonoBehaviour
     public float viewDistance = 10f;
     public float viewAngle = 90f;
 
+    private Vector3 initialPosition;
+    private Quaternion initialRotation;
+
     protected virtual void Awake()
     {
         doorLayer = LayerMask.GetMask("Interactable");
     }
 
     protected virtual void Start()
-    {
-        InitPlayerTransform();
-    }
-
-    private void InitPlayerTransform()
     {
         if (GameManager.Instance == null || GameManager.Instance.player == null)
         {
@@ -40,6 +38,17 @@ public abstract class Enemy : MonoBehaviour
         {
             playerTransform = GameManager.Instance.player.transform;
         }
+
+        initialPosition = transform.position;
+        initialRotation = transform.rotation;
+    }
+
+    public virtual void ResetEnemy()
+    {
+        transform.position = initialPosition;
+        transform.rotation = initialRotation;
+        haveSeenPlayer = false;
+        fsm?.ChangeToDefaultState();
     }
 
     protected virtual void Update()

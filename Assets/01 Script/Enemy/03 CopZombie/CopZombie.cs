@@ -56,6 +56,7 @@ public class CopZombie : Enemy
         copZombieChaseState = new CopZombieChaseState(this, fsm);
         copZombieAttackState = new CopZombieAttackState(this, fsm);
 
+        fsm.SetDefaultState(copZombiePatrolState);
         fsm.ChangeState(copZombiePatrolState);
     }
 
