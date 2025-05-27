@@ -69,7 +69,18 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
         nurseZombieChaseState = new NurseZombieChaseState(this, fsm);
         nurseZombieAttackState = new NurseZombieAttackState(this, fsm);
 
+        fsm.SetDefaultState(nurseZombieIdleState);
         fsm.ChangeState(nurseZombieIdleState);
+    }
+
+    public override void ResetEnemy()
+    {
+        base.ResetEnemy();
+        gameObject.SetActive(true);
+        Vector3 spawnPos = new Vector3(-5.96f, 5.5f, -19.71f);
+        Quaternion spawnRot = Quaternion.identity;
+        MoveToSpawnPosition(spawnPos, spawnRot);
+        blockedByDoorCount = 1;
     }
 
     public bool IsPlayerLookingAtMe()

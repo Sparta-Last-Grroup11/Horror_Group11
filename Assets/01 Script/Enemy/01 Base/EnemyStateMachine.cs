@@ -1,6 +1,7 @@
 public class EnemyStateMachine
 {
     private EnemyBaseState _currentState;
+    private EnemyBaseState _defaultState;
 
     public void ChangeState(EnemyBaseState newState)
     {
@@ -9,8 +10,19 @@ public class EnemyStateMachine
         _currentState?.Enter();
     }
 
+    public void SetDefaultState(EnemyBaseState defaultState)
+    {
+        _defaultState = defaultState;
+    }
+
+    public void ChangeToDefaultState()
+    {
+        ChangeState(_defaultState);
+    }
+
     public void Update()
     {
         _currentState?.Update();
     }
+
 }
