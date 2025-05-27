@@ -4,6 +4,7 @@ using UnityEngine;
 public class TriggerForEvent : MonoBehaviour
 {
     public List<Receiver> receivers = new List<Receiver>();
+    [SerializeField] private GameObject endingCutScene;
 
     public void AddReceiver(Receiver receiver)
     {
@@ -20,7 +21,7 @@ public class TriggerForEvent : MonoBehaviour
         {
             receiver.ReceiveTrigger();
         }
-        
+        endingCutScene.gameObject.SetActive(true);
         gameObject.SetActive(false);
     }
 }

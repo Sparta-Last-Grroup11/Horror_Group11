@@ -16,6 +16,7 @@ public class DoubleDoor : MonoBehaviour,I_Interactable
     {
         if (!canInteract) return;
         OpenLockedDoor();
+        Debug.Log("실행됨");
         StartCoroutine(InteractionCooldown());
     }
 
