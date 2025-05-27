@@ -87,11 +87,13 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
     {
         Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position + Vector3.up * 1.6f);
         bool isInView = viewPos.z > 0 && viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1;
+
         if (isInView)
         {
             Vector3 cameraPos = Camera.main.transform.position + Camera.main.transform.forward * 0.1f;
             Vector3 direction = (transform.position + Vector3.up * 1.7f) - cameraPos;
             float distance = direction.magnitude;
+
             Debug.DrawRay(cameraPos, direction, Color.red, distance);
             if (Physics.Raycast(cameraPos, direction, out RaycastHit hit, distance))
             {

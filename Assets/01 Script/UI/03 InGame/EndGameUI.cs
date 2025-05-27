@@ -17,18 +17,27 @@ public class EndGameUI : BaseUI
     [SerializeField] TextMeshProUGUI title;
     [SerializeField] TextMeshProUGUI description;
     [SerializeField] Image contentBackground;
+    [SerializeField] Button restartBtn;
+    [SerializeField] Button quitBtn;
+
     [SerializeField] EndingCategory endGameType;
-    [SerializeField] float delayBeforeSceneChange = 3.0f;
+    [SerializeField] float delayBeforeSceneChange = 1.0f;
+
+    private void Start()
+    {
+        base.Start();
+        restartBtn.onClick.AddListener(OnClickReStart);
+        quitBtn.onClick.AddListener(OnClickQuit);
+    }
 
     public async void ShowEnding(EndingCategory type, int delayTime)
     {
         SetupVisuals(type);
 
         await Task.Delay(delayTime);
+        UIManager.Instance.IsUiActing = true;
         modal.ModalWindowIn();
-        await Task.Delay((int)(delayBeforeSceneChange * 3000));
-        modal.ModalWindowOut();
-        await SceneLoadManager.Instance.ChangeScene("StartScene");
+        EnableButtons();
     }
 
     private void SetupVisuals(EndingCategory type)
@@ -61,5 +70,37 @@ public class EndGameUI : BaseUI
         contentBackground.color = bgColor;
 
         modal.UpdateUI();
+    }
+
+    private async void OnClickReStart()
+    {
+        DisableButtons();
+        modal.ModalWindowOut();
+        Cursor.lockState = CursorLockMode.Locked;
+        await Task.Delay((int)(delayBeforeSceneChange * 1000));
+        UIManager.Instance.IsUiActing = false;
+        GameManager.Instance.CheckPointLoad();
+    }
+
+    private async void OnClickQuit()
+    {
+        DisableButtons();
+        modal.ModalWindowOut();
+        Cursor.lockState = CursorLockMode.Locked;
+        await Task.Delay((int)(delayBeforeSceneChange * 1000));
+        UIManager.Instance.IsUiActing = false;
+        await SceneLoadManager.Instance.ChangeScene("StartScene");
+    }
+
+    private void EnableButtons()
+    {
+        restartBtn.gameObject.SetActive(true);
+        quitBtn.gameObject.SetActive(true);
+    }
+
+    private void DisableButtons()
+    {
+        restartBtn.gameObject.SetActive(false);
+        quitBtn.gameObject.SetActive(false);
     }
 }
