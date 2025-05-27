@@ -24,7 +24,7 @@ public class CopZombieCinematicTrigger : MonoBehaviour
         yield return new WaitForSeconds(5f);
         copzombieCinematic.SetActive(false);
         GameManager.Instance.player.cantMove = false;
-        Instantiate(copZombiePrefab, copzombieCinematic.transform.position + new Vector3(-1, 0, 3), Quaternion.Euler(0, 150, 0));
+        GameManager.Instance.cop = Instantiate(copZombiePrefab, copzombieCinematic.transform.position + new Vector3(-1, 0, 3), Quaternion.Euler(0, 150, 0)).GetComponentInChildren<Enemy>();
         Destroy(gameObject);
     }
 }

@@ -84,6 +84,11 @@ public class CopZombie : Enemy
         }
     }
 
+    public override void ResetEnemy()
+    {
+        base.ResetEnemy();
+        copZombieVirtualCamera.Priority = 8;
+    }
     public void PlayerDown()
     {
         playableDirector.Play();

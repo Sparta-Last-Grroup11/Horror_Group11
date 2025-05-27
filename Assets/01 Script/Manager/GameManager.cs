@@ -2,6 +2,7 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.AI.Navigation;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
@@ -9,6 +10,11 @@ public class GameManager : Singleton<GameManager>
     [Header("No Need to Allocate")]
     public Player player;
     [SerializeField] Vector3 spawnPoint;
+    [SerializeField] Vector3 checkPoint;
+    [SerializeField] private bool isSaved;
+    [SerializeField] private int life;
+    public Enemy cop;
+    public Enemy nurse;
     protected override bool dontDestroy => false;
 
     public Vector3 SpawnPoint => spawnPoint;
@@ -17,6 +23,45 @@ public class GameManager : Singleton<GameManager>
     {
         base.Awake();
         SpawnCharacter();
+        isSaved = false;
+        life = 3;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F12))
+            CheckPointLoad();
+    }
+
+    public void CheckPointSave(Vector3 pos)
+    {
+        checkPoint = pos;
+        isSaved = true;
+    }
+
+    public void CheckPointLoad()
+    {
+        if (isSaved && player != null)
+        {
+            player.cantMove = false;
+            player.isDead = false;
+            player.transform.position = checkPoint;
+        }
+        else
+        {
+            player.cantMove = false;
+            player.isDead = false;
+            player.transform.position = spawnPoint;
+        }
+        if (cop != null)
+        {
+            cop.ResetEnemy();
+        }
+        if (nurse != null)
+        {
+            nurse.ResetEnemy();
+        }
+        life -= 1;
     }
 
     void SpawnCharacter()
