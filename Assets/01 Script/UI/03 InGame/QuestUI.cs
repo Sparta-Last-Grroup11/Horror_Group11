@@ -36,12 +36,11 @@ public class QuestUI : BaseUI
         if (canvasGroup.alpha > 0)
             yield return StartCoroutine(FadeOut());
 
-        // Ensure canvas is visible before typing
         canvasGroup.alpha = 1f;
         canvasGroup.interactable = true;
         canvasGroup.blocksRaycasts = true;
 
-        text.text = ""; // Clear text before typing
+        text.text = "";
         AudioManager.Instance.Audio2DPlay(questNotifySound, 1f, false, EAudioType.SFX);
 
         yield return StartCoroutine(TypewriterEffect(input));
@@ -49,7 +48,7 @@ public class QuestUI : BaseUI
 
     private IEnumerator TypewriterEffect(string fullText)
     {
-        text.text = ""; // Start with empty text
+        text.text = "";
         foreach (char c in fullText)
         {
             text.text += c;
