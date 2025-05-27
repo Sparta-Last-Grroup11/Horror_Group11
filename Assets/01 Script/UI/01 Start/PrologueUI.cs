@@ -82,8 +82,8 @@ public class PrologueUI : PopupUI
 
         await TypeSentenceAsync(dialogList[5].GetContent(), token);
 
-        targetText.DOFade(0, 8f);
-        await Task.Delay(8000, token);
+        targetText.DOFade(0, 5f);
+        await Task.Delay(5000, token);
     }
 
     async Task TypeSentenceAsync(string sentence, CancellationToken token)

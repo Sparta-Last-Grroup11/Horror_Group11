@@ -16,13 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 78487b75ed6292048a9314645bc61191
-  m_SerializeEntries:
-  - m_GUID: 67c3420e5921b0a47923c25d66dde7d5
-    m_Address: NanumGothicbold test2
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-kr
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 84aa61ebefb498f409823c427d0df6ae, type: 2}
   m_SchemaSet:
