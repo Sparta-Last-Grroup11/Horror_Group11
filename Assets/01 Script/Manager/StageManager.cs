@@ -101,6 +101,10 @@ public class StageManager : Singleton<StageManager>
                 prefab = Instantiate(obj, info.position.FloatToVector3(), rot, typeNames[info.type].transform);
                 prefab.name = obj.name;
 
+                if (info.prefabname.Equals("NurseZombie"))
+                {
+                    GameManager.Instance.nurse = prefab.GetComponentInChildren<Enemy>();
+                }
                 if (info.type.Equals(ResourceType.Item.ToString()))
                 {
                     prefab.TryGetComponent<ClipItem>(out ClipItem clip);
