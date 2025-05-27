@@ -81,7 +81,6 @@ public class PrologueUI : PopupUI
         await Task.Delay((int)(pauseBetweenSentences * 1000), token);
 
         await TypeSentenceAsync(dialogList[5].GetContent(), token);
-        AudioManager.Instance.Audio2DPlay(typingClip, 1, false, EAudioType.SFX);
 
         targetText.DOFade(0, 8f);
         await Task.Delay(8000, token);
