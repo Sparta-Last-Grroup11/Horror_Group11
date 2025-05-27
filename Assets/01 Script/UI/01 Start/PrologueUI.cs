@@ -4,24 +4,32 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 
 public class PrologueUI : PopupUI
 {
-    private string firstSentence = "\"할아버지께서 돌아가셨다고요..?\"";
-    private string secondSentence = "오래간 끊겼던 연락...\n그리고 내 앞으로 난데 없는 세금 고지서가 날라왔다...";
-    private string thirdSentence = "땅과 건물에 관한 고지서였고,\n할아버지께서 나에게 남긴 유산이었다...";
-    private string fourthSentence = "상속된 것은 작은 시골 마을 외곽에 위치한 오래된 폐병원...";
-    private string fifthSentence = "한 때 유명한 정신병원이었지만,\n수십 년 전 알 수 없는 이유로 화재와 함께 운영이 중단되었다고 한다...";
-    private string sixthSentence = "나는 건물 내부를 확인하기 위해 병원 안으로 들어갔지만,\n음산한 기운과 함께, 나 혼자만 있는 게 아닌 것 같은 느낌이 든다.....";
-
     [SerializeField] AudioClip typingClip;
     [SerializeField] AudioClip prologueBGM;
     [SerializeField] private TMP_Text targetText;
+    private TextAsset prologueAsset;
+    private List<MonologueInfo> dialogList;
 
     private float delay = 0.1f;
     private float pauseBetweenSentences = 1f;
 
     private CancellationTokenSource cts;
+
+    private void Awake()
+    {
+        prologueAsset = ResourceManager.Instance.Load<TextAsset>(ResourceType.JsonData, "Prologue");
+        var path = "Prologue";
+        var Dialog = JsonConvert.DeserializeObject<Dictionary<string, List<MonologueInfo>>>(prologueAsset.text);
+        if (Dialog.TryGetValue(path, out var monologues))
+        {
+            dialogList = monologues;
+        }
+    }
 
     async void Start()
     {
@@ -52,27 +60,27 @@ public class PrologueUI : PopupUI
         AudioManager.Instance.Audio2DPlay(typingClip, 1, false, EAudioType.SFX);
         await Task.Delay(1000, token);
 
-        await TypeSentenceAsync(firstSentence, token);
+        await TypeSentenceAsync(dialogList[0].GetContent(), token);
         AudioManager.Instance.Audio2DPlay(typingClip, 1, false, EAudioType.SFX);
         await Task.Delay((int)(pauseBetweenSentences * 1000), token);
 
-        await TypeSentenceAsync(secondSentence, token);
+        await TypeSentenceAsync(dialogList[1].GetContent(), token);
         AudioManager.Instance.Audio2DPlay(typingClip, 1, false, EAudioType.SFX);
         await Task.Delay((int)(pauseBetweenSentences * 1000), token);
 
-        await TypeSentenceAsync(thirdSentence, token);
+        await TypeSentenceAsync(dialogList[2].GetContent(), token);
         AudioManager.Instance.Audio2DPlay(typingClip, 1, false, EAudioType.SFX);
         await Task.Delay((int)(pauseBetweenSentences * 1000), token);
 
-        await TypeSentenceAsync(fourthSentence, token);
+        await TypeSentenceAsync(dialogList[3].GetContent(), token);
         AudioManager.Instance.Audio2DPlay(typingClip, 1, false, EAudioType.SFX);
         await Task.Delay((int)(pauseBetweenSentences * 1000), token);
 
-        await TypeSentenceAsync(fifthSentence, token);
+        await TypeSentenceAsync(dialogList[4].GetContent(), token);
         AudioManager.Instance.Audio2DPlay(typingClip, 1, false, EAudioType.SFX);
         await Task.Delay((int)(pauseBetweenSentences * 1000), token);
 
-        await TypeSentenceAsync(sixthSentence, token);
+        await TypeSentenceAsync(dialogList[5].GetContent(), token);
         AudioManager.Instance.Audio2DPlay(typingClip, 1, false, EAudioType.SFX);
 
         targetText.DOFade(0, 8f);
