@@ -15,6 +15,7 @@ public abstract class BaseUI : MonoBehaviour
 {
     [SerializeField] private bool isCursorFree;
     [SerializeField] private LocalizedAsset<TMP_FontAsset> localizedFont;
+    [SerializeField] private bool isLocalizedFontByScript = false;
     public Action destroyAction;
     protected CursorLockMode mode;
     [SerializeField] private TextMeshProUGUI[] texts;
@@ -24,7 +25,8 @@ public abstract class BaseUI : MonoBehaviour
         StartCoroutine(InitCursorState());
         if (texts.Length <= 0) 
             texts = GetComponentsInChildren<TextMeshProUGUI>(true);
-        SetLocalizedFont();
+        if(isLocalizedFontByScript)
+            SetLocalizedFont();
     }
 
     private void SetLocalizedFont()
@@ -38,6 +40,7 @@ public abstract class BaseUI : MonoBehaviour
 
     private void OnEnable()
     {
+        /*
         LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
 
         Debug.Log($"[Setup] Table: {localizedFont.TableReference}, Entry: {localizedFont.TableEntryReference}");
@@ -54,11 +57,14 @@ public abstract class BaseUI : MonoBehaviour
                 Debug.LogWarning("[Font Load] Initial font is null");
             }
         };
+        */
     }
 
     private void OnDisable()
     {
+        /*
         LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
+        */
     }
 
     private void OnLocaleChanged(Locale locale)
