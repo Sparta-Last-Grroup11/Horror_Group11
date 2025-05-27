@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GameManager;
 
 
 [CreateAssetMenu(fileName = "LightStateSO", menuName = "new LightStateSO")]
@@ -29,7 +30,8 @@ public class LightStateSO : ScriptableObject
     public void OnPower()
     {
         isPowerOn = true;
-        GameManager.Instance.CheckPointSave(new Vector3(-3.95f, 5.88f, 17.70f));
+        GameManager.Instance.CheckPointSave(new Vector3(-3.45f, 5.88f, 18.21f));
+        GameManager.Instance.SetNursePhase(NurseZombie.SpawnNursePhase.SecondFloor);
     }
 
     public void PermissionControl()

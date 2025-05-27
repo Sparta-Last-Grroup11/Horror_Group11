@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.Rendering;
+using static GameManager;
 
 public class EnterEvent : Receiver
 {
@@ -41,7 +43,6 @@ public class EnterEvent : Receiver
     {
         Destroy(UIManager.Instance.Get<SkipUI>().gameObject);
         GameManager.Instance.player.cantMove = false;
-        GameManager.Instance.CheckPointSave(new Vector3(-1.54f, 1.88f, -0.15f));
     }
 
     public void DialogPlay(int num)
@@ -67,7 +68,5 @@ public class EnterEvent : Receiver
         CloseDoubleDoorAndLocked();
         MonologueManager.Instance.DialogPlay(7);
         GameManager.Instance.player.cantMove = false;
-
-        GameManager.Instance.CheckPointSave(new Vector3(-1.54f, 1.88f, -0.15f)); // 스킵했어도 체크포인트 저장
     }
 }

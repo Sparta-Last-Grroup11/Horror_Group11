@@ -23,7 +23,7 @@ public class EndGameUI : BaseUI
     [SerializeField] EndingCategory endGameType;
     [SerializeField] float delayBeforeSceneChange = 1.0f;
 
-    private void Start()
+    protected override void Start()
     {
         base.Start();
         restartBtn.onClick.AddListener(OnClickReStart);
@@ -76,9 +76,9 @@ public class EndGameUI : BaseUI
     {
         DisableButtons();
         modal.ModalWindowOut();
-        Cursor.lockState = CursorLockMode.Locked;
-        await Task.Delay((int)(delayBeforeSceneChange * 1000));
+        await Task.Delay(100);
         UIManager.Instance.IsUiActing = false;
+        await Task.Yield();
         GameManager.Instance.CheckPointLoad();
     }
 
@@ -86,8 +86,7 @@ public class EndGameUI : BaseUI
     {
         DisableButtons();
         modal.ModalWindowOut();
-        Cursor.lockState = CursorLockMode.Locked;
-        await Task.Delay((int)(delayBeforeSceneChange * 1000));
+        await Task.Delay(100);
         UIManager.Instance.IsUiActing = false;
         await SceneLoadManager.Instance.ChangeScene("StartScene");
     }

@@ -10,6 +10,10 @@ public class DoorTriggerActivator : MonoBehaviour
         {
             isPlayerOn = true;
             StageTriggerController.Instance.ActivateTriggers();
+
+            GameManager.Instance.CheckPointSave(new Vector3(-1.43f, 1.88f, -0.30f));
+            GameManager.Instance.SetNursePhase(NurseZombie.SpawnNursePhase.FirstFloor);
+
         }
     }
 

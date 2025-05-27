@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.AI.Navigation;
 using Unity.VisualScripting;
 using UnityEngine;
+using static NurseZombie;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -13,8 +14,13 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] Vector3 checkPoint;
     [SerializeField] private bool isSaved;
     [SerializeField] private int life;
+
     public Enemy cop;
     public Enemy nurse;
+    private SpawnNursePhase nursePhase;
+    public void SetNursePhase(SpawnNursePhase phase) => nursePhase = phase;
+    public SpawnNursePhase GetNursePhase() => nursePhase;
+
     protected override bool dontDestroy => false;
 
     public Vector3 SpawnPoint => spawnPoint;
@@ -37,6 +43,7 @@ public class GameManager : Singleton<GameManager>
     {
         checkPoint = pos;
         isSaved = true;
+        Debug.Log($"[GameManager] CheckPoint SAVED at: {pos}");
     }
 
     public void CheckPointLoad()
@@ -59,7 +66,10 @@ public class GameManager : Singleton<GameManager>
         }
         if (nurse != null)
         {
-            nurse.ResetEnemy();
+            if (nurse is NurseZombie nurseZombie)
+            {
+                nurseZombie.ResetEnemy(GetNursePhase());
+            }
         }
         life -= 1;
     }

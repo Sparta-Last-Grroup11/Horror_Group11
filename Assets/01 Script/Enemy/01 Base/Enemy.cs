@@ -19,8 +19,7 @@ public abstract class Enemy : MonoBehaviour
     public float viewDistance = 10f;
     public float viewAngle = 90f;
 
-    private Vector3 initialPosition;
-    private Quaternion initialRotation;
+    public virtual void ResetEnemy() { }
 
     protected virtual void Awake()
     {
@@ -38,17 +37,6 @@ public abstract class Enemy : MonoBehaviour
         {
             playerTransform = GameManager.Instance.player.transform;
         }
-
-        initialPosition = transform.position;
-        initialRotation = transform.rotation;
-    }
-
-    public virtual void ResetEnemy()
-    {
-        transform.position = initialPosition;
-        transform.rotation = initialRotation;
-        haveSeenPlayer = false;
-        fsm?.ChangeToDefaultState();
     }
 
     protected virtual void Update()
