@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lever : MonoBehaviour
+public class Lever : MonoBehaviour //레버용 베이스
 {
     [SerializeField] protected bool isOn = false;
     [SerializeField] protected float leverDegree = -60f;

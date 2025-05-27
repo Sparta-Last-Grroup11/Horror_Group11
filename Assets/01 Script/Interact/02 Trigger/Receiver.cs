@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class Receiver : MonoBehaviour
+public abstract class Receiver : MonoBehaviour //리시버 기본 코드
 {
     [SerializeField] protected TriggerForEvent eventTrigger;
 
