@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: UIDefault Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: UIDefault
+  m_TableCollectionNameGuidString: 0636b5ed3aea1194182a037d322a89b0
+  m_Entries:
+  - m_Id: 128013631488
+    m_Key: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68448532365312
+    m_Key: Setting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68483525443584
+    m_Key: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 126736263348224
+    m_Key: Sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 168785033363456
+    m_Key: 3DHelp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 170137964838912
+    m_Key: SafeHelp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 176870728728576
+    m_Key: LoadingText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 178117133271040
+    m_Key: Interact
+    m_Metadata:
+      m_Items: []
+  - m_Id: 178341553700864
+    m_Key: Help
+    m_Metadata:
+      m_Items: []
+  - m_Id: 178374898417664
+    m_Key: Move
+    m_Metadata:
+      m_Items: []
+  - m_Id: 178525796892672
+    m_Key: Safe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 178736178987008
+    m_Key: HelpUISafe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 179394810544128
+    m_Key: ExitUI
+    m_Metadata:
+      m_Items: []
+  - m_Id: 179532190777344
+    m_Key: Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 179567997550592
+    m_Key: Continue
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 5768705994799448113
+  references:
+    version: 2
+    RefIds:
+    - rid: 5768705994799448113
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1748229401360

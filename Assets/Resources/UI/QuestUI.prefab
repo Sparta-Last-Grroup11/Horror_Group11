@@ -319,6 +319,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCursorFree: 0
+  localizedFont:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+  texts: []
   text: {fileID: 7800129025487768369}
-  questNotifySound: {fileID: 8300000, guid: 01436539750473e4baad056957a0889c, type: 3}
+  questNotifySound: {fileID: 8300000, guid: a7091f7b917d7e943beb06db935303c5, type: 3}
   duration: 1.5

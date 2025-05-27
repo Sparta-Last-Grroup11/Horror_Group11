@@ -2,12 +2,27 @@ using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 
 [System.Serializable]
 public class QuestInfo
 {
     public int id;
-    public string content;
+    public string en;
+    public string kr;
+
+    public string GetContent()
+    {
+        switch (LocalizationSettings.SelectedLocale.Identifier.Code)
+        {
+            case "en":
+                return en;
+            case "kr":
+                return kr;
+            default:
+                return en;
+        }
+    }
 }
 
 public class QuestManager : Singleton<QuestManager>
@@ -47,11 +62,11 @@ public class QuestManager : Singleton<QuestManager>
     {
         if (questUI == null)
         {
-            UIManager.Instance.show<QuestUI>().ChangeQuest(dialogList[questNum].content);
+            UIManager.Instance.show<QuestUI>().ChangeQuest(dialogList[questNum].GetContent());
         }
         else
         {
-            questUI.ChangeQuest(dialogList[questNum].content);
+            questUI.ChangeQuest(dialogList[questNum].GetContent());
         }
     }
 

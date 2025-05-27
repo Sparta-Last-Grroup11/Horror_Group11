@@ -58,7 +58,7 @@ namespace Michsky.UI.Dark
         void Start()
         {
             if (buttonVar == null) { buttonVar = gameObject.GetComponent<Button>(); }
-            if (enableButtonSounds && useClickSound && soundSource != null) { buttonVar.onClick.AddListener(delegate { soundSource.PlayOneShot(clickSound); }); }
+            if (enableButtonSounds && useClickSound && soundSource != null) { buttonVar.onClick.AddListener(delegate { AudioManager.Instance.Audio2DPlay(clickSound, 1, false, EAudioType.SFX); }); }
 
             buttonVar.onClick.AddListener(delegate { clickEvent.Invoke(); });
 
@@ -137,7 +137,7 @@ namespace Michsky.UI.Dark
         public void OnPointerEnter(PointerEventData eventData)
         {
             if (enableButtonSounds && useHoverSound && buttonVar.interactable && soundSource != null)
-                soundSource.PlayOneShot(hoverSound);
+                AudioManager.Instance.Audio2DPlay(hoverSound, 1, false, EAudioType.SFX);
 
             hoverEvent.Invoke();
             isPointerOn = true;

@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UIDefault_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 0636b5ed3aea1194182a037d322a89b0, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 5768705994799448135
+  m_TableData:
+  - m_Id: 128013631488
+    m_Localized: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68448532365312
+    m_Localized: Setting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68483525443584
+    m_Localized: Exit
+    m_Metadata:
+      m_Items:
+      - rid: 5768705994799448135
+  - m_Id: 126736263348224
+    m_Localized: Sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 168785033363456
+    m_Localized: 'Up: W
+
+      Down: S
+
+      Left:A
+
+      Right:D
+
+
+      Rotation
+      : MouseLeft
+
+
+      Zoom: MouseWheel'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 170137964838912
+    m_Localized: 'Left Rotate : A
+
+
+      Right Rotate: D
+
+
+      When you hear a
+      clicking sound,
+
+      turn it in the opposite direction.
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 176870728728576
+    m_Localized: The hospital may be empty, but you are never alone...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 178117133271040
+    m_Localized: Press [E]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 178341553700864
+    m_Localized: Help
+    m_Metadata:
+      m_Items: []
+  - m_Id: 178374898417664
+    m_Localized: Move
+    m_Metadata:
+      m_Items: []
+  - m_Id: 178525796892672
+    m_Localized: Safe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 178736178987008
+    m_Localized: '1. Press D and rotate the dial Until *Clunk* Sound Played.
+
+
+      2.Then
+      Press A and follow the same procedure as in step 1
+
+
+      3.Repeat this Until
+      Safe is Opened.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 179394810544128
+    m_Localized: 'ARE YOU SURE
+
+      YOU WANT TO EXIT?'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 179532190777344
+    m_Localized: Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 179567997550592
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 5768705994799448135
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 00003510493e0000

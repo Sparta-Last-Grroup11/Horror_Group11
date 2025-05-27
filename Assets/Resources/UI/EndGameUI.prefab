@@ -463,6 +463,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCursorFree: 0
+  isLocalizedByScript: 0
+  texts: []
   modal: {fileID: 3826450352690092525}
   title: {fileID: 4635199127568235305}
   description: {fileID: 3962069957947032308}
