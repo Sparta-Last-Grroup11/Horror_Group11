@@ -20472,8 +20472,7 @@ PrefabInstance:
         type: 3}
       propertyPath: key
       value: 
-      objectReference: {fileID: 11400000, guid: f43aea1507e23b04795289da300a3d74,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 4348738173387594943, guid: 8d85131e819434c46b2581aee1bea8e7,
         type: 3}
       propertyPath: m_StaticEditorFlags

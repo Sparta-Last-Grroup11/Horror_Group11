@@ -29,6 +29,7 @@ public class LightStateSO : ScriptableObject
     public void OnPower()
     {
         isPowerOn = true;
+        GameManager.Instance.CheckPointSave(new Vector3(-3.95f, 5.88f, 17.70f));
     }
 
     public void PermissionControl()
