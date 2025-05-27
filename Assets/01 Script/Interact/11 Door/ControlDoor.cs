@@ -2,17 +2,17 @@ using System.Collections;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class ControlDoor : OpenableObject
+public class ControlDoor : OpenableObject //문조작
 {
     public float duration = 1f;
     
     [SerializeField] private float openDegree = 90;
 
-    private void Awake()
+    private void Awake() 
     {
         SetRotation();
     }
-    protected void SetRotation()
+    protected void SetRotation() //회전 각도 설정
     {
         closeRotation = transform.rotation;
         openRotation = closeRotation * Quaternion.Euler(0, openDegree, 0); ;

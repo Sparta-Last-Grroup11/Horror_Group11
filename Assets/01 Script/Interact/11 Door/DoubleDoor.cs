@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoubleDoor : MonoBehaviour,I_Interactable
+public class DoubleDoor : MonoBehaviour,I_Interactable //양 문
 {
     [SerializeField] private ItemData key;
     [SerializeField] private ControlDoor[] doors;
@@ -19,9 +19,9 @@ public class DoubleDoor : MonoBehaviour,I_Interactable
         StartCoroutine(InteractionCooldown());
     }
 
-    void OpenLockedDoor()
+    void OpenLockedDoor() //문 여닫기 조건 확인
     {
-        if (key != null && !GameManager.Instance.player.playerInventory.HasItem(key))
+        if (key != null && !GameManager.Instance.player.playerInventory.HasItem(key)) //열쇠가 없을 경우
         {
             MonologueManager.Instance.DialogPlay(16);
             if (lockedSound != null)
@@ -36,7 +36,7 @@ public class DoubleDoor : MonoBehaviour,I_Interactable
         }
     }
 
-     void OpenCloseDoor()
+     void OpenCloseDoor() //문 여닫기
     {
         if (!isOpened)
         {
@@ -52,14 +52,14 @@ public class DoubleDoor : MonoBehaviour,I_Interactable
         }
     }
 
-    private IEnumerator InteractionCooldown()
+    private IEnumerator InteractionCooldown() //상호작용 쿨타임
     {
         canInteract = false;
         yield return new WaitForSeconds(interactCooldown);
         canInteract = true;
     }
 
-    public void CloseBecauseEnter(ItemData changeKey)
+    public void CloseBecauseEnter(ItemData changeKey) //트리거를 통해 문 조작 조건(열쇠) 변경
     {
         if (isOpened)
         {

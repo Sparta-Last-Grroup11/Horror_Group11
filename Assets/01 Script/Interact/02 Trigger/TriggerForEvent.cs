@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerForEvent : MonoBehaviour
+public class TriggerForEvent : MonoBehaviour //이벤트용 트리거
 {
     public List<Receiver> receivers = new List<Receiver>();
 

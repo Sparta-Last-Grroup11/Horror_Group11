@@ -9,13 +9,13 @@ public class OpenPuzzle : MonoBehaviour, I_Interactable
     {
        key.SetActive(false); 
     }
-    public void OnInteraction()
+    public void OnInteraction() //상호작용 시 퍼즐 UI 생성
     {
         UIManager.Instance.show<UI3D>().Init(puzzle, null, UIManager.Instance.show<SafeHelp>(), false);
         FindObjectOfType<SafeLockPuzzle>().SetSafe(this);
     }
 
-    public void OpenSaveDoor()
+    public void OpenSaveDoor() //퍼즐 해결 시 오픈
     {
         key.SetActive(true);
         gameObject.layer = 0;

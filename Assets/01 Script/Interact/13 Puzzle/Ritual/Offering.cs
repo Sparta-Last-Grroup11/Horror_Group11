@@ -12,7 +12,7 @@ public class Offering : MonoBehaviour, I_Interactable
     {
         lampLight.SetActive(false);
     }
-    public void OnInteraction()
+    public void OnInteraction() //촛불 밝히기
     {
         if (isActive || !GameManager.Instance.player.playerInventory.HasItem(offeringData)) return;
 

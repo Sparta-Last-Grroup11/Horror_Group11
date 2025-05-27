@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: {fileID: 8074536427268234745}
-  questID: -1
+  questID: 11
 --- !u!65 &6209244967537078794
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -490,12 +490,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.290056, y: 0, z: 2.290056}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.5, y: 0.15, z: 1.5}
+  m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!1001 &869195339418686400
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,11 +6,10 @@ using UnityEngine.Playables;
 using UnityEngine.Rendering;
 using static GameManager;
 
-public class EnterEvent : Receiver
+public class EnterEvent : Receiver //정문 입장 시 이벤트용 리시버
 {
     [SerializeField] private ItemData changeKey;
     [SerializeField] private int questID = 1;
-    [SerializeField] private AudioClip seriesSfx;
     PlayableDirector playableDirector;
     CinemachineFreeLook freeLook;
 
@@ -32,9 +31,8 @@ public class EnterEvent : Receiver
         //MonologueManager.Instance.DialogPlay(7);
         GameManager.Instance.player.stateMachine.ChangeState(new PlayerIdleState(GameManager.Instance.player));
         QuestManager.Instance.QuestTrigger(questID);
-        AudioManager.Instance.Audio2DPlay(seriesSfx);
         GameManager.Instance.player.cantMove = true;
-        GameManager.Instance.player.cameraContainer.transform.rotation = Quaternion.Euler(0, -90f, 0);
+        GameManager.Instance.player.cameraContainer.transform.localRotation = Quaternion.Euler(0, 0, 0);
         playableDirector.Play();
         UIManager.Instance.show<SkipUI>().Init(1, SkipEvent);
     }

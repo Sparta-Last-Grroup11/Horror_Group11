@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
-public class ReceiverExit : Receiver
+public class ReceiverExit : Receiver //탈출 리시버
 {
     [SerializeField] private bool testShowClearUI = false; // 디버그용
 
@@ -31,7 +31,7 @@ public class ReceiverExit : Receiver
         }
     }
 
-    IEnumerator Ready()
+    IEnumerator Ready() //탈출 조건 불만족 시 일정 시간 후 트리거 재활성화
     {
         yield return new WaitForSeconds(10f);
         eventTrigger.gameObject.SetActive(true);

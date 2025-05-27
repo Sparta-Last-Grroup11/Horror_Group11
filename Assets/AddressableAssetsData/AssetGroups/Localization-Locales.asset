@@ -23,12 +23,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 89dbcc0821f7534449d1a286a8b6727b
-    m_Address: Korean (ko)
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0209025c84ee61a45bbc2443b002e47b
     m_Address: Korean (South Korea) (ko-KR)
     m_ReadOnly: 1
