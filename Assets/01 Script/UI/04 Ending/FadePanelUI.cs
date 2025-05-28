@@ -18,7 +18,6 @@ public class FadePanelUI : MonoBehaviour
  
     }
 
-
     public void FadeOutCanvas()
     {
         StartCoroutine(FadeOut());
@@ -28,6 +27,7 @@ public class FadePanelUI : MonoBehaviour
     { 
     StartCoroutine (FadeIn());
     }
+
     public IEnumerator FadeOut()
     {
         canvasGroup.blocksRaycasts = true;
