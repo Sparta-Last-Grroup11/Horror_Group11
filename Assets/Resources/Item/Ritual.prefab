@@ -1169,6 +1169,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5689810271222473525, guid: 0dd591496e061ef449aa55cfc4a53b2c,
+        type: 3}
+      propertyPath: seriesSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 66a89a748ad190f44a6db949496b19f9, type: 3}
+    - target: {fileID: 5689810271222473525, guid: 0dd591496e061ef449aa55cfc4a53b2c,
+        type: 3}
+      propertyPath: zombieScream
+      value: 
+      objectReference: {fileID: 8300000, guid: 97b94f2134c874241bf3f69edab77088, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

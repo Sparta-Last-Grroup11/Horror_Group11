@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class InventoryItem : MonoBehaviour, I_Interactable
 {
+    [SerializeField] private AudioClip zombieScream;
+    [SerializeField] private AudioClip seriesSound;
+
     [SerializeField] ItemData itemData;
     public ItemData ItemData => itemData;
     [SerializeField] private int commentID = -1;
@@ -17,6 +20,7 @@ public class InventoryItem : MonoBehaviour, I_Interactable
         newItemData.Description = itemData.Description;
         newItemData.ObjectIn3D = ResourceManager.Instance.Load<GameObject>(ResourceType.Item, this.name);
         GameManager.Instance.player.playerInventory.AddItem(newItemData);
+        AudioManager.Instance.Audio2DPlay(zombieScream, 1, false, EAudioType.SFX);
 
         if(commentID != -1)
         {
