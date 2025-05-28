@@ -22,8 +22,6 @@ public class EndGameUI : BaseUI
     [SerializeField] Button restartBtn;
     [SerializeField] Button quitBtn;
     [SerializeField] private FadePanelUI fadePanel;
-
-    [SerializeField] EndingCategory endGameType;
     [SerializeField] float delayBeforeSceneChange = 1.0f;
 
     protected override void Start()
@@ -36,15 +34,9 @@ public class EndGameUI : BaseUI
     public async void ShowEnding(EndingCategory type, int delayTime)
     {
         SetupVisuals(type);
-
         await Task.Delay(delayTime);
         UIManager.Instance.IsUiActing = true;
         modal.ModalWindowIn();
-
-        if (type == EndingCategory.Death)
-            EnableButtons();
-        else
-            ShowQuitOnly();
     }
 
     private void SetupVisuals(EndingCategory type)
@@ -71,6 +63,7 @@ public class EndGameUI : BaseUI
                 modal.description = $"It's all over. Your story too.\nLives left: {GameManager.Instance.Life}";
                 bgColor = deathColor;
                 break;
+
             case EndingCategory.NoLife:
                 modal.title = "NO LIVES LEFT";
                 modal.description = "No lives remain. Return to the beginning.";
@@ -81,8 +74,12 @@ public class EndGameUI : BaseUI
         modal.titleObject = title;
         modal.descriptionObject = description;
         contentBackground.color = bgColor;
-
         modal.UpdateUI();
+
+        if (type == EndingCategory.Death)
+            EnableButtons();
+        else
+            ShowQuitOnly();
     }
 
     private async void OnClickReStart()
