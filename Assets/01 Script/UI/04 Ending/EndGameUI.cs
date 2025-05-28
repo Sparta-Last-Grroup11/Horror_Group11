@@ -9,7 +9,8 @@ public enum EndingCategory
 {
     Rescued,
     Escape,
-    Death
+    Death,
+    NoLife
 }
 
 public class EndGameUI : BaseUI
@@ -39,13 +40,18 @@ public class EndGameUI : BaseUI
         await Task.Delay(delayTime);
         UIManager.Instance.IsUiActing = true;
         modal.ModalWindowIn();
-        EnableButtons();
+
+        if (type == EndingCategory.NoLife)
+            ShowQuitOnly();
+        else
+            EnableButtons();
     }
 
     private void SetupVisuals(EndingCategory type)
     {
         Color normalColor = new Color(0.61f, 0.61f, 0.61f, 0.75f);
         Color deathColor = new Color(0.54f, 0.09f, 0.09f, 0.75f);
+        Color noLifeColor = new Color(0.33f, 0.104f, 0.255f, 0.75f);
         Color bgColor = normalColor;
 
         switch (type)
@@ -62,8 +68,13 @@ public class EndGameUI : BaseUI
 
             case EndingCategory.Death:
                 modal.title = "YOU DEAD";
-                modal.description = "It's all over. Your story too.";
+                modal.description = $"It's all over. Your story too.\nLives left: {GameManager.Instance.Life}";
                 bgColor = deathColor;
+                break;
+            case EndingCategory.NoLife:
+                modal.title = "NO LIVES LEFT";
+                modal.title = $"No lives remain. Return to the beginning.\nLives left: {GameManager.Instance.Life}";
+                bgColor = noLifeColor;
                 break;
         }
 
@@ -100,6 +111,18 @@ public class EndGameUI : BaseUI
         await Task.Delay(100);
         UIManager.Instance.IsUiActing = false;
         await SceneLoadManager.Instance.ChangeScene("StartScene");
+    }
+
+    private void ShowQuitOnly()
+    {
+        restartBtn.gameObject.SetActive(false);
+        quitBtn.gameObject.SetActive(true);
+
+        RectTransform quitRect = quitBtn.GetComponent<RectTransform>();
+        quitRect.anchorMin = new Vector2(0.5f, quitRect.anchorMin.y);
+        quitRect.anchorMax = new Vector2(0.5f, quitRect.anchorMax.y);
+        quitRect.pivot = new Vector2(0.5f, 0.5f);
+        quitRect.anchoredPosition = new Vector2(0f, quitRect.anchoredPosition.y);
     }
 
     private void EnableButtons()

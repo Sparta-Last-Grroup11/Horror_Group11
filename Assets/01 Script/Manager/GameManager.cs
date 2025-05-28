@@ -9,6 +9,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] Vector3 checkPoint;
     [SerializeField] private bool isSaved;
     [SerializeField] private int life;
+    public int Life => life;
     public CopZombieCinematicTrigger copCinematicTrigger;
     public Enemy nurse;
     public Enemy cop;
