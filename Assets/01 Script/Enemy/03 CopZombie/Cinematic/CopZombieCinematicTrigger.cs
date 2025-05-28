@@ -8,6 +8,8 @@ public class CopZombieCinematicTrigger : MonoBehaviour
     public GameObject copZombiePrefab;
     [SerializeField] private AudioClip meetCopZombieClip;
 
+    public BoxCollider boxCollider;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -25,6 +27,7 @@ public class CopZombieCinematicTrigger : MonoBehaviour
         copzombieCinematic.SetActive(false);
         GameManager.Instance.player.cantMove = false;
         GameManager.Instance.cop = Instantiate(copZombiePrefab, copzombieCinematic.transform.position + new Vector3(-1, 0, 3), Quaternion.Euler(0, 150, 0)).GetComponentInChildren<Enemy>();
-        Destroy(gameObject);
+        GameManager.Instance.copCinematicTrigger = this;
+        boxCollider.enabled = false;
     }
 }

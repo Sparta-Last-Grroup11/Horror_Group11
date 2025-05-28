@@ -13,8 +13,9 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] Vector3 checkPoint;
     [SerializeField] private bool isSaved;
     [SerializeField] private int life;
-    public Enemy cop;
+    public CopZombieCinematicTrigger copCinematicTrigger;
     public Enemy nurse;
+    public Enemy cop;
     protected override bool dontDestroy => false;
 
     public Vector3 SpawnPoint => spawnPoint;
@@ -55,7 +56,8 @@ public class GameManager : Singleton<GameManager>
         }
         if (cop != null)
         {
-            cop.ResetEnemy();
+            Destroy(cop.gameObject);
+            copCinematicTrigger.boxCollider.enabled = true;
         }
         if (nurse != null)
         {
