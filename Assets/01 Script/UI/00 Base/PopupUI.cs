@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 public abstract class PopupUI : BaseUI
@@ -13,6 +12,8 @@ public abstract class PopupUI : BaseUI
     [SerializeField] private bool DestroyByTime;
     [SerializeField] private float DestroyTime;
 
+    protected bool autoFade = true;
+
     protected override void Start()
     {
         base.Start();
@@ -21,6 +22,7 @@ public abstract class PopupUI : BaseUI
         if (canvasGroup == null)
             canvasGroup = gameObject.AddComponent<CanvasGroup>();
 
+        if (autoFade)
             StartCoroutine(FadeIn());
 
         if (!DestroyByTime)
@@ -33,7 +35,7 @@ public abstract class PopupUI : BaseUI
     {
     }
 
-    private IEnumerator FadeIn()
+    public IEnumerator FadeIn()
     {
         canvasGroup.alpha = 0f;
         canvasGroup.interactable = false;
@@ -51,7 +53,7 @@ public abstract class PopupUI : BaseUI
         canvasGroup.blocksRaycasts = true;
     }
 
-    private IEnumerator FadeOut()
+    public IEnumerator FadeOut()
     {
         elapsed = duration;
         canvasGroup.alpha = 1f;

@@ -40,10 +40,6 @@ public class CopZombie : Enemy
     public CopZombieChaseState copZombieChaseState;
     public CopZombieAttackState copZombieAttackState;
 
-    // CheckPoint
-    private Vector3 initialPosition;
-    private Quaternion initialRotation;
-
     protected override void Awake()
     {
         copzombieAgent = GetComponent<NavMeshAgent>();

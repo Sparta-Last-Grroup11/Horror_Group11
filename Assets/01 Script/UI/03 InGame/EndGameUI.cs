@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections;
 
 public enum EndingCategory
 {
@@ -11,7 +12,7 @@ public enum EndingCategory
     Death
 }
 
-public class EndGameUI : BaseUI
+public class EndGameUI : PopupUI
 {
     [SerializeField] ModalWindowManager modal;
     [SerializeField] TextMeshProUGUI title;
@@ -25,6 +26,7 @@ public class EndGameUI : BaseUI
 
     protected override void Start()
     {
+        autoFade = false;
         base.Start();
         restartBtn.onClick.AddListener(OnClickReStart);
         quitBtn.onClick.AddListener(OnClickQuit);
@@ -78,8 +80,15 @@ public class EndGameUI : BaseUI
         modal.ModalWindowOut();
         await Task.Delay(100);
         UIManager.Instance.IsUiActing = false;
-        await Task.Yield();
+
+        StartCoroutine(FadeAndRestartRoutine());
+    }
+
+    private IEnumerator FadeAndRestartRoutine()
+    {
+        yield return StartCoroutine(FadeOut());
         GameManager.Instance.CheckPointLoad();
+        yield return StartCoroutine(FadeIn());
     }
 
     private async void OnClickQuit()

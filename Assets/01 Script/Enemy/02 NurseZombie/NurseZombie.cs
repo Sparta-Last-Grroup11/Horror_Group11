@@ -120,7 +120,6 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
 
         haveSeenPlayer = false;
         nurseZombieAnim.SetBool("Attack", false);
-        nurseZombieAnim.SetTrigger("Idle");
 
         switch (phase)
         {

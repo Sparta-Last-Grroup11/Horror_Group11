@@ -9,6 +9,7 @@ public class NurseZombieIdleState : EnemyBaseState  // 기본 상태일 때
 
     public override void Enter()
     {
+
         GameManager.Instance.player.isChased = false;
         nurseZombie.nurseZombieAgent.isStopped = true;
         nurseZombie.nurseZombieAnim.SetBool("IsChasing", false);
