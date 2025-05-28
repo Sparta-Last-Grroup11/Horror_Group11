@@ -73,7 +73,7 @@ public class EndGameUI : BaseUI
                 break;
             case EndingCategory.NoLife:
                 modal.title = "NO LIVES LEFT";
-                modal.title = $"No lives remain. Return to the beginning.\nLives left: {GameManager.Instance.Life}";
+                modal.description = "No lives remain. Return to the beginning.";
                 bgColor = noLifeColor;
                 break;
         }
@@ -100,6 +100,7 @@ public class EndGameUI : BaseUI
         fadePanel.FadeOutCanvas();
         yield return new WaitForSeconds(0.5f);
         GameManager.Instance.CheckPointLoad();
+        Debug.Log("FadeIn 진입1");
         yield return new WaitForSeconds(0.5f);
         fadePanel.FadeInCanvas();
     }
@@ -122,7 +123,7 @@ public class EndGameUI : BaseUI
         quitRect.anchorMin = new Vector2(0.5f, quitRect.anchorMin.y);
         quitRect.anchorMax = new Vector2(0.5f, quitRect.anchorMax.y);
         quitRect.pivot = new Vector2(0.5f, 0.5f);
-        quitRect.anchoredPosition = new Vector2(0f, quitRect.anchoredPosition.y);
+        quitRect.anchoredPosition = new Vector2(-100f, quitRect.anchoredPosition.y);
     }
 
     private void EnableButtons()

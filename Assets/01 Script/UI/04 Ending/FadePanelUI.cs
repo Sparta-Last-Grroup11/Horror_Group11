@@ -15,11 +15,13 @@ public class FadePanelUI : MonoBehaviour
 
         canvasGroup.alpha = 0f;
         canvasGroup.blocksRaycasts = false;
- 
+
+        gameObject.SetActive(false);
     }
 
     public void FadeOutCanvas()
     {
+        gameObject.SetActive(true);
         StartCoroutine(FadeOut());
     }
 
@@ -45,6 +47,7 @@ public class FadePanelUI : MonoBehaviour
 
     public IEnumerator FadeIn()
     {
+        Debug.Log("FadeIn 진입2");
         float elapsed = 0f;
         while (elapsed < fadeDuration)
         {
@@ -55,5 +58,8 @@ public class FadePanelUI : MonoBehaviour
 
         canvasGroup.alpha = 0f;
         canvasGroup.blocksRaycasts = false;
+
+        gameObject.SetActive(false);
+
     }
 }

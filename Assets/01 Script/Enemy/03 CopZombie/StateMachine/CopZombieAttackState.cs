@@ -23,6 +23,14 @@ public class CopZombieAttackState : EnemyBaseState
     private IEnumerator PlayerDead()
     {
         yield return new WaitForSeconds(3f);
-        UIManager.Instance.show<EndGameUI>().ShowEnding(EndingCategory.Death, 1000);
+
+        if (GameManager.Instance.Life < 1)
+        {
+            UIManager.Instance.show<EndGameUI>().ShowEnding(EndingCategory.NoLife, 1000);
+        }
+        else
+        {
+            UIManager.Instance.show<EndGameUI>().ShowEnding(EndingCategory.Death, 1000);
+        }
     }
 }

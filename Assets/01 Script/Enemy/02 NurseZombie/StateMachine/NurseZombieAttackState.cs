@@ -24,7 +24,8 @@ public class NurseZombieAttackState : EnemyBaseState  // 플레이어를 공격�
     private IEnumerator PlayerDead()
     {
         yield return new WaitForSeconds(1f);
-        if (GameManager.Instance.Life < 0)
+
+        if (GameManager.Instance.Life < 1)
         {
             UIManager.Instance.show<EndGameUI>().ShowEnding(EndingCategory.NoLife, 2000);
         }

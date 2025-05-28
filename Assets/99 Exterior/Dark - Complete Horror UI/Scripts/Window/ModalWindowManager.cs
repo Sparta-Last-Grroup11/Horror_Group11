@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
@@ -24,7 +24,7 @@ namespace Michsky.UI.Dark
         [SerializeField] private UIDissolveEffect dissolveEffect;
 
         // Settings
-        [SerializeField] private bool useCustomContent;
+        public bool useCustomContent;
         public bool disableOnOut = true;
         [SerializeField] [Range(0.1f, 5)] private float disableAfter = 1;
         [SerializeField] [Range(0, 1)] private float inputBlockDuration = 0.1f;
