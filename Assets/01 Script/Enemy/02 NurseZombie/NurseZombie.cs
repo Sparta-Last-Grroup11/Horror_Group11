@@ -51,11 +51,7 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
     public float footStepRate;
     public AudioClip chaseFootStepClip;
 
-    public enum SpawnNursePhase
-    {
-        FirstFloor,
-        SecondFloor
-    }
+    public enum SpawnNursePhase { FirstFloor, SecondFloor }
 
     protected override void Awake()
     {
@@ -78,33 +74,6 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
         nurseZombieAttackState = new NurseZombieAttackState(this, fsm);
 
         fsm.ChangeState(nurseZombieIdleState);
-    }
-
-    public override void ResetEnemy() { }
-
-    public void ResetEnemy(SpawnNursePhase phase)
-    {
-        nurseZombieVirtualCamera.Priority = 8;
-        fsm.ChangeState(nurseZombieIdleState);
-
-        haveSeenPlayer = false;
-        nurseZombieAnim.SetBool("Attack", false);
-        nurseZombieAnim.SetTrigger("Idle");
-
-        switch (phase)
-        {
-            case SpawnNursePhase.FirstFloor:
-                MoveToSpawnPosition(new Vector3(-12f, 1.1f, 16.5f), Quaternion.Euler(0, 90f, 0));
-                blockedByDoorCount = 0;
-                break;
-
-            case SpawnNursePhase.SecondFloor:
-                MoveToSpawnPosition(new Vector3(-5.96f, 5.5f, -19.71f), Quaternion.identity);
-                blockedByDoorCount = 1;
-                break;
-        }
-
-        gameObject.SetActive(true);
     }
 
     public bool IsPlayerLookingAtMe()
@@ -142,5 +111,35 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
         {
             Debug.LogWarning("NavMesh에서 유효한 위치를 찾지 못함");
         }
+    }
+
+    public void ResetEnemy(SpawnNursePhase phase)
+    {
+        nurseZombieVirtualCamera.Priority = 8;
+        fsm.ChangeState(nurseZombieIdleState);
+
+        haveSeenPlayer = false;
+        nurseZombieAnim.SetBool("Attack", false);
+        nurseZombieAnim.SetTrigger("Idle");
+
+        switch (phase)
+        {
+            case SpawnNursePhase.FirstFloor:
+                MoveToSpawnPosition(new Vector3(-12f, 1.1f, 16.5f), Quaternion.Euler(0, 90f, 0));
+                blockedByDoorCount = 0;
+                break;
+
+            case SpawnNursePhase.SecondFloor:
+                MoveToSpawnPosition(new Vector3(-5.96f, 5.5f, -19.71f), Quaternion.identity);
+                blockedByDoorCount = 1;
+                break;
+        }
+
+        gameObject.SetActive(true);
+    }
+
+    public override void ResetEnemy()
+    {
+        ResetEnemy(SpawnNursePhase.FirstFloor);
     }
 }

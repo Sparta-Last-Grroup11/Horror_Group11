@@ -20,6 +20,8 @@ public class GameManager : Singleton<GameManager>
 
     public Vector3 SpawnPoint => spawnPoint;
 
+    private NurseZombie.SpawnNursePhase currentPhase;
+
     protected override void Awake()
     {
         base.Awake();
@@ -59,9 +61,9 @@ public class GameManager : Singleton<GameManager>
             Destroy(cop.gameObject);
             copCinematicTrigger.boxCollider.enabled = true;
         }
-        if (nurse != null)
+        if (nurse != null && nurse is NurseZombie nurseZombie)
         {
-            nurse.ResetEnemy();
+            nurseZombie.ResetEnemy(currentPhase);
         }
         life -= 1;
     }
@@ -75,6 +77,11 @@ public class GameManager : Singleton<GameManager>
         player = Instantiate(playerPrefab, spawnPoint, Quaternion.identity).GetComponent<Player>();
         player.virtualCamera = VirtualCam.GetComponent<CinemachineVirtualCamera>();
         VirtualCam.GetComponent<CinemachineVirtualCamera>().Follow = player.cameraContainer;
+    }
+
+    public void SetNursePhase(NurseZombie.SpawnNursePhase phase)
+    {
+        currentPhase = phase;
     }
 
     private void OnDrawGizmos()

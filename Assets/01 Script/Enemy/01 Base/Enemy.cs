@@ -19,8 +19,6 @@ public abstract class Enemy : MonoBehaviour
     public float viewDistance = 10f;
     public float viewAngle = 90f;
 
-    public virtual void ResetEnemy() { }
-
     protected virtual void Awake()
     {
         doorLayer = LayerMask.GetMask("Interactable");
@@ -121,4 +119,6 @@ public abstract class Enemy : MonoBehaviour
         }
         else return;
     }
+
+    public virtual void ResetEnemy() { }
 }

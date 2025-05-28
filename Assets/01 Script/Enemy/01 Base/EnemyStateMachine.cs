@@ -1,7 +1,6 @@
 public class EnemyStateMachine
 {
     private EnemyBaseState _currentState;
-    private EnemyBaseState _defaultState;
 
     public void ChangeState(EnemyBaseState newState)
     {

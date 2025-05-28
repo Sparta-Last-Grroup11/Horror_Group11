@@ -49,9 +49,6 @@ public class CopZombie : Enemy
         copzombieAgent = GetComponent<NavMeshAgent>();
         copZombieAnim = GetComponentInChildren<Animator>();
         playableDirector = GetComponent<PlayableDirector>();
-
-        initialPosition = transform.position;
-        initialRotation = transform.rotation;
     }
 
     protected override void Start()
@@ -63,14 +60,6 @@ public class CopZombie : Enemy
         copZombieChaseState = new CopZombieChaseState(this, fsm);
         copZombieAttackState = new CopZombieAttackState(this, fsm);
 
-        fsm.ChangeState(copZombiePatrolState);
-    }
-
-    public override void ResetEnemy()
-    {
-        transform.position = initialPosition;
-        transform.rotation = initialRotation;
-        copZombieVirtualCamera.Priority = 8;
         fsm.ChangeState(copZombiePatrolState);
     }
 
