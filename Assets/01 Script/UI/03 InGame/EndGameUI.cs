@@ -12,7 +12,7 @@ public enum EndingCategory
     Death
 }
 
-public class EndGameUI : PopupUI
+public class EndGameUI : BaseUI
 {
     [SerializeField] ModalWindowManager modal;
     [SerializeField] TextMeshProUGUI title;
@@ -20,13 +20,13 @@ public class EndGameUI : PopupUI
     [SerializeField] Image contentBackground;
     [SerializeField] Button restartBtn;
     [SerializeField] Button quitBtn;
+    [SerializeField] private FadePanelUI fadePanel;
 
     [SerializeField] EndingCategory endGameType;
     [SerializeField] float delayBeforeSceneChange = 1.0f;
 
     protected override void Start()
     {
-        autoFade = false;
         base.Start();
         restartBtn.onClick.AddListener(OnClickReStart);
         quitBtn.onClick.AddListener(OnClickQuit);
@@ -86,9 +86,11 @@ public class EndGameUI : PopupUI
 
     private IEnumerator FadeAndRestartRoutine()
     {
-        yield return StartCoroutine(FadeOut());
+        fadePanel.FadeOutCanvas();
+        yield return new WaitForSeconds(0.5f);
         GameManager.Instance.CheckPointLoad();
-        yield return StartCoroutine(FadeIn());
+        yield return new WaitForSeconds(0.5f);
+        fadePanel.FadeInCanvas();
     }
 
     private async void OnClickQuit()

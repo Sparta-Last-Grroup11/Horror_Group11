@@ -12,8 +12,6 @@ public abstract class PopupUI : BaseUI
     [SerializeField] private bool DestroyByTime;
     [SerializeField] private float DestroyTime;
 
-    protected bool autoFade = true;
-
     protected override void Start()
     {
         base.Start();
@@ -22,7 +20,6 @@ public abstract class PopupUI : BaseUI
         if (canvasGroup == null)
             canvasGroup = gameObject.AddComponent<CanvasGroup>();
 
-        if (autoFade)
             StartCoroutine(FadeIn());
 
         if (!DestroyByTime)
