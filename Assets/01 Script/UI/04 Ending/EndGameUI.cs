@@ -41,10 +41,10 @@ public class EndGameUI : BaseUI
         UIManager.Instance.IsUiActing = true;
         modal.ModalWindowIn();
 
-        if (type == EndingCategory.NoLife)
-            ShowQuitOnly();
-        else
+        if (type == EndingCategory.Death)
             EnableButtons();
+        else
+            ShowQuitOnly();
     }
 
     private void SetupVisuals(EndingCategory type)
@@ -100,7 +100,6 @@ public class EndGameUI : BaseUI
         fadePanel.FadeOutCanvas();
         yield return new WaitForSeconds(0.5f);
         GameManager.Instance.CheckPointLoad();
-        Debug.Log("FadeIn 진입1");
         yield return new WaitForSeconds(0.5f);
         fadePanel.FadeInCanvas();
         yield return new WaitForSeconds(1f);
