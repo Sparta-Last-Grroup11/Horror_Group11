@@ -1,6 +1,8 @@
 using Cinemachine;
+using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 using UnityEngine.AI;
+using static GameManager;
 
 public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플레이어가 뒤돌면 쫓아옴)
 {
@@ -49,6 +51,8 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
     public float footStepRate;
     public AudioClip chaseFootStepClip;
 
+    public enum SpawnNursePhase { FirstFloor, SecondFloor }
+
     protected override void Awake()
     {
         base.Awake();
@@ -69,29 +73,20 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
         nurseZombieChaseState = new NurseZombieChaseState(this, fsm);
         nurseZombieAttackState = new NurseZombieAttackState(this, fsm);
 
-        fsm.SetDefaultState(nurseZombieIdleState);
         fsm.ChangeState(nurseZombieIdleState);
-    }
-
-    public override void ResetEnemy()
-    {
-        base.ResetEnemy();
-        gameObject.SetActive(true);
-        Vector3 spawnPos = new Vector3(-5.96f, 5.5f, -19.71f);
-        Quaternion spawnRot = Quaternion.identity;
-        MoveToSpawnPosition(spawnPos, spawnRot);
-        blockedByDoorCount = 1;
     }
 
     public bool IsPlayerLookingAtMe()
     {
         Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position + Vector3.up * 1.6f);
         bool isInView = viewPos.z > 0 && viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1;
+
         if (isInView)
         {
             Vector3 cameraPos = Camera.main.transform.position + Camera.main.transform.forward * 0.1f;
             Vector3 direction = (transform.position + Vector3.up * 1.7f) - cameraPos;
             float distance = direction.magnitude;
+
             Debug.DrawRay(cameraPos, direction, Color.red, distance);
             if (Physics.Raycast(cameraPos, direction, out RaycastHit hit, distance))
             {
@@ -116,5 +111,34 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
         {
             Debug.LogWarning("NavMesh에서 유효한 위치를 찾지 못함");
         }
+    }
+
+    public void ResetEnemy(SpawnNursePhase phase)
+    {
+        nurseZombieVirtualCamera.Priority = 8;
+        fsm.ChangeState(nurseZombieIdleState);
+
+        haveSeenPlayer = false;
+        nurseZombieAnim.SetBool("Attack", false);
+
+        switch (phase)
+        {
+            case SpawnNursePhase.FirstFloor:
+                MoveToSpawnPosition(new Vector3(-12f, 1.1f, 16.5f), Quaternion.Euler(0, 90f, 0));
+                blockedByDoorCount = 0;
+                break;
+
+            case SpawnNursePhase.SecondFloor:
+                MoveToSpawnPosition(new Vector3(-5.96f, 5.5f, -19.71f), Quaternion.identity);
+                blockedByDoorCount = 1;
+                break;
+        }
+
+        gameObject.SetActive(true);
+    }
+
+    public override void ResetEnemy()
+    {
+        ResetEnemy(SpawnNursePhase.FirstFloor);
     }
 }

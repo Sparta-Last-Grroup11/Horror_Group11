@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 public abstract class PopupUI : BaseUI
@@ -33,7 +32,7 @@ public abstract class PopupUI : BaseUI
     {
     }
 
-    private IEnumerator FadeIn()
+    public IEnumerator FadeIn()
     {
         canvasGroup.alpha = 0f;
         canvasGroup.interactable = false;
@@ -51,7 +50,7 @@ public abstract class PopupUI : BaseUI
         canvasGroup.blocksRaycasts = true;
     }
 
-    private IEnumerator FadeOut()
+    public IEnumerator FadeOut()
     {
         elapsed = duration;
         canvasGroup.alpha = 1f;

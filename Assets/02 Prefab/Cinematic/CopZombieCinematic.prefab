@@ -1664,7 +1664,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5875907617813502684}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20759161, y: -0.000000016831551, z: 0.0000000035719008, w: 0.9782156}
+  m_LocalRotation: {x: 0.20759161, y: -0.000000016831548, z: 0.0000000035719, w: 0.9782156}
   m_LocalPosition: {x: -0.5, y: 0.4, z: 1.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1821,7 +1821,7 @@ Transform:
   m_GameObject: {fileID: 6211683212216334700}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.464, y: 0, z: -2.923}
+  m_LocalPosition: {x: 0.45, y: 0, z: -2.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2180,6 +2180,8 @@ MonoBehaviour:
   copzombieCinematic: {fileID: 6211683212216334700}
   copZombiePrefab: {fileID: 3996329988971392259, guid: 50c99bf2cc9aa50428af2b2b698a8c80,
     type: 3}
+  meetCopZombieClip: {fileID: 8300000, guid: 7b28f09aa052b4c4ea6538c90b77c40e, type: 3}
+  boxCollider: {fileID: 1299528183281778071}
 --- !u!1 &7060033712680935941
 GameObject:
   m_ObjectHideFlags: 0

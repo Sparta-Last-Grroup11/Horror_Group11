@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.Rendering;
+using static GameManager;
 
 public class EnterEvent : Receiver //정문 입장 시 이벤트용 리시버
 {

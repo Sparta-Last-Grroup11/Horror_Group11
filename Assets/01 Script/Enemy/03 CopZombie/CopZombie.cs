@@ -56,7 +56,6 @@ public class CopZombie : Enemy
         copZombieChaseState = new CopZombieChaseState(this, fsm);
         copZombieAttackState = new CopZombieAttackState(this, fsm);
 
-        fsm.SetDefaultState(copZombiePatrolState);
         fsm.ChangeState(copZombiePatrolState);
     }
 
@@ -84,11 +83,6 @@ public class CopZombie : Enemy
         }
     }
 
-    public override void ResetEnemy()
-    {
-        base.ResetEnemy();
-        copZombieVirtualCamera.Priority = 8;
-    }
     public void PlayerDown()
     {
         playableDirector.Play();

@@ -20472,8 +20472,7 @@ PrefabInstance:
         type: 3}
       propertyPath: key
       value: 
-      objectReference: {fileID: 11400000, guid: f43aea1507e23b04795289da300a3d74,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 4348738173387594943, guid: 8d85131e819434c46b2581aee1bea8e7,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -20855,7 +20854,23 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3830245915431745981}
+    - targetCorrespondingSourceObject: {fileID: 4348738173387594943, guid: 8d85131e819434c46b2581aee1bea8e7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4285766987134985423}
   m_SourcePrefab: {fileID: 100100000, guid: 8d85131e819434c46b2581aee1bea8e7, type: 3}
+--- !u!114 &222595945598541983 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1848999402890761850, guid: 8d85131e819434c46b2581aee1bea8e7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1927020555926599397}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2803478328253852250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 883fd3b1b0c986b43852eb5400f3ab9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2803478328253852250 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4348738173387594943, guid: 8d85131e819434c46b2581aee1bea8e7,
@@ -20907,6 +20922,36 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4285766987134985423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2803478328253852250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 3b016dff6a576b448a68253b0d18eb53, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 222595945598541983}
+          m_TargetAssemblyTypeName: DoubleDoor, Assembly-CSharp
+          m_MethodName: OnInteraction
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &6626975992622256425 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4704459998685292492, guid: 8d85131e819434c46b2581aee1bea8e7,

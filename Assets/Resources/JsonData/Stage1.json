@@ -182,6 +182,21 @@
     },
     {
       "type": "Item",
+      "prefabname": "BatteryAA",
+      "position": [
+        -4.94,
+        5.89,
+        19.56
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "description": ""
+    },
+    {
+      "type": "Item",
       "prefabname": "TortureRoomKey",
       "position": [
         -0.185,

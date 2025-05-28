@@ -21,7 +21,10 @@ public class TriggerForEvent : MonoBehaviour //이벤트용 트리거
         {
             receiver.ReceiveTrigger();
         }
-        endingCutScene.gameObject.SetActive(true);
+        if (endingCutScene != null)
+        {
+            endingCutScene.gameObject.SetActive(true);
+        }
         gameObject.SetActive(false);
     }
 }

@@ -1,5 +1,4 @@
 using System.Collections;
-using Cinemachine;
 using UnityEngine;
 
 public class JumpScareZombie : Enemy, IJumpScareEvent
@@ -40,6 +39,7 @@ public class JumpScareZombie : Enemy, IJumpScareEvent
         FirstVisible(ref hasBeenSeenByPlayer, firstMonologueNum);
 
         StartCoroutine(RushToPlayer());
+ 
     }
 
     private IEnumerator RushToPlayer()
@@ -84,7 +84,7 @@ public class JumpScareZombie : Enemy, IJumpScareEvent
     {
         UIManager.Instance.GlitchEnd();
         GameManager.Instance.player.isChased = false;
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
 }

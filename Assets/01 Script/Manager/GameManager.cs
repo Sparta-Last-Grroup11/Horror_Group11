@@ -1,8 +1,4 @@
 using Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.AI.Navigation;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
@@ -13,12 +9,15 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] Vector3 checkPoint;
     [SerializeField] private bool isSaved;
     [SerializeField] private int life;
+    public int Life => life;
     public CopZombieCinematicTrigger copCinematicTrigger;
     public Enemy nurse;
     public Enemy cop;
     protected override bool dontDestroy => false;
 
     public Vector3 SpawnPoint => spawnPoint;
+
+    private NurseZombie.SpawnNursePhase currentPhase;
 
     protected override void Awake()
     {
@@ -59,9 +58,9 @@ public class GameManager : Singleton<GameManager>
             Destroy(cop.gameObject);
             copCinematicTrigger.boxCollider.enabled = true;
         }
-        if (nurse != null)
+        if (nurse != null && nurse is NurseZombie nurseZombie)
         {
-            nurse.ResetEnemy();
+            nurseZombie.ResetEnemy(currentPhase);
         }
         life -= 1;
     }
@@ -75,6 +74,11 @@ public class GameManager : Singleton<GameManager>
         player = Instantiate(playerPrefab, spawnPoint, Quaternion.identity).GetComponent<Player>();
         player.virtualCamera = VirtualCam.GetComponent<CinemachineVirtualCamera>();
         VirtualCam.GetComponent<CinemachineVirtualCamera>().Follow = player.cameraContainer;
+    }
+
+    public void SetNursePhase(NurseZombie.SpawnNursePhase phase)
+    {
+        currentPhase = phase;
     }
 
     private void OnDrawGizmos()
