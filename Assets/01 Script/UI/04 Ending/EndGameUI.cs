@@ -103,6 +103,9 @@ public class EndGameUI : BaseUI
         Debug.Log("FadeIn 진입1");
         yield return new WaitForSeconds(0.5f);
         fadePanel.FadeInCanvas();
+        yield return new WaitForSeconds(1f);
+        UIManager.Instance.IsUiActing = false;
+        Destroy(gameObject);
     }
 
     private async void OnClickQuit()
