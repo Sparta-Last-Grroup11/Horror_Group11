@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class JumpScareZombie : Enemy, IJumpScareEvent
+public class JumpScareZombie : Enemy
 {
     [Header("Components")]
     public Animator jumpScareZombieAnim;

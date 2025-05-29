@@ -1,16 +1,18 @@
+using UnityEngine;
+
 public class JumpScareReceiver : Receiver
 {
-    private IJumpScareEvent scareEvent;
+    [SerializeField] private JumpScareZombie jumpScareZombie;
 
     protected override void Awake()
     {
         base.Awake();
-        scareEvent = GetComponent<IJumpScareEvent>();
+        jumpScareZombie = GetComponent<JumpScareZombie>();
     }
 
     public override void ReceiveTrigger()
     {
-        scareEvent?.TriggerEvent();
+        jumpScareZombie?.TriggerEvent();
     }
 
     public void SetEventTrigger(TriggerForEvent trigger)
