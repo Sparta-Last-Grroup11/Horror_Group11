@@ -5,7 +5,7 @@ public abstract class Enemy : MonoBehaviour
     protected EnemyStateMachine fsm;
     protected Transform playerTransform;
 
-    public Transform PlayerTransform => playerTransform;  // 외부 접근용 getter
+    public Transform PlayerTransform => playerTransform;
     [SerializeField] private LayerMask notEnemyLayer;
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] protected LayerMask doorLayer;
@@ -14,7 +14,7 @@ public abstract class Enemy : MonoBehaviour
 
     private float afterPlayerDisappear;
     private float detectPlayerRate = 5f;
-    public bool haveSeenPlayer = false; //플레이어를 한 번이라도 본 적이 있는지
+    public bool haveSeenPlayer = false;
 
     public float viewDistance = 10f;
     public float viewAngle = 90f;
@@ -42,15 +42,15 @@ public abstract class Enemy : MonoBehaviour
         fsm?.Update();
     }
 
-    public bool CanSeePlayer()
+    public bool CanSeePlayer()  // 플레이어가 시야각 내에 있고 RayCast에 막히지 않았는지 확인
     {
         if (playerTransform == null) return false;
         
-        Vector3 dirToPlayer = (playerTransform.position - transform.position).normalized;  //  몬스터에서 플레이어로 가는 방향 벡터
+        Vector3 dirToPlayer = (playerTransform.position - transform.position).normalized;
         float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
-        float angle = Vector3.Angle(transform.forward, dirToPlayer);  // 내가 보고 있는 방향과 플레이어 방향의 각도를 계산 
+        float angle = Vector3.Angle(transform.forward, dirToPlayer); 
 
-        if (angle < viewAngle / 2f)  // 왼쪽 오른쪽 시야각 안에 있는지 판별
+        if (angle < viewAngle / 2f)
         {
             Debug.DrawRay(transform.position, dirToPlayer * distanceToPlayer, Color.green);
             RaycastHit hit;
@@ -71,7 +71,7 @@ public abstract class Enemy : MonoBehaviour
         return false;
     }
 
-    public bool HasLostPlayer()
+    public bool HasLostPlayer() // 일정 시간 동안 플레이어를 보지 못했는지 확인
     {
         if (CanSeePlayer())
         {
@@ -85,14 +85,14 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    public void LookAtPlayer() 
+    public void LookAtPlayer() // y축을 제외한 방향으로 플레이어를 바라봄
     {
         Vector3 dir = PlayerTransform.position - transform.position;
-        dir.y = 0;  // y축 회전 제거
+        dir.y = 0;
         transform.rotation = Quaternion.LookRotation(dir);
     }
 
-    public void FirstVisible(ref bool hasBeenVisible, int monologueNum)
+    public void FirstVisible(ref bool hasBeenVisible, int monologueNum) // 플레이어에게 처음 보였을 때 1회성 모놀로그와 효과 재생
     {
         if (hasBeenVisible == false)
         {

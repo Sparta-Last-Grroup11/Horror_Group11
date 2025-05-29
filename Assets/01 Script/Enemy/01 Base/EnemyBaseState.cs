@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class EnemyBaseState
 {
     protected Enemy enemy;

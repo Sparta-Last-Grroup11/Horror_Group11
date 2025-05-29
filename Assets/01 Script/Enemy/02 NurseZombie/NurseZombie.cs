@@ -1,9 +1,8 @@
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.AI;
-using static GameManager;
 
-public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플레이어가 뒤돌면 쫓아옴)
+public class NurseZombie : Enemy   // 웃는 천사 기믹: 멈춰있다가 플레이어가 뒤돌면 쫓아오는 간호 좀비
 {
     [Header("Components")]
     public NavMeshAgent nurseZombieAgent;
@@ -75,7 +74,7 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
         fsm.ChangeState(nurseZombieIdleState);
     }
 
-    public bool IsPlayerLookingAtMe()
+    public bool IsPlayerLookingAtMe()  // 카메라가 나를 보고 있는지 판단 (월드 좌표 -> 뷰포트 변환)
     {
         Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position + Vector3.up * 1.6f);
         bool isInView = viewPos.z > 0 && viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1;
@@ -98,7 +97,7 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
         return false;
     }
 
-    public void MoveToSpawnPosition(Vector3 targetPosition, Quaternion targetRotation)
+    public void MoveToSpawnPosition(Vector3 targetPosition, Quaternion targetRotation)  // 좀비를 NavMesh 기준으로 특정 위치로 이동
     {
         NavMeshHit hit;
         if (NavMesh.SamplePosition(targetPosition, out hit, 2f, NavMesh.AllAreas))
@@ -106,13 +105,9 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
             nurseZombieAgent.Warp(hit.position);
             transform.rotation = targetRotation;
         }
-        else
-        {
-            Debug.LogWarning("NavMesh에서 유효한 위치를 찾지 못함");
-        }
     }
 
-    public void ResetEnemy(SpawnNursePhase phase)
+    public void ResetEnemy(SpawnNursePhase phase) // 체크포인트 시점에서 좀비 상태 초기화
     {
         nurseZombieVirtualCamera.Priority = 8;
         fsm.ChangeState(nurseZombieIdleState);
@@ -136,7 +131,7 @@ public class NurseZombie : Enemy   // 웃는 천사 기믹 (멈춰있다가, 플
         gameObject.SetActive(true);
     }
 
-    public override void ResetEnemy()
+    public override void ResetEnemy()  // 기본 리셋 (1층 기준)
     {
         ResetEnemy(SpawnNursePhase.FirstFloor);
     }

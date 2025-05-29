@@ -13,7 +13,7 @@ public enum EndingCategory
     NoLife
 }
 
-public class EndGameUI : BaseUI
+public class EndGameUI : BaseUI  // 게임 종료 시 보여줄 UI, 엔딩 유형에 따라 관리 
 {
     [SerializeField] ModalWindowManager modal;
     [SerializeField] TextMeshProUGUI title;
@@ -82,7 +82,7 @@ public class EndGameUI : BaseUI
             ShowQuitOnly();
     }
 
-    private async void OnClickReStart()
+    private async void OnClickReStart() // Restart 버튼 클릭시 CheckPoint로 넘어감
     {
         DisableButtons();
         modal.ModalWindowOut();
@@ -104,7 +104,7 @@ public class EndGameUI : BaseUI
         Destroy(gameObject);
     }
 
-    private async void OnClickQuit()
+    private async void OnClickQuit()  // 종료 버튼 클릭시 시작 씬으로 이동
     {
         DisableButtons();
         modal.ModalWindowOut();
@@ -113,7 +113,7 @@ public class EndGameUI : BaseUI
         await SceneLoadManager.Instance.ChangeScene("StartScene");
     }
 
-    private void ShowQuitOnly()
+    private void ShowQuitOnly()  // 종료 버튼만 보이도록 설정 (ESCAPE, RESCUED, NO LIFE 엔딩의 경우)
     {
         restartBtn.gameObject.SetActive(false);
         quitBtn.gameObject.SetActive(true);

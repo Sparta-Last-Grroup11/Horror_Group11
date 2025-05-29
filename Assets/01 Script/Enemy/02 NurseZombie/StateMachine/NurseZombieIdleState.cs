@@ -1,4 +1,4 @@
-public class NurseZombieIdleState : EnemyBaseState  // 기본 상태일 때
+public class NurseZombieIdleState : EnemyBaseState
 {
     private NurseZombie nurseZombie;
 

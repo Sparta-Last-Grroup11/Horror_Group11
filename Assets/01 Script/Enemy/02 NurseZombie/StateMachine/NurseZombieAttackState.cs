@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class NurseZombieAttackState : EnemyBaseState  // 플레이어를 공격하는 상태
+public class NurseZombieAttackState : EnemyBaseState
 {
     private NurseZombie nurseZombie;
 
@@ -25,6 +25,7 @@ public class NurseZombieAttackState : EnemyBaseState  // 플레이어를 공격�
     {
         yield return new WaitForSeconds(1f);
 
+        // 남은 목숨에 따라 다른 엔딩 연출
         if (GameManager.Instance.Life < 1)
         {
             UIManager.Instance.show<EndGameUI>().ShowEnding(EndingCategory.NoLife, 2000);

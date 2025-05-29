@@ -22,7 +22,7 @@ public class JumpScareWheelChairTrigger : MonoBehaviour
         Vector3 pushDir = transform.forward * forwardPower + Vector3.up * upwardPower;
         wheelchairRb.AddForce(pushDir, ForceMode.Impulse);
 
-        Vector3 torque = transform.right * 3f; // y축이 아닌, 옆으로 뒤집히는 토크
+        Vector3 torque = transform.right * 3f;
         wheelchairRb.AddTorque(torque, ForceMode.Impulse);
 
         AudioManager.Instance.Audio3DPlay(scareSound, transform.position, 1.5f);

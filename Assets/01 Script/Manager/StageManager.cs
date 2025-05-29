@@ -3,7 +3,6 @@ using UnityEngine;
 using static Extension;
 using Newtonsoft.Json;
 using Unity.AI.Navigation;
-using System.Linq;
 
 [System.Serializable]
 public class StageInfo
@@ -140,20 +139,19 @@ public class StageManager : Singleton<StageManager>
 
     private void ZombieJumpScareMake()
     {
-        Debug.Log("[StageManager] TriggerMake() 호출됨");
-
+        // 트리거 개수(triggerindex) 정보를 담은 Json 파일 로드
         string path = "StageTriggerInfo";
         triggerAsset = ResourceManager.Instance.Load<TextAsset>(ResourceType.JsonData, path);
 
         if (triggerAsset == null)
         {
-            Debug.Log("[StageManager]: TextAsset Loading Failed");
             return;
         }
 
         var triggerRoot = JsonConvert.DeserializeObject<TriggerRoot>(triggerAsset.text);
         var triggers = triggerRoot.StageTriggerInfo;
 
+        // 현재 스테이지에 해당하는 트리거 개수(triggerindex) 가져옴
         int? triggerCount = null;
         foreach (var trigger in triggers)
         {
@@ -174,6 +172,7 @@ public class StageManager : Singleton<StageManager>
 
         for (int i = 0; i < count; i++)
         {
+            // 점프스케어 좀비 프리팹 인스턴스화 및 위치 설정
             var zombiePrefab = ResourceManager.Instance.Load<GameObject>(ResourceType.Event, "JumpScareZombie");
             var spawnPos = spawnPoints[i].position;
             var spawnRot = spawnPoints[i].rotation;
@@ -181,12 +180,14 @@ public class StageManager : Singleton<StageManager>
             var zombieInstance = Instantiate(zombiePrefab, spawnPos, spawnRot);
             zombieInstance.SetActive(true);
 
+            // 트리거 오브젝트 비활성화 후 짝지음
             var triggerObj = triggerObjs[i];
             triggerObj.SetActive(false);
 
             allPairs.Add(new ZombieTriggerPair(zombieInstance, triggerObj));
         }
 
+        // 트리거 개수만큼 무작위로 점브스케어 좀비-트리거 쌍 선택
         int activeCount = Mathf.Min(triggerCount.Value, allPairs.Count);
         List<int> selectedIndices = RandomUniqueIndices(0, allPairs.Count - 1, activeCount);
 
@@ -197,6 +198,7 @@ public class StageManager : Singleton<StageManager>
             activePairs.Add(pair);
         }
 
+        // 선택된 쌍을 전달 (이후 활성화됨)
         StageTriggerController.Instance.ReceivePairs(activePairs);
     }
 
