@@ -1,4 +1,5 @@
 using Cinemachine;
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
@@ -56,7 +57,7 @@ public class GameManager : Singleton<GameManager>
         if (cop != null)
         {
             Destroy(cop.gameObject);
-            copCinematicTrigger.boxCollider.enabled = true;
+            StartCoroutine(SetTriggerCopCinematic());
         }
         if (nurse != null && nurse is NurseZombie nurseZombie)
         {
@@ -79,6 +80,12 @@ public class GameManager : Singleton<GameManager>
     public void SetNursePhase(NurseZombie.SpawnNursePhase phase)
     {
         currentPhase = phase;
+    }
+
+    private IEnumerator SetTriggerCopCinematic()
+    {
+        yield return new WaitForSeconds(1f);
+        copCinematicTrigger.boxCollider.enabled = true;
     }
 
     private void OnDrawGizmos()
