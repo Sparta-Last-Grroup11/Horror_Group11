@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class StartSceneLight : MonoBehaviour
 {
+    //인스펙터에서 대부분을 다 설정할 수 있도록 함.
     [SerializeField] Light light;
     [SerializeField] float targetIntensity;
     private float curIntensity;

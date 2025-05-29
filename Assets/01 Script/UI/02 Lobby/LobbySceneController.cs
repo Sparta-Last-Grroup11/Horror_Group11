@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//로비 씬에서 필요한 UI 호출과 동작들.(SceneController)
 public class LobbySceneController : MonoBehaviour
 {
     private void Start()

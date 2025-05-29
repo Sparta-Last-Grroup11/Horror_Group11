@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+//대화 표출용 UI
 public class DialogUI : PopupUI
 {
     [SerializeField] TextMeshProUGUI text;

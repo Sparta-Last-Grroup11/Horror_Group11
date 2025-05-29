@@ -2,6 +2,7 @@ using Cinemachine;
 using System.Collections;
 using UnityEngine;
 
+//게임 매니저 역할인데 게임 시작 여부, 시작 시에 캐릭터의 스폰, 게임 진행 상황 저장 그리고 Json으로 스폰시키지 않는 친구의 스폰을 담당.
 public class GameManager : Singleton<GameManager>
 {
     [Header("No Need to Allocate")]

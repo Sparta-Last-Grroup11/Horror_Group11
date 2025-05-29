@@ -13,11 +13,15 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 public abstract class BaseUI : MonoBehaviour
 {
+    //커서 고정 해제 여부
     [SerializeField] private bool isCursorFree;
+    //폰트 변경 테스트용(실패)
     [SerializeField] private LocalizedAsset<TMP_FontAsset> localizedFont;
     [SerializeField] private bool isLocalizedFontByScript = false;
     public Action destroyAction;
+    //이전 커서 고정 상태 저장용
     protected CursorLockMode mode;
+    //폰트 변경용 22
     [SerializeField] private TextMeshProUGUI[] texts;
 
     protected virtual void Start()
@@ -98,6 +102,7 @@ public abstract class BaseUI : MonoBehaviour
         }
     }
 
+    //커서 해제 여부에 따라 커서 상태 고정
     private IEnumerator InitCursorState()
     {
         yield return null; // 한 프레임 대기해서 다른 시스템 초기화 완료 후 실행
@@ -112,6 +117,7 @@ public abstract class BaseUI : MonoBehaviour
         }
     }
 
+    //커서 해제 여부가 켜져있으면 다시 이전 상태로 돌려놓고 매니저에 파괴됬음을 알림.
     protected virtual void OnDestroy()
     {
         if (isCursorFree)

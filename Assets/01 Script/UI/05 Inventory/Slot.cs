@@ -4,6 +4,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+//인벤토리용
+
 public class Slot : MonoBehaviour
 {
     [SerializeField] Image itemImage;

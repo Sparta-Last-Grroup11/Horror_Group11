@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+//3D UI용이다. 플레이어가 움직이거나 회전시킬 수 있는 여부를 받아서 해당 동작을 실행.
 public class UI3D : BaseUI
 {
     [Header("View Distance")]

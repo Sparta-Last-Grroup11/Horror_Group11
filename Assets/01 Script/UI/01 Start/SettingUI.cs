@@ -39,6 +39,7 @@ public class SettingUI : BaseUI
         UIManager.Instance.IsUiActing = false;
     }
 
+    //언어 설정란 관련 셋업 메서드.
     private void SetupDropDown()
     {
         if (languageDropdown == null)
@@ -76,6 +77,7 @@ public class SettingUI : BaseUI
         languageDropdown.onValueChanged.AddListener(OnDropdownValueChanged);
     }
 
+    //언어 설정란 변화 감지용
     private void OnDropdownValueChanged(int index)
     {
         var selectedLocale = LocalizationSettings.AvailableLocales.Locales[index];

@@ -10,6 +10,7 @@ using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
 using static Extension;
 
+//요청을 받아 해당하는 UI를 표기하고 활성화되어 있는 UI에 접근하고 쉽게 메서드를 호출하도록 구현된 매니저 스크립트.
 public class UIManager : Singleton<UIManager>
 {
     [Header("No Need to Allocate")]
@@ -113,6 +114,7 @@ public class UIManager : Singleton<UIManager>
         GlitchEnd();
     }
 
+    //저장된 언어 설정 가져오기(SettingManager같은 걸로 빼둘껄.)
     private void LanguageSetting()
     {
         // 저장된 언어 코드 가져오기
@@ -139,6 +141,8 @@ public class UIManager : Singleton<UIManager>
     }
 
     #region 3D관련
+    //특정 카메라가 UIItem 레이어만 인식함.
+    //이 카메라를 Output Texture를 이용해서 이미지로 따로 출력 후에 3D로 아이템을 보는 듯한 시각적 효과를 줌.
     public GameObject MakePrefabInSubCam(GameObject obj)
     {
         if (cur3DObject != null)

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+//게임 플로우메이커 커스텀 에디터(각 오브젝트에 핸들 붙이기) => 좌표값으로 매번 위치 수정하기 번거로워 핸들을 붙이기 위함.
 [CustomEditor(typeof(GameFlowMaker))]
 public class GameFlowMakerEditor : Editor
 {

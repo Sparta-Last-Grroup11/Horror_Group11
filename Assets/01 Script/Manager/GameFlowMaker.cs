@@ -21,6 +21,7 @@ public class Flow
     public int fontSize;
     public List<Vector3AndRotation> value;
 }
+//기획자 의도를 매번 이미지를 보고 맵에 비교할 순 없으니 씬에서 바로 확인할 수 있도록 스폰 위치, 동선 등을 시각화 할 수 있게 짜놓은 스크립트(게임 씬 시작시에는 파괴됨)
 public class GameFlowMaker : MonoBehaviour
 {
     [SerializeField] private float boxSize = 0.5f;

@@ -4,6 +4,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Slot 클래스를 이용해서 아이템을 구성.
+//해당 아이템을 클릭할 시에 인벤토리 우측에 3D UI로 아이템의 모델을 표기하는 방식.
 public class PopupInventoryUI : BaseUI
 {
     [SerializeField] private RawImage image;

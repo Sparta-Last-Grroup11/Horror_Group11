@@ -4,6 +4,8 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
+//오디오 최적화용.
+//단순하게 타입에 맞춰 폴더를 넣고 버튼을 누르면 타입에 맞게 폴더 안의 오디오 클립들의 설정을 최적화함.
 #if UNITY_EDITOR
 public class AudioOptimize : EditorWindow
 {

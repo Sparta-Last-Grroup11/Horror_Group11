@@ -4,6 +4,8 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
+//텍스처 최적화하기
+//오디오랑 비슷하게 폴더 넣고 원하는 해상도를 설정하면 해상도에 맞게 폴더 안의 텍스처들을 바꿈.
 #if UNITY_EDITOR
 public class TextureOptimizer : EditorWindow
 {

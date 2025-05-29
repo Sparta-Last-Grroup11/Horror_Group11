@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//로딩창의 표기. 그리고 비동기 씬 로딩을 위한 씬 로드 매니저.
 public class SceneLoadManager : Singleton<SceneLoadManager>
 {
     public string NowSceneName = "";

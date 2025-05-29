@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using static UnityEngine.ParticleSystem;
 
+//심장 박동을 구현하려했는데 파티클 시스템의 velocity로 제어하면 매번 박동이 이뤄질 때 마다 프레임의 변화 혹은 프레임 간의 타임렉 때문인지
+//물리 연산의 특징때문인지는 몰라도 움직임이 불규칙하고 마지막 높낮이가 변화함.
+//그래서 파티클 시스템의 Trail과 내장되어있는 최적화 시스템만 이용하고 파티클의 재생과 움직임은 직접 스크립트로 제어한다
+//애니메이션 커브를 이용해 끝 높낮이만은 확실하게 맞추도록 제어.
 public class HeartBeat : BaseUI
 {
     [SerializeField] private AnimationCurve curve;

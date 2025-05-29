@@ -41,6 +41,9 @@ public class ZombieTriggerPair
     }
 }
 
+//스테이지 생성 시에 스폰되어야 하는 아이템들, 적, 퍼즐 등등을 스폰시킴.
+//구글 스프레드 시트를 Json 파일로 변환해 해당 Json파일을 읽어옴
+//상단의 StageInfo클래스가 Json파일에 표기되어있는 변수들을 저장시킬 클래스다.
 public class StageManager : Singleton<StageManager>
 {
     [Header("Spawn About")]

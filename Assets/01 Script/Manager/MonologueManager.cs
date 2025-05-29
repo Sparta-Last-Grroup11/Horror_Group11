@@ -43,6 +43,9 @@ public struct MonologueWithAudio
     }
 }
 
+
+//대화 매니저. 큐의 선입선출을 이용해서 대기열을 만들어 차근차근 대화를 진행시킴.
+//강제로 현재 대화를 종료하고 다음 순서를 진행시키는 메서드도 구현 가능.
 public class MonologueManager : Singleton<MonologueManager>
 {
     Queue<MonologueWithAudio> monologueQueue;
@@ -74,6 +77,7 @@ public class MonologueManager : Singleton<MonologueManager>
         monologueQueue.Enqueue(new MonologueWithAudio(input));
     }
 
+    //해당 번호에 해당하는 텍스트를 Json에서 읽어온 Id와 대조해서 넣고. 리소스 폴더에 id에 해당하는 파일이 있는 지 확인 후 대사 음성을 같이 정보에 넣음(없으면 대사 음성 출력 안함)
     public void DialogPlay(int number)
     {
         if (dialogList.Count >= number)

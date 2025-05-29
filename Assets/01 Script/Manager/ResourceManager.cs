@@ -17,6 +17,7 @@ public enum ResourceType
     Lang
 }
 
+//리소스 폴더에서 리소스를 불러오고 처음 불러올 시에 경로명을 Key로 해당 오브젝트를 저장. 이미 저장되어 있는 오브젝트를 매니저를 통해 요청할 시에 Resource.Load가 필요없이 바로 딕셔너리에서 반환.
 public class ResourceManager : Singleton<ResourceManager>
 {
     public Dictionary<string, object> assetPool = new Dictionary<string, object>();
