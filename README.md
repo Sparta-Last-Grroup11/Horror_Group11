@@ -95,9 +95,9 @@
 - NavMesh를 통해 현실감 있는 몬스터 이동 구현
 <br>
 1) 웃는 천사형:<br>
-- **행동 조건**: 플레이어가 바라볼 땐 정지, 시야 밖에서는 추적  
-- **상태 전이**: Idle → Chase → Attack  
-- **기타**: 전등이 켜져 있으면 비활성화됨  
+- **행동 조건**: 플레이어가 바라볼 땐 정지, 시야 밖에서는 추적<br>  
+- **상태 전이**: Idle → Chase → Attack<br>  
+- **기타**: 전등이 켜져 있으면 비활성화됨<br>  
 <img src="https://github.com/user-attachments/assets/015d04bf-23cb-4d44-ae67-536b0fc1dac7" align="left" width="300"/>
 
 <br clear="both"/><br>
