@@ -38,8 +38,7 @@
 </details><br>
 
 ## 게임 영상
-https://youtu.be/693xpoQWMh8
-<br><br>
+[![게임 플레이 영상](https://img.youtube.com/vi/CBpSLINRp00/0.jpg)](https://youtu.be/CBpSLINRp00)
 
 ## 조작
 | 키 입력 | 동작    |
