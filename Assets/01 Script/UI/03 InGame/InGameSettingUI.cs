@@ -13,8 +13,6 @@ public class InGameSettingUI : BaseUI
     protected override void Start()
     {
         base.Start();
-        mode = Cursor.lockState;
-        Cursor.lockState = CursorLockMode.None;
         UIManager.Instance.IsUiActing = true;
         helpButton.onClick.AddListener(() => ShowUIInGameSetting<HelpUI>());
         SettingButton.onClick.AddListener(()=> ShowUIInGameSetting<SettingUI>());
@@ -36,10 +34,5 @@ public class InGameSettingUI : BaseUI
         Cursor.lockState = CursorLockMode.Locked;
         UIManager.Instance.show<T>();
         Destroy(gameObject);
-    }
-
-    protected override void OnDestroy()
-    {
-        
     }
 }
