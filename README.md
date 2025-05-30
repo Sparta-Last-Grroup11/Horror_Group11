@@ -94,26 +94,26 @@
 - 옵저버 패턴을 활용하여 트리거 이벤트 → 사운드/연출/UI에 실시간 반응
 - NavMesh를 통해 현실감 있는 몬스터 이동 구현
 <br>
-1) 웃는 천사형:
-- **행동 조건**: 플레이어가 바라볼 땐 정지, 시야 밖에서는 추적<br>  
-- **상태 전이**: Idle → Chase → Attack<br>  
-- **기타**: 전등이 켜져 있으면 비활성화됨<br>  
+1) 웃는 천사형:<br>
+- 행동 조건: 플레이어가 바라볼 땐 정지, 시야 밖에서는 추적<br>  
+- 상태 전이: Idle → Chase → Attack<br>  
+- 기타: 전등이 켜져 있으면 비활성화됨<br>  
 <img src="https://github.com/user-attachments/assets/015d04bf-23cb-4d44-ae67-536b0fc1dac7" align="left" width="300"/>
 
 <br clear="both"/><br>
 
 2) 점프스케어형:
-- **행동 조건**: 특정 조건에서만 등장, 피해 없음  
-- **상태 전이**: Ambush 상태에서 Trigger 이벤트 발생 시 연출  
-- **기타**: 옵저버 패턴 기반 이벤트 반응  
+- 행동 조건: 특정 조건에서만 등장, 피해 없음  
+- 상태 전이: Ambush 상태에서 Trigger 이벤트 발생 시 연출  
+- 기타: 옵저버 패턴 기반 이벤트 반응  
 <img src="https://github.com/user-attachments/assets/42755460-2460-4910-b2e0-d85fc73aae77" align="left" width="300"/>
 
 <br clear="both"/><br>
 
 3) 순찰형:
-- **행동 조건**: 일정 시간마다 랜덤 위치를 순찰, 시야 내 플레이어 탐지 시 추적  
-- **상태 전이**: Patrol → Chase → Idle  
-- **기타**: 탐지 종료 후 5초가 지나면 어그로 해제  
+- 행동 조건: 일정 시간마다 랜덤 위치를 순찰, 시야 내 플레이어 탐지 시 추적  
+- 상태 전이: Patrol → Chase → Idle  
+- 기타: 탐지 종료 후 5초가 지나면 어그로 해제  
 <img src = "https://github.com/user-attachments/assets/3a7e9dd3-5d6c-470e-b3b7-ee0b4d05499a" align="left" width="300"/>
 
 <br clear="both"/><br>
