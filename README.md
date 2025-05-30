@@ -62,23 +62,32 @@
 ### 🕹️ 오브젝트 상호작용 시스템
 1) 문 개폐: 조건 (특정 아이템 소유 등) 만족 및 상호작용 시 작동<br>
 2) 전등 On/Off<br>
- - 발전기와 상호작용 후 2층의 전기 박스와 상호작용 시 전등 On
- - 일정 시간마다 소등 및 특정 몬스터의 행동 시작
+ - 발전기와 상호작용 및 스위치 퍼즐 완료 후 2층의 전기 박스와 상호작용 시 전등 On<br>
+ - 일정 시간마다 소등 및 특정 몬스터의 행동 시작<br>
 3) 아이템 획득<br>
 <br>
 
 ### 🧩 퍼즐 요소 구현
 1) 금고 여는 퍼즐<br>
- - A,D를 통해 조작
- - 시계 방향으로 시작, 장치가 돌아가는 소리가 들린다면 반대 방향으로 조작
+ - A,D를 통해 조작<br>
+ - 시계 방향으로 시작, 장치가 돌아가는 소리가 들린다면 반대 방향으로 조작<br>
  - 총 4회 암호를 맞추면 금고가 열림
-<img src="https://github.com/user-attachments/assets/502fd93c-b0fe-4752-9b59-a581ad3ab3ef" align="left" width="300"/>
- <br clear="both"/><br> 
+ - 암호를 맞출 때마다 금고 하단의 구가 점등
+<img src="https://github.com/user-attachments/assets/69b29dc6-f14a-44f9-bab1-a6b1f3662afb" align="left" width="300"/>
+ <br clear="both"/><br>
+
 
 2) 의식 공간 퍼즐<br>
 - 맵에 숨겨진 특정 아이템들을 모아 촛불을 밝히고 상호작용 시 완료
  <img src="https://github.com/user-attachments/assets/7dc0c024-0155-45a3-94ca-79a975abb154" align="left" width="300"/>
  <br clear="both"/><br> 
+
+3) 스위치 퍼즐<br>
+- 발전기 옆 모든 레버를 On이 되도록 조작 시 완료
+- 해당 퍼즐 해결 후 전등 점등 가능
+<img src="https://github.com/user-attachments/assets/f4b9642d-e3db-441b-a632-ba093b3f4437" align="left" width="300"/>
+ <br clear="both"/><br>
+
 
 ### 👹 몬스터 AI 및 이벤트 시스템
 - FSM(Finite State Machine) 구조로 몬스터를 Idle → Chase → Attack 상태로 전환 설계
@@ -172,3 +181,5 @@
 |Canterbury||FFC License|
 |BLKCHCRY||OFL|
 |Zombie Animations Set|https://assetstore.unity.com/packages/3d/animations/zombie-animations-set-220537||
+|Electrical shield|https://assetstore.unity.com/packages/3d/props/electrical-shield-118266|Standard|
+|Sparks Effect VFX Particle System|https://assetstore.unity.com/packages/vfx/particles/sparks-effect-vfx-particle-system-197943|
