@@ -185,3 +185,8 @@
 |Zombie Animations Set|https://assetstore.unity.com/packages/3d/animations/zombie-animations-set-220537||
 |Electrical shield|https://assetstore.unity.com/packages/3d/props/electrical-shield-118266|Standard|
 |Sparks Effect VFX Particle System|https://assetstore.unity.com/packages/vfx/particles/sparks-effect-vfx-particle-system-197943|
+|Nanum Font |https://hangeul.naver.com/font |
+|Spark particles|https://assetstore.unity.com/packages/vfx/particles/spark-particles-106298|
+|Survival Props Pack 1.0|https://assetstore.unity.com/packages/3d/props/survival-props-pack-1-0-312823|
+
+
