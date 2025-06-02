@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b89b7f446a5c4e42b719ca1bc042489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isCursorFree: 0
+  isCursorFree: 1
   localizedFont:
     m_TableReference:
       m_TableCollectionName: 
@@ -301,6 +301,7 @@ MonoBehaviour:
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
+  isLocalizedFontByScript: 0
   texts: []
   helpButton: {fileID: 4431317201855904375}
   SettingButton: {fileID: 5066660738262960840}
@@ -875,7 +876,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Help
+  m_text: "\uB3C4\uC6C0\uB9D0"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2ca3dc22304bae541b92de498465d3a1, type: 2}
   m_sharedMaterial: {fileID: 8547021560773644820, guid: 2ca3dc22304bae541b92de498465d3a1,
